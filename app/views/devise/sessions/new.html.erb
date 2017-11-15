@@ -1,0 +1,40 @@
+<% provide(:title,  t("users.new.login")) %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+  <div class="login-title text-center">
+    <h1><strong><%= t "users.new.login" %></strong></h1>
+  </div>
+    <%= form_for(resource, as: resource_name, class: "form-horizontal",url: session_path(resource_name)) do |f| %>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-envelope-o"></i></i></span>
+        <%= f.email_field :email, autofocus: true, class: "form-control input-lg", placeholder: "Email" %>
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-certificate" aria-hidden="true"></i></i></span>
+        <%= f.password_field :password,class: "form-control input-lg", placeholder: "Password" %>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <%= f.label :remember_me, class: "checkbox inline" do %>
+        <div class="col-xs-4">
+          <label class="switch switch-primary" data-toggle="tooltip" title="Remember Me?">
+            <%= f.check_box :remember_me,id: "login-remember-me" %>
+            <span></span>
+          </label>
+        </div>
+        <% end %>
+      <% end -%>
+
+      <div class="col-xs-12 text-right">
+        <%= f.submit "Login", class: "btn btn-sm btn-success " %>
+      </div>
+    <% end %>
+    <div class="form-group">
+        <div class="col-xs-12 text-center">
+          <%= link_to('Forgot password?', new_user_password_path) %><small></small></a> -
+          <%= link_to('Create a new account', new_user_registration_path) %></a>
+        </div>
+    </div>
+  </div>
+</div>
+<br>

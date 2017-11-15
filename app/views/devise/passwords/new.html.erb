@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="login-title text-center">
+      <h1><strong><%= t "passwords.new.forgot" %> </strong></h1>
+    </div>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= devise_error_messages! %>
+       <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-envelope-o"></i></i></span>
+        <%= f.email_field :email, autofocus: true, class: "form-control input-lg", placeholder: t("passwords.new.email") %>
+      </div><br>
+      <div class="col-xs-12 text-right">
+        <%= f.submit t("passwords.new.send"), class: "btn btn-sm btn-success " %>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

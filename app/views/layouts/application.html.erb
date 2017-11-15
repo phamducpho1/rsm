@@ -12,9 +12,21 @@
   <body>
     <div id="page-container">
       <%= render "layouts/header" %>
+      <div class="row">
+        <div class="col-md-3">
+          <% flash.each do |message_type, message| %>
+          <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+              ×</button>
+            <hr class="message-inner-separator">
+              <p><%= message %></p>
+          </div>
+          <% end %>
+        </div>
+      </div>
       <section class="site-content site-section">
         <%= yield %>
-      </section>>
+      </section>
       <footer class="site-footer site-section">
         <%= render "layouts/footer" %>
       </footer>

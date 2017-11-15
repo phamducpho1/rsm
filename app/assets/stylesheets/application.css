@@ -13,6 +13,7 @@
  *= require plugins
  *= require themes
  *= require font-awesome
+ *= require bootstrap-datepicker
  *= require_tree .
  *= require_self
  */

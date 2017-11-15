@@ -18,4 +18,6 @@
 //= require plugins
 //= require bootstrap
 //= require app
+//= require login
+//= require bootstrap-datepicker
 //= require turbolinks

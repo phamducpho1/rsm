@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <%= link_to :back, class: "btn btn-sm btn-success" do %>
+      <i class="fa fa-long-arrow-left"></i>
+      <%= t("registrations.new.back") %>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-7 col-md-offset-3">
+    <div class="login-title text-center">
+      <h1><strong><%= t("registrations.new.edit_user") %></strong></h1>
+    </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
+       <div class="form-group">
+              <div class="col-xs-12">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user-o" aria-hidden="true"></i></i></span>
+                  <%= f.text_field :name, autofocus: true, class: "form-control input-lg", placeholder: t("passwords.new.name") %>
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-envelope-o"></i></i></span>
+                  <%= f.email_field :email, autofocus: true, class: "form-control input-lg", placeholder: t("passwords.new.email")  %>
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-mobile"></i></span>
+                  <%= f.text_field :phone, autofocus: true, class: "form-control input-lg", placeholder: t("passwords.new.phone") %>
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-address-book-o"></i></i></span>
+                  <%= f.text_field :address, autofocus: true, class: "form-control input-lg", placeholder:t("passwords.new.phone") %>
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-birthday-cake"></i></span>
+                  <%= f.text_field :birthday, class: "form-control input-lg" %>
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-certificate" aria-hidden="true"></i></i></span>
+                  <%= f.password_field :password,class: "form-control input-lg", placeholder: t("passwords.new.password") %>
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-certificate" aria-hidden="true"></i></i></span>
+                  <%= f.password_field :password_confirmation,class: "form-control input-lg", placeholder:t("passwords.new.password_confirm") %>
+                </div><br>
+                <div class="col-xs-12 text-right">
+                  <%= f.submit "Register Account", class: "btn btn-sm btn-success" %>
+                </div>
+              </div>
+          </div>
+
+      <div class="field">
+        <%= f.label :current_password %> <i><%= t "registrations.new.current" %></i><br />
+        <%= f.password_field :current_password, class: "form-control" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit t("registrations.new.update"), class: "btn btn-sm btn-success" %>
+      </div>
+    <% end %>
+
+    <h3><%= t "registrations.new.cancel" %></h3>
+
+    <p><%= t "registrations.new.uphappy" %><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: t("passwords.new.are_you") }, method: :delete, class: "btn btn-sm btn-success" %></p>
+  </div>
+</div>
