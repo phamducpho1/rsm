@@ -1875,5 +1875,4 @@ only screen and (-moz-min-device-pixel-ratio: 1.5),
 only screen and (-o-min-device-pixel-ratio: 3/2),
 only screen and (min-device-pixel-ratio: 1.5) {
     /* If you did use a CSS image background, you can put your high resolution image here */
-
 }

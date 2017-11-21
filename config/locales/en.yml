@@ -28,12 +28,96 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
-  rsm: "Rsm"
-index:
-  fram: "Framgia"
-  recruit: "Recruit"
-  home: "Home"
-  latest: "Latest news"
+  app: "App Framgia"
+  please: " Please"
+  login: " Login"
+  or: " or"
+  edit: "Edit User"
+  register: " Register"
+  male: "Male"
+  female: "Female"
+  mailer:
+    hi: "Hi "
+    thank: " Thanks for used my service"
+    status: "Your order is handling. It will be delivered for the next few day."
+    suggest: "Respond suggest"
+    thanksug: "  Thank you for your suggest."
+    contentsug: "Your suggest is handling. And it will finsish in the future"
+  raiting:
+    not_ratings: "You voted for the product"
+    success_raiting: "Vote successful"
+  users_controller:
+    errors: "User does not exit"
+  registrations:
+    new:
+      register: "Register"
+      re_account: "Register Account"
+      signup: "Sign up"
+      login: "Login"
+      forgot: "Forgot your password?"
+      session: "sessions"
+      registration: "registrations"
+      passwords: "passwords"
+      confirmations: "confirmations"
+      received: "Didn't receive confirmation instructions?"
+      unlocks: "unlocks"
+      have_unlock: "Didn't receive unlock instructions?"
+      signin_with : "Sign in with"
+      edit: "Edit"
+      waiting: "Currently waiting confirmation for:"
+      leave: "(leave blank if you don't want to change it)"
+      characters: "characters minimum"
+      current: "(we need your current password to confirm your changes)"
+      cancel: "Cancel my account"
+      uphappy: "Unhappy?"
+      back: "Back"
+      update: "Update"
+      edit_user: "Edit User"
+      account: "Do you have an account?"
+      reset: "Reset password"
+      login_to: "Login to Dashboard"
+  passwords:
+    edit:
+      change: "New password"
+      new: "Confirm new password"
+      submit: "Change my password"
+      change_medium: "characters minimum"
+    new:
+      forgot: "Forgot your password?"
+      create_new: "Create a new account"
+      send: "Send me reset password instructions"
+      email: "Email"
+      name: "Name"
+      disyou: "Did you remember your password?"
+      phone: "Phone"
+      address: "Address"
+      birthday: "Birthday"
+      password: "Password"
+      password_confirm: "Password_confirm"
+      are_you: "Are you sure?"
+  confirmations:
+    new:
+      resend: "Resend confirmation instructions"
+  mailer:
+    confirmation:
+      welcome: "Welcome"
+      confirm: "You can confirm your account email through the link below:"
+      account: "Confirm my account"
+    email:
+      hello: "Hello"
+      contacting: "We're contacting you to notify you that your email is being changed to"
+      notify: "We're contacting you to notify you that your email has been changed to"
+      notify_pass: "We're contacting you to notify you that your password has been changed."
+      content: "Someone has requested a link to change your password. You can do this through the link below."
+      request: "If you didn't request this, please ignore this email."
+      access: "Your password won't change until you access the link above and create a new one."
+      account_your: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+      click: "Click the link below to unlock your account:"
+      unlock: "Unlock my account"
+      resend_unlock: "Resend unlock instructions"
+  users:
+    new:
+      title: "Register"
+      login: "Login"
+      profile: "Profile"

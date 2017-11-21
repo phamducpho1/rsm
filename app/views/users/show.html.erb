@@ -1,0 +1,11 @@
+<div class="container-fluid well span6">
+  <div class="row-fluid">
+    <div class="span8">
+      <h3><%= t "user.show.name" %><%= @user.name %></h3>
+      <h6><%= t "user.show.email" %><%= @user.email %></h6>
+      <h6><%= t "user.show.phone" %><%= @user.phone %></h6>
+      <h6><%= t "user.show.address" %><%= @user.address %></h6>
+      <%= link_to "", edit_user_registration_path(@user), class: "fa fa-pencil-square-o btn btn-info" %>
+    </div>
+  </div>
+</div>

@@ -3,7 +3,6 @@ var App = function() {
     handleHeader();
     handleMenu();
     scrollToTop();
-
     var yearCopy = $('#year-copy'), d = new Date();
     if (d.getFullYear() === 2014) { yearCopy.html('2014'); } else { yearCopy.html('2014-' + d.getFullYear().toString().substr(2,2)); }
 
@@ -16,109 +15,93 @@ var App = function() {
     $('[data-toggle="lightbox-image"]').magnificPopup({type: 'image', image: {titleSrc: 'title'}});
 
     $('[data-toggle="lightbox-gallery"]').magnificPopup({
-        delegate: 'a.gallery-link',
-        type: 'image',
-        gallery: {
-            enabled: true,
-            navigateByImgClick: true,
-            arrowMarkup: '<button type="button" class="mfp-arrow mfp-arrow-%dir%" title="%title%"></button>',
-            tPrev: 'Previous',
-            tNext: 'Next',
-            tCounter: '<span class="mfp-counter">%curr% of %total%</span>'
-        },
-        image: {titleSrc: 'title'}
+      delegate: 'a.gallery-link',
+      type: 'image',
+      gallery: {
+        enabled: true,
+        navigateByImgClick: true,
+        arrowMarkup: '<button type="button" class="mfp-arrow mfp-arrow-%dir%" title="%title%"></button>',
+        tPrev: 'Previous',
+        tNext: 'Next',
+        tCounter: '<span class="mfp-counter">%curr% of %total%</span>'
+      },
+      image: {titleSrc: 'title'}
     });
 
     $('input, textarea').placeholder();
-
     $('[data-toggle="animation-appear"]').each(function(){
-        var $this       = $(this);
-        var $animClass  = $this.data('animation-class');
-        var $elemOff    = $this.data('element-offset');
+      var $this       = $(this);
+      var $animClass  = $this.data('animation-class');
+      var $elemOff    = $this.data('element-offset');
 
-        $this.appear(function() {
-            $this.removeClass('visibility-none').addClass($animClass);
-        },{accY: $elemOff});
+      $this.appear(function() {
+        $this.removeClass('visibility-none').addClass($animClass);
+      },{accY: $elemOff});
     });
-
     $('[data-toggle="countTo"]').each(function(){
-        var $this = $(this);
-
-        $this.appear(function() {
-            $this.countTo({
-                speed: 1500,
-                refreshInterval: 20,
-                onComplete: function() {
-                    if($this.data('after')) {
-                        $this.html($this.html() + $this.data('after'));
-                    }
-                }
-            });
+      var $this = $(this);
+      $this.appear(function() {
+        $this.countTo({
+          speed: 1500,
+          refreshInterval: 20,
+          onComplete: function() {
+            if($this.data('after')) {
+                $this.html($this.html() + $this.data('after'));
+            }
+          }
         });
+      });
     });
-
-
     $('.store-menu .submenu').on('click', function(){
-       $(this)
-           .parent('li')
-           .toggleClass('open');
+      $(this)
+        .parent('li')
+        .toggleClass('open');
     });
-};
-
-
-var handleHeader = function(){
+  };
+  var handleHeader = function(){
     var header = $('header');
-
     $(window).scroll(function() {
-
-        if ($(this).scrollTop() > header.outerHeight()) {
-            header.addClass('header-scroll');
-        } else {
-            header.removeClass('header-scroll');
-        }
+      if ($(this).scrollTop() > header.outerHeight()) {
+        header.addClass('header-scroll');
+      } else {
+        header.removeClass('header-scroll');
+      }
     });
-};
-
-var handleMenu = function(){
+  };
+  var handleMenu = function(){
     var sideNav = $('.site-nav');
-
     $('.site-menu-toggle').on('click', function(){
-        sideNav.toggleClass('site-nav-visible');
+      sideNav.toggleClass('site-nav-visible');
     });
 
     sideNav.on('mouseleave', function(){
-        $(this).removeClass('site-nav-visible');
+      $(this).removeClass('site-nav-visible');
     });
-};
+  };
 
-var scrollToTop = function() {
-    // Get link
+  var scrollToTop = function() {
     var link = $('#to-top');
     var windowW = window.innerWidth
-                    || document.documentElement.clientWidth
-                    || document.body.clientWidth;
+      || document.documentElement.clientWidth
+      || document.body.clientWidth;
 
     $(window).scroll(function() {
-
-        if (($(this).scrollTop() > 150) && (windowW > 991)) {
-            link.fadeIn(100);
-        } else {
-            link.fadeOut(100);
-        }
+      if (($(this).scrollTop() > 150) && (windowW > 991)) {
+        link.fadeIn(100);
+      } else {
+        link.fadeOut(100);
+      }
     });
 
-    // On click get to top
     link.click(function() {
-        $('html, body').animate({scrollTop: 0}, 500);
-        return false;
+      $('html, body').animate({scrollTop: 0}, 500);
+      return false;
     });
-};
-
-return {
+  };
+  return {
     init: function() {
-        uiInit();
+      uiInit();
     }
   };
 }();
-
 $(function(){ App.init(); });
