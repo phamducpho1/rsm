@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="body-build">
+    <div class="body-first">
+      <div class="first-a">
+        <div class="start-body">
+          <div class="a-left">
+            <a>
+              <%= email_image_tag "framgia.png", class: "img-lastss" %>
+            </a>
+            <div class="month">
+              <%= t "company_mailer.welcome_email.framgia" %>
+            </div>
+          </div>
+        </div>
+        <div class="clear-both"></div>
+      </div>
+      <div class="b-first"></div>
+      <div class="b-body">
+        <div class="menu-body">
+          <h2><%= t "company_mailer.welcome_email.received" %></h2>
+          <b class="title-first">
+            <%= t "company_mailer.welcome_email.user" %><%= @apply.information[:name] %>,
+          </b>
+          <p class="count">
+            <%= t "company_mailer.welcome_email.send_cv" %>
+            <%= @apply.company.name %>
+            <%= t "company_mailer.welcome_email.user_content" %>
+          </p>
+        </div>
+        <div class="bodyname">
+          <div class="botlast">
+            <div class="secondlast">
+              <div class="vooter">
+              </div>
+              <div class="bottom-high">
+                <p class="footer-ls"><%= t "company_mailer.welcome_email.addres" %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

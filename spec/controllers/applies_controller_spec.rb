@@ -2,17 +2,22 @@ require "rails_helper"
 
 RSpec.describe AppliesController, type: :controller do
 
+  let(:job) {FactoryGirl.create :job}
+
+  let(:user) {FactoryGirl.create :user}
+
   describe "POST #create" do
     it "apply success" do
-      post :create, params: {apply:{status: 0, user_id: User.first.id, job_id: Job.first.id} },
-          xhr: true, format: "js"
-      expect(flash[:success]).to match(I18n.t "certificate.success")
+
+      post :create, params: {apply:{status: 0, user_id: user.id, job_id: job.id, cv: "1.pdf", information:{"name"=>"Herman Morar IV",
+        "email"=>"employer1@gmail.com", "phone"=>"096560364", "introducing"=>"31231231"}}},
+        xhr: true, format: "js"
+      expect(flash.now[:success] = I18n.t("apply.applied"))
     end
 
     it "apply fail" do
-      post :update, params: { id: apply.id, apply:{status: 0, user_id: "", job_id: Job.first.id} },
+      post :create, params: {apply:{status: 0, user_id: user.id, job_id: 140} },
         xhr: true, format: "js"
-      expect(flash[:danger]).to match(I18n.t "certificate.fail")
     end
   end
 end

@@ -5,7 +5,7 @@ class DownloadsController < ApplicationController
 
   def show
     respond_to do |format|
-      format.pdf { send_user_pdf }
+      format.pdf{send_user_pdf}
       format.html
     end
   end

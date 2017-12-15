@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="body-build">
+    <div class="body-first">
+      <div class="first-a">
+        <div class="start-body">
+          <div class="a-left">
+            <a>
+              <%= image_carrierwave_tag @company, class: "img-lastss" %>
+            </a>
+            <div class="month">
+              <%= t "company_mailer.welcome_email.framgia" %>
+            </div>
+          </div>
+        </div>
+        <div class="clear-both"></div>
+      </div>
+      <div class="b-first"></div>
+      <div class="b-body">
+        <div class="menu-body">
+          <b class="title-first">
+            <%= t "company_mailer.welcome_email.company" %><%= @company.name %>,
+          </b>
+          <p class="count">
+            <%= t "company_mailer.welcome_email.person" %><b><%= @apply.job.name %></b><%= t "company_mailer.welcome_email.jobs" %>
+          </p>
+        </div>
+        <div class="bodyname">
+          <div class="bottom-name"><%= t "company_mailer.welcome_email.candidate" %></div>
+          <div class="botton-div">&nbsp;</div>
+          <div class="row">
+            <div class="column">
+              <div class="card">
+                <%= email_image_tag "avatar_2x.png", class: "img-name" %>
+                <div>
+                  <h2><%= @apply.information[:name] %></h2>
+                  <p class="title">
+                    <strong><%= t "company_mailer.welcome_email.email"%>:</strong>
+                    <%= @apply.information[:email] %>
+                  </p>
+                  <p class="title">
+                    <strong><%= t "company_mailer.welcome_email.phone"%>:</strong>
+                    <%= @apply.information[:phone] %>
+                  </p>
+                  <p><%= @apply.information[:introducing].html_safe %></p>
+                  <p>
+                    <%= link_to t("company_mailer.welcome_email.see_more"), root_url, class: "button" %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="botlast">
+            <div class="secondlast">
+              <div class="vooter">
+              </div>
+              <div class="bottom-high">
+                <p class="footer-ls"><%= t "company_mailer.welcome_email.addres" %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

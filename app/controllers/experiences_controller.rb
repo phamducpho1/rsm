@@ -2,7 +2,7 @@ class ExperiencesController < ApplicationController
   before_action :authenticate_user!
   before_action :current_ability
   load_and_authorize_resource param_method: :params_experience
-  before_action :load_experiences , only: :destroy
+  before_action :load_experiences, only: :destroy
 
 
   def create

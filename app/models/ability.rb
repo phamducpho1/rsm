@@ -15,6 +15,8 @@ class Ability
           permission_user user
       end
       user_permissions user
+    else
+      undefine_user
     end
   end
 
@@ -71,5 +73,9 @@ class Ability
     can :manage, Certificate, user_id: user.id
     can :manage, Experience, user_id: user.id
     can :manage, BookmarkLike, user_id: user.id
+  end
+
+  def undefine_user
+    can :create, Apply
   end
 end

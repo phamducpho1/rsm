@@ -2,7 +2,7 @@ class ClubsController < ApplicationController
   before_action :authenticate_user!
   before_action :current_ability
   load_and_authorize_resource param_method: :params_club
-  before_action :load_clubs , only: :destroy
+  before_action :load_clubs, only: :destroy
 
   def create
     respond_to do |format|

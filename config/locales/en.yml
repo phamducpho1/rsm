@@ -28,6 +28,23 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 en:
+  company_mailer:
+    welcome_email:
+      subject: "WELCOME TO FRAMGIA VIET NAM"
+      see_more: "See more "
+      dear: "Dear"
+      framgia: " FRAMGIA RECRUIT"
+      company: "Hello company "
+      user: "Hello "
+      person: "A person who has applied to your "
+      jobs: "jobs, we notify you for a timely review candidate candidates."
+      candidate: "CANDIDATE INFORMATION"
+      addres: "255-257 Hung vuong, Hai Chau, Da Nang"
+      email: "Email "
+      phone: "Phone "
+      send_cv: "Your profile has been sent to "
+      received: "Your application has been received "
+      user_content: "Recruiters will consider and contact you in the shortest time if your profile meets recruitment requirements."
   password: "Password "
   password_confirmation: "Password confirmation "
   current_password: "Current password "
@@ -652,3 +669,9 @@ en:
       male_pos: "PHP Group Leader"
       female: "Ms. Thu Hà"
       female_pos: "Front-end Group Leader"
+    expired: "Expired"
+    expires_on: "Expires on"
+    applied_on: "Applied on"
+    info_applied: "There is a person applying for the position you are hiring"
+    see_more: "See more..."
+    dear: "Dear"

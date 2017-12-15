@@ -63,7 +63,7 @@ class JobsController < ApplicationController
   def job_params
     params.require(:job).permit :content, :name, :level, :language,
       :skill, :position, :company_id, :description, :min_salary, :max_salary,
-        reward_benefits_attributes: %i(id content job_id _destroy)
+      reward_benefits_attributes: %i(id content job_id _destroy)
   end
 
   def load_job

@@ -4,9 +4,236 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
       /* Email styles need to be inline */
+      *, *:before, *:after {
+        box-sizing: inherit;
+      }
+      .column {
+        float: left;
+        margin-bottom: 16px;
+        padding: 0 8px;
+        background-color: #ffffff;
+      }
+
+      @media (max-width: 650px) {
+        .column {
+          width: 100%;
+          display: block;
+        }
+      }
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      }
+      .container::after, .row::after {
+        clear: both;
+        display: table;
+      }
+
+      .title {
+        color: grey;
+      }
+      .bot-border{
+        padding:0px 20px 15px 20px;background-color:#fff;margin:20px 0;
+      }
+      p .button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #bfbebd;
+        text-align: center;
+        cursor: pointer;
+        width: 97%;
+      }
+
+      .button:hover {
+        background-color: #555;
+      }
+      .container{
+        font-size:14px;
+        line-height:1.4;
+        font-weight:400;
+        margin:0px;
+        background:#ffffff;
+        color:#363636;
+        font-weight:500;
+        padding-top:20px;
+      }
+      .body-build{
+        max-width:580px;
+        width:100%;
+        padding:0px;
+        margin-right:auto;
+        margin-left:auto;
+        background:#eeeeee;
+        font-weight:500;
+      }
+      .body-first{
+        background-color:#ffffff;
+        border-radius:0px;
+        float:left;width:100%;
+        margin-bottom:20px;
+        border:1px solid #ddd;
+        margin:0;
+        padding-bottom:17px;
+      }
+      .first-a{
+        margin-top:15px;
+        padding-left:20px;
+        padding-right:20px;
+      }
+      .a-left{
+        float: left;
+      }
+      .month{
+        color:#47a743;
+        margin-top:12px;
+        float:right;
+        font-size:18px!important;
+        margin-left: 190px;
+      }
+      .botton-div{
+        border-bottom:2px solid #46a741;
+        width:100%;
+        display:block;
+      }
+      .img-a{
+        width: 160px;
+        vertical-align:middle;
+        border: 0;
+      }
+      .img-center{
+        vertical-align:middle;
+        border:0;
+        width:43px;
+      }
+      .clear-both{
+        clear: both;
+      }
+      .b-first{
+        background-color:#46a741;
+        width:100%;
+        height:5px;
+        margin-top: 5px;
+        display:block;
+      }
+      .b-body{
+        padding:20px;
+        background-color:#fff;
+        font-size:14px!important;
+      }
+      .start-body{
+        margin-top:15px;
+        padding-left:20px;
+        padding-right:20px
+      }
+      .menu-body{
+        background-color:#fff;
+        font-size:14px;
+        color:#464646;
+      }
+      .title-first{
+        margin-top:6px;
+        margin-bottom:17px;
+      }
+      .model-botg{
+        width:50px;
+        height:55px;
+        display:table-cell;
+        vertical-align:top;
+      }
+      .count{
+        margin-bottom:5px;
+      }
+      .a-left .normal{
+        color: #46a741;
+        margin-top:12px;
+        float:right;
+        font-size:18px!important;
+        font-weight: 700;
+        font-size: 20px;
+      }
+      .bodyname{
+        background-color:white;
+        margin-top:6px;
+        padding-top:5px;
+      }
+      .bottom-name{
+        font-size:16px;
+        font-weight:bold;
+        margin-top:10px;
+        color:#491f66;
+        margin-bottom:5px;
+      }
+      .border-top{
+        border-bottom:2px solid #46a741;
+        width:100%;
+        display:block;
+      }
+      .img-name{
+        width:40%; margin: 0px 130px;
+      }
+      .img-lasts{
+        vertical-align:middle;
+        border:0;
+        width:60px;
+      }
+      .img-lastss{
+        vertical-align:middle;
+        border:0;
+        width: 73px;
+      }
+      .bot-last{
+        background-color:#f2e7fa;
+        padding:14px 20px 5px;
+      }
+      .contact{
+        background-color:#f2e7fa;
+        padding:14px 20px 5px;
+      }
+      .b-contac{
+        margin-top:5px;
+      }
+      .hr{
+        color:rgb(8,114,212);
+        font-size:14px;
+      }
+      .hotline{
+        margin-top:5px;
+        margin-bottom:5px;
+      }
+      .toppading{
+        margin-top:15px;
+      }
+      .botlast{
+        padding:0px 20px 15px 20px;
+        background-color:#fff;
+        margin:20px 0;
+      }
+      .secondlast{
+        margin-top:15px;
+      }
+      .vooter{
+        width:50px;
+        height:55px;
+        display:table-cell;
+        vertical-align:top;
+      }
+      .bottom-high{
+        display:table-cell;
+        padding-left:150px;
+        vertical-align:top;
+      }
+      .footer-ls{
+        margin:0;
+        margin-bottom:5px;
+        color:#464646;
+      }
+      body{
+        background-color: #eee;
+      }
     </style>
   </head>
-
   <body>
     <%= yield %>
   </body>

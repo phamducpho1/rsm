@@ -4,7 +4,7 @@ class PdfService
   end
 
   def to_pdf
-    kit = PDFKit.new(as_html, page_size: Settings.page_size.size)
+    @kit = PDFKit.new(as_html, page_size: Settings.page_size.size)
   end
 
   def filename

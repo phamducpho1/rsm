@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :current_ability
-  before_action :load_user, only: [:show, :update]
+  before_action :load_user, only: %i(show update)
   load_and_authorize_resource param_method: :user_params
 
   def show

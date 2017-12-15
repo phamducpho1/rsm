@@ -2,7 +2,7 @@ class AchievementsController < ApplicationController
   before_action :authenticate_user!
   before_action :current_ability
   load_and_authorize_resource param_method: :params_achievement
-  before_action :load_achievements , only: :destroy
+  before_action :load_achievements, only: :destroy
 
 
   def create

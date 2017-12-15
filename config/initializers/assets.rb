@@ -7,3 +7,6 @@ Rails.application.config.assets.precompile += %w( format_datepicker.js homepage.
 Rails.application.config.assets.precompile += %w( employers/employer.css homepages/f-style.css )
 Rails.application.config.assets.precompile += %w( employer.js jquery.form.min.js)
 Rails.application.config.assets.precompile += %w( ckeditor/filebrowser/images/gal_del.png )
+Rails.application.config.assets.precompile += %w( mailer.css )
+Rails.application.config.assets.precompile += %w( homepage.css )
+Rails.application.config.assets.precompile += %w( jobs/job.css )

@@ -46,12 +46,13 @@ User.create!(name: "Nguyen Van A", email: "nguyenvana@gmail.com", password: "123
 Company.delete_all
 Company.create!(
   name: "Framgia",
+  email: "framrecruit@gmail.com",
   phone: Faker::Number.number(10),
   address: "DN",
   majors: "IT-Software",
   contact_person: "Nguyen Van A",
   company_info: "Framgia Da Nang City",
-  logo: "framgia_logo.png",
+  logo: Rails.root.join("public/uploads/company/logo/1/logo_default.png").open,
   banner: "framgia_banner.jpg",
   subdomain: "framgia"
 )
@@ -59,10 +60,11 @@ Company.create!(
   name: "FSoft Da Nang",
   phone: Faker::Number.number(10),
   address: "Da Nang",
+  email: "framrecruit@gmail.com",
   majors: "IT-Software",
   contact_person: "Pham Van B",
   company_info: "Fsoft Da Nang - FPT Complex",
-  logo: "framgia_logo.png",
+  logo: "framgia.png",
   banner: "framgia_banner.jpg",
   subdomain: "fsoft"
 )

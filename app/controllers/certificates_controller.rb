@@ -2,8 +2,7 @@ class CertificatesController < ApplicationController
   before_action :authenticate_user!
   before_action :current_ability
   load_and_authorize_resource param_method: :params_certificate
-  before_action :load_certificates , only: :destroy
-
+  before_action :load_certificates, only: :destroy
 
   def create
     respond_to do |format|

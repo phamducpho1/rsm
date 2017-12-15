@@ -551,3 +551,22 @@
 .bot-form{
   margin-top: 10px;
 }
+.pag .pagination span, .pag .pagination a {
+  border-radius: 15px;
+  margin: 0px 2px;
+  font-size: 18px;
+  &:hover {
+    background: $orange-light;
+  }
+}
+.pag .pagination span {
+  background: $grey-light1;
+}
+.img-load {
+  display:none;
+  position: fixed;
+  left: 43%;
+  top: 35%;
+  width: 240px;
+  z-index: 2100;
+}

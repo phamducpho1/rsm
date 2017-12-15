@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :get_company
+  before_action :load_company
 
   rescue_from ActiveRecord::RecordNotFound do |exception|
     @error_message = exception.model
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def get_company
+  def load_company
     companies = Company.where subdomain: request.subdomain
     if companies.present?
       @company = companies.first

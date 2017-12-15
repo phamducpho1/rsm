@@ -18,6 +18,7 @@ class User < ApplicationRecord
   has_many :notifications, dependent: :destroy
   has_many :members, dependent: :destroy
   has_many :companies, through: :members
+  has_many :applies, dependent: :destroy
   validates :name, presence: true
 
   enum role: %i(user employer admin)
@@ -26,7 +27,7 @@ class User < ApplicationRecord
   scope :not_member, ->{where("id NOT IN (SELECT user_id FROM members where end_time IS NUll)")}
   scope :not_role, ->(role){where.not role: role}
   mount_uploader :picture, PictureUploader
-
+  mount_uploader :cv, CvUploader
   def is_user? user
     user == self
   end
