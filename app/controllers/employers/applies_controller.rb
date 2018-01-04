@@ -23,6 +23,9 @@ class Employers::AppliesController < Employers::EmployersController
     end
   end
 
+  def show
+  end
+
   private
 
   def handling_after_update_success

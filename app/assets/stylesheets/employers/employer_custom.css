@@ -15,6 +15,7 @@
 .nested-fields {
   margin-bottom: 5px;
 }
+
 .margin-bottom-0 {
   margin-bottom: 0px !important;
 }
@@ -28,4 +29,18 @@
 
 .text-template {
   line-height: 28px;
+}
+
+.img-avatar {
+  width: 85%;
+  height: 85%;
+}
+
+.social-title{
+  width: 50%;
+}
+
+.pdf-content {
+  width: 100%;
+  min-height: 750px;
 }
