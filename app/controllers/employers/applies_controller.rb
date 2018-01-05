@@ -1,8 +1,12 @@
 class Employers::AppliesController < Employers::EmployersController
   before_action :load_members, only: [:edit, :update]
   before_action :load_templates, only: :update
+  before_action :load_template_selected, only: :update
   before_action :create_appointment, only: :edit, if: :is_scheduled?
   before_action :load_appointments, only: [:edit, :update], if: :is_scheduled?
+  before_action :load_notify, only: :show
+  before_action :readed_notification, only: :show
+  before_action :load_notifications, only: %i(show index)
 
   def index
     @q = Apply.search params[:q]
@@ -33,9 +37,10 @@ class Employers::AppliesController < Employers::EmployersController
   def update
     respond_to do |format|
       if @apply.update_attributes apply_params
-        @apply.save_activity current_user, :update, @apply.status
-        Notification.create_notification t("content_notification_update_apply",
-          job: @apply.job_name), :user, @apply, current_user.id
+        @apply.save_activity :update, current_user, @apply.status
+        Notification.create_notification t(".content_notification_update_apply",
+          job: @apply.job_name), :user, @apply, current_user.id,
+          @apply.job.company_id, @apply.user_id
         handling_after_update_success
         format.js{@messages = t "employers.applies.update.success"}
       else

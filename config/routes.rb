@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :companies, except: :show
   get "/", to: "companies#show", constraints: {subdomain: /.+/}
   get "/", to: "static_pages#index", constraints: { subdomain: Settings.www }
+  get "/see_all_notify", to: "notifications#update"
 
   root "static_pages#index"
   resources :set_language, only: :index
@@ -33,7 +34,7 @@ Rails.application.routes.draw do
   namespace :employers do
     resources :send_emails
     resources :jobs do
-      resources :applies, only: :show
+      resources :applies, only: %i(show index update)
     end
     resources :users
     resources :companies
@@ -49,4 +50,5 @@ Rails.application.routes.draw do
   resources :experiences
   resources :reward_benefits
   resources :downloads
+  resources :notifications, only: :index
 end

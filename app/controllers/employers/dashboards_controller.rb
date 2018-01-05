@@ -1,11 +1,11 @@
-class Employers::DashboardsController < ApplicationController
+class Employers::DashboardsController < BaseNotificationsController
   layout "employers/employer"
 
   before_action :authenticate_user!
   before_action :load_company
   before_action :check_permissions_employer
   before_action :current_ability
-  before_action :load_notification
+  before_action :load_notifications, only: :index
 
   def index
     @apply = @company.applies

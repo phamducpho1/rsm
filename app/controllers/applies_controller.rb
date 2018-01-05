@@ -26,9 +26,7 @@ class AppliesController < ApplicationController
   def format_respond
     respond_to do |format|
       if @apply.save
-        @apply.save_activity current_user, :create
-        Notification.create_notification t("content_notification_create_apply",
-          job: @apply.job_name), :employer, @apply, current_user.id
+        create_activity_notify
         AppliesUserJob.perform_later @apply
         AppliesEmployerJob.perform_later @apply
         format.js{flash.now[:success] = t "apply.applied"}
@@ -36,5 +34,11 @@ class AppliesController < ApplicationController
         format.js
       end
     end
+  end
+
+  def create_activity_notify
+    @apply.save_activity :create, current_user
+    Notification.create_notification t(".content_notification_create_apply",
+      job: @apply.job_name), :employer, @apply, current_user, @apply.job.company_id
   end
 end

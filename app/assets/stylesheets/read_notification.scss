@@ -1,0 +1,32 @@
+@import 'color';
+.notify-image {
+  display: inline-block;
+  position: relative;
+  bottom: 22px;
+}
+.notify-content {
+  display: inline-block;
+  cursor: pointer;
+}
+.time {
+  font-size: 10px;
+  font-weight: 600;
+  top: -6px;
+  margin: 8px 0 0;
+  padding: 0 3px;
+  border: 1px solid $gray-light-1;
+  position: relative;
+  background-image: linear-gradient($white-color, $gray-light-3);
+  display: inline-block;
+  border-radius: 2px;
+  color: $moderate-orange;
+  &:hover {
+    background-image: linear-gradient($white-color, $white-color);
+  }
+}
+.list-group-item {
+  height: 85px;
+  &:hover {
+    background-color: $gray-light-1;
+  }
+}

@@ -1,0 +1,21 @@
+<%= stylesheet_link_tag "read_notification" %>
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title"><%= t ".yours_notifiactions" %></h4>
+    </div>
+    <div class="modal-body">
+      <ul class="list-group">
+        <% if @notifications.present? %>
+          <%= render partial: "notifications/notification_index",
+            collection: @notifications, as: :notification %>
+        <% else %>
+          <p class="text-danger text-center">
+            <i><%= t ".not_notification" %></i>
+          </p>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

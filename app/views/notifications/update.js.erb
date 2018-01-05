@@ -1,0 +1,3 @@
+$('.notificationList').html('<%= j render partial: "notifications/notifications",
+  locals: {notifications: @notifications} %>');
+$('.counter-notification').text('0');

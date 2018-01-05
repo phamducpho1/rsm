@@ -13,6 +13,9 @@ class Member < ApplicationRecord
 
   scope :sort_by_updated, ->{order(updated_at: :desc)}
   scope :get_by_role, ->(role){where role: role}
+  scope :search_relation, ->role, user_id do
+    where("role = ? AND user_id = ? AND end_time IS ?", role, user_id, nil)
+  end
 
   private
 

@@ -46,15 +46,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: %i(name phone address sex birthday))
   end
 
-  def load_notification
-    if user_signed_in?
-      @notifications =  if current_user.user?
-        Notification.user.order_by_created_at
-      else
-        Notification.employer.order_by_created_at if current_user.employer?
-      end
-    end
-  end
+  private
 
   def set_locale
     I18n.locale = session[:locale] || I18n.default_locale

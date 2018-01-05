@@ -17,6 +17,9 @@ class JobsController < BaseNotificationsController
     only: :index, if: :user_signed_in?
   before_action :load_branches_for_select_box, only: :index
   before_action :load_category_for_select_box, only: :index
+  before_action :load_notify, only: :show
+  before_action :readed_notification, only: :show
+  before_action :load_notifications, only: %i{show index}
 
   def index
     @q = @company.jobs.ransack params[:q]
@@ -25,13 +28,12 @@ class JobsController < BaseNotificationsController
   end
 
   def show
-    if user_signed_in?
-      @applied = @job.applies.find_by user_id: current_user.id
-      @bookmarked = @job.bookmark_likes.find_by user_id: current_user.id,
-        bookmark: BookmarkLike.bookmarks.keys[Settings.bookmark.bookmarked]
-      @liked = @job.bookmark_likes.find_by user_id: current_user.id,
-        bookmark: BookmarkLike.bookmarks.keys[Settings.bookmark.liked]
-    end
+    return unless user_signed_in?
+    @applied = @job.applies.find_by user_id: current_user.id
+    @bookmarked = @job.bookmark_likes.find_by user_id: current_user.id,
+      bookmark: BookmarkLike.bookmarks.keys[Settings.bookmark.bookmarked]
+    @liked = @job.bookmark_likes.find_by user_id: current_user.id,
+      bookmark: BookmarkLike.bookmarks.keys[Settings.bookmark.liked]
   end
 
   def new
@@ -43,8 +45,8 @@ class JobsController < BaseNotificationsController
     respond_to do |format|
       if @job.save
         @job.save_activity current_user, :create
-        Notification.create_notification t("content_notification_create_job",
-          job: @job.name), :employer, @job, current_user.id
+        Notification.create_notification t(".content_notification_create_job",
+          job: @job.name), :employer, @job, current_user.id, @job.company_id
         format.js{@messages = t ".job_created"}
       else
         format.js
