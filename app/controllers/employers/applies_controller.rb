@@ -14,6 +14,7 @@ class Employers::AppliesController < Employers::EmployersController
   def update
     respond_to do |format|
       if @apply.update_attributes apply_params
+        @apply.save_activity current_user, :update, @apply.status
         handling_after_update_success
         format.js{@messages = t "employers.applies.update.success"}
       else

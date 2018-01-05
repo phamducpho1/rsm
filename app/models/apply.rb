@@ -16,6 +16,8 @@ class Apply < ApplicationRecord
   scope :newest_apply, ->{order :created_at}
   mount_uploader :cv, CvUploader
 
+  include PublicActivity::Model
+
   validates_hash_keys :information do
     validates :name, presence: true
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -27,5 +29,16 @@ class Apply < ApplicationRecord
   def of_user? user
     false if user.blank?
     user.id == self.user_id
+  end
+
+  def save_activity user, key, params = nil
+    self.transaction do
+      if params
+        self.create_activity key, owner: user, parameters: {status: params}
+      else
+        self.create_activity key, owner: user
+      end
+    end
+  rescue
   end
 end

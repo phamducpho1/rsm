@@ -198,11 +198,11 @@
             <div class="clearfix">
               <div class="form-group">
                 <div class="col-sm-12">
-                  <%= f.simple_fields_for :activities, class: "form-control" do |activity| %>
+                  <%= f.simple_fields_for :company_activities, class: "form-control" do |activity| %>
                     <%= render "activity_fields", f: activity %>
                   <% end %>
                   <div class="links add_benefit_links">
-                    <%= link_to_add_association t("add_activity"), f, :activities,
+                    <%= link_to_add_association t("add_activity"), f, :company_activities,
                       class: "btn btn-primary add-object", partial: "activity_fields" %>
                   </div>
                 </div>
