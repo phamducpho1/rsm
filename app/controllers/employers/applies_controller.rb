@@ -37,12 +37,12 @@ class Employers::AppliesController < Employers::EmployersController
   end
 
   def handling_with_review_not_selected
-    SendEmailUserJob.perform_later @appointment, @apply, @template, @company
+    SendEmailUserJob.perform_later @appointment, @apply, @template_user, @company
     create_inforappointments if params[:states].present?
   end
 
   def handling_with_interview_scheduled
-    SendEmailUserJob.perform_later @appointment, @apply, @template, @company
+    SendEmailUserJob.perform_later @appointment, @apply, @template_user, @company
     create_inforappointments if params[:states].present?
   end
 
@@ -69,7 +69,7 @@ class Employers::AppliesController < Employers::EmployersController
 
   def send_mail_interviewer
     @appointment.inforappointments.each do |inforappointment|
-      SendEmailJob.perform_later inforappointment, @template_user, @company
+      SendEmailJob.perform_later inforappointment, @template, @company
     end
   end
 

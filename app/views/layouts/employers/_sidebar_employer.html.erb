@@ -3,7 +3,7 @@
     <div class="sidebar-content">
       <%= link_to employers_company_path(@company), class: "sidebar-brand" do %>
         <i class="fa fa-bolt" aria-hidden="true"></i>
-        <span class="sidebar-nav-mini-hide"><strong><%= t "employer" %></span>
+        <span class="sidebar-nav-mini-hide"><strong><%= t ".employer" %></span>
       <% end %>
       <div class="sidebar-section sidebar-user clearfix sidebar-nav-mini-hide">
         <div class="sidebar-user-avatar">
@@ -30,12 +30,12 @@
           </ul>
         </li>
         <li>
-          <a href="#" class="sidebar-nav-menu hasmi"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-minus"></i> <span class="sidebar-nav-mini-hide lion"><%= t "sidebar_jobs" %></span></a>
+          <a href="#" class="sidebar-nav-menu hasmi"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-minus"></i> <span class="sidebar-nav-mini-hide lion"><%= t ".sidebar_jobs" %></span></a>
           <ul>
             <li>
               <%= link_to employers_jobs_path do %>
                 <i class="fa fa-tasks" aria-hidden="true"></i>
-                <span class="sidebar-nav-mini-hide lion loulight"><%= t ".all_job" %></span>
+                <span class="sidebar-nav-mini-hide lion loulight"><%= t ".all_jobs" %></span>
               <% end %>
             </li>
           </ul>
@@ -44,6 +44,12 @@
           <%= link_to edit_employers_company_path @company do %>
             <i class="fa fa-building-o gli hight"></i>
             <span class="sidebar-nav-mini-hide lion"><%= t ".company" %></span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to employers_templates_path  do %>
+            <i class="fa fa-columns" aria-hidden="true"></i>
+            <span class="sidebar-nav-mini-hide lion"><%= t ".template" %></span>
           <% end %>
         </li>
       </ul>

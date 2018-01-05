@@ -287,6 +287,8 @@
     </style>
   </head>
   <body>
-    <%= yield %>
+    <%= render "layouts/mailer/header" %>
+      <%= yield %>
+    <%= render "layouts/mailer/footer" %>
   </body>
 </html>

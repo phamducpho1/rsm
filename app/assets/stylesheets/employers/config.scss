@@ -254,5 +254,13 @@ input[type='radio'] {
   padding-left: 16px;
 }
 .tem-col{
-  color: #ef5f5f;
+  color: $red-light;
+}
+.file-none{
+  display: none !important;
+}
+.pleas-col{
+  color: $red-light1;
+  font-size: 11px;
+  font-family: Georgia, serif;
 }

@@ -1,4 +1,6 @@
 male: 1
+type: "1"
+template: "template_user"
 female: 0
 date_format: "%m/%d/%Y"
 date:
@@ -83,3 +85,10 @@ employers:
   company:
     text_area_cols: 2
     text_area_rows: 2
+templates:
+  page: 10
+  member: 0
+  user: 1
+  textarea: 40
+  url: "public/uploads/"
+  upload: "/uploads/"
