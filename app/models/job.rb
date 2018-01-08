@@ -23,6 +23,15 @@ class Job < ApplicationRecord
   enum status: [:opend, :closed]
   scope :sort_lastest, ->{order(updated_at: :desc)}
 
+  include PublicActivity::Model
+
+  def save_activity user, key
+    self.transaction do
+      self.create_activity key, owner: user
+    end
+  rescue
+  end
+
   private
 
   def max_salary_less_than_min_salary

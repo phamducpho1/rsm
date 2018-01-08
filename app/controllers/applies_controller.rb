@@ -23,6 +23,7 @@ class AppliesController < ApplicationController
   def format_respond
     respond_to do |format|
       if @apply.save
+        @apply.save_activity current_user, :create
         AppliesUserJob.perform_later @apply
         AppliesEmployerJob.perform_later @apply
         format.js{flash.now[:success] = t "apply.applied"}

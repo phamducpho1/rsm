@@ -1,6 +1,6 @@
-class CreateActivities < ActiveRecord::Migration[5.1]
+class CreateCompanyActivities < ActiveRecord::Migration[5.1]
   def change
-    create_table :activities do |t|
+    create_table :company_activities do |t|
       t.string :title
       t.string :picture
       t.text :description

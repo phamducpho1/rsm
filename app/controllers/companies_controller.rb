@@ -34,6 +34,6 @@ class CompaniesController < ApplicationController
   end
 
   def load_activities
-    @activities = @company.activities
+    @activities = @company.company_activities
   end
 end

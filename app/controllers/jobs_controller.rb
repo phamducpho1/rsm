@@ -43,6 +43,7 @@ class JobsController < ApplicationController
     @job = current_user.jobs.build job_params
     respond_to do |format|
       if @job.save
+        @job.save_activity current_user, :create
         format.js{ @messages = t ".job_created"}
       else
         format.js
@@ -134,7 +135,7 @@ class JobsController < ApplicationController
   end
 
   def load_activities_for_company
-    @activities = @company.activities
+    @activities = @company.company_activities
   end
 
   def load_category_for_select_box

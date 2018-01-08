@@ -163,7 +163,7 @@ end
     description: "partner",
     company_id: 1
   )
-  Activity.create!(
+  CompanyActivity.create!(
     title: "Hour of code: Children – Make friend with computers",
     description: "Hour of code: Children – Make friend with computers",
     company_id: 1
