@@ -490,7 +490,7 @@ del {
   opacity: 0.8;
 }
 
-table,
+/*table,
 th,
 td {
   border: 1px solid #d1d1d1;
@@ -502,7 +502,6 @@ table {
   border-width: 1px 0 0 1px;
   margin: 0 0 1.75em;
   table-layout: fixed;
-  /* Prevents HTML tables from becoming too wide */
   width: 100%;
 }
 
@@ -525,7 +524,7 @@ td {
 th,
 td {
   padding: 0.4375em;
-}
+}*/
 
 /* Placeholder text color -- selectors need to be separate to work. */
 ::-webkit-input-placeholder {

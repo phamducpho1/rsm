@@ -59,16 +59,19 @@ var Login = function() {
             required: true,
             email: true
           },
-          'login-password ': {
+          'user[password]': {
             required: true,
-            minlength: 5
+            minlength: 6
           }
         },
         messages: {
-          'user[email]': 'Please enter your account\'s email',
-          'login-password ': {
+          'user[email]': {
+            required: 'Please enter your account\'s email',
+            email: 'Please enter the correct email format'
+          },
+          'user[password]': {
             required: 'Please provide your password',
-            minlength: 'Your password must be at least 5 characters long'
+            minlength: 'Your password must be at least 6 characters long'
           }
         }
       });

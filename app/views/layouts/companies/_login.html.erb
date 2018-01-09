@@ -1,0 +1,26 @@
+<div id="login-ajax" class="display-none">
+  <div class="login-title text-center">
+    <i class="close-form-login">&times;</i>
+    <h1>
+      <i class="gi gi-flash"></i>
+      <strong><%= t "app" %></strong><br>
+      <small>
+        <%= t "please" %>
+        <strong><%= t "login" %></strong>
+        <%= t "or" %><strong><%= t "register" %></strong>
+      </small>
+    </h1>
+  </div>
+  <div class="block">
+    <div class="loading-ajax"></div>
+    <div class="form-horizontal form-bordered form-control-borderless">
+      <%= render "layouts/companies/form_login" %>
+    </div>
+    <div class="form-horizontal form-bordered form-control-borderless display-none form-register">
+      <%= render "layouts/companies/form_registration" %>
+    </div>
+    <div class="form-horizontal form-bordered form-control-borderless display-none">
+      <%= render "layouts/companies/form_forgot_password" %>
+    </div>
+  </div>
+</div>

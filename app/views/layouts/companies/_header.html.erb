@@ -97,7 +97,9 @@
           </li>
           <% if !user_signed_in? %>
             <li id="menu-item-114" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-114">
-              <%= link_to t("users.new.login"), new_user_session_path %>
+              <%= link_to "javascript:void(0)", class: "btn-login" do %>
+                <%= t "users.new.login" %>
+              <% end %>
             </li>
           <% end %>
         </ul>

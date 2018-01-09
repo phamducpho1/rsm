@@ -295,7 +295,7 @@ en:
       address: "Address"
       birthday: "Birthday"
       password: "Password"
-      password_confirm: "Password_confirm"
+      password_confirm: "Password confirm"
       are_you: "Are you sure?"
   confirmations:
     new:
