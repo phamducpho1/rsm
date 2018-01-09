@@ -2,7 +2,9 @@ class Apply < ApplicationRecord
   belongs_to :job
   belongs_to :user, optional: true
   has_one :company, through: :job
-  has_one :appointment
+  has_many :appointments, dependent: :destroy
+  has_many :inforappointments, through: :appointments
+
   validates :cv, presence: true
   validates :information, presence: true
   enum status: {waitting: 0, review_passed: 1, review_not_selected: 2,
@@ -10,7 +12,7 @@ class Apply < ApplicationRecord
     interview_scheduled: 6, interview_passed: 7, interview_not_selected: 8,
     offer_sent: 9, offer_accepted: 10, offer_declined: 11, joined: 12}
 
-  accepts_nested_attributes_for :appointment, allow_destroy: true
+  accepts_nested_attributes_for :appointments, allow_destroy: true , update_only: true
 
   serialize :information, Hash
   scope :newest_apply, ->{order :created_at}

@@ -1,0 +1,4 @@
+<% if @messages.present? %>
+  $('#apply-handling-content').html('');
+  swal(I18n.t('jobs.apply.sent_email'), '', '<%= @messages %>');
+<% end %>

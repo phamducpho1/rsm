@@ -1,0 +1,85 @@
+<%= javascript_include_tag "format_datepicker", "data-turbolinks-track": "reload" %>
+<%= javascript_include_tag "employer/plugins", "data-turbolinks-track": "reload" %>
+<%= javascript_include_tag "employer/app", "data-turbolinks-track": "reload" %>
+<%= javascript_include_tag "employers/search", "data-turbolinks-track": "reload" %>
+
+<%= simple_form_for [:employers, apply], remote: true do |f| %>
+<%= f.hidden_field :id, value: apply.id  %>
+<%= f.hidden_field :status, value: get_status(@is_interview_scheduled) %>
+<%= f.simple_fields_for :appointments do |appointment_builder| %>
+  <% if filter_object appointment_builder.object %>
+    <%= appointment_builder.hidden_field :company_id %>
+    <%= appointment_builder.hidden_field :apply_id %>
+    <%= appointment_builder.hidden_field :type_appointment %>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><%= t "jobs.apply.address" %></span>
+        <%= appointment_builder.text_field :address, class: "form-control" %>
+      </div>
+      <span class="error-message">
+        <%= appointment_builder.full_error :address %>
+      </span>
+    </div>
+
+    <% if apply.interview_scheduled? || is_interview_scheduled %>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><%= t "jobs.apply.interview" %></span>
+              <%= select_tag "states[]", options_for_select(
+                members.map {|s| [s.user.name, s.user.id]}
+                ), multiple: true, class: "select-chosen", id: "example-chosen-multiple",
+                data: {id: apply.id}%>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><%= t "jobs.apply.start" %></span>
+            <%= appointment_builder.text_field :start_time,
+              value: show_time(appointment_builder.object.start_time),
+              class: "form-control edit-control apply-appointment-start-time", readonly: true %>
+          </div>
+          <span class="error-message">
+            <%= appointment_builder.full_error :start_time %>
+          </span>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><%= t "jobs.apply.end" %></span>
+            <%= appointment_builder.text_field :end_time,
+              value: show_time(appointment_builder.object.end_time),
+              class: "form-control edit-control apply-appointment-end-time", readonly: true %>
+          </div>
+          <span class="error-message">
+            <%= appointment_builder.full_error :start_time %>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <i class="fa fa-get-pocket text-primary" aria-hidden="true"></i>
+        <span class="text-template"><%= t "jobs.apply.calendar_inteview" %></span>
+      </div>
+    </div>
+    <div class="row" id = "show-view-calendar">
+      <%= render partial: "calendar_inteview", locals: {apply: apply, appointments: appointments} %>
+    </div>
+    <% end %>
+  <% end %>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-sm pull-right btn-info load-page">
+      <%= t "submit" %>
+    </button>
+  </div>
+<% end %>

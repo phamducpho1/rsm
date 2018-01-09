@@ -1,8 +1,8 @@
 class Inforappointment < ApplicationRecord
-  belongs_to :user
-  belongs_to :appointment
   attr_accessor :activation_token
 
+  belongs_to :user
+  belongs_to :appointment
 
   def create_activation_digest
     self.activation_token  = Inforappointment.new_token

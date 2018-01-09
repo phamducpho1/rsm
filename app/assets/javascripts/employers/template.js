@@ -1,12 +1,12 @@
 $(document).ready(function() {
-  $('#area_apply_appointment').on('change', '.template', function(){
+  $('#apply-handling-content').on('change', '.template_member', function(){
     var template = $(this).val();
     $.get('/employers/templates/' + template);
   });
 });
 
 $(document).ready(function() {
-  $('#area_apply_appointment').on('change', '.template_user', function(){
+  $('#apply-handling-content').on('change', '.template_user', function(){
     var template = $(this).val();
     $.get('/employers/templates/' + template );
   });

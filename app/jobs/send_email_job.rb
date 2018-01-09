@@ -1,11 +1,10 @@
 class SendEmailJob < ApplicationJob
   queue_as :default
 
-  def perform inforappointment, template, company
+  def perform inforappointment, apply, company
     @inforappointment = inforappointment
-    @template = template
     @company = company
-    CompanyMailer.interview_scheduled_interviewer(@inforappointment,
-      @template, @company).deliver_later
+    @apply = apply
+    CompanyMailer.interview_scheduled_interviewer(@inforappointment, @company, @apply).deliver_later
   end
 end

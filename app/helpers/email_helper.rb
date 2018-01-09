@@ -23,7 +23,7 @@ module EmailHelper
     gsub("@image_framgia@", email_image_tag("framgia.png", class: "img-lastss")).html_safe
   end
 
-  def send_template_user template, apply, company, appointment
+  def send_template_user template, apply, company
     template.template_body.
       gsub("@image_company@", image_carrierwave_tag(apply.company, class: "img-lastss")).
       gsub("@user_name@", apply.information[:name]).

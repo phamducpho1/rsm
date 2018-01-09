@@ -19,3 +19,4 @@ en:
       update:
         success: "Update success"
         fail: "Update fail"
+        drop_calendar: "Drag and Drop Events on the Calendar"

@@ -177,6 +177,34 @@ Job.delete_all
     end_time: Date.current + 1.years
   )}
 end
+
+Job.limit(10).each_with_index do |job, index|
+  user = User.find index + 1
+  Apply.create!(
+    status: "test_scheduled",
+    user_id: index + 1,
+    job_id: index + 1,
+    cv: File.new(Rails.root.join("lib", "seeds", "template_cv.pdf")),
+    information: {
+      name: user.name,
+      email: user.email,
+      phone: Faker::Number.number(10),
+      introducing: "abc"
+    }
+  )
+end
+
+Apply.all.each do |apply|
+ start_time = Faker::Time.forward(23, :morning)
+  apply.appointments.create!(
+    address: Faker::Job.title ,
+    start_time: start_time,
+    end_time: (start_time + 2.hours),
+    type_appointment: "test_scheduled",
+    company_id: 1
+  )
+end
+
 1.upto(10) do |x|
   Partner.create!(
     name: Faker::Name.name,

@@ -36,3 +36,50 @@
   border: 1px solid $gray-light-3 !important;
   overflow: auto;
 }
+
+.img-avatar {
+  width: 85%;
+  height: 85%;
+}
+
+.social-title{
+  width: 50%;
+}
+
+.pdf-content {
+  width: 100%;
+  min-height: 750px;
+}
+
+.block-content {
+  min-height: 750px;
+}
+
+.btn-close {
+  margin-left: 5px;
+}
+
+.select-box-apply-template {
+  padding-top: 5px;
+}
+
+#show-view-calendar {
+  border: 1px solid $dark-gray-light-1;
+}
+
+.calendar-content-apply {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.label-info {
+  background-color: $blue-light-11 !important;
+}
+
+.well {
+  background-color: $white;
+}
+
+.send_email_form{
+  margin-bottom: 0px;
+}

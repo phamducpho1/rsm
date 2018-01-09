@@ -1,24 +1,11 @@
 class SendEmailUserJob < ApplicationJob
   queue_as :default
 
-  def perform appointment, apply, template, company
-    @appointment = appointment
+  def perform title, apply, template, company
+    @title = title
     @apply = apply
     @template = template
     @company = company
-    send_email_by_status
-  end
-
-  private
-
-  def send_email_by_status
-    case
-    when @apply.review_not_selected?
-      CompanyMailer.review_not_selected(@apply, @company).deliver_later
-    when @apply.interview_scheduled?
-      CompanyMailer.interview_scheduled_candidate(@appointment,
-      @apply, @template, @company).deliver_later
-    else
-    end
+    CompanyMailer.interview_scheduled_candidate(@title, @apply, @template, @company).deliver_later
   end
 end

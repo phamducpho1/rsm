@@ -20,20 +20,19 @@ class CompanyMailer < ApplicationMailer
     mail(to: @apply.information[:email], subject: t("company_mailer.welcome_email.subject"))
   end
 
-  def interview_scheduled_candidate appointment, apply, template, company
-    @appointment = appointment
+  def interview_scheduled_candidate title, apply, template, company
+    @title = title
     @template = template
     @apply = apply
     @company = company
-    mail(to: @apply.information[:email], subject: t("company_mailer.welcome_email.subject"))
+    mail(to: @apply.information[:email], subject: @title)
   end
 
-  def interview_scheduled_interviewer inforappointment, template, company
+  def interview_scheduled_interviewer inforappointment, company, apply
     @inforappointment = inforappointment
-    @appointment = @inforappointment.appointment
-    @template = template
     @user = @inforappointment.user
     @company = company
+    @apply = apply
     mail(to: @user.email, subject: t("company_mailer.welcome_email.subject"))
   end
 end
