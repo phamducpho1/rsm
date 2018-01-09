@@ -33,4 +33,13 @@ module EmailHelper
       gsub("@user_time@",(l appointment.start_time, format: :long)).
       gsub("@image_page@", email_image_tag("framgia.png", class: "img-lastss")).html_safe
   end
+
+  def address_of_branch branch
+    address = branch.street
+    address.concat(", #{branch.ward}") if branch.ward.present?
+    address.concat(", #{branch.district}") if branch.district.present?
+    address.concat(", #{branch.province}") if branch.province.present?
+    address.concat(", #{branch.country}") if branch.country.present?
+    address.squish
+  end
 end

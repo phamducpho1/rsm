@@ -8,9 +8,12 @@ class Company < ApplicationRecord
   has_many :passive_report, class_name: Report.name, as: :reported, dependent: :destroy
   has_many :passive_follow, class_name: Relationship.name, as: :followed, dependent: :destroy
   has_many :company_activities, dependent: :destroy
+  has_one :company_setting, dependent: :destroy
   has_many :partners, dependent: :destroy
   has_many :branches
   has_many :categories
+
+  delegate :enable_send_mail, to: :company_setting, allow_nil: true, prefix: true
 
   accepts_nested_attributes_for :company_activities, allow_destroy: true
   accepts_nested_attributes_for :partners, allow_destroy: true

@@ -28,6 +28,7 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 en:
+  name_app: "Recruitment"
   please_selecta: "--- Please Select ---"
   submit: "Submit"
   accountactivations:

@@ -42,4 +42,19 @@ module ApplicationHelper
       gsub("@image_framgia@", image_tag("framgia.png", size: Settings.apply.image)).
       gsub("@image_page@", image_tag("framgia.png", size:Settings.apply.image))
   end
+
+  def show_status apply
+    case
+    when apply.review_passed? || apply.test_passed? || apply.interview_passed?
+      "primary"
+    when apply.review_not_selected? || apply.test_not_selected? || apply.interview_not_selected?
+      "danger"
+    when apply.offer_declined?
+      "warning"
+    when apply.joined?
+      "success"
+    else
+      "info"
+    end
+  end
 end

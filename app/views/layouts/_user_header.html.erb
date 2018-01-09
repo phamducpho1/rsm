@@ -5,15 +5,15 @@
       <strong><%= t "index.fram" %></strong><%= t "index.recruit" %>
     <% end %>
     <nav>
-      <% if user_signed_in? %>
-        <section class="widget_icl_lang_sel_widget user-ic">
-          <a href="javascript:void(0)" class="site-menu-toggle visible-xs visible-sm">
-          </a>
-          <ul class="site-nav">
+      <section class="widget_icl_lang_sel_widget user-ic">
+        <a href="javascript:void(0)" class="site-menu-toggle visible-xs visible-sm">
+        </a>
+        <ul class="site-nav">
+          <% if user_signed_in? %>
             <li class = "dropdown">
               <%= link_to "javascript:void(0)", class: "setting_user" do %>
-                <%= image_tag current_user.picture.url, class: "avatar_user" %>
-                <i class="fa fa-angle-down"></i>
+              <%= image_tag current_user.picture.url, class: "avatar_user" %>
+              <i class="fa fa-angle-down"></i>
               <% end %>
               <ul>
                 <li>
@@ -42,9 +42,13 @@
                 </li>
               </ul>
             </li>
-          </ul>
-        </section>
-      <% end %>
+          <% else %>
+            <li id="menu-item-114" class="btn btn-primary">
+              <%= link_to t("users.new.login"), new_user_session_path %>
+            </li>
+          <% end %>
+        </ul>
+      </section>
     </nav>
   </div>
 </header>

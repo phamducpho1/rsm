@@ -14,7 +14,7 @@ class SendEmailUserJob < ApplicationJob
   def send_email_by_status
     case
     when @apply.review_not_selected?
-      CompanyMailer.review_not_selected @apply, @company
+      CompanyMailer.review_not_selected(@apply, @company).deliver_later
     when @apply.interview_scheduled?
       CompanyMailer.interview_scheduled_candidate(@appointment,
       @apply, @template, @company).deliver_later

@@ -1,0 +1,38 @@
+@import 'color';
+
+.error-message {
+ color: red;
+ }
+.not_found_apply{
+  text-align: center;
+  color: red;
+  font-size: 1.2em;
+}
+.tbl-user-member {
+  overflow: auto;
+}
+.tbl-user-member thead{
+  background-color: white;
+}
+.nested-fields {
+  margin-bottom: 5px;
+}
+.margin-bottom-0 {
+  margin-bottom: 0px !important;
+}
+.margin-bottom-20 {
+  margin-bottom: 20px !important;
+}
+.not-active {
+  pointer-events: none;
+  cursor: default;
+}
+
+.text-template {
+  line-height: 28px;
+}
+
+.view-template {
+  border: 1px solid $gray-light-3 !important;
+  overflow: auto;
+}

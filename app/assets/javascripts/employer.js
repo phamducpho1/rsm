@@ -22,8 +22,6 @@
 //= require employer/app
 //= require bootstrap-datepicker
 //= require employer/datepicker
-//= require ckeditor/init
-//= require config_ckeditor
 //= require load_image
 //= require hide_message
 //= require cocoon
@@ -34,3 +32,6 @@
 //= require employer/check-toggle
 //= require alertify/lib/alertify.min.js
 //= require employers/template
+//= require ckeditor/init
+//= require config_ckeditor
+//= require ckeditor/config

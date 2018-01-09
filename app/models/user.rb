@@ -41,6 +41,12 @@ class User < ApplicationRecord
       self.members.last.end_time.nil? && self.members.last.employer?
   end
 
+  def is_member_of? company_id
+    return false if self.companies.last.blank?
+    self.companies.last.id == company_id &&
+      self.members.last.end_time.nil?
+  end
+
   def is_employer?
     return false if self.companies.last.blank?
     self.members.last.end_time.nil? && self.members.last.employer?

@@ -14,7 +14,7 @@ class CompanyMailer < ApplicationMailer
     mail(to: @apply.information[:email], subject: t("company_mailer.welcome_email.subject"))
   end
 
-  def review_not_selected  apply, company
+  def review_not_selected apply, company
     @apply = apply
     @company = company
     mail(to: @apply.information[:email], subject: t("company_mailer.welcome_email.subject"))

@@ -95,10 +95,29 @@ Branch.create!(
   status: 0,
   company_id: 2
 )
+companies = Company.all
 
-company = Company.all
+companies.each do |company|
+  CompanySetting.create!(
+    company_id: company.id,
+    enable_send_mail: {
+      waitting: true,
+      review_passed: true,
+      review_not_selected: true,
+      test_scheduled: true,
+      test_passed: true,
+      test_not_selected: true,
+      interview_scheduled: true,
+      interview_passed: true,
+      interview_not_selected: true,
+      offer_sent: true, offer_accepted: true, offer_declined: true, joined: true
+    }
+  )
+end
+
+
 2.times do |n|
-  company.each { |company| company.branches.create!(
+  companies.each { |company| company.branches.create!(
     is_head_office: 0,
     name: Faker::Address.street_name,
     phone: Faker::Number.number(10),
@@ -114,7 +133,7 @@ end
 
 Category.delete_all
 2.times do |n|
-  company.each { |company| company.categories.create!(
+  companies.each { |company| company.categories.create!(
     name: Faker::Job.title,
     description: Faker::Lorem.sentences(1),
     status: 0

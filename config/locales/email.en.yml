@@ -1,0 +1,7 @@
+en:
+  email:
+    link_app: "Go to app"
+    sender_email: "hr_team"
+    review_not_selected:
+      title: "CV wasn't selected"
+      content: "Your CV is rejected after review"
