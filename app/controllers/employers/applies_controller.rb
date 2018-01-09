@@ -32,7 +32,7 @@ class Employers::AppliesController < Employers::EmployersController
     @appointment = @apply.appointment
     case
     when @apply.review_not_selected?
-
+      handling_with_review_not_selected
     when @apply.interview_scheduled?
       handling_with_interview_scheduled
     else
@@ -41,12 +41,14 @@ class Employers::AppliesController < Employers::EmployersController
   end
 
   def handling_with_review_not_selected
-    SendEmailUserJob.perform_later @appointment, @apply, @template_user, @company
-    create_inforappointments if params[:states].present?
+    return unless @company.company_setting_enable_send_mail[:review_not_selected]
+    SendEmailUserJob.perform_later nil, @apply, @template, @company
   end
 
   def handling_with_interview_scheduled
-    SendEmailUserJob.perform_later @appointment, @apply, @template_user, @company
+    if @company.company_setting_enable_send_mail[:interview_scheduled]
+      SendEmailUserJob.perform_later @appointment, @apply, @template, @company
+    end
     create_inforappointments if params[:states].present?
   end
 
@@ -57,7 +59,8 @@ class Employers::AppliesController < Employers::EmployersController
   end
 
   def apply_params
-    params.require(:apply).permit :status, appointment_attributes: %i(user_id address company_id start_time end_time apply_id)
+    params.require(:apply).permit :status,
+      appointment_attributes: %i(user_id address company_id start_time end_time)
   end
 
   def create_inforappointments
