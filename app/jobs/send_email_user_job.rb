@@ -1,7 +1,7 @@
 class SendEmailUserJob < ApplicationJob
   queue_as :default
 
-  def perform status, appointment, apply, template, company
+  def perform appointment, apply, template, company
     @appointment = appointment
     @apply = apply
     @template = template

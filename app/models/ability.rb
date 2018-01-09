@@ -31,6 +31,7 @@ class Ability
     can :manage, Member, company_id: company.id
     can :manage, Job, company_id: company.id
     can :manage, Appointment, company_id: company.id
+    can :manage, Template, user_id: user.id
     can :manage, Apply, job_id: company.jobs.pluck(:id)
   end
 

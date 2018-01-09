@@ -30,8 +30,6 @@
 en:
   please_selecta: "--- Please Select ---"
   submit: "Submit"
-  templates:
-    error: "Id template not found"
   accountactivations:
     success: "Agree success!"
     fail: "Agree fail!"
@@ -636,6 +634,17 @@ en:
       copyright: " - All rights reserved."
       year: "2018"
     employers:
+      sidebar_employer:
+        employer: "Employer"
+        dashboard: "Dashboard"
+        member: "Member"
+        all_member: "All member"
+        framgia: "FRAMGIA RECRUIT"
+        address: "255-257 Hung vuong, Hai Chau, Da Nang"
+        sidebar_jobs: "Jobs"
+        all_jobs: "All jobs"
+        company: "Company"
+        template: "Template"
       header_employer:
         messages: "Messasges"
         profile: "Profile"
@@ -884,6 +893,47 @@ en:
   rspec:
     mgs_not_blank: "%{item} can not be blank"
   employers:
+    templates:
+      interview:
+        body: "Template body"
+        close: "Close"
+        show: "Show content"
+      candidate:
+        body: "Template body"
+        close: "Close"
+        show: "Show content"
+      index:
+        interview: " Interview"
+        add: " Create templates"
+        candidate: " Candidate"
+        stt: "STT"
+        name: "Name"
+        template: "Templates"
+      form:
+        create: "Create success!"
+        add: " Create templates"
+        error: "Id template not found"
+        add_member: "Template interview"
+        add_user: "Template candidate"
+        user: "Candidate"
+        please: "Please choose the .html"
+        name: "Name"
+        all_job: "All job"
+        member: "Member"
+        all_member: "All Member"
+        dashboard: "Dashboard"
+        company: "Company"
+        template: "Template"
+        name: "Name"
+        stt: "STT"
+        template: "Templates"
+        type: "Type"
+        interview: " Interview"
+        candidate: " Candidate"
+        chose: "Choose how to create mail"
+        body: "Body"
+        save: "Save"
+        close: "Close"
     companies:
       branch_fields:
         name: "Name branch"

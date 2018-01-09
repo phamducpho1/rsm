@@ -11,7 +11,7 @@ module EmailHelper
 
   def send_template_member template, appointment, user, inforappointment, company
     template.template_body.
-    gsub("@image_company@", image_carrierwave_tag(company, class: "img-lastss")).
+    gsub("@image_company@", image_carrierwave_tag(appointment.company, class: "img-lastss")).
     gsub("@user_name@", user.name).
     gsub("@agree@", link_to(t("company_mailer.welcome_email.agree"),
       edit_employers_confirm_appointment_url(inforappointment.id,
@@ -24,8 +24,8 @@ module EmailHelper
   end
 
   def send_template_user template, apply, company, appointment
-    template.template_body.gsub("@image_company@",
-      image_carrierwave_tag(company, class: "img-lastss")).
+    template.template_body.
+      gsub("@image_company@", image_carrierwave_tag(apply.company, class: "img-lastss")).
       gsub("@user_name@", apply.information[:name]).
       gsub("@user_job@", apply.job.name).
       gsub("@user_company@", company.name).

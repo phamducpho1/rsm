@@ -28,6 +28,9 @@
 //= require hide_message
 //= require cocoon
 //= require employers/apply
+//= require ckeditor/init
+//= require config_ckeditor
+//= require ckeditor/config
 //= require employer/check-toggle
 //= require alertify/lib/alertify.min.js
 //= require employers/template

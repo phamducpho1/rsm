@@ -11,7 +11,6 @@ $(document).ready(function() {
     $.get('/employers/templates/' + template );
   });
 });
-
 $(document).on('click', '.open', function(){
   var id = $(this).val();
   if ($('.open').is(':checked')){
@@ -19,4 +18,9 @@ $(document).on('click', '.open', function(){
   }else{
     $('.view_' + id).hide();
   }
+});
+
+$(document).on('click', '.show-inter', function(){
+  var id = $(this).val();
+  $('#body_template_'+ id).modal('show');
 });
