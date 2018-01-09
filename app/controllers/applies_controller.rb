@@ -2,8 +2,11 @@ class AppliesController < ApplicationController
   load_and_authorize_resource param_method: :apply_params
 
   def index
-    @applies = current_user.applies.includes(:job, :company).newest_apply
-      .page(params[:page]).per(Settings.apply.page)
+    respond_to do |format|
+      @q = current_user.applies.includes(:job, :company).ransack params[:q]
+      @applies = @q.result(distinct: true).newest_apply.page(params[:page]).per(Settings.apply.page).to_a.uniq
+      format.js
+    end
   end
 
   def show; end

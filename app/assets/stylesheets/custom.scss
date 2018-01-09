@@ -654,3 +654,29 @@
 .footer-custom {
   color: $white !important;
 }
+
+.not_apply {
+  text-align: center;
+}
+
+.expires-color {
+  color: $blue;
+}
+
+.expired-color {
+  color: $red;
+}
+
+.bookmark_like-color{
+  color: $blue;
+}
+
+.col-sm-3-apply {
+  width: 25% !important;
+  float: right;
+  margin-bottom: 15px !important;
+}
+
+.all-applies {
+  clear: both;
+}

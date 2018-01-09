@@ -45,4 +45,8 @@ class User < ApplicationRecord
     return false if self.companies.last.blank?
     self.members.last.end_time.nil? && self.members.last.employer?
   end
+
+  def is_applied? job
+    self.applies.pluck(:job_id).include? job
+  end
 end

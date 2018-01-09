@@ -36,7 +36,7 @@
               <% end %>
               <ul>
                 <li>
-                  <%= link_to applies_url(subdomain: false) do %>
+                  <%= link_to bookmark_likes_url(subdomain: false) do %>
                     <%= t "my_job" %>
                     <i class="fa fa-user fa-fw pull-right"></i>
                   <% end %>
@@ -51,12 +51,6 @@
                   <%= link_to edit_user_registration_url(current_user, subdomain: false) do %>
                     <%= t "users.new.change_pass" %>
                     <i class="fa fa-pencil-square-o pull-right"></i>
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to bookmark_likes_url(subdomain: false) do %>
-                    <%= t "layouts._header.bookmark"  %>
-                    <i class="fa fa-id-badge pull-right"></i>
                   <% end %>
                 </li>
                 <li>

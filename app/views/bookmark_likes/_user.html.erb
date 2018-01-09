@@ -1,0 +1,29 @@
+<div>
+  <div class="image">
+    <%= image_tag "user_default.jpeg", class: "img-cover" %>
+  </div>
+  <div class="user clearfix">
+    <div class="avatar" id="avatar_user">
+      <% if current_user.picture.present? %>
+        <%= show_avatar current_user %>
+      <% else %>
+        <%= image_tag "avatar_2x.png", class: "img-thumbnail img-profile" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="name-user" id= "new-action">
+    <h4><%= current_user.name %></h4>
+    <h5>(<%= current_user.email %>)</h5>
+  </div>
+  <div class="cv-user">
+   <% if can? :update, current_user %>
+    <div class="view-field m-b download-resume">
+      <%= link_to download_path(current_user.id, format: "pdf"),
+        class: "btn btn-sm btn-primary", target: :_blank, title: t("dow_load") do %>
+        <i class="fa fa-download" aria-hidden="true"></i>
+        <%= t "downloads.download" %>
+      <% end %>
+    </div>
+   <% end %>
+  </div>
+</div>

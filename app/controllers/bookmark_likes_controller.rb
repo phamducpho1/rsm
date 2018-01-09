@@ -1,10 +1,8 @@
 class BookmarkLikesController < ApplicationController
-  before_action :authenticate_user!
   load_and_authorize_resource param_method: :bookmark_like_params
-
-  def index
-    @bookmark_likes = current_user.bookmark_likes.is_bookmark.page(params[:page]).per Settings.bookmark.page
-  end
+  before_action :authenticate_user!
+  before_action :load_bookmarks, only: :index
+  before_action :load_applies, only: :index
 
   def create
     respond_to do |format|
@@ -28,6 +26,16 @@ class BookmarkLikesController < ApplicationController
   end
 
   private
+
+  def load_applies
+    @q = current_user.applies.includes(:job, :company).ransack params[:q]
+    @applies = @q.result(distinct: true).newest_apply.page(params[:page]).per(Settings.apply.page)
+  end
+
+  def load_bookmarks
+    @bookmark_likes = current_user.bookmark_likes.is_bookmark.page(params[:page])
+      .per Settings.bookmark.page
+  end
 
   def load_like
     return unless user_signed_in?

@@ -154,6 +154,7 @@ Job.delete_all
     description: Faker::Lorem.paragraphs,
     branch_id: branch.id,
     category_id: 1
+    end_time: Date.current + 1.years
   )}
 end
 1.upto(10) do |x|

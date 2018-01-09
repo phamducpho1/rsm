@@ -2,31 +2,35 @@
   <div class="col-md-1 logo text-center">
     <%= image_tag apply.company.logo.url, size: Settings.apply.image, class: "img_company" %>
   </div>
-  <div class="col-md-6 job-info">
+  <div class="col-md-5 job-info">
     <div class="name">
-      <%= link_to apply.job.name, job_path(apply.job.id) %>
+      <b><%= link_to apply.job.name, job_url(apply.job.id, subdomain: apply.company.subdomain) %></b>
     </div>
     <div class="text-strong"><%= apply.company.name %> - <%= apply.company.address %></div>
     <div class="text-strong"><%= t "apply.salary" %>
       <%= t "dola" %><%= apply.job.min_salary %> - <%= t "dola" %><%= apply.job.max_salary %></div>
   </div>
-  <div class="col-md-2 applied">
-    <% if ConvertDate.check_date apply.job.end_time %>
-      <div class="text-light" style="color: blue">
-        <%= t "apply.expires_on" %>
-        <span class="hidden-md hidden-lg m-r-xs">:</span>
-      </div>
+  <div class="col-md-2">
+    <% if apply.job.end_time.present? %>
+      <% if ConvertDate.check_date apply.job.end_time %>
+        <div class="text-light expires-color" >
+          <b><%= t "apply.expires_on" %></b>
+          <span class="hidden-md hidden-lg m-r-xs">:</span>
+        </div>
+      <% else %>
+        <div class="text-light expired-color">
+          <b><%= t "apply.expired" %></b>
+          <span class="hidden-md hidden-lg m-r-xs">:</span>
+        </div>
+      <% end %>
+      <div class="text-strong"><%= l apply.job.end_time.to_date, format: :long %></div>
     <% else %>
-      <div class="text-light" style="color: red">
-        <%= t "apply.expired" %>
-        <span class="hidden-md hidden-lg m-r-xs">:</span>
-      </div>
+      <p class="expires-color"><b><%= t "unexpired" %></b></p>
     <% end %>
-    <div class="text-strong"><%= l apply.job.end_time.to_date, format: :long %></div>
   </div>
-  <div class="col-md-2 applied">
-    <div class="text-light" style="color: blue">
-      <%= t "apply.applied_on" %>
+  <div class="col-md-2">
+    <div class="text-light expires-color">
+      <b><%= t "apply.applied_on" %></b>
       <span class="hidden-md hidden-lg m-r-xs">:</span>
     </div>
     <div class="text-strong"><%= l apply.created_at.to_date, format: :long %></div>

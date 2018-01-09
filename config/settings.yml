@@ -45,6 +45,7 @@ job:
 activity:
   page: 10
 bookmark:
+  image: 50
   bookmarked: 0
   liked: 1
 currency:

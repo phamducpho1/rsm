@@ -1,2 +1,8 @@
-$('.show_apply #applies').html('<%= j render @applies %>');
-$('#pag').html('<%= j paginate @applies %>');
+<% if @applies.present? %>
+  $('#applies').html('<%= j render @applies %>');
+<% else %>
+  $('#applies').html('<div class="placeholder-section box-md">\
+    <p class="placeholder not_apply">\
+    <i class="fa fa-heart" aria-hidden="true"></i>\
+    <%= t "apply.havenot_apply" %></p></div>')
+<% end %>

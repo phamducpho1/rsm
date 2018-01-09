@@ -170,6 +170,9 @@ en:
   sex: "Sex"
   avatar: "Avatar"
   cancel: "Cancel"
+  applied: "Applied"
+  bookmarted: "Bookmarked"
+  unexpired: "Unexpired"
   errors:
     not_found_achievement: "Couldn't find Achievement"
     not_found_certificate: "Couldn't find Certificate"
@@ -730,7 +733,8 @@ en:
   placeholder:
     blank: "No information"
   apply:
-    havenot: "You have not applied_job"
+    havenot_apply: "You have not apply Job"
+    havenot_bookmart: "You have not bookmark Job"
     bookmark: "Bookmarked_Job"
     applyjob: "Applied_Job"
     applynow: "Apply Now"
