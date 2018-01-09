@@ -17,6 +17,7 @@ class Job < ApplicationRecord
   validates :max_salary, presence: true
   validates :position, presence: true
   validates :branch_id, presence: true
+  validates :target, presence: true
   validates :category_id, presence: true
   validate :max_salary_less_than_min_salary
   enum position_types: {full_time_freshers: 0, full_time_careers: 1, part_time: 2, intern: 3, freelance: 4}

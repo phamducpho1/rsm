@@ -25,4 +25,37 @@ module JobsHelper
     address.concat(", #{branch.country}") if branch.country.present?
     address.squish
   end
+
+  def count_applies job
+    job.applies.size
+  end
+
+  def dashboard_css job
+    if (load_value job) < Settings.job.width
+      Settings.job.width
+    else
+      load_value job
+    end
+  end
+
+  def class_dashboard job
+    case load_value job
+    when Settings.job.sixty..Settings.job.hundred
+      "success"
+    when Settings.job.fourty..Settings.job.sixteen
+      "info"
+    when Settings.job.twenty..Settings.job.fourteen
+      "warning"
+    else
+      "danger"
+    end
+  end
+
+  def load_value job
+    (job.applies.joined.size/(job.target.to_f)*Settings.job.hundred).to_i
+  end
+
+  def count_page counter, page
+    counter + CouterIndex.couter(@page, Settings.job.page)
+  end
 end

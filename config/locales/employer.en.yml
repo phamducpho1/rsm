@@ -1,5 +1,37 @@
 en:
   employers:
+    jobs:
+      job:
+        expires_on: "Expires on"
+        expired: "Expired"
+        sure: "Are you sure?"
+      form:
+        job_name: "Job Name"
+        description: "Description"
+        benefit: "Benefit"
+        add_benefit: "Add Benefit"
+        language: "Language"
+        target: "Target"
+        level: "Level"
+        skill: "Skill"
+        content: "Content"
+        pls_select: "--- Please Select ---"
+        position: "Position"
+        save: "Create Job"
+      reward_benefit_fields:
+        remove: "X"
+      index:
+        stt: "STT"
+        name: "Name"
+        salary: "Salary"
+        position: "Position"
+        target: "Target"
+        status: "Status"
+        action: "Action"
+        add-job: "Add job"
+        sidebar_jobs: "Jobs"
+        post_job: "Post job"
+        close: "Close"
     templates:
       interview:
         body: "Template body"
@@ -42,6 +74,18 @@ en:
         save: "Save"
         close: "Close"
     companies:
+      form:
+        company_name: "Company Name"
+        company_address: "Company Address"
+        company_majors: "Company Majors"
+        contact_name: "Contact Name"
+        contact_phone: "Contact Phone"
+        address_and_branches: "Head office and bracnhes"
+        bracnhes: "Branches"
+        head_office: "Head Office"
+        company_profile: "Company Profile"
+      edit:
+        company_info: "Company info"
       branch_fields:
         name: "Name branch"
         phone: "Phone"
@@ -135,6 +179,3 @@ en:
       id: "ID"
       jobname: "Name"
       position: "Position"
-    companies:
-      form:
-        contact_phone: "Contact phone"

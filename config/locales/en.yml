@@ -413,6 +413,15 @@ en:
       date2: "can't be a date in future"
     describle: "Describing the clubs that you have been received as detailed as possible in your employability"
   jobs:
+    post_job:
+      post_job: " Add jobs"
+      cancel: "Cancel"
+    index:
+      post_job: "Post jobs"
+      add-job: "Add job"
+      close: "Close"
+      jobs: "Jobs"
+      no_jobs: "No jobs"
     apply:
       click: "click"
       member: "Interview"
@@ -470,6 +479,7 @@ en:
       company: "Company"
       jobs: "Jobs"
       ago: "ago"
+      target: "Target"
       branch_in: "BRANCH IN"
       test_salary: "$500 - $700"
       reward_benefits: "Rewards and Benefits"

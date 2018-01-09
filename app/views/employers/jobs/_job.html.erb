@@ -1,20 +1,44 @@
 <tr class="employer-job-<%= job.id %>">
-  <td class="text-center"><%= job_counter + CouterIndex.couter(@page, Settings.job.page) %></td>
-  <td><%= link_to job.name, employers_job_path(job) %></td>
+  <td class="text-center"><%= count_page job_counter,@page %></td>
+  <td class="text-center td-widh">
+    <ul class="nav navbar-nav-custom hight">
+      <li>
+        <%= link_to employers_job_path job do  %>
+          <%= job.name %>
+          <% if job.applies.present? %>
+            <span class="label label-primary label-indicator animation-floating">
+             <%= count_applies job %>
+            </span>
+          <% end %>
+        <% end %>
+      </li>
+    </ul>
+  </td>
   <td class="text-center"><strong>$<%= job.min_salary %> - $<%= job.max_salary %></strong></td>
   <td class="text-center"><strong><%= job.position %></strong></td>
+  <td class="text-center td-widh">
+    <% if job.applies.joined.present? %>
+     <div class="progress progress-striped active">
+        <div class="progress-bar progress-bar-<%= class_dashboard job %>" role="progressbar"
+          aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:
+          <%= dashboard_css job %>%">
+          <%= load_value job %>%
+        </div>
+    </div>
+    <% end %>
+  </td>
   <% if job.opend? %>
     <td class="text-center color_date_job_expires">
       <strong>
       <% if job.end_time.present? %>
-        <%= t "apply.expires_on" %><br><%= l job.end_time.to_date, format: :long %>
+        <%= t ".expires_on" %><br><%= l job.end_time.to_date, format: :long %>
       <% end %>
       </strong>
     </td>
   <% else %>
     <td class="text-center color_date_job_expired">
       <strong>
-        <%= t "apply.expired" %><br><%= l Date.current, format: :long %>
+        <%= t ".expired" %><br><%= l Date.current, format: :long %>
       </strong>
     </td>
   <% end %>
@@ -25,7 +49,7 @@
         <i class="fa fa-pencil" aria-hidden="true"></i>
       <% end %>
       <%= link_to employers_job_path(job), method: :delete, remote: true,
-        class: "btn btn-danger btn-xs", data: {confirm: (t "employers.apply.sure")} do %>
+        class: "btn btn-danger btn-xs", data: {confirm: (t ".sure")} do %>
         <i class="fa fa-trash-o" aria-hidden="true"></i>
       <% end %>
     </div>

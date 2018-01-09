@@ -22,5 +22,5 @@ $(document).on('click', '.open', function(){
 
 $(document).on('click', '.show-inter', function(){
   var id = $(this).val();
-  $('#body_template_'+ id).modal('show');
+  $('#body_template_'+id).modal('show');
 });

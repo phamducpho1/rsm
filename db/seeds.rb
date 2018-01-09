@@ -172,7 +172,8 @@ Job.delete_all
     position: "Manager",
     description: Faker::Lorem.paragraphs,
     branch_id: branch.id,
-    category_id: 1
+    category_id: 1,
+    target: 10,
     end_time: Date.current + 1.years
   )}
 end
