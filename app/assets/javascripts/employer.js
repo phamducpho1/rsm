@@ -35,3 +35,4 @@
 //= require ckeditor/init
 //= require config_ckeditor
 //= require ckeditor/config
+//= require employers/member

@@ -2,12 +2,16 @@
   <tr>
     <td class="text-center">
       <strong>
-        <%= user.check_box(checked: is_checked?(@member_checkeds, user.object)) %>
+        <%= user.check_box checked: is_checked?(@member_checkeds, user.object), class: "checked-member" %>
       </strong>
     </td>
     <td class="text-center"><strong><%= image_tag user.object.picture.url, class: "img_tag_member" %></strong></td>
     <td class="text-center"><strong><%= link_to user.object.name, user_path(user.object) %></strong></td>
     <td class="text-center"><strong><%= user.object.email %></strong></td>
     <td class="text-center"><strong><%= user.object.sex %></strong></td>
+    <td class="text-center">
+      <%= select_tag :role, options_for_select(Member.roles.collect{|r| [r[0].capitalize, r[0]]}),
+        class: "form-control member-role" %>
+    </td>
   </tr>
 <% end %>

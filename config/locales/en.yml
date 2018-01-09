@@ -678,58 +678,6 @@ en:
         by: "by"
         edu: "Chicken Team"
         proUI: "ProUI 3.0"
-  employers:
-    members:
-      index:
-        id: "ID"
-        avatar: "Avatar"
-        name: "Name"
-        position: "Position"
-        email: "Email"
-        sex: "Sex"
-        start_time: "Start Time"
-        end_time: "End Time"
-        delete: "Delete"
-        add_member: "Add New Member"
-        all_member: "All Members"
-        resigned: "Resigned"
-        working: "Working"
-        status: "Status"
-    activities:
-      all_activity: "All Activity"
-      id: "ID"
-      title: "Title"
-      description: "Description"
-      picture: "Picture"
-    apply:
-      sure: "Are you sure ?"
-      applyfor: "Apply for "
-      id: "ID"
-      user: "User"
-      email: "Email"
-      phone: "Phone"
-      date: "Submit_Date"
-      status: "Status"
-      not_find: "Can not find"
-      destroysuc: "Destroy successful"
-      destroyfal: "Destroy fail"
-      updatess: "Update successful"
-      updatefail: "Update Fail"
-    applies:
-      show:
-        candidate_information: "Candidate Infomation"
-        other: "Other"
-        cv: "CV"
-        email: "Email"
-        status: "Status"
-        phone: "Phone"
-    job:
-      id: "ID"
-      jobname: "Name"
-      position: "Position"
-    companies:
-      form:
-        contact_phone: "Contact phone"
   bookmark_like:
     save: " Saved"
     insert: "Save"
@@ -893,80 +841,6 @@ en:
     errror: "Create interviewer error"
   rspec:
     mgs_not_blank: "%{item} can not be blank"
-  employers:
-    templates:
-      interview:
-        body: "Template body"
-        close: "Close"
-        show: "Show content"
-      candidate:
-        body: "Template body"
-        close: "Close"
-        show: "Show content"
-      index:
-        interview: " Interview"
-        add: " Create templates"
-        candidate: " Candidate"
-        stt: "STT"
-        name: "Name"
-        template: "Templates"
-      form:
-        create: "Create success!"
-        add: " Create templates"
-        error: "Id template not found"
-        add_member: "Template interview"
-        add_user: "Template candidate"
-        user: "Candidate"
-        please: "Please choose the .html"
-        name: "Name"
-        all_job: "All job"
-        member: "Member"
-        all_member: "All Member"
-        dashboard: "Dashboard"
-        company: "Company"
-        template: "Template"
-        name: "Name"
-        stt: "STT"
-        template: "Templates"
-        type: "Type"
-        interview: " Interview"
-        candidate: " Candidate"
-        chose: "Choose how to create mail"
-        body: "Body"
-        save: "Save"
-        close: "Close"
-    companies:
-      branch_fields:
-        name: "Name branch"
-        phone: "Phone"
-        street: "Street"
-        ward: "Ward"
-        district: "District"
-        province: "Province"
-        country: "Country"
-        status: "Status"
-      head_office_fields:
-        name: "Name head office"
-        phone: "Phone"
-        street: "Street"
-        ward: "Ward"
-        district: "District"
-        province: "Province"
-        country: "Country"
-        status: "Status"
-      category_fields:
-        name: "Name category"
-        description: "Description"
-        status: "Status"
-      activity_fields:
-        title: "Title"
-        description: "Description"
-        picture: "Picture"
-      partner_fields:
-        name: "Name"
-        email: "Email"
-        description: "Description"
-        picture: "Picture"
   home_page:
     learn_more: "Learn More.."
     slide_1:
