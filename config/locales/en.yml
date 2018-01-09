@@ -702,6 +702,14 @@ en:
       destroyfal: "Destroy fail"
       updatess: "Update successful"
       updatefail: "Update Fail"
+    applies:
+      show:
+        candidate_information: "Candidate Infomation"
+        other: "Other"
+        cv: "CV"
+        email: "Email"
+        status: "Status"
+        phone: "Phone"
     job:
       id: "ID"
       jobname: "Name"

@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-sm-4 col-lg-3">
+    <div class="block full">
+      <div class="block-title clearfix">
+        <h2><i class="fa fa-ticket"></i> <strong><%= t ".candidate_information" %></strong></h2>
+      </div>
+      <div class="block">
+        <div class="block-section text-center">
+          <%= show_image_apply @apply %>
+          <h3>
+            <strong><%= @apply.information[:name] %></strong><br><small></small>
+          </h3>
+        </div>
+        <table class="table table-borderless table-striped">
+          <tbody>
+            <tr>
+              <td class="text-right"><strong><%= t ".email" %></strong></td>
+              <td><span class="label label-primary"><%= @apply.information[:email] %></span></td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong><%= t ".phone" %></strong></td>
+              <td><%= @apply.information[:phone] %></td>
+            </tr>
+            <tr>
+              <td class="text-right"><strong><%= t ".status" %></strong></td>
+              <td><%= show_status_apply @apply.status %></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-8 col-lg-9">
+    <div class="block">
+      <div class="block-title">
+        <ul class="nav nav-tabs" data-toggle="tabs">
+          <li class="active"><a href="#tickets-list"><%= t ".cv" %></a></li>
+          <li><a href="#tickets-single"><%= t ".other" %></a></li>
+        </ul>
+      </div>
+      <div class="tab-content">
+        <div class="tab-pane active" id="tickets-list">
+          <iframe class="pdf-content" src="<%= @apply.cv.url %>"></iframe>
+        </div>
+        <div class="tab-pane" id="tickets-single">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
