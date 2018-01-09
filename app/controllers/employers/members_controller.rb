@@ -13,18 +13,23 @@ class Employers::MembersController < Employers::EmployersController
 
   def create
     user_ids = params[:member][:user_ids]
+    user_roles = params[:member][:user_roles]
     members = []
-    user_ids.each do |i|
-      next if i.blank?
+    user_ids.each_with_index do |id, i|
+      next if id.blank?
       members << Member.new(position: "employee", start_time: Date.current,
-        company_id: params[:company_id], user_id: i)
+        company_id: params[:company_id], user_id: id, role: user_roles[i])
     end
     if Member.import members
       flash[:success] = t "add_member_complete"
     else
       flash[:danger] = t "can_not_add_member"
     end
-    redirect_to employers_members_path
+    if request.xhr?
+      render js: "window.location = '#{employers_members_path}'"
+    else
+      redirect_to employers_members_path
+    end
   end
 
   def update
@@ -49,7 +54,7 @@ class Employers::MembersController < Employers::EmployersController
   end
 
   def member_params
-    params.require(:member).permit :position, :start_time, :end_time
+    params.require(:member).permit :position, :start_time, :end_time, :role
   end
 
   def load_members

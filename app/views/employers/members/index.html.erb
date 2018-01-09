@@ -9,7 +9,7 @@
       <%= submit_tag t("search"), name: :nil, remote: true, class: "btn btn-primary" %>
     <% end %>
 
-  <%= form_tag employers_members_path do %>
+  <%= form_tag employers_members_path, class: "add-member" do %>
     <div class="results">
       <%= render "users" %>
     </div>
@@ -30,6 +30,7 @@
         <th class="text-center"><%= t ".position" %></th>
         <th class="text-center"><%= t ".email" %></th>
         <th class="text-center"><%= t ".sex" %></th>
+        <th class="text-center"><%= t ".role" %></th>
         <th class="text-center"><%= t ".start_time" %></th>
         <th class="text-center"><%= t ".end_time" %></th>
         <th class="text-center"><%= t ".status" %></th>
