@@ -53,10 +53,10 @@ class Employers::JobsController < Employers::EmployersController
   end
 
   def job_params
-    params.require(:job).permit(:content, :name, :level, :language,
+    params.require(:job).permit(:content, :name, :level, :language, :target,
       :skill, :position, :company_id, :description, :min_salary, :max_salary,
       :branch_id, :category_id, reward_benefits_attributes: %i(id content job_id _destroy))
-      .merge!(user_id: current_user.id)
+      .merge! user_id: current_user.id
   end
 
   def load_jobs

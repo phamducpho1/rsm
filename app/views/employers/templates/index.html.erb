@@ -1,16 +1,16 @@
-  <section class="page-job-detail__detail">
-    <ul class="nav nav-tabs three-tabs" role="tablist">
-      <li role="presentation" class="active animated fadeIn">
-        <a href="#job-info" data-toggle="tab">
-        <span class="hidden-sm hidden-xs col-info"><%= t ".interview" %></span>
-        </a>
-      </li>
-      <li class="animated fadeIn" role="presentation ">
-        <a href="#company-info" class="track-event" data-evt-type="view-tab-cominfo" role="tab" data-toggle="tab">
-        <span class="hidden-sm hidden-xs col-info"><%= t ".candidate" %></span>
-        </a>
-      </li>
-    </ul>
+<section class="page-job-detail__detail">
+  <ul class="nav nav-tabs three-tabs" role="tablist">
+    <li role="presentation" class="active animated fadeIn">
+      <a href="#job-info" data-toggle="tab">
+      <span class="hidden-sm hidden-xs col-info"><%= t ".interview" %></span>
+      </a>
+    </li>
+    <li class="animated fadeIn" role="presentation ">
+      <a href="#company-info" class="track-event" data-evt-type="view-tab-cominfo" role="tab" data-toggle="tab">
+      <span class="hidden-sm hidden-xs col-info"><%= t ".candidate" %></span>
+      </a>
+    </li>
+  </ul>
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane tab-pane-job-info active box box-md animated fadeIn"
       id="job-info">
@@ -32,7 +32,6 @@
           <tbody class="interview-load">
             <%= render partial: "employers/templates/interview",
               collection: @interviewers, as: :interviewer %>
-            </div>
           </tbody>
         </table>
         <%= paginate @interviewers %>

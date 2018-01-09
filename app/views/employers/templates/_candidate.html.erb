@@ -1,15 +1,3 @@
-<tr>
-  <td class="text-center"><%= candidate_counter + CouterIndex.couter(@page, Settings.job.page) %></td>
-  <td class="text-center"><%= candidate.name %></td>
-  <td class="text-center">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
-      <button type="button" class = "show-inter form-control" value="<%= candidate.id %>">
-        <%= t ".show" %>
-      </button>
-    </div>
-  </td>
-</tr>
 <div class="modal fade" id="body_template_<%= candidate.id %>" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -26,3 +14,15 @@
     </div>
   </div>
 </div>
+<tr>
+  <td class="text-center"><%= count_page candidate_counter,@page %></td>
+  <td class="text-center"><%= candidate.name %></td>
+  <td class="text-center">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <button type="button" class = "show-inter form-control" value="<%= candidate.id %>">
+        <%= t ".show" %>
+      </button>
+    </div>
+  </td>
+</tr>

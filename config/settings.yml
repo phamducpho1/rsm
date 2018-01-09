@@ -43,6 +43,14 @@ apply:
   image: 50
   page: 10
 job:
+  hundred: 100
+  twenty: 21
+  sixty: 61
+  sixteen: 60
+  fourty: 41
+  fourteen: 40
+  thirty: 30
+  width: 10
   page: 10
 activity:
   page: 10

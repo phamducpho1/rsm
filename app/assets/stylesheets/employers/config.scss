@@ -264,3 +264,12 @@ input[type='radio'] {
   font-size: 11px;
   font-family: Georgia, serif;
 }
+.nav.navbar-nav-custom.hight > li {
+  > a:hover, > a:focus {
+    background-color: $white;
+    color: $black-light1;
+  }
+}
+.td-widh{
+  width: 25%;
+}
