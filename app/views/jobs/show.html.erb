@@ -60,7 +60,13 @@
                       <% if @applied.present? && @applied.of_user?(current_user) %>
                         <button type = "button" class = "btn btn-primary btn-block btn-apply disabled", id="post-job-btn" ><%= t "apply.applied" %></button>
                       <% else %>
-                        <%= render "applies/form" %>
+                        <% if check_member? @job.company %>
+                          <div class="text-primary light">
+                            <strong><%= t ".infos" %></strong>
+                          </div>
+                        <% else %>
+                          <%= render "applies/form" %>
+                        <% end %>
                       <% end %>
                     <% else %>
                         <%= render "applies/undefind_form" %>

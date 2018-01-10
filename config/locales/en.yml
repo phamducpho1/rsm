@@ -28,6 +28,24 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 en:
+  applies:
+    undefind_form:
+      applynow: "Apply Now"
+      apply_for: "You Are Applying For"
+      slary: "Slary"
+      working: "Working"
+    undefind_content:
+      name: "Name"
+      email: "Email"
+      phone: "Phone"
+      applynow: "Apply Now"
+      apply_for: "For"
+      slary: "Slary"
+      introducing: "Introducing letter"
+      new_cv: "Upload New CV:"
+      browse: "Browse"
+      apply: "Apply"
+      close: "Close"
   name_app: "Recruitment"
   please_selecta: "--- Please Select ---"
   submit: "Submit"
@@ -458,6 +476,7 @@ en:
       job_destroyed: "Job has been destroyed."
       job_cant_destroy: "Can not be destroyed"
     show:
+      infos: "Is a member of the company"
       salary: "Slary up to "
       job_description: "Job Decription"
       job_detail: "Job Detail"
