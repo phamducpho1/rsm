@@ -1,6 +1,12 @@
 en:
   employers:
     jobs:
+      search_job:
+        text_search: "Enter job title, language, skills..."
+        all_branches: "All Branches"
+        all_position_types: "All Position Types"
+        all_categories: "All Categories"
+        filter: "Filter"
       job:
         expires_on: "Expires on"
         expired: "Expired"

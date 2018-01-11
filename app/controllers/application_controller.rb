@@ -46,10 +46,12 @@ class ApplicationController < ActionController::Base
   end
 
   def load_notification
-    if current_user.user?
-      @notifications = Notification.user.order_by_created_at
-    elsif current_user.employer?
-      @notifications = Notification.employer.order_by_created_at
+    if user_signed_in?
+      @notifications =  if current_user.user?
+        Notification.user.order_by_created_at
+      else
+        Notification.employer.order_by_created_at if current_user.employer?
+      end
     end
   end
 end

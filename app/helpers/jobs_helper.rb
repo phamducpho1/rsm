@@ -58,4 +58,8 @@ module JobsHelper
   def count_page counter, page
     counter + CouterIndex.couter(@page, Settings.job.page)
   end
+
+  def check_member? company
+    current_user.is_member_of? company.id
+  end
 end

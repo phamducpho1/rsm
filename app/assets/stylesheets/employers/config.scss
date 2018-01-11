@@ -273,3 +273,127 @@ input[type='radio'] {
 .td-widh{
   width: 25%;
 }
+.emloyer-search {
+  padding-left: 62px;
+  padding-bottom: 70px;
+}
+.rils{
+  position: relative;
+}
+.search_jobs {
+  padding: 15px !important;
+}
+.search-widget {
+  position: absolute !important;
+  top: 165px;
+  left: 8.3%;
+  border-radius: 2px;
+  box-shadow: none;
+  margin: 0 auto;
+  background: $grey-light-1;
+  color: $white;
+  text-align: center;
+  padding: 0px 5px 5px 5px;
+}
+
+@media (max-width: 991px) {
+  .banner_show {
+    height: 470px !important;
+  }
+}
+.cp_our_jobs_listing , .jobs-listing{
+  padding: 0 !important;
+}
+.cp_our_jobs_section {
+  border: none;
+}
+.border-none-and-radius {
+  border-radius: 4px !important;
+    border: none !important;
+}
+.common-margin-top-15 {
+  margin-top: 15px;
+}
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+.margin-0-auto {
+  margin: 0 auto;
+}
+.btn-max-width {
+  max-width: 150px;
+}
+.footer-branchs i {
+  font-size: 12px;
+  float: left;
+  margin-top: 6px;
+  margin-right: 10px;
+}
+.footer-branchs p {
+  font-size: 14px;
+  line-height: 24px;
+  color: $white;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.btn_search_lg {
+  padding: 12px;
+}
+
+.input-group .icon-addon .form-control {
+  border-radius: 0;
+}
+.icon-addon {
+  position: relative;
+  color: $dark;
+  display: block;
+}
+.icon-addon:after,
+  .icon-addon:before {
+    display: table;
+    content: " ";
+}
+.icon-addon:after {
+  clear: both;
+}
+.icon-addon.addon-md .fa,
+  .icon-addon .fa {
+    position: absolute;
+    z-index: 2;
+    left: 10px;
+    font-size: 12px;
+    width: 20px;
+    margin-left: -2.5px;
+    text-align: center;
+    padding: 10px 0;
+    top: 1px
+}
+.icon-addon.addon-lg .form-control {
+  line-height: 1.33;
+  height: 46px;
+  font-size: 12px;
+  padding: 10px 0px 10px 30px;
+}
+.icon-addon.addon-lg .fa {
+  font-size: 15px;
+  margin-left: 0;
+  left: 7px;
+  top: 6px;
+}
+.icon-addon .form-control:focus + .fa,
+  .icon-addon:hover .fa {
+    color: $dodger-blue;
+}
+.loglout{
+  padding-top: 6px;
+}
+.hide-type{
+  display: none;
+}

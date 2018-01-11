@@ -1,16 +1,15 @@
 <%= javascript_include_tag "selectboxit/src/javascripts/jquery.selectBoxIt", "data-turbolinks-track": true %>
 <%= javascript_include_tag "selectboxit/custom_selectboxit", "data-turbolinks-track": true %>
-
-<div class="search_jobs collapse in search-widget col-xs-10">
-  <%= search_form_for @q, url: jobs_path,
+<div class="emloyer-search">
+  <%= search_form_for @search, url: employers_jobs_path,
     html: {class: "search-form"} do |f| %>
     <div class="search-group">
-      <div class="col-md-4 padding-left-right-5">
+      <div class="col-md-3 padding-left-right-5">
         <div class="form-group margin-bottom-5">
           <div class="icon-addon addon-lg">
             <%= f.search_field :name_or_language_or_skill_cont,
               class: "form-control", placeholder: t(".text_search") %>
-            <label for="name_or_language_or_skill_cont" class="fa fa-search" rel="tooltip"></label>
+            <label for="name_or_language_or_skill_cont" class="fa fa-search rils" rel="tooltip"></label>
           </div>
         </div>
       </div>
@@ -25,7 +24,8 @@
           </div>
         </div>
       </div>
-      <div class="col-md-2 padding-left-right-5">
+
+      <div class="col-md-3 padding-left-right-5">
         <div class="form-group margin-bottom-5">
           <div class="icon-addon addon-lg">
             <%= f.select :position_types_eq,
@@ -47,13 +47,11 @@
         </div>
       </div>
 
-      <div class="col-md-2 padding-left-right-5">
-        <div class="form-group margin-bottom-5">
-          <%= f.button :submit, class: "btn btn-info btn-lg col-md-12" do %>
-            <i class="fa fa-search" aria-hidden="true"></i>
-            <%= t ".filter" %>
-          <% end %>
-        </div>
+      <div class="col-md-2 loglout">
+        <%= f.button :submit, class: "btn btn-info " do %>
+          <i class="fa fa-search" aria-hidden="true"></i>
+          <%= t ".filter" %>
+        <% end %>
       </div>
     </div>
   <% end %>

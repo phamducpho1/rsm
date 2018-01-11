@@ -1,7 +1,7 @@
 <div class="create-job-modal" id ="apply_button">
   <button type="button" class="btn btn-primary btn-lg post-job"
     data-toggle="modal" data-target="#JobModal">
-    <%= t "apply.applynow" %>
+    <%= t ".applynow" %>
   </button>
   <div class="modal fade" id="JobModal" role="dialog">
     <div class="modal-dialog job-modal-dialog modal-lg">
@@ -9,12 +9,12 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">
-            <%= t "apply.apply_for" %>
+            <%= t ".apply_for" %>
             <strong class="title-modal">
               <%= @job.name %>
-              (<%= t "apply.slary" %>
+              (<%= t ".slary" %>
               <%= @job.min_salary.round.to_s + Settings.currency.dollar %> -
-              <%= t "apply.working" %><%= @company.address %>)
+              <%= t ".working" %><%= @company.address %>)
             </strong>
           </h4>
         </div>
@@ -27,88 +27,9 @@
                   <%= image_tag "avatar_2x.png", class: "img-responsive avatar" %>
                 </div>
                 <div class="col-md-9">
-                  <%= simple_form_for @apply , remote: :true, class: "form-horizontal form-bordered" do |f| %>
-                    <%= f.hidden_field :job_id %>
-                    <strong><%= t "apply.information" %></strong><br>
-                    <div class="table-responsive">
-                      <table class="table table-condensed table-responsive table-user-information">
-                        <tbody>
-                          <%= f.simple_fields_for :information do |p| %>
-                          <tr>
-                            <td>
-                              <strong>
-                                <span class="glyphicon glyphicon-user text-primary"></span>
-                                <%= t "apply.name" %>
-                              </strong>
-                            </td>
-                            <td class="text-primary">
-                              <%= p.text_field :name, class: "form-control" %>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <strong>
-                                <span class="glyphicon glyphicon-envelope text-primary"></span>
-                                <%= t "apply.email" %>
-                              </strong>
-                            </td>
-                            <td class="text-primary">
-                              <%= p.text_field :email, class: "form-control" %>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <strong>
-                                <span class="glyphicon glyphicon-phone text-primary"></span>
-                                <%= t "apply.phone" %>
-                              </strong>
-                            </td>
-                            <td class="text-primary">
-                              <%= p.text_field :phone, class: "form-control" %>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <table class="table table-condensed table-responsive table-user-information">
-                        <tbody>
-                          <tr>
-                            <td colspan="2">
-                              <strong>
-                                <span class="glyphicon glyphicon-asterisk text-primary"></span>
-                                <%= t "apply.introducing" %>
-                              </strong>
-                              <%= p.text_area :introducing, class: "form-control ckeditor", cols: Settings.text_area.cols,
-                                rows: Settings.text_area.rows %>
-                            </td>
-                          </tr>
-                          <% end %>
-                          <tr>
-                            <td>
-                              <strong>
-                                <span class="glyphicon glyphicon-tag text-primary"></span>
-                                <%= t "apply.new_cv" %>
-                              </strong>
-                            </td>
-                            <td>
-                              <span class="btn btn-default btn-file">
-                                <%= t "downloads.browse" %><%= f.file_field :cv, id: "file_cv", class: "transparent absolute" %>
-                              </span>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td colspan="2">
-                              <button type="button" class="btn btn-sm btn-default pull-right btn-close-apply" data-dismiss="modal" id ="reset-job">
-                                <%= t ".close" %>
-                              </button>
-                              <button type="submit" class="btn btn-sm btn-warning pull-right load-page">
-                                <i class="fa fa-plus"></i><%= t "apply.apply" %>
-                              </button>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  <% end %>
+                  <div id="undefind-content">
+                    <%= render "applies/undefind_content",locals: {apply: @apply} %>
+                  </div>
                 </div>
               </div>
             </div>

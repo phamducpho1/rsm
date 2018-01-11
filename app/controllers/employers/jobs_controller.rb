@@ -2,7 +2,8 @@ class Employers::JobsController < Employers::EmployersController
   before_action :create_job, only: %i(index new)
   before_action :load_jobs, only: :index
   before_action :load_members, :load_templates, only: :show
-
+  before_action :load_branches_for_select_box, only: :index
+  before_action :load_category_for_select_box, only: :index
   def show
     @appointment = @company.appointments.build
     @applies = @job.applies.page(params[:page]).per Settings.apply.page
@@ -20,6 +21,9 @@ class Employers::JobsController < Employers::EmployersController
   end
 
   def index
+    @search = @company.jobs.search params[:q]
+    @jobs = @search.result(distinct: true).sort_lastest
+      .page(params[:page]).per Settings.job.page
     @page = params[:page]
   end
 
@@ -61,5 +65,13 @@ class Employers::JobsController < Employers::EmployersController
 
   def load_jobs
     @jobs = @company.jobs.sort_lastest.page(params[:page]).per Settings.job.page
+  end
+
+  def load_branches_for_select_box
+    @provinces ||= @company.branches.by_status(Branch.statuses[:active]).order_is_head_office_and_province_desc.pluck :province, :id
+  end
+
+  def load_category_for_select_box
+    @categories ||= @company.categories.by_status(Category.statuses[:active]).order_name_desc.pluck :name, :id
   end
 end

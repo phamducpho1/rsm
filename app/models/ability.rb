@@ -47,6 +47,7 @@ class Ability
     can :manage, Certificate, user_id: user.id
     can :manage, Experience, user_id: user.id
     can :manage, BookmarkLike, user_id: user.id
+    can :create, Apply
   end
 
   def undefine_user
