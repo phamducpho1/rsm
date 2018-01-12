@@ -73,7 +73,8 @@
       </div>
     </div>
     <div class="row" id = "show-view-calendar">
-      <%= render partial: "calendar_inteview", locals: {apply: apply, appointments: appointments} %>
+      <%= render partial: "calendar_inteview", locals: {apply: apply,
+        appointments: appointments, appointment: appointment_builder.object} %>
     </div>
     <% end %>
   <% end %>

@@ -1,6 +1,7 @@
 class Employers::JobsController < Employers::EmployersController
   before_action :create_job, only: %i(index new)
   before_action :load_jobs, only: :index
+  before_action :load_applies_joined_by_jobs, only: :index
   before_action :load_members, :load_templates, only: :show
   before_action :load_branches_for_select_box, only: :index
   before_action :load_category_for_select_box, only: :index
@@ -21,7 +22,7 @@ class Employers::JobsController < Employers::EmployersController
   end
 
   def index
-    @search = @company.jobs.search params[:q]
+    @search = @company.jobs.includes(:applies).search params[:q]
     @jobs = @search.result(distinct: true).sort_lastest
       .page(params[:page]).per Settings.job.page
     @page = params[:page]
@@ -64,7 +65,11 @@ class Employers::JobsController < Employers::EmployersController
   end
 
   def load_jobs
-    @jobs = @company.jobs.sort_lastest.page(params[:page]).per Settings.job.page
+    @jobs = @company.jobs.includes(:applies).sort_lastest.page(params[:page]).per Settings.job.page
+  end
+
+  def load_applies_joined_by_jobs
+    @applies_by_jobs = @company.applies.joined.group_by &:job_id
   end
 
   def load_branches_for_select_box

@@ -30,14 +30,6 @@ module JobsHelper
     job.applies.size
   end
 
-  def dashboard_css job
-    if (load_value job) < Settings.job.width
-      Settings.job.width
-    else
-      load_value job
-    end
-  end
-
   def class_dashboard job
     case load_value job
     when Settings.job.sixty..Settings.job.hundred
@@ -52,7 +44,9 @@ module JobsHelper
   end
 
   def load_value job
-    (job.applies.joined.size/(job.target.to_f)*Settings.job.hundred).to_i
+    applies_joined_count = @applies_by_jobs["#{job.id}"].present? ?
+      @applies_by_jobs["#{job.id}"].size : 0
+    (applies_joined_count/(job.target.to_f)*Settings.job.hundred).to_i
   end
 
   def count_page counter, page

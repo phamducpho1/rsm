@@ -1,4 +1,9 @@
 en:
+  jquery_validates:
+    send_email_apply:
+      title: "Title"
+      content: "Content"
+      required: "%{name} can't be blank"
   employers:
     applies:
       statuses:
