@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   resources :applies
   resources :jobs
   namespace :employers do
+    resources :send_emails
     resources :jobs do
       resources :applies, only: :show
     end
@@ -40,6 +41,7 @@ Rails.application.routes.draw do
     resources :appointments
     resources :confirm_appointments, only: :edit
     resources :templates
+    resources :applies
   end
   resources :bookmark_likes
   resources :experiences

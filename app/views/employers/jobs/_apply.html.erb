@@ -3,7 +3,7 @@
   <td class="text-center">
     <% if apply.user.present? %>
     <strong>
-      <%= link_to apply.user.name, apply.cv.url %>
+      <%= link_to apply.user.name, employers_job_apply_path(@job, apply) %>
     </strong>
   </td>
   <td class="text-center"><strong><%= apply.user.email %></strong></td>

@@ -1,11 +1,5 @@
 <% if @template.blank? %>
-    $('#show-view').html('<%= t "templates.error" %>');
+  $('#show-view').html('<%= t "templates.error" %>');
 <% else %>
-  <% if @template.template_member? %>
-    $('#content-template').hide(1000);
-    $('#content-template').html('<%= j show_exampleview_user(@template).html_safe %>').show(1000);
-  <% else %>
-    $('#content-template-user').hide(1000);
-    $('#content-template-user').html('<%= j show_exampleview_user(@template).html_safe %>').show(1000);
-  <% end %>
+  $('#content-template-user').text('<%= j @template.template_body %>');
 <% end %>

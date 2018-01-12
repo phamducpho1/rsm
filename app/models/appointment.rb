@@ -3,11 +3,20 @@ class Appointment < ApplicationRecord
   belongs_to :apply
   has_many :inforappointments, dependent: :destroy
   has_many :user, through: :inforappointments
+
+  delegate :information, to: :apply, prefix: true
+
   validates :start_time, presence: true
   validates :end_time, presence: true
   validates :address, presence: true
   validate :date_less_than_today
   validate :end_date_after_start_date
+
+  enum type_appointment: {test_scheduled: 0, interview_scheduled: 1}
+
+  scope :get_greater_equal_by, -> (date) do
+    where("start_time >= ?", date)
+  end
 
  private
 

@@ -1,6 +1,6 @@
 @import 'color';
 .text-tile {
-  color: $dark-gray;
+  color: $dark-gray-light;
 }
 .notify-logo {
   margin: 0;
@@ -16,7 +16,7 @@
   .notify-drop-title {
     border-bottom: 1px solid $gray-light-1;
     padding: 5px 15px 10px;
-    color: $dark-gray;
+    color: $dark-gray-light;
     background-color: $gray-light-2;
   }
   .drop-content {
@@ -112,7 +112,7 @@
     padding: 8px 15px;
     background-color: $gray-light-2;
     a {
-      color: $dark-gray;
+      color: $dark-gray-light;
       text-decoration: none;
       &:hover {
         color: $gray-dark-hard-1;

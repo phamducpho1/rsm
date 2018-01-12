@@ -1,0 +1,21 @@
+<%= javascript_include_tag "compCalendar", "data-turbolinks-track": "reload" %>
+<%= javascript_include_tag "employers/calendar", "data-turbolinks-track": "reload" %>
+
+<div class = "calendar-content-apply">
+  <div class="col-md-2">
+    <div class="block-section">
+      <%= get_data appointments %>
+    </div>
+    <div class="block-section">
+      <div class="block-section text-center text-muted">
+        <small><em><i class="fa fa-arrows"></i><%= t "employers.applies.update.drop_calendar" %></em></small>
+      </div>
+      <ul class="calendar-events">
+        <li class="label label-info" ><%= apply.information[:name] %></li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-10">
+    <div id="calendar"></div>
+  </div>
+</div>

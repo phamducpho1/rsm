@@ -37,3 +37,9 @@
 //= require ckeditor/config
 //= require employers/member
 //= require cable
+//= require compCalendar
+//= require moment/min/moment.min.js
+//= require sweetalert/dist/sweetalert.min.js
+//= require i18n
+//= require i18n.js
+//= require i18n/translations

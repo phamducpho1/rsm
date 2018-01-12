@@ -4,9 +4,10 @@
     <title><%= full_title(yield(:title)) %></title>
     <%= favicon_link_tag "framgia.png" %>
     <%= csrf_meta_tags %>
-
+    <%= Gon::Base.render_data %>
     <%= stylesheet_link_tag "employers/employer", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "employer", "data-turbolinks-track": "reload" %>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
 
   <body>

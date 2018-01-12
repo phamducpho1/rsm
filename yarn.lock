@@ -6,6 +6,25 @@ alertify@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/alertify/-/alertify-0.3.0.tgz#32ada3298ff4d91ace71f2746d70910a7bd08135"
 
+es6-object-assign@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/es6-object-assign/-/es6-object-assign-1.1.0.tgz#c2c3582656247c39ea107cb1e6652b6f9f24523c"
+
+moment@^2.20.1:
+  version "2.20.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.20.1.tgz#d6eb1a46cbcc14a2b2f9434112c1ff8907f313fd"
+
+promise-polyfill@^6.0.2:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/promise-polyfill/-/promise-polyfill-6.1.0.tgz#dfa96943ea9c121fca4de9b5868cb39d3472e057"
+
 selectboxit@^3.8.2:
   version "3.8.2"
   resolved "https://registry.yarnpkg.com/selectboxit/-/selectboxit-3.8.2.tgz#40ca2b11b97cea928cdf21542e9c57a142c71fae"
+
+sweetalert@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/sweetalert/-/sweetalert-2.1.0.tgz#d605dec840058fa8ad4a1f7c2c8c194bc72c27fa"
+  dependencies:
+    es6-object-assign "^1.1.0"
+    promise-polyfill "^6.0.2"

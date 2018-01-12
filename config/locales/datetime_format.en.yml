@@ -1,0 +1,53 @@
+en:
+  date:
+    text:
+      date_month_year: "mm/dd/yyyy"
+    formats:
+      default: &default_date "%m/%d/%Y"
+      month_year: "%m/%Y"
+      birthday: *default_date
+      date_month_year: "%Y-%m-%d"
+      contract_date: *default_date
+      start_probation_date: *default_date
+      end_probation_date: *default_date
+      resigned_date: *default_date
+      format_datetime: "%H:%M %m/%d/%Y"
+      date_month_year_v2: "%-d %B %Y"
+      date_month_year_concise: "%Y-%m-%d"
+      date_month: "%m/%d"
+      date_month_year_v1: "%d-%m-%Y"
+      date_month_year_v3: "%m-%d-%Y"
+    month_names: [~, January, Febuary, March, April, May, June, July, August, September, October, November, December]
+    abbr_day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+    picker: "m/d/Y"
+    form_picker: "m-d-Y"
+    placeholder_date_picker: "mm-dd-yyyy"
+  time:
+    formats:
+      resigned_date: *default_date
+      long: "%d/%m/%Y %H:%M"
+      default: "%H:%M:%S %-d %B %Y"
+      date_month_year: "%Y-%m-%d"
+      birthday: *default_date
+      time_request: *default_date
+      time: "%H:%M"
+      compenation: *default_date
+      format_datetime: "%H:%M %m/%d/%Y"
+      format_datetime_picker: " HH:mm DD/MM/YYYY"
+      format_datetime_picker_rb: "%Y/%m/%d %H:%M"
+      format_time: "%H:%M"
+      hour_minutes: "HH:mm"
+      format_date_picker: "YYYY-MM-DD"
+      date_month_year_v1: "%d-%m-%Y"
+      date_month_year_v3: "%m-%d-%Y"
+      format_datetime_v2: "%H:%M %m-%d-%Y"
+  datetime:
+    distance_in_words:
+      x_minutes:
+        one: "1 minutes ago"
+        other: "%{count} minutes ago"
+      less_than_x_minutes: "just now"
+      about_x_hours: "%{count} hours ago"
+      x_days:
+        one: "1 day ago"
+        other: "%{count} days ago"

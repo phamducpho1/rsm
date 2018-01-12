@@ -72,6 +72,8 @@ img_cv: 200
 text_area:
   rows: "10"
   cols: "30"
+  rows_email: "20"
+  cols_email: "30"
 www: "www"
 company:
   text_area:

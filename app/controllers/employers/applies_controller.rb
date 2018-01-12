@@ -1,15 +1,23 @@
 class Employers::AppliesController < Employers::EmployersController
-  before_action :load_members, :load_templates, only: [:edit, :update]
-  before_action :load_template_selected, only: :update
+  before_action :load_members, only: [:edit, :update]
+  before_action :load_templates, only: :update
+  before_action :create_appointment, only: :edit, if: :is_scheduled?
+  before_action :load_appointments, only: [:edit, :update], if: :is_scheduled?
+
 
   def edit
-    @apply.build_appointment company_id: @company.id
+    @is_interview_scheduled = is_status?(params[:status], Apply.statuses.keys[6])
     respond_to do |format|
       format.js
     end
   end
 
-  def show; end
+  def show
+    respond_to do |format|
+      format.js
+      format.html
+    end
+  end
 
   def update
     respond_to do |format|
@@ -20,70 +28,68 @@ class Employers::AppliesController < Employers::EmployersController
         handling_after_update_success
         format.js{@messages = t "employers.applies.update.success"}
       else
+        @is_interview_scheduled = @apply.interview_scheduled?
         format.js{@errors = t "employers.applies.update.fail"}
       end
     end
   end
 
-  def show
-  end
-
   private
 
   def handling_after_update_success
-    @appointment = @apply.appointment
-    case
-    when @apply.review_not_selected?
-      handling_with_review_not_selected
-    when @apply.interview_scheduled?
-      handling_with_interview_scheduled
-    else
-      reset_appointment
-    end
-  end
-
-  def handling_with_review_not_selected
-    return unless @company.company_setting_enable_send_mail[:review_not_selected]
-    SendEmailUserJob.perform_later nil, @apply, @template, @company
+    handling_with_interview_scheduled if @apply.interview_scheduled?
+    reset_appointment
   end
 
   def handling_with_interview_scheduled
-    if @company.company_setting_enable_send_mail[:interview_scheduled]
-      SendEmailUserJob.perform_later @appointment, @apply, @template, @company
-    end
     create_inforappointments if params[:states].present?
   end
 
   def reset_appointment
     Appointment.transaction do
-      @appointment.destroy if @appointment.present?
+      if Apply.statuses.keys.take(3).include? @apply.status
+        @apply.appointments.destroy_all
+      else @apply.test_passed? || @apply.test_not_selected?
+        @apply.appointments.interview_scheduled.destroy_all
+      end
     end
   end
 
   def apply_params
     params.require(:apply).permit :status,
-      appointment_attributes: %i(user_id address company_id start_time end_time)
+      appointments_attributes: %i(user_id address company_id start_time end_time type_appointment apply_id)
+  end
+
+  def load_appointments
+    @appointments = @company.appointments.includes(:apply).get_greater_equal_by(Date.current).
+      group_by{|appointment| appointment.apply_information[:name]}
   end
 
   def create_inforappointments
     @members = params[:states]
+    appointment = @apply.appointments.find_by type_appointment: Apply.statuses.keys[6]
+    return unless appointment
     inforappointments = @members.map do |member_id|
       next if member_id.blank?
-      info_appointment = Inforappointment.new(user_id: member_id, appointment_id: @appointment.id)
+      info_appointment = Inforappointment.new(user_id: member_id, appointment_id: appointment.id)
       info_appointment.create_activation_digest
       info_appointment
     end
-    send_mail_interviewer if Inforappointment.import inforappointments
+    Inforappointment.import inforappointments
   end
 
-  def send_mail_interviewer
-    @appointment.inforappointments.each do |inforappointment|
-      SendEmailJob.perform_later inforappointment, @template, @company
-    end
+  def is_scheduled?
+    status = params[:status] || apply_params[:status]
+    return false if status.blank?
+    is_status?(status, Apply.statuses.keys[3]) ||
+      is_status?(status, Apply.statuses.keys[6])
   end
 
-  def load_template_selected
-    @template = Template.find_by id: params[:template]
-    @template_user = Template.find_by id: params[:template_user]
+  def is_status? new_status, status
+    new_status == status
+  end
+
+  def create_appointment
+    @apply.appointments.new company_id: @company.id, type_appointment: params[:status]
   end
 end

@@ -1,8 +1,8 @@
 <% if @template.present? %>
    <% content_for :image_company do %>
-    <%= image_carrierwave_tag @apply.company, class: "img-lastss" %>
+    <%= image_carrierwave_tag @company, class: "img-lastss" %>
   <% end %>
-  <%= send_template_user @template, @apply, @company, @appointment %>
+  <%= @template %>
 <% else %>
   <%= render "company_mailer/default_template_candidate"%>
 <% end %>

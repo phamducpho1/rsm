@@ -1,2 +1,1 @@
-$('#area_apply_appointment').html('<%= j (render partial: "employers/applies/apply", locals: {apply: @apply, members: @members, template_members: @template_members, template_users:  @template_users}) %>');
-$('#myModal_<%= @apply.id %>').modal('show');
+$('#apply-handling-content').html('<%= j (render partial: "employers/applies/appointment_form", locals: {apply: @apply, members: @members, appointments: @appointments, is_interview_scheduled: @is_interview_scheduled}) %>');

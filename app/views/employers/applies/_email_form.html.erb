@@ -1,0 +1,46 @@
+<div class="tab-pane">
+  <legend class="send_email_form"><strong>
+    <i class="fa fa-envelope" aria-hidden="true"></i>
+    <%= t "jobs.apply.send_mail" %>
+  </strong></legend>
+  <ul class="media-list media-feed push">
+    <!-- Ticket -->
+    <li class="media">
+      <div class="media-body">
+        <div id = "apply-handling-content">
+          <%= form_tag employers_send_emails_path, method: :post, remote: true do %>
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon"><%= t "jobs.apply.title" %></span>
+                <%= text_field_tag :title, nil, class: "form-control", required: true %>
+                <%= hidden_field_tag :apply_id, apply.id, html: {class: "form-control"} %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon"><%= t "jobs.apply.select" %></span>
+                <%= select_tag :template_user,
+                  options_for_select(template_users.collect{ |u| [u.name, u.id]}),
+                  include_blank: t("please_selecta"), class: "form-control template_user" %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon"><%= t "jobs.apply.content" %></span>
+                <%= text_area_tag :template_content, nil, class: "form-control ckeditor template_content",
+                  id: "content-template-user", cols: Settings.text_area.cols_email, rows: Settings.text_area.rows_email, required: true %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-group">
+                <%= submit_tag t("jobs.apply.send_mail"), class: "btn btn-info" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+  </div>

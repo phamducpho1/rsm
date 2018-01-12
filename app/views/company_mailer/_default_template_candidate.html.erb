@@ -5,7 +5,7 @@
         <div class="start-body">
           <div class="a-left">
             <a>
-              <%= image_carrierwave_tag @apply.company, class: "img-lastss" %>
+              <%= image_carrierwave_tag @company, class: "img-lastss" %>
             </a>
             <div class="month">
               <%= t "company_mailer.welcome_email.framgia" %>
@@ -26,9 +26,7 @@
             <%= @apply.job.name %>
             <%= t "company_mailer.welcome_email.of_company" %>,
             <%= t "company_mailer.welcome_email.pleas" %>
-            <%= @appointment.address %>
             <%= t "company_mailer.welcome_email.one" %>
-            <%= l @appointment.start_time, format: :long %>
             <%= t "company_mailer.welcome_email.to_get" %>
           </p>
           <h2><%= t "company_mailer.welcome_email.good" %></h2>
