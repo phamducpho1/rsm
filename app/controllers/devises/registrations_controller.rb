@@ -5,14 +5,14 @@ class Devises::RegistrationsController < Devise::RegistrationsController
     if request.xhr?
       build_resource sign_up_params
       if resource.save
-        set_flash_message :notice, :signed_up
-        sign_up resource_name, resource
-        render js: "window.location = '#{after_sign_up_path_for resource}'"
+        @success = true
+        @message = t "devise.registrations.signed_up_but_unconfirmed"
       else
+        @success = false
         clean_up_passwords resource
-        respond_to do |format|
-          format.js
-        end
+      end
+      respond_to do |format|
+        format.js
       end
     else
       super

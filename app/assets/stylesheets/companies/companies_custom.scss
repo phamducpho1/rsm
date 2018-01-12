@@ -146,6 +146,7 @@
   .form-group {
     margin-left: 0 !important;
     margin-right: 0 !important;
+    padding: 5px 15px;
   }
   .form-control {
     font-size: 13px;
@@ -182,6 +183,16 @@
   }
   .help-block {
     color: red !important;
+  }
+  .login-error, .registrations-error, .forgot-error {
+    position: relative;
+    span.close-error {
+      cursor: pointer;
+      font-weight: bold;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
   }
 }
 
@@ -253,9 +264,11 @@
   width: 49.7%;
   border-left: 1px dashed $gray-light-3 !important;
 }
+
 .lang-sel-sel {
   background: url(/assets/nav-arrow-down.png)  right no-repeat !important;
 }
+
 .section-vision.title-2 {
   color: white !important;
   margin-bottom: 70px !important;
@@ -263,6 +276,11 @@
   line-height: 54px !important;
   margin-top: 0 !important;
 }
+
 .section-team .staff-item .position {
   font-size: 15px !important;
+}
+
+.p-15 {
+  padding: 15px !important;
 }

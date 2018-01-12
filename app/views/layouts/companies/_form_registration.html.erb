@@ -3,6 +3,7 @@
   <div class="form-group registrations-error display-none">
     <div class="col-xs-12">
       <p class="color-red text-center"></p>
+      <span class="close-error">&times;</span>
     </div>
   </div>
   <div class="form-group input-inline <%= add_class_if_resource_has_error resource.errors[:name] %>">
@@ -20,7 +21,7 @@
   <div class="form-group input-inline <%= add_class_if_resource_has_error resource.errors[:email] %>">
     <div class="col-xs-12">
       <div class="input-group">
-        <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
+        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
         <%= f.email_field :email, class: "form-control input-lg",
           placeholder: t("passwords.new.email") %>
       </div>
@@ -32,7 +33,7 @@
   <div class="form-group input-inline <%= add_class_if_resource_has_error resource.errors[:password] %>">
     <div class="col-xs-12">
       <div class="input-group">
-        <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+        <span class="input-group-addon"><i class="fa fa-key"></i></span>
         <%= f.password_field :password, class: "form-control input-lg",
           placeholder: t("passwords.new.password") %>
       </div>
@@ -44,7 +45,7 @@
   <div class="form-group input-inline <%= add_class_if_resource_has_error resource.errors[:password_confirmation] %>">
     <div class="col-xs-12">
       <div class="input-group">
-        <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+        <span class="input-group-addon"><i class="fa fa-key"></i></span>
         <%= f.password_field :password_confirmation, class: "form-control input-lg",
           placeholder:t("passwords.new.password_confirm") %>
       </div>
@@ -80,12 +81,12 @@
       </div>
     </div>
   </div>
-  <div class="form-group text-center">
+  <div class="form-group text-center p-15">
     <%= f.button :submit, class: "btn btn-sm btn-primary" do %>
       <%= t "registrations.new.re_account" %>
     <% end %>
   </div>
-  <div class="form-group text-center">
+  <div class="form-group text-center p-15">
     <a href="javascript:void(0)" class="link-login">
     <small><%= t "login" %></small></a>
   </div>

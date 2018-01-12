@@ -18,4 +18,5 @@
  *= require_tree ../../../../node_modules/alertify/themes
  *= require devise_users/plugins1
  *= require companies/companies_custom
+ *= require flash_message
  */

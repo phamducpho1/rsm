@@ -2,7 +2,7 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
-    <%= favicon_link_tag "framgia.png" %>
+    <%= favicon_link_tag "favicon.ico" %>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag "companies/company", media: "all", "data-turbolinks-track": "reload" %>
@@ -11,6 +11,7 @@
   </head>
 
   <body class="home page page-id-21 page-template-default wp-custom-logo">
+    <%= render "shared/flash" %>
     <span class="opacity"></span>
     <%= render "layouts/companies/header" %>
     <main id="main-content">

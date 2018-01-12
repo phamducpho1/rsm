@@ -16,6 +16,7 @@ en:
       timeout: "Your session expired. Please sign in again to continue."
       unauthenticated: "You need to sign in or sign up before continuing."
       unconfirmed: "You have to confirm your email address before continuing."
+      not_active: "Please active your account before sign in. If you don't receive email, click %{link} to resend email confirmation"
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"
@@ -27,6 +28,18 @@ en:
         subject: "Email Changed"
       password_change:
         subject: "Password Changed"
+      header:
+        app_name: "FRAMGIA RECRUIT"
+      content:
+        hello: "Hello"
+        confirm_your_account_email: "You can confirm email account through the links below:"
+        requested_link_to_change_your_password: "Someone recently required the link to reset your password, you can do this by clicking on the links below."
+        request_error: "If you do not have requirement, please ignore the email."
+        your_password_will_not_change_until_you_access_the_link_above: "Your password will not be changed until you click on the link below."
+      footer:
+        year: "© 2018"
+        author: "By Framgia - Human Development Division - Education Section"
+        copyright: " - All rights reserved."
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
