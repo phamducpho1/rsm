@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%= full_title(yield(:title)) %></title>
-  <%= favicon_link_tag "framgia.png" %>
-  <%= csrf_meta_tags %>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= favicon_link_tag "framgia.png" %>
+    <%= csrf_meta_tags %>
 
-  <%= stylesheet_link_tag "companies/company", media: "all", "data-turbolinks-track": "reload" %>
-  <%= stylesheet_link_tag "companies/f-style", media: "all", "data-turbolinks-track": "reload" %>
-  <%= javascript_include_tag "company", "data-turbolinks-track": "reload" %>
-</head>
+    <%= stylesheet_link_tag "companies/company", media: "all", "data-turbolinks-track": "reload" %>
+    <%= stylesheet_link_tag "companies/f-style", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "company", "data-turbolinks-track": "reload" %>
+  </head>
 
-<body class="home page page-id-21 page-template-default wp-custom-logo">
-  <%= render "layouts/companies/header" %>
-  <main id="main-content">
-    <%= yield %>
-  </main>
-  <%= render "layouts/companies/footer" %>
-</body>
+  <body class="home page page-id-21 page-template-default wp-custom-logo">
+    <span class="opacity"></span>
+    <%= render "layouts/companies/header" %>
+    <main id="main-content">
+      <%= yield %>
+    </main>
+    <%= render "layouts/companies/login" %>
+    <%= render "layouts/companies/footer" %>
+  </body>
 </html>

@@ -17,7 +17,11 @@
 //= require modernizr-2.7.1-respond-1.4.2.min
 //= require jquery-1.11.1.min
 //= require bootstrap
+//= require bootstrap-datepicker
+//= require format_datepicker
 //= require pagination
 //= require clear_value
 //= require alertify/lib/alertify.min.js
 //= require_tree ../../../vendor/assets/javascripts/companies
+//= require company/login
+//= require jquery.validate
