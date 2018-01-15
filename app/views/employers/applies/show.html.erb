@@ -29,36 +29,37 @@
         </table>
       </div>
     </div>
+    <div class="block full">
+      <div class="block-title">
+        <h2><i class="fa fa-eye" aria-hidden="true"></i><%= t "employers.cv" %></h2>
+      </div>
+      <%= image_tag "cv_image.png", class: "image_cv" %>
+    </div>
   </div>
+
   <div class="col-sm-8 col-lg-9">
     <div class="block block-content">
       <div class="block-title">
-        <ul class="nav nav-tabs" data-toggle="tabs">
-          <li><a href="#tickets-list"><%= t ".cv" %></a></li>
-          <li class="active"><a href="#apply-handling"><%= t ".handling" %></a></li>
-          <li><a href="#tickets-single"><%= t ".other" %></a></li>
-        </ul>
+       <h2><i class="fa fa-pencil"></i><strong><%= t"employers.current" %></strong><%= t "employers.status" %></h2>
       </div>
-      <div class="tab-content">
-        <div class="tab-pane" id="tickets-list">
-          <iframe class="pdf-content" src="<%= @apply.cv.url %>"></iframe>
-        </div>
+      <ul class="progress-indicator">
+        <%= render "status_progress" %>
+      </ul>
+    </div>
 
-        <div class="tab-pane active row" id="apply-handling">
-          <%= render partial: "form_status", locals: {apply: @apply} %>
-          <hr>
-          <ul class="media-list media-feed push">
-            <li class="media">
-              <div class="media-body">
-               <div id = "apply-handling-content">
+    <div class="block block-content">
+      <div class="tab-pane active row" id="apply-handling">
+        <%= render partial: "form_status", locals: {apply: @apply} %>
+        <hr>
+        <ul class="media-list media-feed push">
+          <li class="media">
+            <div class="media-body">
+              <div id = "apply-handling-content">
               </div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="tab-pane" id="tickets-single">
-        </div>
-      </div>
+            </div>
+          </li>
+        </ul>
+       </div>
     </div>
   </div>
 </div>

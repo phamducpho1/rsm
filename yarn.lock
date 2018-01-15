@@ -6,6 +6,10 @@ alertify@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/alertify/-/alertify-0.3.0.tgz#32ada3298ff4d91ace71f2746d70910a7bd08135"
 
+css-progress-wizard@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/css-progress-wizard/-/css-progress-wizard-0.0.9.tgz#6f0cc6afc31f04ed63d98dfe9c5d4487a0ab3cf4"
+
 es6-object-assign@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/es6-object-assign/-/es6-object-assign-1.1.0.tgz#c2c3582656247c39ea107cb1e6652b6f9f24523c"

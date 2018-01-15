@@ -39,4 +39,16 @@ module EmployersHelper
   def filter_object object
     object.id.blank?
   end
+
+  def show_progress_status_apply apply, status, index
+    if apply.status.include? status
+      @max_status = true
+      return "completed" if @apply.joined?
+      return "danger" if apply.review_not_selected? || apply.test_not_selected? ||
+        apply.interview_not_selected? || @apply.offer_declined?
+      "active"
+    else
+      @max_status.present? ? "" : "completed"
+    end
+  end
 end

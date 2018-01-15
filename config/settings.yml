@@ -105,3 +105,4 @@ templates:
   upload: "/uploads/"
 picture_user_width: 60
 picture_user_height: 60
+statuses: ["waitting", "review", "test", "interview", "offer", "joined"]
