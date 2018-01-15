@@ -11,14 +11,14 @@ var CompCalendar = function() {
    return {
     init: function() {
       initEvents();
-      var startDate = new Date();
-      var d = startDate.getDate();
-      var m = startDate.getMonth();
-      var y = startDate.getFullYear();
-      var endDate = new Date(y, m, d, 23, 0);
-      eventsValues = $('#apply-appointments').data('events');
-      var events = [];
+      var startValue = $('.apply-appointment-start-time').val();
+      var endValue = $('.apply-appointment-end-time').val();
+      var startDate = getStartDate(startValue);
+      var endDate = getEndDate(endValue, startDate);
 
+      eventsValues = $('#apply-appointments').data('events');
+      eventName = $('#apply-appointments').data('name');
+      var events = [];
       events = Object.keys(eventsValues).map(function(key){
         var event = eventsValues[key];
         var start_time = event[0]['start_time'];
@@ -31,8 +31,18 @@ var CompCalendar = function() {
           color: 'black',
           editable: false
         };
-
       });
+
+      if(startValue !== null && startValue !== ''){
+        event = {
+          title: eventName,
+          start: moment(new Date(startDate)),
+          end: moment(new Date(endDate)),
+          allDay: false,
+          color: 'rgb(52, 152, 219);',
+        };
+        events.push(event);
+      }
 
       var eventInput = $('#add-event');
       var eventInputVal = '';
@@ -54,18 +64,20 @@ var CompCalendar = function() {
           right: 'month,agendaWeek,agendaDay'
         },
         firstDay: 1,
-        timezone:'UTC',
         editable: true,
         droppable: true,
 
         drop: function(date, allDay) {
           var originalEventObject = $(this).data('eventObject');
           var copiedEventObject = $.extend({}, originalEventObject);
-          copiedEventObject.start = startDate;
-          copiedEventObject.end = endDate;
+          startTime = date._d;
+          endTime = getEndDay(date._d);
 
-          setValueDate('.apply-appointment-start-time', moment(startDate).format(I18n.t('time.formats.format_datetime_picker')));
-          setValueDate('.apply-appointment-end-time', moment(endDate).format(I18n.t('time.formats.format_datetime_picker')));
+          copiedEventObject.start = date._d;
+          copiedEventObject.end = getEndDay(date._d);
+
+          setValueDate('.apply-appointment-start-time', moment(startTime).format(I18n.t('time.formats.format_datetime_picker')));
+          setValueDate('.apply-appointment-end-time', moment(endTime).format(I18n.t('time.formats.format_datetime_picker')));
           $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
             $(this).remove();
         },
@@ -114,4 +126,33 @@ var CompCalendar = function() {
 
 function setValueDate (element, time){
   $(element).val(time);
+}
+
+function getStartDate(date){
+  if(date !== null && date !== ''){
+    return convertStringToTime(date);
+  }else{
+    return new Date();
+  }
+}
+
+function getEndDate(date, startDate){
+  if(date !== null && date !== ''){
+    return convertStringToTime(date);
+  }else{
+    return getEndDay(startDate)
+  }
+}
+
+function getEndDay(startTime){
+  var d = startTime.getDate();
+  var m = startTime.getMonth();
+  var y = startTime.getFullYear();
+  return new Date(y, m, d, 23, 0);
+}
+
+function convertStringToTime(stringTime){
+  if(stringTime !== null){
+    return Date.parse(stringTime)
+  }
 }

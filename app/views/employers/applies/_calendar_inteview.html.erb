@@ -4,15 +4,17 @@
 <div class = "calendar-content-apply">
   <div class="col-md-2">
     <div class="block-section">
-      <%= get_data appointments %>
+      <%= get_data appointments, apply %>
     </div>
     <div class="block-section">
       <div class="block-section text-center text-muted">
         <small><em><i class="fa fa-arrows"></i><%= t "employers.applies.update.drop_calendar" %></em></small>
       </div>
-      <ul class="calendar-events">
-        <li class="label label-info" ><%= apply.information[:name] %></li>
-      </ul>
+      <% if appointment.start_time.blank? %>
+        <ul class="calendar-events">
+          <li class="label label-info" ><%= apply.information[:name] %></li>
+        </ul>
+      <% end %>
     </div>
   </div>
   <div class="col-md-10">

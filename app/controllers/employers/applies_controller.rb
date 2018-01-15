@@ -61,8 +61,8 @@ class Employers::AppliesController < Employers::EmployersController
   end
 
   def load_appointments
-    @appointments = @company.appointments.includes(:apply).get_greater_equal_by(Date.current).
-      group_by{|appointment| appointment.apply_information[:name]}
+    @appointments = @company.appointments.includes(:apply).get_greater_equal_by(Date.current)
+      .group_by{|appointment| appointment.apply_information[:name]}
   end
 
   def create_inforappointments
