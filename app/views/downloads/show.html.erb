@@ -18,7 +18,7 @@
                   <tr>
                     <td class="view-field">
                       <strong class="view-control">
-                        <span class="glyphicon glyphicon-envelope"></span> <span class="title"><%= t "users.update.email" %>:</span>
+                        <span class="glyphicon glyphicon-envelope"></span> <span class="title"><%= t ".email" %>:</span>
                       </strong>
                     </td>
                     <td class="profile_content"><%= @user.email %></td>
@@ -27,7 +27,7 @@
                   <tr>
                     <td class="view-field">
                       <strong class="view-control">
-                        <span class="glyphicon glyphicon-globe"></span> <span class="title"><%= t "users.update.address" %>:</span>
+                        <span class="glyphicon glyphicon-globe"></span> <span class="title"><%= t ".address" %>:</span>
                       </strong>
                     </td>
                     <td class="profile_content"><%= @user.address %></td>
@@ -35,7 +35,7 @@
                   <tr>
                     <td class="view-field">
                       <strong class="view-control">
-                        <span class="glyphicon glyphicon-phone"></span> <span class="title"><%= t "users.update.phone" %>:</span>
+                        <span class="glyphicon glyphicon-phone"></span> <span class="title"><%= t ".phone" %>:</span>
                       </strong>
                     </td>
                     <td class="profile_content"><%= @user.phone %></td>
@@ -43,7 +43,7 @@
                    <tr>
                     <td class="view-field">
                       <strong class="view-control">
-                        <span class="fa fa-birthday-cake"></span> <span class="title"><%= t "users.update.birthday" %>:</span>
+                        <span class="fa fa-birthday-cake"></span> <span class="title"><%= t ".birthday" %>:</span>
                       </strong>
                     </td>
                     <td class="profile_content"><%= @user.birthday %></td>
@@ -59,28 +59,28 @@
     <div class="quickFade delayFive ghitmodel mainArea">
       <section>
         <div class="sectionTitle">
-          <h1><%= t "clubs._index.achievements" %></h1>
+          <h1><%= t ".achievements" %></h1>
         </div>
         <%= render partial: "downloads/achievement", collection: @achievements, as: :achievement %>
         <div class="clear"></div>
       </section>
       <section>
         <div class="sectionTitle">
-          <h1><%= t "certificate.certi" %></h1>
+          <h1><%= t ".certificate" %></h1>
         </div>
         <%= render partial: "downloads/certificate", collection: @certificates, as: :certificate %>
         <div class="clear"></div>
       </section>
       <section>
         <div class="sectionTitle">
-          <h1><%= t "clubs._index.club_title" %></h1>
+          <h1><%= t ".clubs" %></h1>
         </div>
         <%= render partial: "downloads/club", collection: @clubs, as: :club %>
         <div class="clear"></div>
       </section>
       <section>
         <div class="sectionTitle">
-          <h1><%= t "experiences._index.experience_title" %></h1>
+          <h1><%= t ".experiences" %></h1>
         </div>
         <%= render partial: "downloads/experience", collection: @experiences, as: :experience %>
         <div class="clear"></div>

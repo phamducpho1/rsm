@@ -1,5 +1,6 @@
 <% if @message.present? %>
-  $('.employer-job-<%= @job.id %>').remove();
+  $('.interview-load').html('<%= j render partial: "employers/templates/interview", collection: @interviewers, as: :interviewer %>');
+  $('#load_user').html('<%= j render partial: "employers/templates/candidate", collection: @candidates, as: :candidate %>');
   alertify.success('<%= @message %>');
 <% else %>
   alertify.error('<%= @job.error.full_messages %>');

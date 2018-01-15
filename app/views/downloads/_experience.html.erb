@@ -2,7 +2,7 @@
   <article>
     <h3><%= experience.name %></h3>
     <p class="subDetails"><%= l experience.start_time, format: :long %>
-      <%= t "experiences._index.to" %>:<%= l experience.end_time, format: :long %>
+      <%= t ".to" %>:<%= l experience.end_time, format: :long %>
     </p>
     <p class="subDetails"><%= experience.company %></p>
     <p><%= experience.project_detail %>.</p>

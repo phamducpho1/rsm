@@ -1,12 +1,12 @@
-<% provide(:title, t("register")) %>
+<% provide(:title, t ".register" ) %>
 <%= image_tag "recruit.framgia.jpg", class: "full-bg animation-pulseSlow" %>
 <div id="login-container" class="animation-fadeIn">
   <div class="login-title text-center">
     <h1>
       <i class="gi gi-flash"></i>
-      <strong><%= t "app" %></strong><br>
-      <small><%= t "please" %><strong><%= t "login" %></strong>
-        <%= t "or" %><strong><%= t "register" %></strong>
+      <strong><%= t ".app" %></strong><br>
+      <small><%= t ".please" %><strong><%= t ".login" %></strong>
+        <%= t ".or" %><strong><%= t ".register" %></strong>
       </small>
     </h1>
   </div>
@@ -19,7 +19,7 @@
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-address-book" aria-hidden="true"></i></span>
             <%= f.text_field :name, autofocus: true, class: "form-control input-lg",
-              placeholder: t("passwords.new.name") %>
+              placeholder: t(".name") %>
           </div>
         </div>
       </div>
@@ -28,7 +28,7 @@
           <div class="input-group">
             <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
             <%= f.email_field :email, autofocus: true, class: "form-control input-lg",
-              placeholder: t("passwords.new.email") %>
+              placeholder: t(".email") %>
           </div>
         </div>
       </div>
@@ -37,7 +37,7 @@
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
             <%= f.text_field :phone, autofocus: true, class: "form-control input-lg",
-              placeholder: t("passwords.new.phone") %>
+              placeholder: t(".phone") %>
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@
         <div class="col-xs-12">
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-address-card-o" aria-hidden="true"></i></span>
-            <%= f.text_field :address, autofocus: true, class: "form-control input-lg", placeholder: t("passwords.new.address") %>
+            <%= f.text_field :address, autofocus: true, class: "form-control input-lg", placeholder: t(".address") %>
           </div>
         </div>
       </div>
@@ -62,7 +62,7 @@
           <div class="input-group">
             <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
             <%= f.password_field :password,class: "form-control input-lg",
-              placeholder: t("passwords.new.password") %>
+              placeholder: t(".password") %>
           </div>
         </div>
       </div>
@@ -71,7 +71,7 @@
           <div class="input-group">
             <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
             <%= f.password_field :password_confirmation,class: "form-control input-lg",
-              placeholder: t("passwords.new.password_confirm") %>
+              placeholder: t(".password_confirm") %>
           </div>
         </div>
       </div>
@@ -84,14 +84,14 @@
           </label>
         </div>
         <div class="col-xs-6 text-right">
-          <%= f.submit t("registrations.new.re_account"), class: "btn btn-sm btn-success" do  %>
+          <%= f.submit t(".re_account"), class: "btn btn-sm btn-success" do  %>
             <i class="fa fa-plus">
           <% end %>
         </div>
       </div>
       <div class="form-group">
         <div class="col-xs-12 text-center">
-          <small><%= t "passwords.new.account" %></small><%= link_to t("users.new.login"), new_user_session_path %>
+          <small><%= t ".account" %></small><%= link_to t(".login"), new_user_session_path %>
         </div>
       </div>
     <% end %>
