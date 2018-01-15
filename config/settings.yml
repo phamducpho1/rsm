@@ -53,6 +53,7 @@ job:
   width: 10
   page: 10
   limit: 10
+  urrency: 5
 activity:
   page: 10
 bookmark:

@@ -141,3 +141,8 @@ a.animation-floating {
 .dropdown:hover .dropdown-menu {
   display: block;
 }
+.badge-notify{
+  background: $blue-light;
+  position: relative;
+  top: -10px;
+}

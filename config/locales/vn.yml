@@ -1572,3 +1572,11 @@ vn:
         search: "Tìm kiếm"
         job_name: "---Tên Công Việc---"
         status_applies: "---Trạng thái Đơn---"
+    jobs:
+      job_wrapper:
+        job: "Công việc"
+        jobs: "Các công việc"
+        add_job: "Thêm mới"
+        urgent: "Khẩn cấp"
+        top: "Top"
+        all: "Tất cả"

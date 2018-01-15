@@ -24,11 +24,15 @@ class Job < ApplicationRecord
   validate :max_salary_less_than_min_salary
   enum position_types: {full_time_freshers: 0, full_time_careers: 1, part_time: 2, intern: 3, freelance: 4}
   enum status: [:opend, :closed]
-  scope :sort_lastest, ->{order(updated_at: :desc)}
+
   scope :sort_max_salary_and_target, -> do
     order(max_salary: :desc, target: :desc).limit Settings.job.limit
   end
   scope :job_company, ->company {where company_id: company}
+  scope :sort_lastest, ->{order updated_at: :desc}
+  scope :get_top_jobs, ->company {where company_id: company}
+  scope :urgent_jobs, ->date_compare {where "end_time <= ?", date_compare}
+
   include PublicActivity::Model
 
   def save_activity user, key
@@ -36,6 +40,21 @@ class Job < ApplicationRecord
       self.create_activity key, owner: user
     end
   rescue
+  end
+
+  class << self
+    def count_of_company company
+      job_company(company.id).count
+    end
+
+    def count_top_of_company company
+      get_top_jobs(company.id).sort_max_salary_and_target.count
+    end
+
+    def count_urgent_of_company company
+      job_company(company.id)
+        .urgent_jobs(Time.zone.now + Settings.job.urrency.days).count
+    end
   end
 
   private

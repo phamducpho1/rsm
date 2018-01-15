@@ -1,13 +1,10 @@
 <%= stylesheet_link_tag "employer/hidepaginate" %>
-<%= render "employers/jobs/search_job" %>
+<%= render "employers/jobs/job_wrapper" %>
 <div class="block full">
   <div class="block-title">
     <h2><strong><%= t ".sidebar_jobs" %></strong></h2>
-    <%= link_to new_employers_job_path, class: "btn btn btn-primary open-tab pull-right",
-      remote: true do %>
-      <i class="fa fa-plus" aria-hidden="true">  <%= t ".add-job" %></i>
-    <% end %>
   </div>
+  <%= render "employers/jobs/search_job" %>
   <table id="example-datatable" class="table table-vcenter table-condensed table-bordered">
     <thead>
       <tr>

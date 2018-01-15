@@ -6,7 +6,7 @@
         <%= link_to employers_job_path job do  %>
           <%= job.name %>
           <% if job.applies.present? %>
-            <span class="label label-primary label-indicator animation-floating">
+            <span class="badge badge-notify">
              <%= count_applies job %>
             </span>
           <% end %>
