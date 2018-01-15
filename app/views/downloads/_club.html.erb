@@ -2,7 +2,7 @@
   <article>
     <h3><%= club.name %></h3>
     <p class="subDetails"><%= l club.start_time, format: :long %>
-      <%= t "experiences._index.to" %>:<%= show_endtime club %>
+      <%= t ".to" %>:<%= show_endtime club %>
     </p>
     <p class="subDetails"><%= club.position %></p>
     <p><%= club.content %>.</p>

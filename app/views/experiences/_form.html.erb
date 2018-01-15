@@ -5,7 +5,7 @@
       <div class="form-group">
         <%= f.label :name, class: "profile_label" do %>
           <strong class="text-red">*</strong>
-          <%= t "experiences._form.name" %>
+          <%= t ".name" %>
         <% end %>
         <%= f.text_field :name, autofocus: true, class: "form-control edit-control" %>
       </div>
@@ -17,7 +17,7 @@
       <div class="form-group">
         <%= f.label :company, class: "profile_label" do %>
           <strong class="text-red">*</strong>
-          <%= t "experiences._form.company" %>
+          <%= t ".company" %>
         <% end %>
         <%= f.text_field :company, class: "form-control edit-control" %>
       </div>
@@ -31,11 +31,11 @@
       <div class="form-group">
         <%= f.label :start_time, class: "profile_label" do %>
           <strong class="text-red">*</strong>
-          <%= t "experiences._form.from" %>
+          <%= t ".from" %>
         <% end %>
         <% if @experience.start_time.present? %>
           <%= f.text_field :start_time, data: {provide: "datepicker"},
-            class: "datepick form-control", value: @experience.start_time.strftime(t "date_format") %>
+            class: "datepick form-control", value: @experience.start_time.strftime(t ".date_format") %>
         <% else %>
           <%= f.text_field :start_time, data: {provide: "datepicker"},
             class: "datepick form-control" %>
@@ -49,11 +49,11 @@
       <div class="form-group">
         <%= f.label :end_time, class: "profile_label" do %>
           <strong class="text-red">*</strong>
-          <%= t "experiences._form.to" %>
+          <%= t ".to" %>
         <% end %>
         <% if @experience.end_time.present? %>
           <%= f.text_field :end_time, data: {provide: "datepicker"},
-            class: "datepick form-control", value: @experience.end_time.strftime(t "date_format") %>
+            class: "datepick form-control", value: @experience.end_time.strftime(t ".date_format") %>
         <% else %>
           <%= f.text_field :end_time, data: {provide: "datepicker"},
             class: "datepick form-control" %>
@@ -69,7 +69,7 @@
       <div class="form-group">
         <%= f.label :project_detail, class: "profile_label" do %>
           <strong class="text-red">*</strong>
-          <%= t "experiences._form.project_detail" %>
+          <%= t ".project_detail" %>
         <% end %>
         <%= f.text_area :project_detail, class: "form-control" %>
       </div>
@@ -79,14 +79,14 @@
     </div>
   </div>
   <div class="form-group push-top-md edit-field">
-    <div class="col-sm-6">(<strong class="text-red">*</strong>)<%= t "achievements.required" %></div>
+    <div class="col-sm-6">(<strong class="text-red">*</strong>)<%= t ".required" %></div>
     <div class="row">
       <div class="col-sm-6 text-right">
         <button id="<%= define_cancel_experience_id @experience %>" type="button"
           class="btn-cancel btn btn-default" value="<%= @experience.id %>">
-          <%= t "experiences._form.cancel" %>
+          <%= t ".cancel" %>
         </button>
-        <%= f.submit t("experiences._form.save"), class: "btn-save btn btn-primary" %>
+        <%= f.submit t(".save"), class: "btn-save btn btn-primary" %>
       </div>
     </div>
   </div>

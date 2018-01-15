@@ -61,7 +61,7 @@
       <div class="block margin-bottom-0">
         <div class="block-title">
           <ul class="nav nav-tabs nav_custom" data-toggle="tabs">
-            <li class="active"><a href="#head_office-tab" id="a-toggle"><%= t "head_office" %></a></li>
+            <li class="active"><a href="#head_office-tab" id="a-toggle"><%= t ".head_office" %></a></li>
             <li><a href="#branches-tab" id="b-toggle"><%= t ".bracnhes" %></a></li>
           </ul>
         </div>
@@ -108,7 +108,7 @@
           </div>
         </div>
         <div>
-          <p class="first_show_branches"><i><%= t "first_show_address_and_branches" %></i></p>
+          <p class="first_show_branches"><i><%= t ".first_show_address_and_branches" %></i></p>
         </div>
       </div>
     </div>
@@ -125,12 +125,12 @@
   </div>
 
   <div class="form-group">
-    <%= f.label t("categories"), class: "col-sm-3 control-label required" %>
+    <%= f.label t(".categories"), class: "col-sm-3 control-label required" %>
     <div class="col-sm-9">
       <div class="block margin-bottom-0">
         <div class="block-title">
           <ul class="nav nav-tabs" data-toggle="tabs">
-            <li class="active"><a href="#category-tab" id="a-toggle"><%= t "list_categories" %></a></li>
+            <li class="active"><a href="#category-tab" id="a-toggle"><%= t ".list_categories" %></a></li>
           </ul>
         </div>
         <div class="onoffswitch">
@@ -155,7 +155,7 @@
                     <%= render "category_fields", f: category %>
                   <% end %>
                   <div class="links add_benefit_links">
-                    <%= link_to_add_association t("add_category"), f, :categories,
+                    <%= link_to_add_association t(".add_category"), f, :categories,
                       class: "btn btn-primary add-object", partial: "category_fields" %>
                   </div>
                 </div>
@@ -164,20 +164,20 @@
           </div>
         </div>
         <div>
-          <p class="first_show_category"><i><%= t "first_show_category" %></i></p>
+          <p class="first_show_category"><i><%= t ".first_show_category" %></i></p>
         </div>
       </div>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label  t("activity_and_partner"), class: "col-sm-3 control-label required" %>
+    <%= f.label  t(".activity_and_partner"), class: "col-sm-3 control-label required" %>
     <div class="col-sm-9">
       <div class="block margin-bottom-0">
         <div class="block-title">
           <ul class="nav nav-tabs" data-toggle="tabs">
-            <li class="active"><a href="#activity-tab" id="a-toggle"><%= t "activity" %></a></li>
-            <li><a href="#partner-tab" id="b-toggle"><%= t "partner" %></a></li>
+            <li class="active"><a href="#activity-tab" id="a-toggle"><%= t ".activity" %></a></li>
+            <li><a href="#partner-tab" id="b-toggle"><%= t ".partner" %></a></li>
           </ul>
         </div>
         <div class="onoffswitch">
@@ -216,7 +216,7 @@
                   <%= render "partner_fields", f: partner %>
                 <% end %>
                 <div class="links add_benefit_links">
-                  <%= link_to_add_association t("add_partner"), f, :partners,
+                  <%= link_to_add_association t(".add_partner"), f, :partners,
                     class: "btn btn-primary add-object", partial: "partner_fields" %>
                 </div>
               </div>
@@ -224,7 +224,7 @@
           </div>
         </div>
         <div>
-          <p class="first_show"><i><%= t "first_show_company" %></i></p>
+          <p class="first_show"><i><%= t ".first_show_company" %></i></p>
         </div>
       </div>
     </div>
@@ -247,7 +247,7 @@
 
   <div class="form-group">
     <div class="text-right col-sm-12">
-      <%= f.submit t("save"), class: "btn btn-primary" %>
+      <%= f.submit t(".save"), class: "btn btn-primary" %>
     </div>
   </div>
 <% end %>

@@ -14,7 +14,7 @@
     </div>
   </div>
 </div>
-<tr>
+<tr class="employer-template-<%= candidate.id %>">
   <td class="text-center"><%= count_page candidate_counter,@page %></td>
   <td class="text-center"><%= candidate.name %></td>
   <td class="text-center">
@@ -23,6 +23,18 @@
       <button type="button" class = "show-inter form-control" value="<%= candidate.id %>">
         <%= t ".show" %>
       </button>
+    </div>
+  </td>
+  <td class="text-center">
+    <div class="btn-group btn-group-xs">
+      <%= link_to edit_employers_template_path(candidate), remote: true,
+        class: "btn btn-warning btn-xs", data: {toggle: "tooltip"} do %>
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      <% end %>
+      <%= link_to employers_template_path(candidate), method: :delete, remote: true,
+        class: "btn btn-danger btn-xs", data: {confirm: (t ".sure")} do %>
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+      <% end %>
     </div>
   </td>
 </tr>

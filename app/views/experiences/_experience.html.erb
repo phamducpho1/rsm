@@ -7,7 +7,7 @@
       <div class="col-md-7">
         <% if can? :modify, experience %>
           <span class="form-btn-edit">
-            <%= link_to experience, method: :delete, data: {confirm: t("experiences._experience.confirm")},
+            <%= link_to experience, method: :delete, data: {confirm: t(".confirm")},
               class: "btn btn-sm btn-danger", remote: true do %>
               <i class="glyphicon glyphicon-trash"></i>
             <% end %>
@@ -20,9 +20,9 @@
     </div>
     <div class="view-field date_profile">
       <span class="view-control" data-control="from-date">
-        <%= t "profile.experience.from" %>
+        <%= t ".from" %>
         <%= I18n.l experience.start_time, format: :long %>
-        <%= t "profile.experience.to" %>
+        <%= t ".to" %>
         <%= I18n.l experience.end_time, format: :long %>
       </span>
     </div>
@@ -31,13 +31,13 @@
   <table class="table table_profile">
     <tr>
       <td class="view-field">
-        <strong class="view-control"><%= t "profile.experience.company" %></strong>
+        <strong class="view-control"><%= t ".company" %></strong>
       </td>
       <td class="profile_content"><%= experience.company %></td>
     </tr>
     <tr>
       <td class="view-field">
-        <strong class="view-control"><%= t "profile.experience.project_detail" %></strong>
+        <strong class="view-control"><%= t ".project_detail" %></strong>
       </td>
       <td class="profile_content"><%= experience.project_detail %></td>
     </tr>
