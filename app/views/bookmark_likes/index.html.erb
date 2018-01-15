@@ -11,7 +11,7 @@
           <fieldset>
             <legend class="box-md">
               <div class="set-default">
-                <h4><i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp;<b><%= t "my_job" %></b></h4>
+                <h4><i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp;<b><%= t ".my_job" %></b></h4>
               </div>
             </legend>
             <div class="row">
@@ -20,11 +20,11 @@
                   <li class="active">
                     <a href="#tab_a" class="item-profile" data-toggle="pill">
                       <i class="fa fa-handshake-o" aria-hidden="true"></i>
-                      <%= t "applied" %>
+                      <%= t ".applied" %>
                     </a>
                   </li>
                   <li><a href="#tab_b" class="item-profile" data-toggle="pill">
-                    <i class="fa fa-star-o" aria-hidden="true"></i><%= t "bookmarted" %></a>
+                    <i class="fa fa-star-o" aria-hidden="true"></i><%= t ".bookmarted" %></a>
                   </li>
                 </ul>
               </div>
@@ -35,7 +35,7 @@
                       <div class="placeholder-section box-md">
                         <p class="placeholder not_apply">
                           <i class="fa fa-heart" aria-hidden="true"></i>
-                          <%= t "apply.havenot_apply" %>
+                          <%= t ".havenot_apply" %>
                         </p>
                       </div>
                     <% else %>
@@ -46,7 +46,7 @@
                               <%= f.select :status_eq, Apply.statuses.map{|key, value| [t("#{key}"), value]},
                                 {}, onchange: "javascript: this.form.commit.click();", class: "
                                 col-sm-3-apply form-control" %>
-                              <%= f.submit "save", class: "btn-submit-edit-applies" %>
+                              <%= f.submit t(".save"), class: "btn-submit-edit-applies" %>
                             </div>
                           <% end %>
                         </div>
@@ -64,7 +64,7 @@
                       <div class="placeholder-section box-md">
                         <p class="placeholder not_apply">
                           <i class="fa fa-heart" aria-hidden="true"></i>
-                          <%= t "apply.havenot_bookmart" %>
+                          <%= t ".havenot_bookmart" %>
                         </p>
                       </div>
                     <% else %>

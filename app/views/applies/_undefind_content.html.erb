@@ -1,6 +1,6 @@
 <%= simple_form_for @apply , remote: :true, class: "form-horizontal form-bordered" do |f| %>
   <%= f.hidden_field :job_id %>
-  <strong><%= t "apply.information" %></strong><br>
+  <strong><%= t ".information" %></strong><br>
   <div class="table-responsive">
     <table class="table table-condensed table-responsive table-user-information">
       <tbody>
@@ -9,7 +9,7 @@
           <td>
             <strong>
               <span class="glyphicon glyphicon-user text-primary"></span>
-              <%= t ".name" %>
+              <span class="text-danger">&nbsp;*</span><%= t ".name" %>
             </strong>
           </td>
           <td class="text-primary">
@@ -20,7 +20,7 @@
           <td>
             <strong>
               <span class="glyphicon glyphicon-envelope text-primary"></span>
-              <%= t ".email" %>
+              <span class="text-danger">&nbsp;*</span><%= t ".email" %>
             </strong>
           </td>
           <td class="text-primary">
@@ -31,11 +31,22 @@
           <td>
             <strong>
               <span class="glyphicon glyphicon-phone text-primary"></span>
-              <%= t ".phone" %>
+              <span class="text-danger">&nbsp;*</span><%= t ".phone" %>
             </strong>
           </td>
           <td class="text-primary">
             <%= p.text_field :phone, class: "form-control" %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>
+              <span class="glyphicon glyphicon-user text-primary"></span>
+              <%= t ".who" %>
+            </strong>
+          </td>
+          <td class="text-primary">
+            <%= f.text_field :broker, class: "form-control" %>
           </td>
         </tr>
       </tbody>
@@ -46,7 +57,7 @@
           <td colspan="2">
             <strong>
               <span class="glyphicon glyphicon-asterisk text-primary"></span>
-              <%= t ".introducing" %>
+              <span class="text-danger">&nbsp;*</span><%= t ".introducing" %>
             </strong>
             <%= p.text_area :introducing, class: "form-control ckeditor", cols: Settings.text_area.cols,
               rows: Settings.text_area.rows %>
@@ -57,7 +68,7 @@
           <td>
             <strong>
               <span class="glyphicon glyphicon-tag text-primary"></span>
-              <%= t ".new_cv" %>
+              <span class="text-danger">&nbsp;*</span><%= t ".new_cv" %>
             </strong>
           </td>
           <td>

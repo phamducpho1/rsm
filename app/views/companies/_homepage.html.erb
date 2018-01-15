@@ -4,33 +4,33 @@
     <section class="section-top-page alt-bg">
       <div class="wrapper">
         <div class="block">
-          <p class="hello"><%= t "homepage.both.hello" %></p>
-          <h2><%= t "homepage.both.question" %></h2>
-          <p class="quote"><%= t "homepage.vn.quote" %></p>
-          <p class="quote2"><%= t "homepage.vn.quote2" %></p>
-          <p class="author"><%= t "homepage.both.author" %></p>
+          <p class="hello"><%= t ".hello" %></p>
+          <h2><%= t ".question" %></h2>
+          <p class="quote"><%= t ".quote" %></p>
+          <p class="quote2"><%= t ".quote2" %></p>
+          <p class="author"><%= t ".author" %></p>
         </div>
       </div>
     </section>
     <section class="section-vision anchor-wrapper">
       <div id="anchor"></div>
       <div class="wrapper">
-        <p class="title-3"><%= t "homepage.vn.anchor" %></p>
-        <p class="anchor desc"><%= t "homepage.vn.anchor_desc" %></p>
+        <p class="title-3"><%= t ".anchor" %></p>
+        <h2 class="title-2 white"><%= t ".make" %></h2>
+        <p class="anchor desc"><%= t ".anchor_desc" %></p>
       </div>
     </section>
     <section class="section-service alt-bg">
       <div class="wrapper">
-        <p class="title-3 white"><%= t "homepage.vn.service.advantage" %></p>
+        <p class="title-3 white"><%= t ".advantage" %></p>
         <div class="row">
           <div class="col-md-6">
             <div class="block">
-              <h2 class="title-2"><%= t "homepage.vn.service.title-2-1" %><br>
-                <%= t "homepage.vn.service.title-2-2" %>
+              <h2 class="title-2"><%= t ".title-2-1" %><br>
               </h2>
-              <p class="desc"><%= t "homepage.vn.service.desc1" %></p>
-              <p class="desc"><%= t "homepage.vn.service.desc2" %></p>
-              <p><a class="fvn-btn" href="#"><%= t "homepage.vn.service.read_more" %></a></p>
+              <p class="desc"><%= t ".desc1" %></p>
+              <p class="desc"><%= t ".desc2" %></p>
+              <p><a class="fvn-btn" href="#"><%= t ".read_more" %></a></p>
             </div>
           </div>
           <div class="col-md-6">
@@ -41,14 +41,17 @@
                     <p>
                       <img src="http://recruit.framgia.vn/wp-content/uploads/2016/05/code-design.png" alt="code-design" class="img-static-36x31">
                     </p>
-                    <h3><%= t "homepage.vn.service.sw_dev.h3" %></h3>
+                    <h3><%= t ".h3" %></h3>
                   </div>
-                  <p>
-                    <br><%= t "homepage.vn.service.sw_dev.p1" %><br>
-                    <%= t "homepage.vn.service.sw_dev.p2" %><br>
-                    <%= t "homepage.vn.service.sw_dev.p3" %><br>
-                    <%= t "homepage.vn.service.sw_dev.p4" %><br>
+                  <h4><%= t ".p1" %></h4>
+                  <p><i class="fa fa-check-circle-o"></i>
+                    <%= t".p11" %>
                   </p>
+                  <h4><%= t".p2" %></h4>
+                  <p><i class="fa fa-check-circle-o"></i>
+                    <%= t ".p22" %>
+                  <p><i class="fa fa-check-circle-o"></i><%= t ".p23" %><br />
+                   &#8211;<%= t ".p24" %>
                 </div>
               </div>
               <div class="col-md-6">
@@ -57,19 +60,19 @@
                     <p>
                       <img src="http://recruit.framgia.vn/wp-content/uploads/2016/05/mobile-app-developing.png" alt="mobile-app-developing" class="img-static-36x36">
                     </p>
-                    <h3><%= t "homepage.vn.service.bus_dev.h3" %></h3>
+                    <h3><%= t ".a3" %></h3>
                   </div>
-                  <p><%= t "homepage.vn.service.bus_dev.p1" %><br></p>
+                  <p><%= t ".a1" %><br></p>
                 </div>
                 <div class="service-item">
                   <div class="item-header">
                     <p>
                       <img src="http://recruit.framgia.vn/wp-content/uploads/2016/05/Edu.png" alt="web-development" class="img-static-36x36"></p>
-                    <h3><%= t "homepage.vn.service.human_dev.h3" %></h3>
+                    <h3><%= t ".a3" %></h3>
                   </div>
                   <p>
-                    <%= t "homepage.vn.service.human_dev.p1" %><br>
-                    <br><%= t "homepage.vn.service.human_dev.p2" %>
+                    <i class="fa fa-check-circle-o"></i><%= t ".a1" %><br>
+                    <br><%= t ".a2" %>
                   </p>
                 </div>
               </div>
@@ -80,7 +83,7 @@
     </section>
     <section class="section-client">
       <div class="wrapper">
-        <h3 class="title-3"><%= t "homepage.vn.client.title" %></h3>
+        <h3 class="title-3"><%= t ".title" %></h3>
         <div class="section-content">
           <div class="owl-carousel owl-client">
             <%= render partial: "client", collection: @partners, as: :partner  %>
@@ -96,8 +99,8 @@
               <p>
                 <img src="http://recruit.framgia.vn/wp-content/uploads/2016/05/planet-earth.png" alt="planet-earth" class="img-static-36x36">
               </p>
-              <p class="number"><%= t "homepage.vn.statistic.num_countries" %></p>
-              <p class="property"><%= t "homepage.vn.statistic.countries" %></p>
+              <p class="number"><%= t ".num_countries" %></p>
+              <p class="property"><%= t ".countries" %></p>
             </div>
           </div>
           <div class="col-md-3">
@@ -105,8 +108,8 @@
               <p>
                 <img src="http://recruit.framgia.vn/wp-content/uploads/2016/05/city.png" alt="company-workers" class="img-static-36x33">
               </p>
-              <p class="number"><%= t "homepage.vn.statistic.num_city" %></p>
-              <p class="property"><%= t "homepage.vn.statistic.city" %></p>
+              <p class="number"><%= t ".num_city" %></p>
+              <p class="property"><%= t ".city" %></p>
             </div>
           </div>
           <div class="col-md-3">
@@ -114,8 +117,8 @@
               <p>
                 <img src="http://recruit.framgia.vn/wp-content/uploads/2016/05/company-workers.png" alt="company-workers" class="img-static-36x33">
               </p>
-              <p class="number"><%= t "homepage.vn.statistic.num_employees" %></p>
-              <p class="property"><%= t "homepage.vn.statistic.employee" %></p>
+              <p class="number"><%= t ".num_employees" %></p>
+              <p class="property"><%= t ".employee" %></p>
             </div>
           </div>
           <div class="col-md-3">
@@ -123,8 +126,8 @@
               <p>
                 <img src="http://recruit.framgia.vn/wp-content/uploads/2016/05/handshake.png" alt="handshake" class="img-static-36x29">
               </p>
-              <p class="number"><%= t "homepage.vn.statistic.num_clients" %></p>
-              <p class="property"><%= t "homepage.vn.statistic.client" %></p>
+              <p class="number"><%= t ".num_clients" %></p>
+              <p class="property"><%= t ".client" %></p>
             </div>
           </div>
           <div class="col-md-3">
@@ -132,8 +135,8 @@
               <p>
                 <img src="http://recruit.framgia.vn/wp-content/uploads/2016/05/shared-folder.png" alt="shared-folder" class="img-static-36x31">
               </p>
-              <p class="number"><%= t "homepage.vn.statistic.num_projects" %></p>
-              <p class="property"><%= t "homepage.vn.statistic.project" %></p>
+              <p class="number"><%= t ".num_projects" %></p>
+              <p class="property"><%= t ".project" %></p>
             </div>
           </div>
         </div>
@@ -141,32 +144,32 @@
     </section>
     <section class="section-team">
       <div class="wrapper">
-        <p class="title-3"><%= t "homepage.vn.team.title" %></p>
+        <p class="title-3"><%= t ".title" %></p>
         <div class="row">
           <div class="col-md-6">
-            <h2 class="title-2"><%= t "homepage.vn.team.title-2-1" %>
-              <br><%= t "homepage.vn.team.title-2-2" %></h2>
+            <h2 class="title-2"><%= t ".title-2-1" %>
+              <br><%= t ".title-2-2" %></h2>
             <div class="feature-list clearfix">
               <ul>
-                <li><i class="material-icons orange"><%= t "homepage.vn.team.done" %></i>
-                  <%= t "homepage.vn.team.feature_1" %></li>
-                <li><i class="material-icons orange"><%= t "homepage.vn.team.done" %></i>
-                  <%= t "homepage.vn.team.feature_2" %></li></li>
-                <li><i class="material-icons orange"><%= t "homepage.vn.team.done" %></i>
-                  <%= t "homepage.vn.team.feature_3" %></li></li>
-                <li><i class="material-icons orange"><%= t "homepage.vn.team.done" %></i>
-                  <%= t "homepage.vn.team.feature_4" %></li></li>
-                <li><i class="material-icons orange"><%= t "homepage.vn.team.done" %></i>
-                  <%= t "homepage.vn.team.feature_5" %></li></li>
-                <li><i class="material-icons orange"><%= t "homepage.vn.team.done" %></i>
-                  <%= t "homepage.vn.team.feature_6" %></li></li>
-                <li><i class="material-icons orange"><%= t "homepage.vn.team.done" %></i>
-                  <%= t "homepage.vn.team.feature_7" %></li></li>
+                <li><i class="material-icons orange"><%= t ".done" %></i>
+                  <%= t ".feature_1" %></li>
+                <li><i class="material-icons orange"><%= t ".done" %></i>
+                  <%= t ".feature_2" %></li></li>
+                <li><i class="material-icons orange"><%= t ".done" %></i>
+                  <%= t ".feature_3" %></li></li>
+                <li><i class="material-icons orange"><%= t ".done" %></i>
+                  <%= t ".feature_4" %></li></li>
+                <li><i class="material-icons orange"><%= t ".done" %></i>
+                  <%= t ".feature_5" %></li></li>
+                <li><i class="material-icons orange"><%= t ".done" %></i>
+                  <%= t ".feature_6" %></li></li>
+                <li><i class="material-icons orange"><%= t ".done" %></i>
+                  <%= t ".feature_7" %></li></li>
               </ul>
             </div>
             <p>
               <a class="fvn-btn btn-2" href="https://careers-framgia.icims.com/jobs/search?ss=1">
-                <%= t "homepage.vn.team.join" %></a>
+                <%= t ".join" %></a>
             </p>
           </div>
           <div class="col-md-6">
@@ -181,17 +184,17 @@
     </section>
     <section class="section-activity alt-bg">
       <div class="wrapper">
-        <p class="title-3 white"><%= t "homepage.vn.activity.title" %></p>
-        <h2 class="title-2"><%= t "homepage.vn.activity.title-2" %></h2>
+        <p class="title-3 white"><%= t ".title" %></p>
+        <h2 class="title-2"><%= t ".title-2" %></h2>
         <div class="hot-news owl-carousel owl-theme">
           <%= render partial: "activity", collection: @activities, as: :activity %>
         </div>
       </div>
     </section>
     <section class="section-check-career alt-bg">
-      <h2><%= t "homepage.vn.career.h2" %></h2>
+      <h2><%= t ".h2" %></h2>
       <p><a class="fvn-btn btn-1" href="https://careers-framgia.icims.com/jobs/search?ss=1">
-        <%= t "homepage.vn.career.content_1" %></a></p>
+        <%= t ".content_1" %></a></p>
     </section>
   </div>
 </article>
