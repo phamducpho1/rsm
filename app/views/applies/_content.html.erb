@@ -8,10 +8,19 @@
         <%= p.hidden_field :email, value: current_user.email %>
         <%= p.hidden_field :phone, value: current_user.phone %>
         <tr>
-          <td>
+          <div class="col-md-2">
+            <span class="glyphicon glyphicon-user text-primary"></span>
+              <%= t ".who" %>
+          </div>
+          <div class="col-md-5">
+            <%= f.text_field :broker, class: "form-control" %>
+          </div>
+        </tr>
+        <tr>
+          <td class="no-border">
             <strong>
               <span class="glyphicon glyphicon-asterisk text-primary"></span>
-              <%= t "apply.introducing" %>
+              <%= t ".introducing" %>
             </strong>
             <%= p.text_area :introducing, class: "form-control ckeditor", cols: Settings.text_area.cols,
               rows: Settings.text_area.rows %>
@@ -27,7 +36,7 @@
     <table class="col-md-12 table table-condensed table-responsive">
       <tr>
         <td>
-          <i class="fa fa-book fa-fw"></i><span><%= t "apply.news_cv" %></span>
+          <i class="fa fa-book fa-fw"></i><span><%= t ".news_cv" %></span>
           <label class="switch switch-primary">
             <input type="checkbox" id="checkcv" name="checkcv" value="1">
             <span></span>
@@ -38,10 +47,10 @@
         <td>
           <strong class="col-md-3">
             <span class="glyphicon glyphicon-tag text-primary"></span>
-            <%= t "apply.new_cv" %>
+            <%= t ".new_cv" %>
           </strong>
           <span class="btn btn-default btn-file col-md-2">
-            <%= t "downloads.browse" %><%= f.file_field :cv, id: "file_cv", class: "transparent absolute" %>
+            <%= t ".browse" %><%= f.file_field :cv, id: "file_cv", class: "transparent absolute" %>
           </span>
         </td>
       </tr>
@@ -51,7 +60,7 @@
             <%= t ".close" %>
           </button>
           <button type="submit" class="btn btn-sm btn-warning pull-right load-page">
-            <i class="fa fa-plus" aria-hidden="true"></i><%= t "apply.apply" %>
+            <i class="fa fa-plus" aria-hidden="true"></i><%= t ".apply" %>
           </button>
         </td>
       </tr>

@@ -8,6 +8,6 @@ module ExperiencesHelper
   end
 
   def check_experience user
-    current_user.is_user?(user) ? t("experiences.describle") : t("placeholder.blank")
+    current_user.is_user?(user) ? t("experiences.describle") : t("experiences.blank")
   end
 end

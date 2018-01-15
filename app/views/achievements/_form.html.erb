@@ -4,10 +4,10 @@
     <div class="col-sm-6">
       <div class="form-group">
         <%= f.label :name, class: "profile_label" do %>
-          <strong class="text-red">*</strong><%= t "achievements.name" %>
+          <strong class="text-red">*</strong><%= t ".name" %>
         <% end %>
         <%= f.text_field :name, autofocus: true, class: "form-control edit-control",
-        placeholder: t("passwords.new.name") %>
+        placeholder: t(".name1") %>
       </div>
       <span class="error-message">
         <%= f.error :name %>
@@ -16,10 +16,10 @@
     <div class="col-sm-6">
       <div class="form-group">
         <%= f.label :majors, class: "profile_label" do %>
-          <strong class="text-red">*</strong><%= t "achievements.majors" %>
+          <strong class="text-red">*</strong><%= t ".majors" %>
         <% end %>
         <%= f.text_field :majors, autofocus: true, class: "form-control edit-control",
-        placeholder: t("achievements.example") %>
+        placeholder: t(".example") %>
       </div>
       <span class="error-message">
           <%= f.error :majors %>
@@ -30,10 +30,10 @@
     <div class="col-sm-6">
       <div class="form-group">
         <%= f.label :organization, class: "profile_label" do %>
-          <strong class="text-red">*</strong><%= t "achievements.organization" %>
+          <strong class="text-red">*</strong><%= t ".organization" %>
         <% end %>
         <%= f.text_field :organization, autofocus: true, class: "form-control edit-control",
-        placeholder: t("achievements.organization") %>
+        placeholder: t(".organization") %>
       </div>
       <span class="error-message">
           <%= f.error :organization %>
@@ -42,7 +42,7 @@
     <div class="col-sm-6">
       <div class="form-group">
         <%= f.label :received_time, class: "profile_label" do %>
-          <strong class="text-red">*</strong><%= t "achievements.received_time" %>
+          <strong class="text-red">*</strong><%= t ".received_time" %>
         <% end %>
         <% if @achievement.received_time.present? %>
         <%= f.text_field :received_time, data: {provide: "datepicker"},
@@ -57,14 +57,14 @@
     </div>
   </div>
   <div class="form-group push-top-md edit-field">
-    <div class="col-sm-6" >(<strong class="text-red">*</strong>)<%= t "achievements.required" %></div>
+    <div class="col-sm-6" >(<strong class="text-red">*</strong>)<%= t ".required" %></div>
     <div class="row">
       <div class="col-sm-6 text-right">
         <button id="<%= define_cancel_achievement_id @achievement %>" type="button"
           class="btn-cancel btn btn-default" value="<%= @achievement.id %>">
-          <%= t "achievements.cancle" %>
+          <%= t ".cancle" %>
         </button>
-        <%= f.submit t("achievements.save"), class: "btn-save btn btn-primary" do  %>
+        <%= f.submit t(".save"), class: "btn-save btn btn-primary" do  %>
         <i class="fa fa-plus"></i>
         <% end %>
         <span class="achievement-received_time-invalid error-message"></span>

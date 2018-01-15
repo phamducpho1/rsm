@@ -20,7 +20,7 @@ class AppliesController < ApplicationController
   private
 
   def apply_params
-    params.require(:apply).permit :status, :user_id, :job_id, :information, :cv
+    params.require(:apply).permit :status, :user_id, :job_id, :information, :cv, :broker
   end
 
   def format_respond

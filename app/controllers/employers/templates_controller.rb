@@ -20,6 +20,28 @@ class Employers::TemplatesController < Employers::EmployersController
     respond_to :js
   end
 
+  def update
+    respond_to do |format|
+      if @template.update_attributes template_params
+        load_templates
+        format.js{@message = t "employers.templates.form.update"}
+      else
+        format.js
+      end
+    end
+  end
+
+  def destroy
+    respond_to do |format|
+      if @template.destroy
+        load_templates
+        format.js{@message = t "employers.templates.form.destroy"}
+      else
+        format.js
+      end
+    end
+  end
+
   private
 
   def template_params
@@ -32,3 +54,4 @@ class Employers::TemplatesController < Employers::EmployersController
     @page = params[:page]
   end
 end
+

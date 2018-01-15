@@ -7,7 +7,7 @@ class BookmarkLikesController < ApplicationController
   def create
     respond_to do |format|
       if @bookmark_like.save
-        format.js{@success = t "bookmark_like.create"}
+        format.js{@success = t "bookmark_likes.create"}
       else
         format.js
       end
@@ -18,7 +18,7 @@ class BookmarkLikesController < ApplicationController
     respond_to do |format|
       if @bookmark_like.destroy
         @bookmark_like.like? ? load_like : load_bookmark
-        format.js{@success = t "achievements.destroy_success"}
+        format.js{@success = t "bookmark_likes.destroy_success"}
       else
         format.js
       end
