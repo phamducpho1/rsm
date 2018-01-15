@@ -8,6 +8,6 @@ module AchievementsHelper
   end
 
   def check_information user
-    current_user.is_user?(user) ? t("achievements.describle") : t("placeholder.blank")
+    current_user.is_user?(user) ? t("achievements.form.describle") : t("achievements.form.blank")
   end
 end

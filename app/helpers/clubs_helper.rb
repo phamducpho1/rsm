@@ -16,6 +16,6 @@ module ClubsHelper
   end
 
   def check_club user
-    current_user.is_user?(user) ? t("clubs.describle") : t("placeholder.blank")
+    current_user.is_user?(user) ? t("clubs.describle") : t("clubs.blank")
   end
 end

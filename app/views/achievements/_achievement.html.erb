@@ -7,7 +7,7 @@
       <div class="col-md-8">
         <% if can? :modify, achievement %>
           <span class="form-btn-edit">
-            <%= link_to achievement_path(achievement), method: :delete, data: {confirm: t("achievements.confirm")},
+            <%= link_to achievement_path(achievement), method: :delete, data: {confirm: t(".confirm")},
               class: "btn btn-sm btn-danger", remote: true do %>
               <i class="glyphicon glyphicon-trash"></i>
             <% end %>
@@ -27,13 +27,13 @@
   <table class= "table table_profile">
     <tr>
       <td class="view-field">
-        <strong class="view-control"><%= t "profile.achievement.majors" %></strong>
+        <strong class="view-control"><%= t ".majors" %></strong>
       </td>
       <td class="profile_content"><%= achievement.majors %></td>
     </tr>
     <tr>
       <td class="view-field">
-        <strong class="view-control"><%= t "profile.achievement.organization" %></strong>
+        <strong class="view-control"><%= t ".organization" %></strong>
       </td>
       <td class="profile_content"><%= achievement.organization %></td>
     </tr>

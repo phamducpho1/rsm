@@ -8,6 +8,6 @@ module CertificatesHelper
   end
 
   def check_certificate user
-    current_user.is_user?(user) ? t("certificate.describle") : t("placeholder.blank")
+    current_user.is_user?(user) ? t(".describle") : t(".blank")
   end
 end
