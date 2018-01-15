@@ -4,7 +4,7 @@
     <div class="col-sm-6">
       <div class="form-group">
         <%= f.label :name, class: "profile_label" do %>
-          <strong class="text-red">*</strong><%= t "clubs._form.name" %>
+          <strong class="text-red">*</strong><%= t ".name" %>
         <% end %>
         <%= f.text_field :name, autofocus: true, class: "form-control edit-control" %>
         <span class="error-message">
@@ -15,7 +15,7 @@
     <div class="col-sm-6">
       <div class="form-group">
         <%= f.label :position, class: "profile_label" do %>
-          <strong class="text-red">*</strong><%= t "clubs._form.pos" %>
+          <strong class="text-red">*</strong><%= t ".pos" %>
         <% end %>
         <%= f.text_field :position, class: "form-control edit-control" %>
         <span class="error-message">
@@ -28,7 +28,7 @@
     <div class="col-sm-4">
       <div class="form-group">
         <%= f.label :start_time, class: "profile_label" do %>
-          <strong class="text-red">*</strong><%= t("clubs._form.from") %>
+          <strong class="text-red">*</strong><%= t ".from" %>
         <% end %>
         <% if @club.start_time.present? %>
           <%= f.text_field :start_time, data: {provide: "datepicker"},
@@ -45,7 +45,7 @@
     <div class="col-sm-4">
       <div class="form-group">
         <%= f.label :end_time, class: "profile_label" do %>
-          <strong class="text-red">*</strong><%= t("clubs._form.to") %>
+          <strong class="text-red">*</strong><%= t ".to" %>
         <% end %>
         <% if @club.end_time.present? %>
           <%= f.text_field :end_time, data: {provide: "datepicker"},
@@ -64,7 +64,7 @@
         <div class="m-t-lg hidden-xs"></div>
         <span>
           <%= f.check_box :current, class: "to-present-checkbox" %>
-          <%= f.label :current, t("clubs.helpers.present"), class: "profile_label" %>
+          <%= f.label :current, t(".present"), class: "profile_label" %>
         </span>
       </div>
     </div>
@@ -72,23 +72,23 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="form-group">
-        <%= f.label :content, t("profile.club.content"), class: "control-label profile_label" %>
+        <%= f.label :content, t(".content"), class: "control-label profile_label" %>
         <%= f.text_area :content, class: "form-control" %>
         <span class="club-position-invalid error-message">
-          <%= show_errors @club, :content, t("profile.club.content") %>
+          <%= show_errors @club, :content, t(".content") %>
         </span>
       </div>
     </div>
   </div>
   <div class="form-group push-top-md edit-field">
-    <div class="col-sm-6">(<strong class="text-red">*</strong>)<%= t "achievements.required" %></div>
+    <div class="col-sm-6">(<strong class="text-red">*</strong>)<%= t ".required" %></div>
     <div class="row">
       <div class="col-sm-6 text-right">
         <button id="<%= define_cancel_club_id @club %>" type="button"
           class="btn-cancel btn btn-default" value="<%= @club.id %>">
-          <%= t "clubs._form.cancel" %>
+          <%= t ".cancel" %>
         </button>
-        <%= f.submit t("clubs._form.save"), class: "btn-save btn btn-primary" %>
+        <%= f.submit t(".save"), class: "btn-save btn btn-primary" %>
       </div>
     </div>
   </div>

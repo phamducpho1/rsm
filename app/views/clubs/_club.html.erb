@@ -7,7 +7,7 @@
       <div class="col-md-7">
         <% if can? :modify, club %>
           <span class="form-btn-edit">
-            <%= link_to club, method: :delete, data: {confirm: t("clubs._club.confirm")},
+            <%= link_to club, method: :delete, data: {confirm: t(".confirm")},
               class: "btn btn-sm btn-danger", remote: true do %>
               <i class="glyphicon glyphicon-trash"></i>
             <% end %>
@@ -20,9 +20,9 @@
     </div>
     <div class="view-field date_profile">
       <span class="view-control" data-control="from-date">
-        <%= t "profile.club.from" %>
+        <%= t ".from" %>
         <%= I18n.l club.start_time, format: :long %>
-        <%= t "profile.club.to" %>
+        <%= t ".to" %>
         <%= show_endtime club %>
       </span>
     </div>
@@ -31,13 +31,13 @@
   <table class="table table_profile">
     <tr>
       <td class="view-field">
-        <strong class="view-control"><%= t "profile.club.position" %></strong>
+        <strong class="view-control"><%= t ".position" %></strong>
       </td>
       <td class="profile_content"><%= club.position %></td>
     </tr>
     <tr>
       <td class="view-field">
-        <strong class="view-control"><%= t "profile.club.organization" %></strong>
+        <strong class="view-control"><%= t ".organization" %></strong>
       </td>
       <td class="profile_content"><%= club.content %></td>
     </tr>

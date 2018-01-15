@@ -8,20 +8,20 @@
         <b><%= link_to bookmark_like.job.name,
           job_url(bookmark_like.job_id, subdomain: bookmark_like.company.subdomain) %></b>
       </div>
-      <div class="text-strong"><%= t "bookmark_like.corp" %><%= bookmark_like.company.name %> ,
+      <div class="text-strong"><%= t ".corp" %><%= bookmark_like.company.name %> ,
         <%= bookmark_like.company.address %></div>
-      <div class="text-strong"><%= t "bookmark_like.level" %><%= bookmark_like.job.level %></div>
+      <div class="text-strong"><%= t ".level" %><%= bookmark_like.job.level %></div>
     </div>
     <div class="col-md-2 applied" >
       <div class="text-light bookmark_like-color">
-        <b><%= t "bookmark_like.position" %></b>
+        <b><%= t ".position" %></b>
         <span class="hidden-md hidden-lg m-r-xs">:</span>
       </div>
       <div class="text-strong"><%= bookmark_like.job.position %></div>
     </div>
     <div class="col-md-2 applied">
       <div class="text-light bookmark_like-color">
-       <b><%= t "bookmark_like.subdate" %></b>
+       <b><%= t ".subdate" %></b>
         <span class="hidden-md hidden-lg m-r-xs">:</span>
       </div>
       <div class="text-strong"><%= l bookmark_like.created_at, format: :long %></div>

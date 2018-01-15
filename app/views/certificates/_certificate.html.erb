@@ -7,7 +7,7 @@
       <div class="col-md-7">
         <% if can? :modify, certificate %>
           <span class="form-btn-edit">
-            <%= link_to certificate, method: :delete, data: {confirm: I18n.t("certificate.confirm")},
+            <%= link_to certificate, method: :delete, data: {confirm: t(".confirm")},
               class: "btn btn-sm btn-danger", remote: true do %>
               <i class="glyphicon glyphicon-trash"></i>
             <% end %>
@@ -28,19 +28,19 @@
   <table class="table table_profile">
     <tr>
       <td class="view-field">
-        <strong class="view-control"><%= t "profile.certificate.majors" %></strong>
+        <strong class="view-control"><%= t ".majors" %></strong>
       </td>
       <td class="profile_content"><%= certificate.majors %></td>
     </tr>
     <tr>
       <td class="view-field">
-        <strong class="view-control"><%= t "profile.certificate.organization" %></strong>
+        <strong class="view-control"><%= t ".organization" %></strong>
       </td>
       <td class="profile_content"><%= certificate.organization %></td>
     </tr>
     <tr>
       <td class="view-field">
-        <strong class="view-control"><%= t "profile.certificate.classification" %></strong>
+        <strong class="view-control"><%= t ".classification" %></strong>
       </td>
       <td class="profile_content"><%= certificate.classification %></td>
     </tr>
