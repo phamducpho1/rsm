@@ -5,24 +5,29 @@
   </button>
   <div class="modal fade" id="JobModal" role="dialog">
     <div class="modal-dialog job-modal-dialog">
-      <div class="modal-content config">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">
-            <%= t ".apply_for" %>
-            <strong class="title-modal">
-              <%= @job.name %>
-              (<%= t ".slary" %>
-              <%= @job.min_salary.round.to_s + Settings.currency.dollar %> -
-              <%= t ".working" %><%= @company.address %>)
-            </strong>
-          </h4>
+      <div class="modal-content config custom-width">
+        <div class="modal-header login-titles">
+          <button type="button" class="close title-modal" data-dismiss="modal">x</button>
+          <div class="login-title text-center">
+            <h1>
+              <i class="gi gi-flash"></i>
+              <strong><%= t ".app" %>&nbsp; <%= t ".framgia" %></strong><br>
+              <small>
+                <strong class="title-modal">
+                  <%= @job.name %>
+                  (<%= t ".slary" %>
+                  <%= @job.min_salary.round.to_s + Settings.currency.dollar %> -
+                  <%= t ".working" %><%= @company.address %>)
+                </strong>
+              </small>
+            </h1>
+          </div>
         </div>
         <div class="modal-body modal-create-form" id="job-create-form">
           <div class="container bootstrap snippet">
             <div class="panel-body inf-content">
               <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3 map-right">
                   <% if current_user.picture.present? %>
                     <%= image_tag current_user.picture.url, class: "img-circle img-thumbnail isTooltip",
                       size: Settings.img_cv %>
@@ -30,7 +35,7 @@
                     <%= image_tag "avatar_2x.png", class: "img-circle img-thumbnail isTooltip", size: Settings.img_cv %>
                   <% end %>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-5 hear-right">
                   <strong><%= t ".information" %></strong><br>
                   <div class="table-responsive">
                     <table class="table table-condensed table-responsive table-user-information">

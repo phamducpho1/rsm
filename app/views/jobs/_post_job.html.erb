@@ -3,14 +3,14 @@
     <%= link_to new_job_path, class: "btn btn-lg btn-info col-md-12 btn-max-width float-right",
       remote: true, methob: :get do %>
       <i class="fa fa-plus" aria-hidden="true"></i>
-      <%= t "post_job" %>
+      <%= t ".post_job" %>
     <% end %>
     <div class="modal fade" id="job-manage" role="dialog">
       <div class="modal-dialog job-modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title"><%= t "post_job" %></h4>
+            <h4 class="modal-title"><%= t ".post_job" %></h4>
           </div>
           <div class="modal-body" id="job-create-form">
             <%= render "jobs/form" %>

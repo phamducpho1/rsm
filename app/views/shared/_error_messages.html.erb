@@ -1,7 +1,7 @@
 <% if object.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
-      <%= t "shared.error_messages" %><%= pluralize(object.errors.size, t("shared.error")) %>.
+      <%= t ".error_messages" %><%= pluralize(object.errors.size, t(".error")) %>.
     </div>
     <ul>
       <% object.errors.full_messages.each do |msg| %>

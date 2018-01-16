@@ -14,40 +14,36 @@
         <%= t "homepage.both.close" %></i>
       <section id="icl_lang_sel_widget-2" class="widget widget_icl_lang_sel_widget">
         <div id="lang_sel">
-          <ul><li>
-            <a href="#" class="lang_sel_sel icl-vi"><%= t "homepage.vn.language" %></a>
-            <ul> <li class="icl-en">
-              <a href="http://recruit.framgia.vn?lang=en"><%= t "homepage.en.language" %></a></li>
-            </ul>
-          </li></ul>
+          <%= render "shared/language_local" %>
         </div>
       </section>
       <div class="menu">
         <ul id="menu-primary-menu-vn" class="">
-          <li id="menu-item-114" class="inactive menu-item menu-item-type-custom menu-item-object-custom menu-item-114">
-            <a href="#"><%= t "homepage.header.about_us" %></a>
-          </li>
           <li id="menu-item-118" class="inactive menu-item menu-item-type-custom menu-item-object-custom menu-item-118">
-            <a href="#"><%= t "homepage.header.service" %></a>
+            <a href="#"><%= t ".service" %></a>
           </li>
           <li id="menu-item-129" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-129">
-            <a href="https://careers-framgia.icims.com/jobs/search?ss=1">
-              <%= t "homepage.header.challange_job" %></a>
+
+            <%= link_to jobs_path do %>
+              <%= t ".challange_job" %>
+            <% end %>
           </li>
           <li id="menu-item-117" class="inactive menu-item menu-item-type-custom menu-item-object-custom menu-item-117">
-            <a href="#"><%= t "homepage.header.cultural" %></a>
+            <a href="#"><%= t ".cultural" %></a>
           </li>
           <li id="menu-item-116" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-116">
-            <a href="http://recruit.framgia.vn/lien-he/"><%= t "homepage.header.contact" %></a>
+            <a href="#"><%= t ".contact" %></a>
           </li>
+          <% if !user_signed_in? %>
+            <li id="menu-item-114" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-114">
+              <%= link_to "javascript:void(0)", class: "btn-login" do %>
+                <%= t ".login" %>
+              <% end %>
+            </li>
+          <% end %>
         </ul>
         <div id="lang_sel">
-          <ul><li>
-            <a href="#" class="lang_sel_sel icl-vi"><%= t "homepage.vn.language" %></a>
-            <ul><li class="icl-en">
-              <a href="http://recruit.framgia.vn?lang=en"><%= t "homepage.en.language" %></a>
-            </li></ul>
-          </li></ul>
+          <%= render "shared/language_local" %>
         </div>
       </div>
     </div>

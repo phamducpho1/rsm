@@ -12,10 +12,10 @@
       <div class="notify-drop-title">
         <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-6">
-            <b><%= t "notification" %></b>
+            <b><%= t ".notification" %></b>
           </div>
           <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-            <%= link_to "#", class: "rIcon allRead", title: t("read_all"),
+            <%= link_to "#", class: "rIcon allRead", title: t(".read_all"),
               data: {tooltip: "tooltip", placement: "bottom"} do %>
               <i class="fa fa-dot-circle-o"></i>
             <% end %>
@@ -28,7 +28,7 @@
       </div>
       <div class="notify-drop-footer text-center">
         <%= link_to "#", class: "text-title" do %>
-          <i class="fa fa-eye"></i><%= t "see_all" %>
+          <i class="fa fa-eye"></i><%= t ".see_all" %>
         <% end %>
       </div>
     </ul>

@@ -2,7 +2,7 @@
   <div class="container">
     <a href="index.html" class="site-logo">
       <i class="fa fa-gg" aria-hidden="true"></i>
-      <strong><%= t "index.fram" %></strong><%= t "index.recruit" %>
+      <strong><%= t ".fram" %></strong><%= t ".recruit" %>
     </a>
     <% if can? :update, @company %>
       <nav>
@@ -20,20 +20,20 @@
             <ul>
               <li>
                 <%= link_to edit_user_registration_path(current_user) do %>
-                  <%= t "users.new.profile" %>
+                  <%= t ".profile" %>
                   <i class="fa fa-user fa-fw pull-right"></i>
                 <% end %>
               </li>
               <li>
                 <%= link_to edit_company_path(@company) do %>
-                  <%= t "account" %>
+                  <%= t ".account" %>
                   <span class="glyphicon glyphicon-edit pull-right"></span>
                 <% end %>
               </li>
               <li>
                 <%= link_to destroy_user_session_path, method: :delete do %>
                   <i class="fa fa-ban fa-fw pull-right"></i>
-                  <%= t "layouts._header.logout" %>
+                  <%= t ".logout" %>
                 <% end %>
               </li>
             </ul>

@@ -2,7 +2,7 @@
   <div class="container">
     <%= link_to root_path, class: "site-logo" do %>
       <i class="fa fa-gg" aria-hidden="true"></i>
-      <strong><%= t "index.fram" %></strong><%= t "index.recruit" %>
+      <strong><%= t ".fram" %></strong><%= t "index.recruit" %>
     <% end %>
     <nav>
       <section class="widget_icl_lang_sel_widget user-ic">
@@ -18,33 +18,33 @@
               <ul>
                 <li>
                   <%= link_to bookmark_likes_url(subdomain: false) do %>
-                    <%= t "my_job" %>
+                    <%= t ".my_job" %>
                     <i class="fa fa-briefcase pull-right"></i>
                   <% end %>
                 </li>
                 <li>
                   <%= link_to user_url(current_user, subdomain: false) do %>
-                    <%= t "users.new.profile" %>
+                    <%= t ".profile" %>
                     <i class="fa fa-user fa-fw pull-right"></i>
                   <% end %>
                 </li>
                 <li>
                   <%= link_to edit_user_registration_url(current_user, subdomain: false) do %>
-                    <%= t "users.new.change_pass" %>
+                    <%= t ".change_pass" %>
                     <i class="fa fa-pencil-square-o pull-right"></i>
                   <% end %>
                 </li>
                 <li>
                   <%= link_to destroy_user_session_url, method: :delete do %>
                     <i class="fa fa-ban fa-fw pull-right"></i>
-                    <%= t "layouts._header.logout" %>
+                    <%= t ".logout" %>
                   <% end %>
                 </li>
               </ul>
             </li>
           <% else %>
             <li id="menu-item-114" class="btn btn-primary">
-              <%= link_to t("users.new.login"), new_user_session_path %>
+              <%= link_to t(".login"), new_user_session_path %>
             </li>
           <% end %>
         </ul>

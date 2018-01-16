@@ -5,10 +5,10 @@
     <div class="name col-xs-6">
       <div class="edit-field m-b">
         <%= f.label :name, class: "profile_label" do %>
-          <strong class="text-red">*</strong><%= t "profile.user.name" %>
+          <strong class="text-red">*</strong><%= t ".name" %>
         <% end %>
         <%= f.text_field :name, autofocus: true, class: "form-control edit-control input-sm",
-          placeholder: t("profile.user.name") %>
+          placeholder: t(".name") %>
         <span class="error-message">
           <%= f.full_error :name %>
         </span>
@@ -17,10 +17,10 @@
     <div class="name col-xs-6">
       <div class="edit-field m-b">
         <%= f.label :email, class: "profile_label" do %>
-          <strong class="text-red">*</strong><%= t "profile.user.email" %>
+          <strong class="text-red">*</strong><%= t ".email" %>
         <% end %>
         <%= f.text_field :email, autofocus: true, class: "form-control edit-control input-sm",
-          placeholder: t("profile.user.email") %>
+          placeholder: t(".email") %>
         <span class="error-message">
           <%= f.full_error :email %>
         </span>
@@ -31,19 +31,19 @@
     <div class="name col-xs-6">
       <div class="edit-field m-b">
         <%= f.label :address, class: "profile_label" do %>
-          <%= t "profile.user.address" %>
+          <%= t ".address" %>
         <% end %>
         <%= f.text_field :address, autofocus: true, class: "form-control edit-control input-sm",
-          placeholder: t("profile.user.address") %>
+          placeholder: t(".address") %>
       </div>
     </div>
     <div class="name col-xs-6">
       <div class="edit-field m-b">
         <%= f.label :phone, class: "profile_label" do %>
-          <%= t "profile.user.phone" %>
+          <%= t ".phone" %>
         <% end %>
         <%= f.text_field :phone, autofocus: true, class: "form-control edit-control input-sm",
-          placeholder: t("profile.user.phone") %>
+          placeholder: t(".phone") %>
       </div>
     </div>
   </div>
@@ -51,15 +51,15 @@
     <div class="name col-xs-12">
       <div class="edit-field m-b">
         <%= f.label :birthday, class: "profile_label" do %>
-          <%= t "profile.user.birthday" %>
+          <%= t ".birthday" %>
         <% end %>
         <% if @user.birthday.present? %>
           <%= f.text_field :birthday, data: {provide: "datepicker"},
             class: "datepick form-control edit-control",
-              value: @user.birthday.strftime(t "date_format"),  placeholder: t("profile.user.birthday")  %>
+              value: @user.birthday.strftime(t ".date_format"),  placeholder: t(".birthday")  %>
         <% else %>
           <%= f.text_field :birthday, data: {provide: "datepicker"},
-            class: "datepick form-control edit-control",  placeholder: t("profile.user.birthday")  %>
+            class: "datepick form-control edit-control",  placeholder: t(".birthday")  %>
         <% end %>
        </div>
     </div>
@@ -69,7 +69,7 @@
       <div class="edit-field m-b">
         <%= f.label :picture, class: "profile_label" %>
         <span class="btn btn-default btn-file">
-          <%= t "downloads.browse" %>
+          <%= t ".browse" %>
           <%= f.file_field :picture, id: "bannerSelect", class: "logo_img_load" %>
         </span>
         <% if @user.picture.present? %>
