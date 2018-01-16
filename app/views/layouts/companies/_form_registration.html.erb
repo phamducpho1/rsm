@@ -11,7 +11,7 @@
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-address-book" aria-hidden="true"></i></span>
         <%= f.text_field :name, autofocus: true, class: "form-control input-lg",
-          placeholder: t("passwords.new.name") %>
+          placeholder: t(".name") %>
       </div>
       <div class="error-message animation-slideDown">
         <%= f.full_error :name %>
@@ -23,7 +23,7 @@
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
         <%= f.email_field :email, class: "form-control input-lg",
-          placeholder: t("passwords.new.email") %>
+          placeholder: t(".email") %>
       </div>
       <div class="error-message animation-slideDown">
         <%= f.full_error :email %>
@@ -35,7 +35,7 @@
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-key"></i></span>
         <%= f.password_field :password, class: "form-control input-lg",
-          placeholder: t("passwords.new.password") %>
+          placeholder: t(".password") %>
       </div>
       <div class="error-message animation-slideDown">
         <%= f.full_error :password %>
@@ -47,7 +47,7 @@
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-key"></i></span>
         <%= f.password_field :password_confirmation, class: "form-control input-lg",
-          placeholder:t("passwords.new.password_confirm") %>
+          placeholder:t(".password_confirm") %>
       </div>
       <div class="error-message animation-slideDown">
         <%= f.full_error :password_confirmation %>
@@ -59,7 +59,7 @@
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
         <%= f.text_field :phone, class: "form-control input-lg",
-          placeholder: t("passwords.new.phone") %>
+          placeholder: t(".phone") %>
       </div>
     </div>
   </div>
@@ -68,7 +68,7 @@
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-birthday-cake" aria-hidden="true"></i></span>
         <%= f.text_field :birthday, class: "datepicker form-control input-lg",
-          placeholder: t("passwords.new.birthday") %>
+          placeholder: t(".birthday") %>
       </div>
     </div>
   </div>
@@ -77,18 +77,18 @@
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-address-card-o" aria-hidden="true"></i></span>
         <%= f.text_field :address, class: "form-control input-lg",
-          placeholder: t("passwords.new.address") %>
+          placeholder: t(".address") %>
       </div>
     </div>
   </div>
   <div class="form-group text-center p-15">
     <%= f.button :submit, class: "btn btn-sm btn-primary" do %>
-      <%= t "registrations.new.re_account" %>
+      <%= t ".login_to" %>
     <% end %>
   </div>
   <div class="form-group text-center p-15">
     <a href="javascript:void(0)" class="link-login">
-    <small><%= t "login" %></small></a>
+    <small><%= t ".login" %></small></a>
   </div>
 <% end %>
 

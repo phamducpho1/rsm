@@ -687,3 +687,79 @@
 .lang-sel-sel {
   background: url(/assets/nav-arrow-down.png)  right no-repeat !important;
 }
+.width-inline {
+  padding: 10px;
+  display: inline-block ;
+  width: 49.7%;
+  margin-bottom: 0px !important;
+  border-left: 1px dashed $gray-light-3;
+  border-bottom: 1px dashed $gray-light-3;
+  margin-top: 2px !important;
+}
+.form-bordered.form-group {
+  margin: 0;
+  border: none;
+  padding: 15px;
+  border-bottom: 1px dashed $gray-light-3 !important;
+}
+.input-inline {
+  padding: 10px;
+  border-left: 1px dashed $gray-light-3;
+  border-bottom: 1px dashed $gray-light-3;
+}
+.new_apply.form-group {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.new_apply.form-control {
+  font-size: 13px;
+  padding: 6px 8px;
+  max-width: 100%;
+  margin: 1px 0;
+  color: #333;
+  box-shadow: none;
+  background: transparent;
+}
+.input-lg {
+  border: 0px !important;
+}
+.apply-un {
+  border: 0px !important;
+  background-color: $white-light-1 !important;
+  color: $yellow-light-3 !important;
+}
+.lout {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.no-boder {
+  border-top: 0px !important;
+}
+.login-titles {
+  padding: 20px 10px;
+  background: $black-lighs !important;
+  color: $white;
+}
+.login-titles h1 {
+  font-size: 24px;
+}
+.title-modal {
+  color: $white !important;
+}
+.custom-width {
+  width: 82%;
+  margin-left: 77px;
+}
+.map-right {
+  margin-top: -16px;
+  margin-left: -16px;
+}
+.hear-right {
+  margin-left: -48px;
+  margin-top: -12px;
+}
+.boder-left {
+  border-left: 0px;
+}

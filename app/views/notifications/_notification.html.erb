@@ -10,6 +10,6 @@
     <p><%= notification.content %>
       <%= link_to notification.user_name, notification.user %></p>
     <a href="" class="rIcon"><i class="fa fa-dot-circle-o"></i></a>
-    <p class="time"><%= t "time_ago", time: time_ago_in_words(notification.created_at) %></p>
+    <p class="time"><%= t ".time_ago", time: time_ago_in_words(notification.created_at) %></p>
   </div>
 </li>

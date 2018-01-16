@@ -11,7 +11,7 @@
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
         <%= f.email_field :email, autofocus: true, class: "form-control input-lg",
-          placeholder: t("passwords.new.email"), id: "login-email" %>
+          placeholder: t(".email"), id: "login-email" %>
       </div>
     </div>
   </div>
@@ -20,7 +20,7 @@
       <div class="input-group">
         <span class="input-group-addon"><i class="fa fa-key"></i></span>
         <%= f.password_field :password,class: "form-control input-lg",
-          placeholder: t("passwords.new.password"), id: "login-password"  %>
+          placeholder: t(".password"), id: "login-password"  %>
       </div>
     </div>
   </div>
@@ -36,7 +36,7 @@
     </div>
     <div class="pull-right">
       <%= f.button :submit, class: "btn btn-sm btn-primary" do %>
-        <%= t "registrations.new.login_to" %>
+        <%= t ".login_to" %>
       <% end %>
     </div>
   </div>
@@ -44,11 +44,11 @@
   <div class="form-group p-15">
     <div class="text-center">
       <a href="javascript:void(0)" class="link-forgot-password">
-        <small><%= t "registrations.new.forgot" %></small>
+        <small><%= t ".forgot" %></small>
       </a>
       <span> - </span>
       <a href="javascript:void(0)" class="link-register">
-        <small><%= t "passwords.new.create_new" %></small>
+        <small><%= t ".create_new" %></small>
       </a>
     </div>
   </div>

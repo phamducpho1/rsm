@@ -11,7 +11,6 @@
  * It is generally better to create a new file per style scope.
  *= require bootstrap.min
  *= require font-awesome
- *= require custom
  *= require custom_login
  *= require profile
  *= require plugins
@@ -24,4 +23,5 @@
  *= require_self
  *= require social-share-button
  *= require_tree ../../../node_modules/alertify/themes
+ *= require custom
  */

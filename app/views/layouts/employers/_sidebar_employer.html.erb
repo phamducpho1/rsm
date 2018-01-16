@@ -2,7 +2,7 @@
   <div id="sidebar-scroll">
     <div class="sidebar-content">
       <%= link_to employers_company_path(@company), class: "sidebar-brand" do %>
-        <i class="fa fa-bolt" aria-hidden="true"></i>
+         <%= image_tag "frc.png", size: Settings.frc.size %>
         <span class="sidebar-nav-mini-hide"><strong><%= t ".employer" %></span>
       <% end %>
       <div class="sidebar-section sidebar-user clearfix sidebar-nav-mini-hide">

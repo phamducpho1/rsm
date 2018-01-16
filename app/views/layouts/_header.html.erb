@@ -13,16 +13,7 @@
         <%= t "homepage.both.close" %></i>
       <section id="icl_lang_sel_widget-2" class="widget_icl_lang_sel_widget">
         <div id="lang_sel">
-          <ul>
-            <li>
-              <a href="#" class="lang_sel_sel icl-vi"><%= t "homepage.vn.language" %></a>
-              <ul>
-                <li class="icl-en">
-                  <a href="#"><%= t "homepage.en.language" %></a>
-                </li>
-              </ul>
-            </li>
-          </ul>
+          <%= render "shared/language_local" %>
         </div>
       </section>
       <% if user_signed_in? %>
@@ -44,20 +35,20 @@
                 </li>
                 <li>
                   <%= link_to user_url(current_user, subdomain: false) do %>
-                    <%= t "users.new.profile" %>
+                    <%= t ".profile" %>
                     <i class="fa fa-user fa-fw pull-right"></i>
                   <% end %>
                 </li>
                 <li>
                   <%= link_to edit_user_registration_url(current_user, subdomain: false) do %>
-                    <%= t "users.new.change_pass" %>
+                    <%= t ".change_pass" %>
                     <i class="fa fa-pencil-square-o pull-right"></i>
                   <% end %>
                 </li>
                 <li>
                   <%= link_to destroy_user_session_url, method: :delete do %>
                     <i class="fa fa-ban fa-fw pull-right"></i>
-                    <%= t "layouts._header.logout" %>
+                    <%= t ".logout" %>
                   <% end %>
                 </li>
               </ul>
@@ -73,36 +64,30 @@
       <div class="menu">
         <ul id="menu-primary-menu-vn" class="">
           <li id="menu-item-118" class="inactive menu-item menu-item-type-custom menu-item-object-custom menu-item-118">
-            <a href="#"><%= t "homepage.header.service" %></a>
+            <a href="#"><%= t ".service" %></a>
           </li>
           <li id="menu-item-129" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-129">
+
             <%= link_to jobs_path do %>
-              <%= t "homepage.header.challange_job" %>
+              <%= t ".challange_job" %>
             <% end %>
           </li>
           <li id="menu-item-117" class="inactive menu-item menu-item-type-custom menu-item-object-custom menu-item-117">
-            <a href="#"><%= t "homepage.header.cultural" %></a>
+            <a href="#"><%= t ".cultural" %></a>
           </li>
           <li id="menu-item-116" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-116">
-            <a href="#"><%= t "homepage.header.contact" %></a>
+            <a href="#"><%= t ".contact" %></a>
           </li>
           <% if !user_signed_in? %>
             <li id="menu-item-114" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-114">
-              <%= link_to t("users.new.login"), new_user_session_path %>
+              <%= link_to "javascript:void(0)", class: "btn-login" do %>
+                <%= t ".login" %>
+              <% end %>
             </li>
           <% end %>
         </ul>
         <div id="lang_sel">
-          <ul>
-            <li>
-              <a href="#" class="lang_sel_sel icl-vi"><%= t "homepage.vn.language" %></a>
-              <ul>
-                <li class="icl-en">
-                  <a href="#"><%= t "homepage.en.language" %></a>
-                </li>
-              </ul>
-            </li>
-          </ul>
+          <%= render "shared/language_local" %>
         </div>
       </div>
     </div>
