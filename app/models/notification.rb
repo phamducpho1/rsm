@@ -23,7 +23,7 @@ class Notification < ApplicationRecord
 
   class << self
     def create_notification user_read, event, user, company_id, user_request = nil
-      Notification.transaction do
+      Notification.transaction requires_new: true do
         user_id = user ? user.id : nil
         Notification.create! user_read: user_read,
           event: event, user_id: user_id, company_id: company_id,

@@ -11,7 +11,15 @@ class ApplyStatus < ApplicationRecord
 
   enum is_current: {current: 0, not_current: 1}
 
+  include PublicActivity::Model
+
   scope :get_by, -> apply_ids do
     where apply_id: apply_ids
+  end
+
+  def save_activity key, user
+    self.transaction do
+      self.create_activity key, owner: user
+    end
   end
 end

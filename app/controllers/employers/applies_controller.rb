@@ -33,29 +33,28 @@ class Employers::AppliesController < Employers::EmployersController
       .pluck :company_id
     @q = Job.job_company(company_manager).search params[:q]
     @jobs = @q.result
-    @apply = Apply.new
   end
 
   def create
     respond_to do |format|
-      if @error
-          format.js{@error}
-      else
+      unless @error
         @apply.information = params[:apply][:information].permit!.to_h
         if @apply.save
-          format.js{@message = t ".success"}
+          @message = t ".success"
         else
-          format.js{@error = t ".failure"}
+          @error = t ".failure"
         end
       end
+      format.js
     end
   end
 
   private
 
   def apply_params
+    status_id = StatusStep.status_step_priority_company @company.id
     params.require(:apply).permit(:cv, :job_id)
-      .merge! broker: current_user.id
+      .merge! broker: current_user.id, apply_statuses_attributes: [status_step_id: status_id, is_current: :current]
   end
 
   def permission_employer_company

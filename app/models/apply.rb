@@ -1,4 +1,6 @@
 class Apply < ApplicationRecord
+  attr_accessor :user, :key_apply
+
   belongs_to :job
   belongs_to :user, optional: true
   has_one :company, through: :job
@@ -9,6 +11,8 @@ class Apply < ApplicationRecord
   has_many :steps, through: :status_steps, dependent: :destroy
 
   serialize :information, Hash
+
+  after_create :create_activity_notify
 
   validates :cv, presence: true
   validates :job_id, presence: true
@@ -44,7 +48,7 @@ class Apply < ApplicationRecord
   end
 
   def save_activity key, user = nil, params = nil
-    self.transaction do
+    self.transaction requires_new: true do
       if params
         self.create_activity key, owner: user, parameters: {status: params}
       else
@@ -52,5 +56,20 @@ class Apply < ApplicationRecord
       end
     end
   rescue
+  end
+
+  def self_attr_after_create user, key_apply
+    self.user = user
+    self.key_apply = key_apply
+  end
+
+  private
+
+  def create_activity_notify
+    self.save_activity :create, user
+    Notification.create_notification key_apply, self, user, self.job.company_id if user || key_apply
+    AppliesUserJob.perform_later self
+    AppliesEmployerJob.perform_later self
+  rescue ActiveRecord::RecordInvalid
   end
 end

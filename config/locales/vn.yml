@@ -120,6 +120,8 @@ vn:
       offer_accepted: "đồng ý đề nghị"
       offer_declined: "từ chối đề nghị"
       joined: "đã tham gia"
+    create:
+      job_nil: "không tìm thấy công việc này"
   name_app: "Recruitment"
   please_selecta: "--- Please Select ---"
   submit: "Submit"

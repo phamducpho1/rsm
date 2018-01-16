@@ -5,7 +5,10 @@
   <% else %>
     $('#undefind-content').html('<%= j render partial: "applies/undefind_content", locals: {apply: @apply} %>');
   <% end %>
+<% elsif @error %>
+  alertify.error('<%= @error %>');
 <% else %>
+  alertify.success('<%= @success %>');
   $('#apply_button').hide().after('<button type = "button" class = "btn btn-primary btn-block btn-apply disabled"><%= I18n.t "apply.applied" %></button>');
   $('#JobModal').modal('hide');
   $('.no_jobs').hide();
