@@ -1,4 +1,6 @@
 class Experience < ApplicationRecord
+  acts_as_paranoid
+
   belongs_to :user
   validates :name, presence: true, length: {maximum: Settings.experiences.model.name_max_length}
   validates :user_id, presence: true

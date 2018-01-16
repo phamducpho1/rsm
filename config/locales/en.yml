@@ -736,6 +736,12 @@ en:
         resigned: "Resigned"
         working: "Working"
         status: "Status"
+      member:
+        confirm: "Are you sure ?"
+      destroy:
+        not_found: "Not found member"
+        success: "deleted success"
+        failure: "deleted failure"
     activities:
       all_activity: "All Activity"
       id: "ID"

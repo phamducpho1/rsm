@@ -1,4 +1,6 @@
 class Member < ApplicationRecord
+  acts_as_paranoid
+
   belongs_to :company
   belongs_to :user
   has_many :project_members, dependent: :destroy

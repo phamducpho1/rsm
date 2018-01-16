@@ -1,0 +1,6 @@
+<% if @message.present? %>
+  $('#member-<%= params[:id] %>').remove();
+  alertify.success('<%= @message %>');
+<% else %>
+  alertify.error('<%= @error %>');
+<% end %>

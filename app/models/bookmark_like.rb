@@ -1,4 +1,6 @@
 class BookmarkLike < ApplicationRecord
+  acts_as_paranoid
+
   belongs_to :user
   belongs_to :job
   has_one :company, through: :job
