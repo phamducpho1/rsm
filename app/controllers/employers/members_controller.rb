@@ -43,6 +43,14 @@ class Employers::MembersController < Employers::EmployersController
     load_members
   end
 
+  def destroy
+    if @member.destroy
+      @message = t ".success"
+    else
+      @error = t ".failure"
+    end
+  end
+
   private
 
   def get_values_checked

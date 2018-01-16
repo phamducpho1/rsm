@@ -47,6 +47,7 @@ gem "public_activity"
 gem "rubocop", "~> 0.49.1", require: false
 gem "jquery-validation-rails"
 gem "i18n-js"
+gem "paranoia"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

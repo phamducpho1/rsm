@@ -1,4 +1,6 @@
 class Club < ApplicationRecord
+  acts_as_paranoid
+
   belongs_to :user, optional: true
   validates :name, presence: true, length: {maximum: Settings.clubs.model.name_max_length}
   validates :user_id, presence: true
