@@ -13,6 +13,7 @@ $(document).ready(function() {
     $('#login-ajax .help-block').remove();
     $('#login-ajax .form-group').removeClass('has-success has-error');
     $('#login-ajax input:not([type="hidden"]):not([type="submit"])').val('');
+    $('span.close-error').closest('.form-group').hide();
   };
 
   $.validator.addMethod('regex', function(value, element, regexp){
@@ -41,6 +42,10 @@ $(document).ready(function() {
     removeError();
   });
 
+  $(document).on('click', 'span.close-error', function(){
+    $(this).closest('.form-group').slideUp();
+  });
+
   $(document).on('click', '.link-register', function(){
     $('#login-ajax').animate({top: '10%', width: '800px'}, 400);
     switchView(formLogin, formRegister);
@@ -59,9 +64,27 @@ $(document).ready(function() {
     switchView(formLogin, formForgotPassword);
   });
 
+  $(document).on('click', '#resend-confirmation', function(){
+    var email = $(this).data('user-email');
+    $('.loading-ajax').fadeIn();
+    $('.login-error').slideUp();
+    $.ajax({
+      type: 'POST',
+      url: '/devises/confirmation',
+      data: {email: email},
+      dataType: 'json',
+      success: function(response){
+        $('.loading-ajax').hide();
+        $('.login-error p').html(response.message);
+        $('.login-error').slideDown();
+      }
+    });
+  });
+
   $(document).on('submit', '#form-login', function(e){
     e.preventDefault();
     $('.loading-ajax').fadeIn();
+    $('.login-error').slideUp();
     var url = $(this).attr('action');
     $.ajax({
       type: 'POST',
@@ -75,9 +98,6 @@ $(document).ready(function() {
           $('.loading-ajax').hide();
           $('.login-error p').html(response.message);
           $('.login-error').slideDown();
-          setTimeout(function(){
-            $('.login-error').slideUp('slow');
-          }, 3000);
         }
       }
     });
@@ -96,11 +116,12 @@ $(document).ready(function() {
         $('.loading-ajax').hide();
         $('.forgot-error p').html(response.message);
         $('.forgot-error').slideDown();
-        setTimeout(function(){
-          $('.forgot-error').slideUp('slow');
-        }, 3000);
       }
     });
+  });
+
+  $('#form-register').bind('submit', function(){
+    if ($(this).valid()) $('.loading-ajax').fadeIn();
   });
 
   $('#form-login').validate({

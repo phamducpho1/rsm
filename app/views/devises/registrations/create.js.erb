@@ -1,3 +1,16 @@
 $(document).ready(function(){
-  $('#form-register').parent().html('<%= j render "layouts/companies/form_registration" %>');
+  <% if @success %>
+    $('.loading-ajax').hide();
+    $('#form-register').parent().slideUp(250);
+    $('#form-login').parent().slideDown(250);
+    $('#login-ajax .help-block').remove();
+    $('#login-ajax .form-group').removeClass('has-success has-error');
+    $('#login-ajax input:not([type="hidden"]):not([type="submit"])').val('');
+    $('#login-ajax').animate({top: '20%', width: '500px'}, 400);
+    $('.login-error p').html('<%= @message %>');
+    $('.login-error').slideDown();
+  <% else %>
+    $('.loading-ajax').hide();
+    $('#form-register').parent().html('<%= j render "layouts/companies/form_registration" %>');
+  <% end %>
 })

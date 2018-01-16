@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     passwords: "devises/passwords",
     registrations: "devises/registrations",
     sessions: "devises/sessions",
+    confirmations: "devises/confirmations"
   }, skip: [:sessions, :registrations]
   as :user do
     get "login", to: "devises/sessions#new", as: :new_user_session
