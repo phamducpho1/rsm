@@ -68,7 +68,7 @@ page_size:
 send_cv:
   type: "application/pdf"
   inline: "inline"
-img_cv: 200
+img_cv: 155
 text_area:
   rows: "10"
   cols: "30"
@@ -106,3 +106,8 @@ templates:
 picture_user_width: 60
 picture_user_height: 60
 statuses: ["waitting", "review", "test", "interview", "offer", "joined"]
+language:
+  en: "en"
+  vn: "vn"
+frc:
+  size: 25

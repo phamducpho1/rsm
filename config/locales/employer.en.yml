@@ -43,11 +43,17 @@ en:
         body: "Template body"
         close: "Close"
         show: "Show content"
+        sure: "Are you sure!"
       candidate:
         body: "Template body"
         close: "Close"
         show: "Show content"
+        sure: "Are you sure!"
       index:
+        action: "Action"
+        all: "All templates"
+        edit: "Edit"
+        delete: "Delete"
         interview: " Interview"
         add: " Create templates"
         candidate: " Candidate"
@@ -55,7 +61,10 @@ en:
         name: "Name"
         template: "Templates"
       form:
+        update: "Update success!"
         create: "Create success!"
+        destroy: "Destroy success!"
+        fail: "Destroy fail"
         add: " Create templates"
         error: "Id template not found"
         add_member: "Template interview"
@@ -81,9 +90,19 @@ en:
         close: "Close"
     companies:
       form:
+        first_show_address_and_branches: "Trụ sở chính và các chi nhánh của công ty"
         company_name: "Company Name"
+        list_categories: "List categories"
         company_address: "Company Address"
+        first_show_category: "All category this company"
         company_majors: "Company Majors"
+        activity_and_partner: "Activities And Partners"
+        activity: "Activities"
+        add_activity: "Add activity"
+        add_partner: "Add partner"
+        first_show_company: "All Activities and Partners this company"
+        save: "Save"
+        categories: "Categories"
         contact_name: "Contact Name"
         contact_phone: "Contact Phone"
         address_and_branches: "Head office and bracnhes"
@@ -174,6 +193,19 @@ en:
       updatess: "Update successful"
       updatefail: "Update Fail"
     applies:
+      update:
+        success: "Success!"
+        fail: "Fail"
+      form:
+        address: "Address"
+        start_time: "Start Time"
+        end_time: "End Time"
+        interview: "Interview"
+        select: "Select template"
+        member: "Interview"
+        user: "Candidate"
+        please_selecta: "--- Please Select ---"
+        create: "Create"
       show:
         candidate_information: "Candidate Infomation"
         other: "Other"
@@ -181,6 +213,22 @@ en:
         email: "Email"
         status: "Status"
         phone: "Phone"
+    appointments:
+      appointment:
+        click: "Click"
+      form:
+        click: "click"
+        member: "Interview"
+        view: "View"
+        user: "Candidate"
+        select: " Select template mail"
+        interviewe: "Create an interview schedule"
+        address: "Address"
+        start: "Starttime"
+        end: "Endtime"
+        please_selecta: "--- Please Select ---"
+        interview: "Interviewer"
+        approve: "Approve"
     job:
       id: "ID"
       jobname: "Name"

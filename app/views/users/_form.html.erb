@@ -85,15 +85,15 @@
   <div class="row">
     <div class="name col-xs-12">
       <div class="edit-field m-b">
-        <%= f.label :cv, t("downloads.curriculum"), class: "profile_label" %>
+        <%= f.label :cv, t(".curriculum"), class: "profile_label" %>
         <span class="btn btn-default btn-file">
-          <%= t "downloads.browse" %><%= f.file_field :cv, class: "transparent absolute" %>
+          <%= t ".browse" %><%= f.file_field :cv, class: "transparent absolute" %>
         </span>
         <span class="small gray-light pull-left m-l-lg m-r-lg"></span>
       </div>
     </div>
     <% if @user.cv.present? %>
-      <%= t "downloads.curriculum_your" %>
+      <%= t ".curriculum_your" %>
       <%= link_to @user.name, @user.cv.url, class: "banner_img_load", id: "logo_img" %>
     <% end %>
   </div>
@@ -104,7 +104,7 @@
         class="btn-cancel btn btn-default" value="<%= @user.id %>">
           <%= t "achievements.cancle" %>
       </button>
-      <%= f.submit t("achievements.save"), class: "btn-save btn btn-primary" do  %>
+      <%= f.submit t(".save"), class: "btn-save btn btn-primary" do  %>
         <i class="fa fa-plus"></i>
       <% end %>
     </div>

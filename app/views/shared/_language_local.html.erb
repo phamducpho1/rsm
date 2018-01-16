@@ -1,0 +1,26 @@
+<ul>
+  <li>
+    <% if I18n.locale == Settings.language.vn.to_sym %>
+      <%= link_to set_language_index_path(locale: Settings.language.vn), class: "lang-sel-sel icl-vi" do %>
+        <%= image_tag "vietnam.png" %>&nbsp;<%= t ".vietnam" %>
+      <% end %>
+    <% else %>
+      <%= link_to set_language_index_path(locale: Settings.language.en), class: "lang-sel-sel icl-vi" do %>
+        <%= image_tag "english.png" %>&nbsp;<%= t ".english" %>
+      <% end %>
+    <% end %>
+    <ul>
+      <li class="icl-en">
+        <% if I18n.locale == Settings.language.vn.to_sym %>
+          <%= link_to set_language_index_path(locale: Settings.language.en) do %>
+            <%= image_tag "english.png" %>&nbsp;<%= t ".english" %>
+          <% end %>
+        <% else %>
+          <%= link_to set_language_index_path(locale: Settings.language.vn) do %>
+            <%= image_tag "vietnam.png" %>&nbsp;<%= t ".vietnam" %>
+          <% end %>
+        <% end %>
+      </li>
+    </ul>
+  </li>
+</ul>

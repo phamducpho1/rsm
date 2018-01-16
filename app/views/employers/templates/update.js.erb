@@ -1,0 +1,9 @@
+<% if @template.errors.any? %>
+  $('#template-form').html('<%= j render "form" %>');
+<% else %>
+  $('#body_template_<%= @template.id %>').remove();
+  $('#interview-load').html('<%= j render partial: "employers/templates/interview", collection: @interviewers, as: :interviewer %>');
+  $('#load_user').html('<%= j render partial: "employers/templates/candidate", collection: @candidates, as: :candidate %>');
+  $('#manageTemplate').modal('hide');
+  alertify.success('<%= @message %>');
+<% end %>
