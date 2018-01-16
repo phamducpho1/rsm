@@ -1592,8 +1592,9 @@ vn:
       index:
         all_applies: "Tất cả đơn nộp"
         search: "Tìm kiếm"
-        job_name: "---Tên Công Việc---"
-        status_applies: "---Trạng thái Đơn---"
+        job_name: "Chọn Công Việc"
+        status_applies: "Chọn Trạng thái"
+        apply: "Apply"
     jobs:
       job_wrapper:
         job: "Công việc"
@@ -1602,3 +1603,4 @@ vn:
         urgent: "Khẩn cấp"
         top: "Top"
         all: "Tất cả"
+        apply: "Apply"

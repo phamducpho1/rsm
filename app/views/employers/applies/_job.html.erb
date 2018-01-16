@@ -1,0 +1,14 @@
+<%= collection_radio_buttons :apply ,:job_id, @jobs, :id, :name do |job| %>
+  <tr class="job" id="job-<%= job.object.id %>">
+    <td class="text-center">
+      <strong>
+        <%= job.radio_button %>
+      </strong>
+    </td>
+    <td class="text-center">
+      <strong>
+        <%= link_to job.object.name, job_path(job.object) %>
+      </strong>
+    </td>
+  </tr>
+<% end %>

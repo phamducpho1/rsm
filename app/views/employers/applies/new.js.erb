@@ -1,0 +1,6 @@
+<% if params[:q] %>
+  $('#search-job').html('<%= j render "choose_jobs" %>');
+<% else %>
+  $('#add-apply').html('<%= j render "apply_add" %>');
+  $('#add-apply').modal('show');
+<% end %>

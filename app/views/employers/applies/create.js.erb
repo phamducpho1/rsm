@@ -1,0 +1,24 @@
+<% if @apply.errors.any? %>
+  $('.help-block').remove();
+  $('.input-lg').css('border-color','#dbe1e8')
+  $('.apply-un').css('border-color','#dbe1e8')
+  $('.input-introducing').css('border-color','#dbe1e8')
+  <% if @apply.errors.messages[:job].present? %>
+    $('.error-message-job').append('<span class="help-block"><%= t ".job" %> <%= @apply.errors.messages[:job].first %></span>')
+  <% end %>
+  <% if @apply.errors.messages[:cv].present? %>
+    $('.error-message-cv').append('<span class="help-block"><%= t ".cv" %> <%= @apply.errors.messages[:cv].first %></span>')
+  <% end %>
+  <% @apply.errors.messages[:information].each do |message| %>
+    $('.error-message-<%= message.split(" ").first %>')
+      .append('<span class="help-block"><%= message %></span>')
+    $('.input-<%= message.split(" ").first %>')
+      .css('border-color','red','important')
+  <% end %>
+  alertify.success('<%= @error %>');
+<% elsif @message %>
+  $('#add-apply').modal('hide');
+  alertify.success('<%= @message %>');
+<% else %>
+  alertify.success('<%= @error %>');
+<% end %>

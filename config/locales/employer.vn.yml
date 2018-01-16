@@ -231,6 +231,29 @@ vn:
         status: "Trạng thái"
         phone: "Điện thoại"
       content_notification_update_apply: "apply đến việc %{job} đã xét bởi"
+      apply_add:
+        add_apply: "Thêm Đơn"
+        choose_job: "Chọn công việc"
+        job_name: "Hãy chọn công việc"
+        apply: "Đơn"
+        submit: "Gửi"
+        search: "Tìm"
+      choose_jobs:
+        choose: "Chọn"
+        name: "Tên"
+      apply_form:
+        information: "Thông tin"
+        name: "Tên"
+        email: "Email"
+        phone: "Số điện thoại"
+        introducing: "Giới thiệu"
+        new_cv: "CV"
+      create:
+        success: "đã tạo đơn thành công"
+        failure: "tạo đơn thất bại"
+        job: "công việc"
+        cv: "Cv"
+        job_nil: "Vui lòng chọn công việc"
     appointments:
       appointment:
         click: "Click"

@@ -10,7 +10,8 @@
   <div id="ecom-orders_wrapper" class="dataTables_wrapper form-inline no-footer">
     <div class="row">
       <div class="col-md-offset-6">
-        <%= search_form_for @q, url: employers_applies_path, remote: true do |f| %>
+        <%= search_form_for @q, url: employers_applies_path, remote: true,
+          class: "d-inline-block" do |f| %>
           <%= f.select :status_eq, options_for_select(Apply.statuses
             .map{|k,v|[ I18n.t(".applies.status.#{k}"), v]}.unshift([t(".status_applies"), nil])), {},
             {class: "form-control input-sm"} %>
@@ -19,10 +20,17 @@
           <%= f.submit t(".search"),
             class: "btn btn-primary btn-sm" %>
         <% end %>
+        <%= link_to new_employers_apply_path, remote: true,
+          class: "btn btn-primary btn-sm d-inline-block" do %>
+          <i class="fa fa-plus"></i> <%= t ".apply" %>
+        <% end %>
       </div>
     </div>
     <div id="table-applies">
       <%= render "table_applies" %>
     </div>
   </div>
+</div>
+<div class="modal fade" id="add-apply" role="dialog"
+  tabindex="-1" aria-hidden="true">
 </div>
