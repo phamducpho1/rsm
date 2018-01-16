@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get "/", to: "static_pages#index", constraints: { subdomain: Settings.www }
 
   root "static_pages#index"
-
+  resources :set_language, only: :index
   resources :users
   resources :achievements
   resources :certificates, except: :index
