@@ -31,9 +31,11 @@
     </div>
     <div class="block full">
       <div class="block-title">
-        <h2><i class="fa fa-eye" aria-hidden="true"></i><%= t "employers.cv" %></h2>
+        <h2><i class="fa fa-eye" aria-hidden="true"></i> <%= t "employers.cv" %></h2>
       </div>
-      <%= image_tag "cv_image.png", class: "image_cv" %>
+      <a href="<%= @apply.cv.url %>" data-fancybox class="thumbnail-cv">
+        <iframe src="<%= @apply.cv %>" style="width: 100%; height: 100%; border: 1px solid rgb(219, 225, 232);" />
+      </a>
     </div>
   </div>
 
