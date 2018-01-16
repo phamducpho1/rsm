@@ -1,5 +1,6 @@
 <% if @messages.present? %>
   $('#apply-handling-content').html('');
+  $(".progress-indicator").html('<%= j render "status_progress" %>');
   swal({
     title: I18n.t("jobs.apply.confirm_send_email"),
     text: I18n.t("jobs.apply.text_send_email"),
