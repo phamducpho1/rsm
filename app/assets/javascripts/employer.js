@@ -45,3 +45,5 @@
 //= require i18n/translations
 //= require jquery.validate
 //= require fancybox
+//= require highcharts
+//= require chartkick

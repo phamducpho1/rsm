@@ -394,3 +394,10 @@ input[type='radio'] {
 .hide-type{
   display: none;
 }
+.widget-content-light{
+  font-size: 12px !important;
+  white-space: nowrap;
+}
+.dark-light{
+  background: $green-sky !important;
+}

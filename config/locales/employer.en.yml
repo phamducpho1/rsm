@@ -1,5 +1,15 @@
 en:
   employers:
+    dashboards:
+      index:
+        dashboard: "Chart"
+        top: "Top"
+        detail: "Details"
+        apply: "Apply"
+        prioritize: "Prioritize"
+      list_job:
+        expires_on: "Expires on"
+        expired: "Expired"
     jobs:
       search_job:
         text_search: "Enter job title, language, skills..."

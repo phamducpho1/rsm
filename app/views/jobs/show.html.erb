@@ -98,7 +98,8 @@
                   </div>
                   <div class="btn-share pull-right">
                     <span class="text-uppercase text-light m-r-xs">
-                      <%= social_share_button_tag information_job @job, @company %>
+                      <%= social_share_button_tag information_job(@job, @company),
+                        desc: information_job(@job, @company) %>
                     </span>
                   </div>
                 </div>

@@ -52,6 +52,7 @@ job:
   thirty: 30
   width: 10
   page: 10
+  limit: 10
 activity:
   page: 10
 bookmark:
@@ -114,3 +115,7 @@ frc:
 applies_max: 10
 percent: 100
 rounding: 2
+dashboard:
+  mod: 2
+  zero: 0
+  hundred: 100

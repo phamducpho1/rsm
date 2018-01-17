@@ -164,10 +164,61 @@ en:
   date_format: "%d-%m-%Y"
   not_found: "Couldn't find %{error_message}"
   static_pages:
-    symbol_user:
-      content_1: "An awesome team that brought our ideas to life! Highly recommended!"
-      content_2: "Sophie Illich"
-      content_3: ", example.com"
+    content:
+      learn_more: "Learn More.."
+      slide_1:
+        content_1: "A complete web solution for your awesome project"
+        content_2: "Bring your project to life months sooner"
+      slide_2:
+        content_1: "Featuring a Powerful and Flexible layout"
+        content_2: "Letting you focus on creating your project"
+      slide_3:
+        content_1: "Fully Responsive and Retina Ready"
+        content_2: "The UI will look great and crisp"
+      slide_4:
+        content_1: "Tons of features are designed &amp; waiting for you"
+        content_2: "Everything you need for your project"
+      promo_1:
+        content_1: "Clean and Modern"
+        content_2: " Design"
+        content_3: "FRcruit is a professional, modern and solid foundation for your next awesome project. It comes packed with great features that you will love."
+      promo_2:
+        content_1: "Powerful"
+        content_2: "Admin Template"
+        content_3: "FRcruit has a powerful and flexible layout to meet every need. It comes packed with 9 awesome and fresh color themes that you will love, too. "
+      promo_3:
+        content_1: "Fully"
+        content_2: "Responsive"
+        content_3: "The User Interface will just work in mobile phones, tablets, laptops and desktops. You can focus on creating the project you want."
+      promo_4:
+        content_1: "Mobile"
+        content_2: "First"
+        content_3: "The layout adjusts as we move up from mobile devices to large desktop screens and not the other way around. This speed things up a lot."
+      symbol_1:
+        content_1: "An awesome team that brought our ideas to life! Highly recommended!"
+        content_2: "Sophie Illich"
+        content_3: ", example.com"
+      symbol_2:
+        content_1: "I have never imagined that our final product would look that good!"
+        content_2: "David Cull"
+        content_3: ", example.com"
+      symbol_3:
+        content_1: "An extraordinary service that helped us grow way too fast!"
+        content_2: "MrPiter"
+        content_3: ", example.com"
+      heading:
+        content_1: "Sign Up Today"
+        content_2: " and receive "
+        content_3: "30% discount"
+        content_4: "Your Email"
+        content_5: " Sign Up"
+        content_6: "Projects"
+        content_7: "Happy Customers"
+        content_8: "New Accounts Today"
+      symbol_user:
+        content_1: "An awesome team that brought our ideas to life! Highly recommended!"
+        content_2: "Sophie Illich"
+        content_3: ", example.com"
     index:
        lastest: "Lastest"
        home: "Home"

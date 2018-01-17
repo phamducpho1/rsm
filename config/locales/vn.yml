@@ -1397,6 +1397,61 @@ vn:
       content_7: "Happy Customers"
       content_8: "New Accounts Today"
   static_pages:
+    content:
+      learn_more: "Tìm hiểu thêm .."
+      slide_1:
+        content_1: "Một giải pháp web hoàn chỉnh cho dự án tuyệt vời của bạn"
+        content_2: "Mang dự án của bạn đến tháng cuộc đời sớm hơn"
+      slide_2:
+        content_1: "Với cách bố trí mạnh mẽ và linh hoạt"
+        content_2: "Để bạn tập trung vào việc tạo dự án của bạn"
+      slide_3:
+        content_1: "Để bạn tập trung vào việc tạo dự án của bạn"
+        content_2: "Giao diện người dùng sẽ đẹp và sắc nét"
+      slide_4:
+        content_1: "Hàng tính năng được thiết kế & amp; đang chờ bạn"
+        content_2: "Tất cả mọi thứ bạn cần cho dự án của bạn"
+      promo_1:
+        content_1: "Sạch sẽ và hiện đại"
+        content_2: "Thiết kế"
+        content_3: "FRcruit là một nền tảng chuyên nghiệp, hiện đại và vững chắc cho dự án tuyệt vời tiếp theo của bạn. Nó đi kèm với những tính năng tuyệt vời mà bạn sẽ yêu thích."
+      promo_2:
+        content_1: "Quyền lực"
+        content_2: "Mẫu quản trị"
+        content_3: "FRcruit has a powerful and flexible layout to meet every need. It comes packed with 9 awesome and fresh color themes that you will love, too. "
+      promo_3:
+        content_1: "Đầy đủ"
+        content_2: "Đáp ứng"
+        content_3: "Giao diện Người dùng sẽ chỉ hoạt động trên điện thoại di động, máy tính bảng, máy tính xách tay và máy tính để bàn. Bạn có thể tập trung vào việc tạo dự án bạn muốn."
+      promo_4:
+        content_1: "Điện thoại di động"
+        content_2: "Đầu tiên"
+        content_3: "Bố cục điều chỉnh khi chúng tôi di chuyển từ thiết bị di động sang màn hình máy tính để bàn lớn và không theo cách khác. Tốc độ này tăng lên rất nhiều."
+      symbol_1:
+        content_1: "Một đội ngũ tuyệt vời đưa những ý tưởng của chúng tôi vào cuộc sống! Rat khuyen khich!"
+        content_2: "Sophie Illich"
+        content_3: ", example.com"
+      symbol_2:
+        content_1: "Tôi chưa bao giờ tưởng tượng rằng sản phẩm cuối cùng của chúng tôi sẽ trông như vậy!"
+        content_2: "David Cull"
+        content_3: ", example.com"
+      symbol_3:
+        content_1: "Một dịch vụ phi thường giúp chúng tôi phát triển quá nhanh!"
+        content_2: "MrPiter"
+        content_3: ", example.com"
+      heading:
+        content_1: "Hãy đăng ký ngay hôm nay"
+        content_2: "Và nhận"
+        content_3: "30% discount"
+        content_4: "Email của bạn"
+        content_5: "Đăng ký"
+        content_6: "Dự án"
+        content_7: "Khách hàng hạnh phúc"
+        content_8: "Tài khoản Mới ngày hôm nay"
+      symbol_user:
+        content_1: "Một đội ngũ tuyệt vời đưa những ý tưởng của chúng tôi vào cuộc sống! Rat khuyen khich!"
+        content_2: "Sophie Illich"
+        content_3: ", example.com"
     symbol_user:
       content_1: "Một đội ngũ tuyệt vời đưa những ý tưởng của chúng tôi vào cuộc sống! Rất khuyến khích!"
       content_2: "Sophie Illich"

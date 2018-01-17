@@ -25,7 +25,10 @@ class Job < ApplicationRecord
   enum position_types: {full_time_freshers: 0, full_time_careers: 1, part_time: 2, intern: 3, freelance: 4}
   enum status: [:opend, :closed]
   scope :sort_lastest, ->{order(updated_at: :desc)}
-
+  scope :sort_max_salary_and_target, -> do
+    order(max_salary: :desc, target: :desc).limit Settings.job.limit
+  end
+  scope :job_company, ->company {where company_id: company}
   include PublicActivity::Model
 
   def save_activity user, key

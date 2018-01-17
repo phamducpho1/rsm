@@ -1,0 +1,14 @@
+<tr>
+  <td class="text-center">
+    <%= link_to "javascript:void(0)" do %>
+      <strong><%= job.name %></strong>
+    <% end %>
+  </td>
+  <td class="hidden-xs"><%= job.branch.name %></td>
+  <td class="text-right"><strong><%= job.target %></strong></td>
+  <td class="text-center">
+    <%= link_to employers_job_path job do %>
+      <i class="fa fa-eye text-primary" aria-hidden="true"></i>
+    <% end %>
+  </td>
+</tr>

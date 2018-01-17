@@ -17,7 +17,7 @@ class Apply < ApplicationRecord
   serialize :information, Hash
   scope :newest_apply, ->{order :created_at}
   mount_uploader :cv, CvUploader
-
+  scope :sort_apply, ->{order(created_at: :desc).limit Settings.job.limit}
   delegate :name, to: :job, prefix: true, allow_nil: :true
 
   include PublicActivity::Model
