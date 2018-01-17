@@ -1,10 +1,9 @@
 class Appointment < ApplicationRecord
   belongs_to :company
-  belongs_to :apply
+  belongs_to :apply_status
   has_many :inforappointments, dependent: :destroy
   has_many :user, through: :inforappointments
-
-  delegate :information, to: :apply, prefix: true
+  has_one :apply, through: :apply_status
 
   validates :start_time, presence: true
   validates :end_time, presence: true

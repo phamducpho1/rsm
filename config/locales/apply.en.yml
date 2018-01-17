@@ -4,6 +4,7 @@ en:
     send_email_apply:
       title: "Title"
       content: "Content"
+      interviewer: "Interviewer"
       required: "%{name} can't be blank"
   employers:
     cv: "Curriculum vitae"
@@ -24,6 +25,11 @@ en:
         offer_accepted: "Offer: Accepted"
         offer_declined: "Offer: Declined"
         joined: "Joined"
+        pendding: "Pendding"
+        review: "Review CV"
+        test: "Test"
+        interview: "Interview"
+        offer: "Offer"
       update:
         success: "Update success"
         fail: "Update fail"

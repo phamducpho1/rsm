@@ -45,6 +45,7 @@ Rails.application.routes.draw do
     resources :templates
     resources :applies
     resources :dashboards
+    resources :apply_statuses
   end
   resources :bookmark_likes
   resources :experiences

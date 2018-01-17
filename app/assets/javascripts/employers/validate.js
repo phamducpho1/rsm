@@ -14,14 +14,23 @@ $(document).ready(function(){
       'template_content':{
         required: true,
       },
+
+      'template_user' :{
+        required: true,
+      }
     },
 
     messages: {
       title:{
         required: I18n.t('jquery_validates.send_email_apply.required', {name: I18n.t('jquery_validates.send_email_apply.title')}),
       },
+
       template_content:{
         required: I18n.t('jquery_validates.send_email_apply.required', {name: I18n.t('jquery_validates.send_email_apply.content')}),
+      },
+
+      template_user:{
+        required: I18n.t('jquery_validates.send_email_apply.required', {name: I18n.t('jquery_validates.send_email_apply.interviewer')}),
       }
     }
   });

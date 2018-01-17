@@ -12,6 +12,10 @@ class Company < ApplicationRecord
   has_many :partners, dependent: :destroy
   has_many :branches
   has_many :categories
+  has_many :company_steps
+  has_many :steps, through: :company_steps
+  has_many :status_steps, through: :steps
+  has_many :categories
 
   delegate :enable_send_mail, to: :company_setting, allow_nil: true, prefix: true
 

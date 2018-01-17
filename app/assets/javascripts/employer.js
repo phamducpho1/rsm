@@ -13,7 +13,7 @@
 
 //= require jquery
 //= require jquery.turbolinks
-//= require rails-ujs
+//= require jquery_ujs
 //= require modernizr-2.7.1-respond-1.4.2.min
 //= require employers/search
 //= require jquery-1.11.1.min

@@ -2,14 +2,12 @@
 <%= javascript_include_tag "employer/plugins", "data-turbolinks-track": "reload" %>
 <%= javascript_include_tag "employer/app", "data-turbolinks-track": "reload" %>
 <%= javascript_include_tag "employers/search", "data-turbolinks-track": "reload" %>
-
-<%= simple_form_for [:employers, apply], remote: true do |f| %>
-<%= f.hidden_field :id, value: apply.id  %>
-<%= f.hidden_field :status, value: get_status(@is_interview_scheduled) %>
-<%= f.simple_fields_for :appointments do |appointment_builder| %>
-  <% if filter_object appointment_builder.object %>
+<%= simple_form_for [:employers, @apply_status], remote: true do |f| %>
+  <%= f.hidden_field :apply_id, value: apply.id %>
+  <%= f.hidden_field :status_step_id %>
+  <%= f.hidden_field :is_current %>
+  <%= f.simple_fields_for :appointment do |appointment_builder| %>
     <%= appointment_builder.hidden_field :company_id %>
-    <%= appointment_builder.hidden_field :apply_id %>
     <%= appointment_builder.hidden_field :type_appointment %>
     <div class="form-group">
       <div class="input-group">
@@ -20,8 +18,7 @@
         <%= appointment_builder.full_error :address %>
       </span>
     </div>
-
-    <% if apply.interview_scheduled? || is_interview_scheduled %>
+    <% if @interview_scheduled_ids.include? @apply_status.status_step_id %>
       <div class="row">
         <div class="col-md-12">
           <div class="form-group">
@@ -36,7 +33,6 @@
         </div>
       </div>
     <% end %>
-
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
@@ -73,10 +69,9 @@
       </div>
     </div>
     <div class="row" id = "show-view-calendar">
-      <%= render partial: "calendar_inteview", locals: {apply: apply,
+      <%= render partial: "employers/applies/calendar_inteview", locals: {apply: apply,
         appointments: appointments, appointment: appointment_builder.object} %>
     </div>
-    <% end %>
   <% end %>
   <div class="modal-footer">
     <button type="submit" class="btn btn-sm pull-right btn-info load-page">

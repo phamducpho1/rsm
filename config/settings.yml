@@ -123,3 +123,18 @@ dashboard:
 not_notify: 0
 downloads:
   image: 20
+danger: "danger"
+completed: "completed"
+warning: "warning"
+primary: "primary"
+success: "success"
+info: "info"
+test_scheduled: "5"
+not_selected: "not_selected"
+joined: "joined"
+decline: "decline"
+accepted: "accepted"
+scheduled: "scheduled"
+pending: "pending"
+active: "active"
+interview_scheduled: "interview_scheduled"
