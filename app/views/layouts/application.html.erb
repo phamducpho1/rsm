@@ -13,14 +13,17 @@
 
   <body>
     <div id="page-container">
-      <%= render "layouts/user_header" %>
-      <div class="row">
-      <section class="site-content">
-        <%= yield %>
-      </section>
-      <footer class="site-footer padding-10-0 footer-custom">
-        <%= render "layouts/footer" %>
-      </footer>
+      <div id="content-body-custom">
+        <%= render "layouts/user_header" %>
+        <div class="row">
+          <section class="site-content">
+            <%= yield %>
+          </section>
+        </div>
+      </div>
     </div>
+    <footer id="footer" class="site-footer padding-10-0 footer-custom">
+      <%= render "layouts/footer" %>
+    </footer>
   </body>
 </html>

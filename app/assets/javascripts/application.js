@@ -40,3 +40,5 @@
 //= require i18n.js
 //= require i18n/translations
 //= require cable
+//= require fancybox
+//= require custom_height_layout.js
