@@ -2,12 +2,12 @@
   <%= link_to "javascript:void(0)", class: "widget widget-hover-effect2" do %>
     <div class="widget-extra themed-background-dark">
       <h4 class="widget-content-light">
-        <strong><%= t "applies.status.#{apply_status.first}" %></strong>
+        <strong><%= t "applies.status.#{size_status.first}" %></strong>
       </h4>
     </div>
     <div class="widget-extra-full">
       <span class="h2 animation-expandOpen">
-        <%= percent_status apply_status.second.size, @size_applies %> %
+        <%= size_status.second %>
       </span>
     </div>
   <% end %>

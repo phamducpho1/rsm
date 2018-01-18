@@ -40,7 +40,6 @@ class AppliesController < ApplicationController
 
   def create_activity_notify
     @apply.save_activity :create, current_user
-    Notification.create_notification t(".content_notification_create_apply",
-      job: @apply.job_name), :employer, @apply, current_user, @apply.job.company_id
+    Notification.create_notification :employer, @apply, current_user, @apply.job.company_id
   end
 end

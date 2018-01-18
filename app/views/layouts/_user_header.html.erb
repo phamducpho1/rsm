@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag "employers/notification" %>
 <header class="user-header">
   <div class="container">
     <%= link_to root_path, class: "site-logo" do %>
@@ -5,7 +6,12 @@
       <strong><%= t ".fram" %></strong><%= t "index.recruit" %>
     <% end %>
     <nav>
-      <section class="widget_icl_lang_sel_widget user-ic">
+      <section class="widget widget_icl_lang_sel_widget notify-logo-2">
+        <ul class="site-nav">
+          <%= render "shared/notification" %>
+        </ul>
+      </section>
+      <section class="widget_icl_lang_sel_widget user-ic d-inline">
         <a href="javascript:void(0)" class="site-menu-toggle visible-xs visible-sm">
         </a>
         <ul class="site-nav">
@@ -52,3 +58,6 @@
     </nav>
   </div>
 </header>
+<div class="modal fade" id="notifications-index" role="dialog"
+  tabindex="-1" aria-hidden="true">
+</div>

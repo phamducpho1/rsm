@@ -114,8 +114,6 @@ vn:
       offer_accepted: "đồng ý đề nghị"
       offer_declined: "từ chối đề nghị"
       joined: "đã tham gia"
-    content_notification_create_apply: "%{job} có đơn nộp mới bởi"
-    content_notification_create_apply_not_signed: "%{job} có đơn nộp mới"
   name_app: "Recruitment"
   please_selecta: "--- Please Select ---"
   submit: "Submit"
@@ -952,7 +950,6 @@ vn:
       part_time: "Part time"
       intern: "Intern"
       freelance: "Freelance"
-    content_notification_create_job: "%{job} đã đưọc tạo"
   experiences:
     blank: "Chưa có"
     form:
@@ -1488,6 +1485,10 @@ vn:
     notification:
       time_ago: "%{time} trước"
       notification: "Thông báo"
+      content_create_job: "đã tạo"
+      content_create_apply: "có đơn mới nộp"
+      content_update_apply: "đơn của bạn đã được xử lý"
+      by: "bởi"
     notifications:
       time_ago: "%{time} trước"
       not_notification: "Không có thông báo"

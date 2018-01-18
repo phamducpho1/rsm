@@ -3,7 +3,10 @@
   color: $dark-gray-light;
 }
 .notify-logo {
-  margin: 0;
+  position: relative;
+  top: 2px;
+  margin-left: 10px;
+  margin-right: 30px;
   padding: 0;
   width: 0;
   height: 30px;
@@ -13,10 +16,11 @@
   background-color: $white;
   min-height: 30px;
   max-height: 360px;
+  left: -270px;
   .notify-drop-title {
     border-bottom: 1px solid $dark-gray;
     padding: 5px 15px 10px;
-    color: $dark-gray-light;
+    color: $dark-gray-light !important;
   }
   .drop-content {
     min-height: 30px;
@@ -57,7 +61,7 @@
       }
       p {
         font-size: 11px;
-        color: $red-light;
+        color: $black;
         font-weight: normal;
         margin: 3px 0;
         &.time {
@@ -94,10 +98,9 @@
   }
   .all-read {
     margin-right: 7px;
-  }
-  .r-icon {
+    width: 146px;
     float: right;
-    color: $gray-medium-1;
+    color: $gray-medium-1 !important;
     &:hover {
       color: $gray-dark-hard-1;
     }
@@ -109,7 +112,7 @@
     padding: 8px 15px;
     background-color: $gray-light-2;
     a {
-      color: $dark-gray-light;
+      color: $dark-gray-light !important;
       text-decoration: none;
       &:hover {
         color: $gray-dark-hard-1;
@@ -131,6 +134,7 @@ a.animation-floating {
   top: -45px;
   left: 10px;
   width: 14.5px;
+  border-radius: 50% !important;
 }
 .notificationList li.readed {
   background-color: white;
@@ -141,8 +145,30 @@ a.animation-floating {
 .dropdown:hover .dropdown-menu {
   display: block;
 }
-.badge-notify{
+.badge-notify {
   background: $blue-light;
   position: relative;
   top: -10px;
+}
+.notify-logo-2 {
+  width: 10px;
+  display: inline-block;
+  height: 0;
+  margin: 0;
+  position: relative;
+  top: -15px;
+  right: 20px;
+}
+.nav.navbar-nav-custom {
+  li {
+      a {
+      .label-indicator {
+        position: absolute;
+        top: 6px;
+        width: 15.25px;
+        height: 15.25px;
+        left: 25px;
+      }
+    }
+  }
 }

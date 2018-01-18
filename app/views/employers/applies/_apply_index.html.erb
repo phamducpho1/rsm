@@ -3,7 +3,7 @@
   <td class="text-center"><%= apply.job_name %></td>
   <td class="text-center"><%= apply.information[:email] %></td>
   <td class="text-center"><%= apply.information[:phone] %></td>
-  <td class="text-center"><%= apply.information[:introducing] %></td>
+  <td class="text-center"><%= raw apply.information[:introducing] %></td>
   <td class="text-center">
     <span class="btn btn-success btn-xs">
       <%= t "applies.status.#{apply.status}" %>

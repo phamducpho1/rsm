@@ -1,8 +1,9 @@
-class BookmarkLikesController < ApplicationController
+class BookmarkLikesController < BaseNotificationsController
   load_and_authorize_resource param_method: :bookmark_like_params
   before_action :authenticate_user!
   before_action :load_bookmarks, only: :index
   before_action :load_applies, only: :index
+  before_action :load_notifications, only: :index
 
   def create
     respond_to do |format|

@@ -15,7 +15,7 @@
         </div>
         <div class="col-md-6 col-sm-6 col-xs-6 text-right">
           <%= link_to see_all_notify_path, remote: true,
-            class: "r-icon all-read", title: t(".read_all"),
+            class: "all-read", title: t(".read_all"),
             data: {tooltip: "tooltip", placement: "bottom"} do %>
             <%= t ".read_all" %>
           <% end %>
@@ -33,4 +33,4 @@
     </div>
   </ul>
 </li>
-<%= hidden_field_tag "current-user-id", current_user.id  %>
+<%= hidden_field_tag "current-user-id", current_user.id if current_user%>

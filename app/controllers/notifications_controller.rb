@@ -4,6 +4,7 @@ class NotificationsController < BaseNotificationsController
 
   def index
     respond_to do |format|
+      @notifications = @notifications.page(params[:page]).per Settings.applies_max
       format.js
     end
   end

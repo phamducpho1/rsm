@@ -1,9 +1,10 @@
 <%= stylesheet_link_tag "read_notification" %>
+<%= stylesheet_link_tag "employer/hidepaginate" %>
 <div class="modal-dialog">
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal">&times;</button>
-      <h4 class="modal-title"><%= t ".yours_notifiactions" %></h4>
+      <h4 class="modal-title"><b><%= t ".yours_notifiactions" %></b></h4>
     </div>
     <div class="modal-body">
       <ul class="list-group">
@@ -16,6 +17,9 @@
           </p>
         <% end %>
       </ul>
+      <div class="row text-center pag">
+        <%= paginate @notifications, remote: true %>
+      </div>
     </div>
   </div>
 </div>

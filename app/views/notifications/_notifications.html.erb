@@ -2,9 +2,5 @@
   <p class="text-danger text-center"><i><%= t ".not_notification" %></i></p>
 <% else  %>
   <%= render partial: "notifications/notification",
-    collection: @notify_unread, as: :notification,
-    locals: {type: :unread} if @notify_unread.present? %>
-  <%= render partial: "notifications/notification",
-    collection: @notify_readed, as: :notification,
-    locals: {type: :readed} if @notify_readed.present? %>
+    collection: @notifications, as: :notification %>
 <% end %>
