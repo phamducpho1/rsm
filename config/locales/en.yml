@@ -67,6 +67,20 @@ en:
       news_cv: "News CV"
       introducing: "Introducing letter"
       new_cv: " Upload New CV: "
+    status:
+      waitting: "waitting"
+      review_passed: "review passed"
+      review_not_selected: "review not selected"
+      test_scheduled: "test scheduled"
+      test_passed: "test passed"
+      test_not_selected: "test not selected"
+      interview_scheduled: "interview scheduled"
+      interview_passed: "interview passed"
+      interview_not_selected: "interview not selected"
+      offer_sent: "offer sent"
+      offer_accepted: "offer accepted"
+      offer_declined: "offer declined"
+      joined: "joined"
   form:
     applynow: "Apply Now"
     apply_for: "You Are Applying For"
@@ -371,7 +385,6 @@ en:
               blank: "Skill cannot be blank."
             position:
               blank: "Position cannot be blank."
-  employer: "Employer"
   Male: "Male"
   Female: "Female"
   mailer:
@@ -1282,6 +1295,7 @@ en:
         all_jobs: "All jobs"
         company: "Company"
         template: "Template"
+        applies: "Applies"
       header_employer:
         messages: "Messasges"
         profile: "Profile"
@@ -1366,6 +1380,21 @@ en:
         email: "Email"
         status: "Status"
         phone: "Phone"
+      table_applies:
+        user_name: "User Name"
+        job: "Job"
+        email: "Email"
+        phone: "Phone"
+        introducing: "Introducing"
+        status: "Status"
+        applied: "Applied"
+        action: "Action"
+        not_applies: "No have applies"
+      index:
+        all_applies: "All Applies"
+        search: "Search"
+        job_name: "---job name---"
+        status_applies: "---status apply---"
     job:
       id: "ID"
       jobname: "Name"

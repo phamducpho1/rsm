@@ -1,0 +1,19 @@
+<tr role="row" class="apply-<%= apply.id %>">
+  <td class="text-center"><%= apply.information[:name] %></td>
+  <td class="text-center"><%= apply.job_name %></td>
+  <td class="text-center"><%= apply.information[:email] %></td>
+  <td class="text-center"><%= apply.information[:phone] %></td>
+  <td class="text-center"><%= apply.information[:introducing] %></td>
+  <td class="text-center">
+    <span class="btn btn-success btn-xs">
+      <%= t "applies.status.#{apply.status}" %>
+    </span>
+  </td>
+  <td class="text-center"><%= l apply.created_at.to_date, format: :long %></td>
+  <td class="text-center">
+    <%= link_to employers_job_apply_path(apply.job, id: apply.id),
+      class: "btn btn-warning btn-xs" do %>
+      <i class="fa fa-info"></i>
+    <% end %>
+  </td>
+</tr>

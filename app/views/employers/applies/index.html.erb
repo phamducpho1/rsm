@@ -1,0 +1,28 @@
+<%= stylesheet_link_tag "employer/hidepaginate" %>
+<div class="row text-center d-flex">
+  <%= render partial: "percent_status", collection: @applies_status,
+    as: :apply_status %>
+</div>
+<div class="block full">
+  <div class="block-title">
+    <h2><strong><%= t ".all_applies" %></strong></h2>
+  </div>
+  <div id="ecom-orders_wrapper" class="dataTables_wrapper form-inline no-footer">
+    <div class="row">
+      <div class="col-md-offset-6">
+        <%= search_form_for @q, url: employers_applies_path, remote: true do |f| %>
+          <%= f.select :status_eq, options_for_select(Apply.statuses
+            .map{|k,v|[ I18n.t(".applies.status.#{k}"), v]}.unshift([t(".status_applies"), nil])), {},
+            {class: "form-control input-sm"} %>
+          <%= f.text_field :job_name_cont, class: "form-control input-sm",
+            placeholder: t(".job_name") %>
+          <%= f.submit t(".search"),
+            class: "btn btn-primary btn-sm" %>
+        <% end %>
+      </div>
+    </div>
+    <div id="table-applies">
+      <%= render "table_applies" %>
+    </div>
+  </div>
+</div>

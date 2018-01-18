@@ -4,6 +4,17 @@ class Employers::AppliesController < Employers::EmployersController
   before_action :create_appointment, only: :edit, if: :is_scheduled?
   before_action :load_appointments, only: [:edit, :update], if: :is_scheduled?
 
+  def index
+    @q = Apply.search params[:q]
+    applies = Apply.newest_apply
+    @size_applies = applies.size
+    @applies_status = applies.group_by &:status
+    @applies = @q.result.page(params[:page]).per Settings.applies_max
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 
   def edit
     @is_interview_scheduled = is_status?(params[:status], Apply.statuses.keys[6])

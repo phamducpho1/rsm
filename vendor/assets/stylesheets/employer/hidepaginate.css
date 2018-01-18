@@ -32,3 +32,6 @@
 .pag .pagination span:hover, .pag .pagination a:hover {
     background: #1bbae1;
 }
+.d-flex {
+  display: flex;
+}

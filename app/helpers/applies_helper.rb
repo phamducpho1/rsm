@@ -6,4 +6,8 @@ module AppliesHelper
   def get_name_to apply
     apply.information[:name] || ''
   end
+
+  def percent_status size_applies, total
+    ((size_applies.to_f / total) * Settings.percent).round Settings.rounding
+  end
 end

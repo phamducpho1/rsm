@@ -11,27 +11,29 @@
   </head>
 
   <body>
-  <div id="page-wrapper">
-    <div class="preloader themed-background">
-      <h1 class="push-top-bottom text-light text-center"><strong><%= t "employer" %></h1>
-    </div>
-    <div id="page-container" class="sidebar-partial sidebar-visible-lg sidebar-no-animations page-anta">
-      <%= render "layouts/employers/sidebar_employer" %>
-      <div id="main-container">
-        <%= render "layouts/employers/header_employer" %>
-        <div id="page-content">
-          <div class="row" id="message-flash">
-            <% flash.each do |message_type, message| %>
-              <div class="alert alert-<%= message_type %>"><%= message %></div>
-            <% end %>
+    <div id="page-wrapper">
+      <div class="preloader themed-background">
+        <h1 class="push-top-bottom text-light text-center"><strong><%= t ".employer" %></h1>
+      </div>
+      <div id="page-container" class="sidebar-partial sidebar-visible-lg sidebar-no-animations page-anta">
+        <%= render "layouts/employers/sidebar_employer" %>
+        <div id="main-container">
+          <%= render "layouts/employers/header_employer" %>
+          <div id="page-content">
+            <div class="row" id="message-flash">
+              <% flash.each do |message_type, message| %>
+                <div class="alert alert-<%= message_type %>"><%= message %></div>
+              <% end %>
+            </div>
+            <div id="boby-page">
+              <%= yield %>
+            </div>
+            <%= image_tag "loading.gif", id: "img-loading", class: "img-load" %>
           </div>
-          <%= yield %>
-          <%= image_tag "loading.gif", id: "img-loading", class: "img-load" %>
+          <%= render "layouts/employers/footer_employer" %>
         </div>
-        <%= render "layouts/employers/footer_employer" %>
       </div>
     </div>
-  </div>
-  <a href="#" id="to-top"><i class="fa fa-angle-double-up"></i></a>
-</body>
+    <a href="#" id="to-top"><i class="fa fa-angle-double-up"></i></a>
+  </body>
 </html>

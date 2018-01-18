@@ -98,6 +98,20 @@ vn:
       slary: "Lương"
       browse: "Browse"
       close: "Đóng"
+    status:
+      waitting: "đang chờ"
+      review_passed: "đã duyệt"
+      review_not_selected: "không đưọc chọn"
+      test_scheduled: "kiểm tra lịch"
+      test_passed: "kiểm duyệt"
+      test_not_selected: "kiểm tra loại"
+      interview_scheduled: "lịch phỏng vấn"
+      interview_passed: "đậu phỏng vấn"
+      interview_not_selected: "rớt phỏng vấn"
+      offer_sent: "gửi đề nghị"
+      offer_accepted: "đồng ý đề nghị"
+      offer_declined: "từ chối đề nghị"
+      joined: "đã tham gia"
   name_app: "Recruitment"
   please_selecta: "--- Please Select ---"
   submit: "Submit"
@@ -1208,6 +1222,7 @@ vn:
         all_jobs: "Tất cả công việc"
         company: "Công ty"
         template: "Mẫu"
+        applies: "Đơn ứng tuyển"
       header_employer:
         messages: "Tin nhắn"
         profile: "Trang cá nhân"
@@ -1481,3 +1496,20 @@ vn:
     pinterest: Pinterest
     email: Email
     linkedin: Linkedin
+  employers:
+    applies:
+      table_applies:
+        user_name: "Người nộp đơn"
+        job: "Công việc"
+        email: "Email"
+        phone: "Số điện thoại"
+        introducing: "Giới thiệu"
+        status: "Trạng thái"
+        applied: "Đã nộp ngày"
+        action: "Hành động"
+        not_applies: "Không có đơn nào cả"
+      index:
+        all_applies: "Tất cả đơn nộp"
+        search: "Tìm kiếm"
+        job_name: "---Tên Công Việc---"
+        status_applies: "---Trạng thái Đơn---"

@@ -111,3 +111,6 @@ language:
   vn: "vn"
 frc:
   size: 25
+applies_max: 10
+percent: 100
+rounding: 2
