@@ -1,0 +1,13 @@
+<li class="list-group-item">
+  <div class="notify-image">
+    <%= image_tag(notification.user_picture.url,
+      width: Settings.picture_user_width,
+      height: Settings.picture_user_height) if notification.user_id %>
+  </div>
+  <% check_notify notification %>
+  <div class="notify-content" onclick="window.location='<%= @link %>';">
+    <p><%= notification.content %>
+      <%= notification.user_name if notification.user_id %></p>
+    <p class="time"><%= t ".time_ago", time: time_ago_in_words(notification.created_at) %></p>
+  </div>
+</li>

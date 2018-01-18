@@ -14,27 +14,27 @@
   min-height: 30px;
   max-height: 360px;
   .notify-drop-title {
-    border-bottom: 1px solid $gray-light-1;
+    border-bottom: 1px solid $dark-gray;
     padding: 5px 15px 10px;
     color: $dark-gray-light;
-    background-color: $gray-light-2;
   }
   .drop-content {
     min-height: 30px;
     max-height: 280px;
     overflow-y: scroll;
     > li {
-      border-bottom: 1px solid $gray-light-1;
+      border-bottom: 1px solid $dark-gray;
       padding: 10px 0 5px;
       font-weight: bold;
       font-size: 11px;
+      min-height: 80px;
       &:after {
         content: "";
         clear: both;
         display: block;
       }
       &:hover {
-        background-color: $gray99;
+        background-color: $gray-light-1;
       }
       &:last-child {
         border-bottom: none;
@@ -77,9 +77,6 @@
           }
         }
       }
-      &:nth-child(2n + 0) {
-        background-color: $gray-light-2;
-      }
     }
     .pd-l0 {
       padding-left: 0;
@@ -95,10 +92,10 @@
   .drop-content::-webkit-scrollbar-thumb {
     background-color: $gray80;
   }
-  .allRead {
+  .all-read {
     margin-right: 7px;
   }
-  .rIcon {
+  .r-icon {
     float: right;
     color: $gray-medium-1;
     &:hover {
@@ -124,9 +121,23 @@ a.animation-floating {
   padding-bottom: 5px !important;
 }
 .widget.widget_icl_lang_sel_widget.notify-logo-1 {
-  margin-top: -5px;
-  width: 0;
+  width: 10px;
 }
-ul.nav.navbar-nav :hover {
-  background-color: $dark-gray;
+.notification {
+  cursor: pointer;
+}
+.counter-notification {
+  position: relative;
+  top: -45px;
+  left: 10px;
+  width: 14.5px;
+}
+.notificationList li.readed {
+  background-color: white;
+}
+.notificationList li.unread {
+  background-color: $blue-light-12;
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
 }

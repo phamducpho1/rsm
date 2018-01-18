@@ -230,6 +230,7 @@ vn:
         email: "Email"
         status: "Trạng thái"
         phone: "Điện thoại"
+      content_notification_update_apply: "apply đến việc %{job} đã xét bởi"
     appointments:
       appointment:
         click: "Click"

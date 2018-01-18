@@ -81,6 +81,9 @@ en:
       offer_accepted: "offer accepted"
       offer_declined: "offer declined"
       joined: "joined"
+    content_notification_create_apply: "have apply to %{job} job by"
+    content_notification_create_apply_not_signed: "have apply to %{job} job"
+  bookmark_like:
   form:
     applynow: "Apply Now"
     apply_for: "You Are Applying For"
@@ -782,8 +785,9 @@ en:
       error_messages: "You have error"
     notification:
       notification: "Notification"
-      read_all: "Read all"
       see_all: "See all"
+      read_all: "Mark all as read"
+      time_ago: "%{time} Ago"
   certificates:
     certificate:
       name: "Name"
@@ -826,6 +830,37 @@ en:
       plcclass: "Good"
     index:
       add: "Add"
+    error: " Error"
+    error_messages: "You have error"
+    notification:
+      notification: "Notifiactions"
+      see_all: "see all"
+      read_all: "Mark all as read"
+  certificate:
+    name: "Name"
+    major: "Major"
+    organization: "Organization"
+    classification: "Classification"
+    reveived_time: "Received time"
+    majors: "Majors"
+    reveived: "Received_time"
+    certi: "Certificates"
+    add: "Add"
+    save: "Save"
+    cancel: "Cancel"
+    confirm: "Are you sure to delete ?"
+    create_success: "The certificate had been add into your profile"
+    create_fail: "Sorry, something was wrong! The certificate can't save"
+    update_success: "The certificate had been update success"
+    update_fail: "Sorry, something was wrong! The certificate can't save update"
+    destroy_success: "The certificate had been delete from profile"
+    destroy_fail: "Sorry, something was wrong! The certificate can't delete"
+    fail: "Fail"
+    plcname: "Minh Micheal"
+    plcmajor: "Software Engineering"
+    plcorganization: "123 Liverpool, United Kingdom"
+    plcclass: "Good"
+    describle: "Describing the certificates that you have been received as detailed as possible in your employability"
   clubs:
     blank: "Blank"
     club:
@@ -890,6 +925,7 @@ en:
       close: "Close"
       jobs: "Jobs"
       no_jobs: "No jobs"
+    content_notification_create_job: "%{job} was created by"
     apply:
       click: "click"
       member: "Interview"
@@ -1446,6 +1482,7 @@ en:
         search: "Search"
         job_name: "---job name---"
         status_applies: "---status apply---"
+      content_notification_update_apply: "apply to %{job} job has change by"
     job:
       id: "ID"
       jobname: "Name"
@@ -1453,7 +1490,6 @@ en:
     companies:
       form:
         contact_phone: "Contact phone"
-  bookmark_like:
     save: " Saved"
     insert: "Save"
     create: "Bookmark has been created"
@@ -1602,17 +1638,6 @@ en:
       content_6: "Projects"
       content_7: "Happy Customers"
       content_8: "New Accounts Today"
-  notifications:
-    notification:
-      time_ago: "%{time} Ago"
-    notifications:
-      time_ago: "%{time} Ago"
-  see_all: "see all"
-  read_all: "Mark all as read"
-  time_ago: "%{time} Ago"
-  content_notification_update_apply: "apply to %{job} job has change by"
-  content_notification_create_apply: "have apply to %{job} job by"
-  content_notification_create_job: "%{job} was created by"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -1654,3 +1679,15 @@ en:
       x_seconds:
         one: 1 seconde
         other: "%{count} secondes"
+  notifications:
+    notification:
+      time_ago: "%{time} Ago"
+      notification: "Notifiactions"
+    notifications:
+      time_ago: "%{time} Ago"
+      not_notification: "No have notifications"
+    notification_index:
+      time_ago: "%{time} Ago"
+    notification_list:
+      yours_notifiactions: "Yours Notifiactions"
+      not_notification: "No have notifications"

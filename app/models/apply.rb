@@ -35,7 +35,7 @@ class Apply < ApplicationRecord
     user.id == self.user_id
   end
 
-  def save_activity user, key, params = nil
+  def save_activity key, user = nil, params = nil
     self.transaction do
       if params
         self.create_activity key, owner: user, parameters: {status: params}

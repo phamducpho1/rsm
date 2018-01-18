@@ -112,6 +112,8 @@ vn:
       offer_accepted: "đồng ý đề nghị"
       offer_declined: "từ chối đề nghị"
       joined: "đã tham gia"
+    content_notification_create_apply: "%{job} có đơn nộp mới bởi"
+    content_notification_create_apply_not_signed: "%{job} có đơn nộp mới"
   name_app: "Recruitment"
   please_selecta: "--- Please Select ---"
   submit: "Submit"
@@ -739,9 +741,10 @@ vn:
       error: " Lỗi"
       error_messages: "Bạn có lỗi"
     notification:
-      read_all: "Đọc tất cả"
       notification: "Thông báo"
       see_all: "Xem tất cả"
+      read_all: "Đánh dấu đọc tất cả"
+      time_ago: "%{time} trước"
   certificates:
     certificate:
       name: "Tên"
@@ -934,6 +937,7 @@ vn:
       part_time: "Part time"
       intern: "Intern"
       freelance: "Freelance"
+    content_notification_create_job: "%{job} đã đưọc tạo"
   experiences:
     blank: "Chưa có"
     form:
@@ -1459,18 +1463,18 @@ vn:
     index:
        lastest: "Mới nhất"
        home: "Home"
-  notification: "Notification"
   notifications:
     notification:
-      time_ago: "%{time} Ago"
+      time_ago: "%{time} trước"
+      notification: "Thông báo"
     notifications:
-      time_ago: "%{time} Ago"
-  see_all: "see all"
-  read_all: "Mark all as read"
-  time_ago: "%{time} Ago"
-  content_notification_update_apply: "apply to %{job} job has change by"
-  content_notification_create_apply: "have apply to %{job} job by"
-  content_notification_create_job: "%{job} was created by"
+      time_ago: "%{time} trước"
+      not_notification: "Không có thông báo"
+    notification_index:
+      time_ago: "%{time} trước"
+    notification_list:
+      yours_notifiactions: "Tất cả thông báo"
+      not_notification: "Không có thông báo"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -1544,7 +1548,7 @@ vn:
     baidu: Baidu.com
     kaixin001: Kaixin001.com
     renren: Renren.com
-    google_plus: Google+
+    google_plus: Google
     google_bookmark: Google Bookmark
     tumblr: Tumblr
     plurk: Plurk

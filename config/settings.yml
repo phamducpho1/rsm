@@ -119,3 +119,4 @@ dashboard:
   mod: 2
   zero: 0
   hundred: 100
+not_notify: 0
