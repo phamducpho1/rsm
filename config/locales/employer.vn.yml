@@ -1,5 +1,16 @@
 vn:
   employers:
+    dashboards:
+      index:
+        dashboard: "Biểu đồ"
+        detail: "Chi tiết"
+        top: "Top"
+        job: "Công việc"
+        apply: "Đơn ứng tuyển"
+        prioritize: "Tiêu biểu"
+      list_job:
+        expires_on: "Hết hạn"
+        expired: "hết hạn"
     jobs:
       search_job:
         text_search: "Nhập tiêu đề, ngôn ngữ, kỹ năng ..."
@@ -8,7 +19,7 @@ vn:
         all_categories: "Tất cả các loại"
         filter: "Lọc"
       job:
-        expires_on: "Hết hạn vào"
+        expires_on: "Hết hạn"
         expired: "hết hạn"
         sure: "Bạn có chắc không?"
       form:

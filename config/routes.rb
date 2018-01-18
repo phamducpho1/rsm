@@ -43,6 +43,7 @@ Rails.application.routes.draw do
     resources :confirm_appointments, only: :edit
     resources :templates
     resources :applies
+    resources :dashboards
   end
   resources :bookmark_likes
   resources :experiences

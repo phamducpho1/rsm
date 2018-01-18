@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def full_title page_title = ""
     base_title = I18n.t("app")
     if page_title.empty?
@@ -58,5 +59,9 @@ module ApplicationHelper
     when :alert then "alert-warning"
     when :success then "alert-success"
     end
+  end
+
+  def check_index position
+    position % Settings.dashboard.mod == Settings.dashboard.zero ? "dark-light" : ""
   end
 end
