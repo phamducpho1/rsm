@@ -1487,6 +1487,14 @@ en:
       id: "ID"
       jobname: "Name"
       position: "Position"
+    jobs:
+      job_wrapper:
+        job: "Job"
+        jobs: "Jobs"
+        add_job: "Add New"
+        urgent: "Urgent"
+        top: "Top"
+        all: "All"
     companies:
       form:
         contact_phone: "Contact phone"
