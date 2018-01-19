@@ -16,12 +16,12 @@
   padding: 0 3px;
   border: 1px solid $gray-light-1;
   position: relative;
-  background-image: linear-gradient($white-color, $gray-light-3);
+  background-image: linear-gradient($white, $gray-light-3);
   display: inline-block;
   border-radius: 2px;
   color: $moderate-orange;
   &:hover {
-    background-image: linear-gradient($white-color, $white-color);
+    background-image: linear-gradient($white, $white);
   }
 }
 .list-group-item {

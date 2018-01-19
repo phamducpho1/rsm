@@ -232,10 +232,10 @@ input[type='radio'] {
   }
 
   &:checked {
-    background: $green-light2;
+    background: $blue-light;
     box-shadow:
       inset 0 0 0 .4em $white,
-      0 0 0 .3em $white-light1;
+      0 0 0 .3em $blue-light;
   }
 
   &:focus { outline: 0; }
