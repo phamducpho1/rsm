@@ -121,3 +121,5 @@ dashboard:
   zero: 0
   hundred: 100
 not_notify: 0
+downloads:
+  image: 20
