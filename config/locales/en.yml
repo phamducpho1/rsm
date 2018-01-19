@@ -579,7 +579,18 @@ en:
         account: "Do you have an account?"
         reset: "Reset password"
         login_to: "Login to Dashboard"
-
+    users:
+      edit:
+        title: "Register"
+        login: "Login"
+        profile: "Profile"
+        update_success: "User update success"
+        update_fail: "User update fail"
+        change_pass: "Change password"
+        password: "Password"
+        password_confirm: "Confirm password"
+        current: "Current password"
+        update: "Update"
   users:
     show:
       information: "Information"
@@ -759,6 +770,7 @@ en:
       organization: "Organization: "
       error: "Create error failder"
       name: "Name"
+      name1: "Name"
       majors: "Majors"
       organization: "Organization"
       received_time: "Received_time"
@@ -1582,6 +1594,12 @@ en:
       clubs: "Clubs"
       experiences: "Experiences"
       email: "Email"
+      hobbies: "Hobbies"
+      game: "Chơi game"
+      teamwork: "Teamwork"
+      communication: "Communication"
+      skills: "Skills"
+      movie: "Xem Phim"
       certificate: "Certificate"
       address: "Address"
       phone: "Phone"

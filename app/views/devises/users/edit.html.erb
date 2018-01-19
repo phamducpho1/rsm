@@ -5,7 +5,7 @@
       <div class="login-title text-center">
         <h1>
           <small class="sml-cof">
-            <strong><%= t "users.new.change_pass" %></strong>
+            <strong><%= t ".change_pass" %></strong>
           </small>
         </h1>
       </div>
@@ -18,7 +18,7 @@
               <div class="input-group">
                 <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
                 <%= f.password_field :password, class: "form-control input-lg",
-                  placeholder: t("passwords.new.password") %>
+                  placeholder: t(".password") %>
               </div>
               <span class="error-message">
                 <%= f.error :password %>
@@ -30,7 +30,7 @@
               <div class="input-group">
                 <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
                 <%= f.password_field :password_confirmation, class: "form-control input-lg",
-                  placeholder:t("passwords.new.password_confirm") %>
+                  placeholder:t(".password_confirm") %>
               </div>
               <span class="error-message">
                 <%= f.error :password_confirm %>
@@ -41,7 +41,7 @@
             <div class="col-xs-12">
               <div class="input-group">
                 <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
-                <%= f.password_field :current_password, class: "form-control", placeholder: t("registrations.new.current") %>
+                <%= f.password_field :current_password, class: "form-control", placeholder: t(".current") %>
               </div>
               <span class="error-message">
                 <%= f.error :current_password %>
@@ -50,7 +50,7 @@
           </div>
           <div class="form-group form-actions">
             <div class="col-xs-12 text-right">
-              <%= f.submit t("registrations.new.update"), class: "btn btn-sm btn-success" do  %>
+              <%= f.submit t(".update"), class: "btn btn-sm btn-success" do  %>
                 <i class="fa fa-plus"></i>
               <% end %>
             </div>

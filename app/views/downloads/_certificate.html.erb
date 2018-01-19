@@ -1,9 +1,28 @@
-<div class="sectionContent">
-  <article>
-    <h3><%= certificate.name %></h3>
-    <p class="subDetails"><%= l certificate.received_time, format: :long %></p>
-    <p class="subDetails"><%= certificate.majors %></p>
-    <p class="subDetails"><%= certificate.organization %>.</p>
-    <p><%= certificate.classification %>.</p>
-  </article>
+<div class="bound" id="level">
+  <div class="sub_item mgb10">
+    <table class="w100" cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+        <tr>
+          <td class="w75">
+            <p data-tooltip-position="bottom">
+              <div class="w100 b tup ip f12 cv7_color"><%= certificate.name %></div>
+            </p>
+            <p data-tooltip-position="bottom">
+              <div class="w50 tcap ip f13 tg"><%= certificate.majors %></div>
+            </p>
+            <p data-tooltip-position="bottom">
+              <div class="w150 tcap ip f13 tg"><%= certificate.organization %></div>
+            </p>
+            <p><%= certificate.classification %>.</p>
+          </td>
+          <td class="w25 text_r">
+            <span data-tooltip-position="bottom">
+              <div class="f12 ip w40 tg abloi"><%= l certificate.received_time, format: :long %>
+              </div>
+            </span>
+          </td>
+        </tr>
+     </tbody>
+    </table>
+  </div>
 </div>

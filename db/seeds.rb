@@ -28,8 +28,8 @@ end
                password_confirmation: pass_conf, role: role)
 end
 
-1.upto(10) do |x|
-  1.upto(5) do
+1.upto(2) do |x|
+  1.upto(2) do
     name =   Faker::Team.creature << " Club"
     position = Faker::Job.title
     start_time = Faker::Date.between(1000.days.ago, 100.days.ago)
@@ -40,6 +40,43 @@ end
     content = Faker::Lorem.paragraph << Faker::Lorem.paragraph
     Club.create!(name: name, user_id: x, position: position,
       start_time: start_time, end_time: end_time, content: content, current: current)
+  end
+end
+
+1.upto(2) do |x|
+  1.upto(2) do
+    name =  Faker::Company.name
+    majors = Faker::Job.title
+    received_time = Faker::Date.between(1000.days.ago, 100.days.ago)
+    organization = Faker::Address.street_name
+    Achievement.create!(name: name, user_id: x, majors: majors,
+      received_time: received_time, organization: organization)
+  end
+end
+
+1.upto(2) do |x|
+  1.upto(2) do
+    name =  Faker::Company.name
+    majors = Faker::Job.title
+    received_time = Faker::Date.between(1000.days.ago, 100.days.ago)
+    organization = Faker::Address.street_name
+    classification = "Good"
+    Certificate.create!(name: name, user_id: x, majors: majors,
+      received_time: received_time, organization: organization,
+      classification: classification)
+  end
+end
+
+1.upto(2) do |x|
+  1.upto(2) do
+    name = Faker::Name.name_with_middle
+    company =  Faker::Company.name
+    start_time = Faker::Date.between(1000.days.ago, 100.days.ago)
+    end_time = Faker::Date.between(99.days.ago, Date.today)
+    project_detail = Faker::Lorem.paragraph << Faker::Lorem.paragraph
+    Experience.create!(name: name, user_id: x, company: company,
+      start_time: start_time, end_time: end_time,
+      project_detail: project_detail)
   end
 end
 

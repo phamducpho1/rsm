@@ -1,90 +1,148 @@
- <div class="container">
-  <div class="main_content">
-    <div class="row">
-      <div class="col-md-offset-1 col-md-10">
-        <div class="well well-sm mainDetails">
-          <div class="row">
-            <div id= "show-user">
-              <div class="col-sm-2 col-md-2 body-left">
-                <% if @user.picture.present? %>
-                  <%= show_avatar @user  %>
-                <% else %>
-                  <%= image_tag "avatar_2x.png", class: "img-responsive avatar_users" %>
-                <% end %>
-              </div>
-              <div class="col-sm-10 col-md-10 body-right">
-                <h4><%= @user.name %></h4>
-                <table class= "table table_profile">
-                  <tr>
-                    <td class="view-field">
-                      <strong class="view-control">
-                        <span class="glyphicon glyphicon-envelope"></span> <span class="title"><%= t ".email" %>:</span>
-                      </strong>
-                    </td>
-                    <td class="profile_content"><%= @user.email %></td>
-                  </tr>
-
-                  <tr>
-                    <td class="view-field">
-                      <strong class="view-control">
-                        <span class="glyphicon glyphicon-globe"></span> <span class="title"><%= t ".address" %>:</span>
-                      </strong>
-                    </td>
-                    <td class="profile_content"><%= @user.address %></td>
-                  </tr>
-                  <tr>
-                    <td class="view-field">
-                      <strong class="view-control">
-                        <span class="glyphicon glyphicon-phone"></span> <span class="title"><%= t ".phone" %>:</span>
-                      </strong>
-                    </td>
-                    <td class="profile_content"><%= @user.phone %></td>
-                  </tr>
-                   <tr>
-                    <td class="view-field">
-                      <strong class="view-control">
-                        <span class="fa fa-birthday-cake"></span> <span class="title"><%= t ".birthday" %>:</span>
-                      </strong>
-                    </td>
-                    <td class="profile_content"><%= @user.birthday %></td>
-                  </tr>
-                </table>
-              </div>
-              <div class="clear"></div>
-            </div>
+<%= stylesheet_link_tag "downloads/cv.css" %>
+<div class="cv_cm cv_v7">
+  <div class="cv7top">
+    <p class="text_r tw b f25 font_rc tcap w101 ip cv7_name"><%= @user.name %></p>
+  </div>
+  <div class="cv7_left">
+    <div class="cv_item " id="item_tt_quanlification">
+      <h2 data-tooltip-position="bottom" class="cv7_title_left">
+        <span class="icon_level_w">
+          <%= image_tag "price_w.png", size: Settings.downloads.image, class: "image-cv" %>
+        </span>
+          <input class="ip resize" type="text" value="<%= t".achievements" %>" size="12">
+        <i class="line_v7"></i>
+      </h2>
+      <%= render partial: "downloads/achievement", collection: @achievements, as: :achievement %>
+    </div>
+    <div class="cv_item " id="item_tt_quanlification">
+      <h2 data-tooltip-position="bottom" class="cv7_title_left">
+        <span class="icon_level_w">
+          <%= image_tag "level_w.png", size: Settings.downloads.image, class: "image-cv" %>
+        </span>
+        <input class="ip resize" type="text" value="<%= t".experiences" %>" size="12">
+        <i class="line_v7"></i>
+      </h2>
+      <%= render partial: "downloads/experience", collection: @experiences, as: :experience %>
+    </div>
+    <div class="cv_item " id="item_tt_quanlification">
+      <h2 data-tooltip-position="bottom" class="cv7_title_left">
+        <span class="icon_level_w">
+          <%= image_tag "cer_w.png", size: Settings.downloads.image, class: "image-cv" %>
+        </span>
+        <input class="ip resize" type="text" value="<%= t".certificate" %>" size="9">
+        <i class="line_v7"></i>
+      </h2>
+      <%= render partial: "downloads/certificate", collection: @certificates, as: :certificate %>
+    </div>
+    <div class="cv_item " id="item_tt_quanlification">
+      <h2 data-tooltip-position="bottom" class="cv7_title_left">
+        <span class="icon_level_w">
+          <%= image_tag "target_w.png", size: Settings.downloads.image, class: "image-cv" %>
+        </span>
+        <input class="ip resize" type="text" value="<%= t".clubs" %>" size="11">
+        <i class="line_v7"></i>
+      </h2>
+      <%= render partial: "downloads/club", collection: @clubs, as: :club %>
+    </div>
+  </div>
+  <div class="cv7_right">
+    <div class="cv7_topav">
+       <div class="cv7_avatar">
+          <div id="myavatar" class="avatar ">
+            <% if @user.picture.present? %>
+              <%= image_tag @user.picture.url %>
+            <% else %>
+              <%= image_tag "user_avatar_default.png" %>
+            <% end %>
           </div>
+       </div>
+    </div>
+    <ul class="cv7_contact">
+      <li data-tooltip-position="bottom">
+        <span class="icon_date_w"><i class="fa fa-calendar-o text-white" aria-hidden="true"></i></span>
+        <div class="w100 ip tw f12 breakwrap"><%= l @user.birthday, format: :long %></div>
+      </li>
+      <li data-tooltip-position="bottom">
+        <span class="icon_phone_w"><i class="fa fa-phone text-white" aria-hidden="true"></i></span>
+        <div class="w100 ip tw f12 breakwrap">+<%= @user.phone %></div>
+       </li>
+      <li  data-tooltip-position="bottom">
+        <span class="icon_email_w"><i class="fa fa-envelope text-white" aria-hidden="true"></i></span>
+        <div class="w100 ip tw f12 breakwrap"><%= @user.email %></div>
+      </li>
+      <li data-tooltip-position="bottom">
+        <span class="icon_gender_w"><i class="fa fa-user text-white" aria-hidden="true"></i></span>
+        <div class="w100 ip tw f12 breakwrap"><%= @user.sex %></div>
+      </li>
+      <li data-tooltip-position="bottom">
+        <span class="icon_loc_w"><i class="fa fa-map-marker text-white" aria-hidden="true"></i></span>
+        <div class="w100 ip tw f12 breakwrap"><%= @user.address %></div>
+      </li>
+    </ul>
+    <div class="cv_item " id="item_tt_gusto">
+      <h2 data-tooltip-position="bottom" class="cv7_title_rigth">
+        <div class="ip w100 tup"><%= t ".hobbies" %></div>
+      </h2>
+      <div class="bound" id="focus">
+        <div class="sub_item">
+          <table class="w100" cellpadding="0" cellspacing="0" border="0">
+            <tbody><tr>
+               <td class="w100 ">
+                  <p data-tooltip-position="bottom" class="shopping">
+                    -&ensp;<%= t ".game"%>
+                  </p>
+                  <p data-tooltip-position="bottom" class="shopping">
+                    -&ensp;<%= t ".movie"%>
+                  </p>
+               </td>
+            </tr>
+         </tbody></table>
         </div>
       </div>
     </div>
-    <div class="quickFade delayFive ghitmodel mainArea">
-      <section>
-        <div class="sectionTitle">
-          <h1><%= t ".achievements" %></h1>
+    <div class="cv_item " id="item_tt_skill">
+      <h2  data-tooltip-position="bottom" class="cv7_title_rigth">
+         <div class="ip w100 tup"><%= t ".skills"%></div>
+      </h2>
+      <div class="bound" id="focus">
+        <div class="sub_item">
+          <table class="w100" cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+              <tr>
+                <td class="w100 ">
+                  <p data-tooltip-position="bottom" class="w100">
+                    <div class="w100 tw ip f12"><%= t ".communication" %></div>
+                  </p>
+                  <p class="star w100">
+                    <i class="fa fa-star text-white" aria-hidden="true"></i>
+                    <i class="fa fa-star text-white" aria-hidden="true"></i>
+                    <i class="fa fa-star text-white" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o text-white" aria-hidden="true"></i>
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <%= render partial: "downloads/achievement", collection: @achievements, as: :achievement %>
-        <div class="clear"></div>
-      </section>
-      <section>
-        <div class="sectionTitle">
-          <h1><%= t ".certificate" %></h1>
+        <div class="sub_item">
+          <table class="w100" cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+              <tr>
+                <td class="w100 ">
+                  <p data-tooltip-position="bottom" class="w100">
+                    <div class="w100 tw ip f12"><%= t ".teamwork" %></div>
+                  </p>
+                  <p class="star w100">
+                    <i class="fa fa-star text-white" aria-hidden="true"></i>
+                    <i class="fa fa-star text-white" aria-hidden="true"></i>
+                    <i class="fa fa-star text-white" aria-hidden="true"></i>
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <%= render partial: "downloads/certificate", collection: @certificates, as: :certificate %>
-        <div class="clear"></div>
-      </section>
-      <section>
-        <div class="sectionTitle">
-          <h1><%= t ".clubs" %></h1>
-        </div>
-        <%= render partial: "downloads/club", collection: @clubs, as: :club %>
-        <div class="clear"></div>
-      </section>
-      <section>
-        <div class="sectionTitle">
-          <h1><%= t ".experiences" %></h1>
-        </div>
-        <%= render partial: "downloads/experience", collection: @experiences, as: :experience %>
-        <div class="clear"></div>
-      </section>
+      </div>
     </div>
   </div>
 </div>

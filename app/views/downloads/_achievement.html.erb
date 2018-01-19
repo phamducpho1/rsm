@@ -1,8 +1,26 @@
-<div class="sectionContent">
-  <article>
-    <h3><%= achievement.name %></h3>
-    <p class="subDetails"><%= l achievement.received_time, format: :long %></p>
-    <p class="subDetails"><%= achievement.majors %></p>
-    <p><%= achievement.organization %>.</p>
-  </article>
+<div class="bound" id="level">
+  <div class="sub_item mgb10">
+    <table class="w100" cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+        <tr>
+          <td class="w75">
+            <p data-tooltip-position="bottom">
+              <div class="w100 b tup ip f12 cv7_color"><%= achievement.name %></div>
+            </p>
+            <p data-tooltip="Chuyên nghành của bạn là gì" data-tooltip-position="bottom">
+              <div class="w100 tcap ip f13 tg"><%= achievement.majors %></div>
+            </p>
+            <p data-tooltip-position="bottom">
+              <div class="w100 tcap ip f13 tg"><%= achievement.organization %></div>
+            </p>
+          </td>
+          <td class="w25 text_r">
+            <span data-tooltip-position="bottom">
+              <div class="f12 ip w40 tg abloi"><%= l achievement.received_time, format: :long %></div>
+            </span>
+          </td>
+        </tr>
+     </tbody>
+    </table>
+  </div>
 </div>
