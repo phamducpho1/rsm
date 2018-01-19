@@ -34,3 +34,5 @@
 //= require config_ckeditor
 //= require ckeditor/config
 //= require cable
+//= require custom_height_layout.js
+//= require fancybox

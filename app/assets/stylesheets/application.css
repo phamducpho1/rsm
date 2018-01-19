@@ -24,4 +24,5 @@
  *= require social-share-button
  *= require_tree ../../../node_modules/alertify/themes
  *= require custom
+ *= require fancybox
  */

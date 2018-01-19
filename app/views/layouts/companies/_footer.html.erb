@@ -1,13 +1,15 @@
 <footer id="footer" class="custom_footer">
   <div class="wrapper">
-    <div class="text-color-white">
-      <div class="footer-branchs">
-        <h5><%= @company.name %></h5>
-        <div class="row">
-          <%= render @branches if @branches.present? %>
+    <% if @branches.present? %>
+      <div class="text-color-white">
+        <div class="footer-branchs">
+          <h5><%= @company.name %></h5>
+          <div class="row">
+            <%= render @branches %>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
     <div class="footer-bottom clearfix">
       <div class="padding-top-10 cus_color_branch">
         &copy; <%= t ".year" %> <span class="font-size-12-bold"><%= t ".author" %></span><%= t ".copyright" %>

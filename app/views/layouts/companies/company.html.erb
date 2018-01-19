@@ -11,13 +11,15 @@
   </head>
 
   <body class="home page page-id-21 page-template-default wp-custom-logo">
-    <%= render "shared/flash" %>
-    <span class="opacity"></span>
-    <%= render "layouts/companies/header" %>
-    <main id="main-content">
-      <%= yield %>
-    </main>
-    <%= render "layouts/companies/login" %>
+    <div id="content-body-custom">
+      <%= render "shared/flash" %>
+      <span class="opacity"></span>
+      <%= render "layouts/companies/header" %>
+      <main id="main-content">
+        <%= yield %>
+      </main>
+      <%= render "layouts/companies/login" %>
+    </div>
     <%= render "layouts/companies/footer" %>
   </body>
 </html>

@@ -10,10 +10,12 @@
   </head>
   <body class="home page">
     <div id="page-container">
-      <%= render "layouts/header" %>
-      <section class="site-content">
-        <%= yield %>
-      </section>
+      <div id="content-body-custom">
+        <%= render "layouts/header" %>
+        <section class="site-content">
+          <%= yield %>
+        </section>
+      </div>
       <%= render "layouts/footer" %>
     </div>
     <%= image_tag "loading.gif", id: "img-loading", class: "img-load" %>
