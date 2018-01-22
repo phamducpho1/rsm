@@ -31,7 +31,7 @@ module JobsHelper
   end
 
   def class_dashboard job
-    case load_value job
+    case load_values job
     when Settings.job.sixty..Settings.job.hundred
       "success"
     when Settings.job.fourty..Settings.job.sixteen
@@ -55,5 +55,17 @@ module JobsHelper
 
   def check_member? company
     current_user.is_member_of? company.id
+  end
+
+  def dashboard_css job
+    if (load_values job) < Settings.job.width
+      Settings.job.width
+    else
+      load_values job
+    end
+  end
+
+  def load_values job
+    (job.applies.joined.size/(job.target.to_f)*Settings.job.hundred).to_i
   end
 end

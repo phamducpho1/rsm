@@ -73,7 +73,9 @@ vn:
       who: "Người giới thiệu"
       news_cv: "Tạo cv mới"
       introducing: "Thư giới thiệu"
-      new_cv: "Tải lên cv "
+      new_cv: "Tải lên hồ sơ "
+      update: "Ngày cập nhật: "
+      select-cv: "Chọn hồ sơ mới"
     undefind_form:
       information: "Thông tin"
       applynow: "Ứng tuyển"
@@ -352,6 +354,7 @@ vn:
   time:
     formats:
       long: "%d/%m/%Y"
+      date_time: "%d/%m/%Y %H:%M"
   activerecord:
     attributes:
       user:

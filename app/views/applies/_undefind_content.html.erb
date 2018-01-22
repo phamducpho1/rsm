@@ -1,6 +1,6 @@
 <%= simple_form_for @apply , remote: :true, class: "form-horizontal form-bordered" do |f| %>
   <%= f.hidden_field :job_id %>
-  <strong><%= t ".information" %></strong><br>
+  <span class="text-danger">&nbsp;*</span><strong><%= t ".information" %></strong><br>
   <div class="table-responsive">
     <%= f.simple_fields_for :information do |p| %>
     <div class="form-group input-inline width-inline">

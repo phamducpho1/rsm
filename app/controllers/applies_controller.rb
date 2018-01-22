@@ -12,7 +12,9 @@ class AppliesController < ApplicationController
   def show; end
 
   def create
-    @apply.cv = current_user.cv if params[:checkcv].blank? && user_signed_in?
+    if user_signed_in? && current_user.cv.present?
+      @apply.cv = current_user.cv if params[:radio] == Settings.apply.checked
+    end
     @apply.information = params[:apply][:information].permit!.to_h
     format_respond
   end
