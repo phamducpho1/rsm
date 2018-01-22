@@ -1,11 +1,13 @@
 class SendEmailUserJob < ApplicationJob
   queue_as :default
 
-  def perform title, apply, template, company
+  def perform title, apply, template, company, apply_status
     @title = title
     @apply = apply
     @template = template
     @company = company
-    CompanyMailer.interview_scheduled_candidate(@title, @apply, @template, @company).deliver_later
+    @apply_status = apply_status
+    CompanyMailer.interview_scheduled_candidate(@title, @apply,
+      @template, @company, @apply_status).deliver_later
   end
 end

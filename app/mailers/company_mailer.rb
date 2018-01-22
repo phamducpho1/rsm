@@ -14,17 +14,12 @@ class CompanyMailer < ApplicationMailer
     mail(to: @apply.information[:email], subject: t("company_mailer.welcome_email.subject"))
   end
 
-  def review_not_selected apply, company
-    @apply = apply
-    @company = company
-    mail(to: @apply.information[:email], subject: t("company_mailer.welcome_email.subject"))
-  end
-
-  def interview_scheduled_candidate title, apply, template, company
+  def interview_scheduled_candidate title, apply, template, company, apply_status
     @title = title
     @template = template
     @apply = apply
     @company = company
+    @apply_status = apply_status
     mail(to: @apply.information[:email], subject: @title)
   end
 

@@ -80,6 +80,8 @@ end
   end
 end
 
+User.update_all confirmed_at: Time.current
+
 Company.delete_all
 Company.create!(
   name: "Framgia",
@@ -132,7 +134,42 @@ Branch.create!(
   status: 0,
   company_id: 2
 )
+
+statuses = {
+  review: [:pending, :review_not_selected, :review_passed],
+  test: [:pending, :test_scheduled, :test_passed, :test_not_selected],
+  interview: [:pending, :interview_scheduled, :interview_passed, :interview_not_selected],
+  offer: [:pending, :offer_sent, :offer_accepted, :offer_declined],
+}
+
+statuses.each_with_index do |(key, value), index|
+  Step.create!(
+    description: "#{key}",
+    name: "#{key}",
+  )
+
+  next if statuses[key].blank?
+  statuses[key].each do |val|
+    StatusStep.create!(
+      step_id: Step.all[index].id,
+      name: "#{val}",
+      code: "#{val}"
+
+      )
+  end
+end
+
 companies = Company.all
+
+companies.each do |company|
+  Step.all.each_with_index do |step, index|
+    CompanyStep.create!(
+      company_id: company.id,
+      step_id: step.id,
+      priority: index + 1
+    )
+  end
+end
 
 companies.each do |company|
   CompanySetting.create!(
@@ -217,7 +254,7 @@ end
 
 Job.limit(10).each_with_index do |job, index|
   user = User.find index + 1
-  Apply.create!(
+  apply = Apply.create!(
     status: "test_scheduled",
     user_id: index + 1,
     job_id: index + 1,
@@ -229,18 +266,23 @@ Job.limit(10).each_with_index do |job, index|
       introducing: "abc"
     }
   )
-end
-
-Apply.all.each do |apply|
- start_time = Faker::Time.forward(23, :morning)
-  apply.appointments.create!(
-    address: Faker::Job.title ,
-    start_time: start_time,
-    end_time: (start_time + 2.hours),
-    type_appointment: "test_scheduled",
-    company_id: 1
+  ApplyStatus.create!(
+    apply_id: apply.id,
+    status_step_id: StatusStep.first.id,
+    is_current: :current
   )
 end
+
+# Apply.all.each do |apply|
+#  start_time = Faker::Time.forward(23, :morning)
+#   apply.appointments.create!(
+#     address: Faker::Job.title ,
+#     start_time: start_time,
+#     end_time: (start_time + 2.hours),
+#     type_appointment: "test_scheduled",
+#     company_id: 1
+#   )
+# end
 
 1.upto(10) do |x|
   Partner.create!(

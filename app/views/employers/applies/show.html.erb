@@ -1,4 +1,38 @@
 <div class="row">
+   <div class="col-sm-8 col-lg-9">
+    <div class="block block-content">
+      <div class="block-title">
+        <h2>
+          <i class="fa fa-pencil"></i>
+          <strong><%= t"employers.current" %></strong>
+          <%= t "employers.status" %>
+        </h2>
+      </div>
+      <ul class="progress-indicator" id="area-status-progress">
+        <%= render partial: "status_progress", locals: {steps: @steps,
+          current_step: @current_step, company_steps_by_step: @company_steps_by_step} %>
+      </ul>
+    </div>
+
+    <div class="block block-content">
+      <div class="tab-pane active row" id="apply-handling">
+        <div id="area-form-status">
+        <%= render partial: "form_status", locals: {apply: @apply,
+          current_step: @current_step, current_status_steps: @current_status_steps,
+          company_stattus_step_ids: @company_stattus_step_ids} %>
+        <hr>
+        </div>
+        <ul class="media-list media-feed push">
+          <li class="media">
+            <div class="media-body">
+              <div id = "apply-handling-content">
+              </div>
+            </div>
+          </li>
+        </ul>
+       </div>
+    </div>
+  </div>
   <div class="col-sm-4 col-lg-3">
     <div class="block full">
       <div class="block-title clearfix">
@@ -36,32 +70,6 @@
       <a href="<%= @apply.cv.url %>" data-fancybox class="thumbnail-cv">
         <iframe src="<%= @apply.cv %>" style="width: 100%; height: 100%; border: 1px solid rgb(219, 225, 232);" />
       </a>
-    </div>
-  </div>
-
-  <div class="col-sm-8 col-lg-9">
-    <div class="block block-content">
-      <div class="block-title">
-       <h2><i class="fa fa-pencil"></i><strong><%= t"employers.current" %></strong><%= t "employers.status" %></h2>
-      </div>
-      <ul class="progress-indicator">
-        <%= render "status_progress" %>
-      </ul>
-    </div>
-
-    <div class="block block-content">
-      <div class="tab-pane active row" id="apply-handling">
-        <%= render partial: "form_status", locals: {apply: @apply} %>
-        <hr>
-        <ul class="media-list media-feed push">
-          <li class="media">
-            <div class="media-body">
-              <div id = "apply-handling-content">
-              </div>
-            </div>
-          </li>
-        </ul>
-       </div>
     </div>
   </div>
 </div>

@@ -15,7 +15,8 @@
               <div class="input-group">
                 <span class="input-group-addon"><%= t "jobs.apply.title" %></span>
                 <%= text_field_tag :title, nil, class: "form-control" %>
-                <%= hidden_field_tag :apply_id, apply.id, html: {class: "form-control"} %>
+                <%= hidden_field_tag :apply_id, apply.id %>
+                <%= hidden_field_tag :apply_status, apply_status.id %>
               </div>
             </div>
 

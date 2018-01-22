@@ -33,6 +33,8 @@ class Ability
     can :manage, Appointment, company_id: company.id
     can :manage, Template, user_id: user.id
     can :manage, Apply, job_id: company.jobs.pluck(:id)
+    can :create, ApplyStatus
+    can :manage, ApplyStatus, apply_id: company.applies.pluck(:id)
   end
 
   def permission_admin

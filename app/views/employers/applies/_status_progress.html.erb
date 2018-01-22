@@ -1,6 +1,6 @@
- <% Settings.statuses.each_with_index do |value, index| %>
-  <li class="<%= show_progress_status_apply @apply, value, index %>">
+ <% steps.each do |step| %>
+  <li class="<%= show_progress_status_apply current_step, step, company_steps_by_step %>">
     <span class="bubble"></span>
-    <%= @apply.status.include?(value) ? t("employers.applies.statuses.#{@apply.status}") : value %>
+    <%= show_value current_step, step %>
   </li>
 <% end %>

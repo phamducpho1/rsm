@@ -1,0 +1,26 @@
+<% if @messages.present? %>
+  $('#apply-handling-content').html('');
+  $('#area-status-progress').html('<%= j render partial: "employers/applies/status_progress", locals: {steps: @steps, current_step: @current_step, company_steps_by_step: @company_steps_by_step} %>');
+  $('#area-form-status').html('<%= j render partial: "employers/applies/form_status", locals: {apply: @apply, current_step: @current_step, current_status_steps: @current_status_steps, company_stattus_step_ids: @company_stattus_step_ids} %>');
+  swal({
+    title: I18n.t('jobs.apply.confirm_send_email'),
+    text: I18n.t('jobs.apply.text_send_email'),
+    icon: 'warning',
+    buttons: true,
+    primaryMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      $('#apply-handling-content').html('<%=j render partial: "employers/applies/email_form", locals: {apply_status: @apply_status, apply: @apply, template_users: @template_users} %>');
+    }
+  });
+<% else %>
+  <% if @company_stattus_step_ids.include? @apply_status.status_step_id %>
+    $('#apply-handling-content').html('<%= j (render partial: "employers/applies/appointment_form", locals:{apply: @apply, members: @members, appointments: @appointments}) %>');
+  <% else %>
+    $('#apply-handling-content').html('');
+    alertify.error('<%= @errors %>');
+  <% end %>
+<% end %>
+$('#img-loading').hide();
+$('.config').css('opacity', 1);
