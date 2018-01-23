@@ -42,6 +42,16 @@ abbr {
   color: $red;
 }
 
+
+@media screen and (max-width: 1399px) {
+  .widget_icl_lang_sel_widget {
+    margin-right: 65px !important;
+  }
+  .user-ic{
+    margin-right: 10px !important;
+  }
+}
+
 @media (min-width: 1286px) {
   .menu-open {
     display: none !important;
@@ -58,15 +68,6 @@ abbr {
 @media screen and (max-width: 799px) {
   .widget_icl_lang_sel_widget {
     margin-right: 15px !important;
-  }
-}
-
-@media screen and (max-width: 1399px) {
-  .widget_icl_lang_sel_widget {
-    margin-right: 67px !important;
-  }
-  .user-ic{
-    margin-right: 10px !important;
   }
 }
 abbr {
