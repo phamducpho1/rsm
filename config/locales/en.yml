@@ -83,8 +83,6 @@ en:
       offer_accepted: "offer accepted"
       offer_declined: "offer declined"
       joined: "joined"
-    content_notification_create_apply: "have apply to %{job} job by"
-    content_notification_create_apply_not_signed: "have apply to %{job} job"
   bookmark_like:
   form:
     applynow: "Apply Now"
@@ -940,7 +938,6 @@ en:
       close: "Close"
       jobs: "Jobs"
       no_jobs: "No jobs"
-    content_notification_create_job: "%{job} was created by"
     apply:
       click: "click"
       member: "Interview"
@@ -1497,7 +1494,6 @@ en:
         search: "Search"
         job_name: "---job name---"
         status_applies: "---status apply---"
-      content_notification_update_apply: "apply to %{job} job has change by"
     job:
       id: "ID"
       jobname: "Name"
@@ -1670,48 +1666,50 @@ en:
   datetime:
     distance_in_words:
       about_x_hours:
-        one: environ une heure
-        other: environ %{count} heures
+        one: about 1 hour
+        other: about %{count} hours
       about_x_months:
-        one: environ un mois
-        other: environ %{count} mois
+        one: about 1 month
+        other: about %{count} months
       about_x_years:
-        one: environ un an
-        other: environ %{count} ans
+        one: about 1 year
+        other: about %{count} years
       almost_x_years:
-        one: presqu'un an
-        other: presque %{count} ans
-      half_a_minute: une demi-minute
+        one: almost 1 year
+        other: almost %{count} years
+      half_a_minute: half a minute
       less_than_x_minutes:
-        zero: moins d'une minute
-        one: moins d'une minute
-        other: moins de %{count} minutes
+        one: less than a minute
+        other: less than %{count} minutes
       less_than_x_seconds:
-        zero: moins d'une seconde
-        one: moins d'une seconde
-        other: moins de %{count} secondes
+        one: less than 1 second
+        other: less than %{count} seconds
       over_x_years:
-        one: plus d'un an
-        other: plus de %{count} ans
+        one: over 1 year
+        other: over %{count} years
       x_days:
-        one: 1 jour
-        other: "%{count} jours"
+        one: 1 day
+        other: "%{count} days"
       x_minutes:
         one: 1 minute
         other: "%{count} minutes"
       x_months:
-        one: 1 mois
-        other: "%{count} mois"
+        one: 1 month
+        other: "%{count} months"
       x_years:
-        one: un an
-        other: "%{count} ans"
+        one: 1 year
+        other: "%{count} years"
       x_seconds:
-        one: 1 seconde
-        other: "%{count} secondes"
+        one: 1 second
+        other: "%{count} seconds"
   notifications:
     notification:
       time_ago: "%{time} Ago"
       notification: "Notifiactions"
+      content_create_job: "was created"
+      content_create_apply: "have new apply"
+      content_update_apply: "your apply has changed status"
+      by: "by"
     notifications:
       time_ago: "%{time} Ago"
       not_notification: "No have notifications"

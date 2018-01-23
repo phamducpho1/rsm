@@ -8,6 +8,8 @@ class Apply < ApplicationRecord
   has_many :status_steps, through: :apply_statuses, dependent: :destroy
   has_many :steps, through: :status_steps, dependent: :destroy
 
+  serialize :information, Hash
+
   validates :cv, presence: true
   validates :information, presence: true
   enum status: {waitting: 0, review_passed: 1, review_not_selected: 2,
@@ -17,10 +19,12 @@ class Apply < ApplicationRecord
 
   accepts_nested_attributes_for :apply_statuses, allow_destroy: true , update_only: true
 
-  serialize :information, Hash
   scope :newest_apply, ->{order :created_at}
-  mount_uploader :cv, CvUploader
   scope :sort_apply, ->{order(created_at: :desc).limit Settings.job.limit}
+  scope :lastest_apply, ->{order created_at: :desc}
+
+  mount_uploader :cv, CvUploader
+
   delegate :name, to: :job, prefix: true, allow_nil: :true
 
   include PublicActivity::Model

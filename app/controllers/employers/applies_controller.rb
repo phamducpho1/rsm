@@ -7,11 +7,12 @@ class Employers::AppliesController < Employers::EmployersController
     :load_statuses_by_current_step, only: :show
 
   def index
-    @q = Apply.search params[:q]
-    applies = Apply.newest_apply
-    @size_applies = applies.size
-    @applies_status = applies.group_by &:status
-    @applies = @q.result.page(params[:page]).per Settings.applies_max
+    applies = @company.applies
+    @size_statuses = SelectApply.caclulate_applies applies,
+      Settings.caclulate_applies_size
+    @q = applies.search params[:q]
+    @applies = @q.result.lastest_apply
+      .page(params[:page]).per Settings.applies_max
     respond_to do |format|
       format.html
       format.js

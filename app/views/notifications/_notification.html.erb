@@ -1,4 +1,5 @@
-<li class="<%= type %>">
+<% readed_unread_notify notification, @notify_readed %>
+<li class="<%= @type %>">
   <div class="col-md-3 col-sm-3 col-xs-3">
     <div class="notify-img">
       <%= image_tag(notification.user_picture.url,
@@ -8,10 +9,12 @@
   </div>
   <% check_notify notification %>
   <div class="col-md-9 col-sm-9 col-xs-9 pd-l0 notification"
-    onclick="window.location='<%= @link %>';">
-    <p><%= notification.content %>
-      <%= notification.user_name if notification.user_id %></p>
-    <a href="" class="r-icon"><i class="fa fa-dot-circle-o"></i></a>
+    onclick="window.location='<%= @notice[:link] %>';">
+    <p><b><%= @notice[:name] %>:</b> <%= @notice[:content] %>
+      <% if notification.user_id %>
+        <%= t ".by" %> <b><%= notification.user_name %></b>
+      <% end %>
+    </p>
     <p class="time"><%= t ".time_ago", time: time_ago_in_words(notification.created_at) %></p>
   </div>
 </li>

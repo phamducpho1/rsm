@@ -45,8 +45,7 @@ class JobsController < BaseNotificationsController
     respond_to do |format|
       if @job.save
         @job.save_activity current_user, :create
-        Notification.create_notification t(".content_notification_create_job",
-          job: @job.name), :employer, @job, current_user.id, @job.company_id
+        Notification.create_notification :employer, @job, current_user, @job.company_id
         format.js{@messages = t ".job_created"}
       else
         format.js

@@ -1,6 +1,10 @@
 class Notification < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
   belongs_to :event, polymorphic: true
+
+  validates :company_id, presence: true
+  validates :user_read, presence: true
+  validates :event, presence: true
 
   after_create :push_notify
 
@@ -12,25 +16,19 @@ class Notification < ApplicationRecord
   delegate :id, :job, to: :event, prefix: true, allow_nil: true
 
   scope :order_by_created_at, ->{order created_at: :desc}
-  scope :not_user, ->user_id{where.not user_id: user_id}
+  scope :not_user, ->user_id{where "user_id != ? OR user_id is null", user_id}
   scope :type_notify, ->type{where event_type: type}
   scope :search_user_request, ->user_id{where user_request: user_id}
   scope :search_company, ->company_ids{where company_id: company_ids}
 
   class << self
-    def create_notification content, user_read, event, user, company_id, user_request = nil
+    def create_notification user_read, event, user, company_id, user_request = nil
       Notification.transaction do
-        if user
-          Notification.create content: content, user_read: user_read,
-            event: event, user_id: user.id, company_id: company_id,
-            user_request: user_request
-        else
-          Notification.create content: content, user_read: user_read,
-            event: event, user_id: nil, company_id: company_id,
-            user_request: user_request
-        end
+        user_id = user ? user.id : nil
+        Notification.create! user_read: user_read,
+          event: event, user_id: user_id, company_id: company_id,
+          user_request: user_request
       end
-    rescue
     end
 
     def search_readed user_id
@@ -47,7 +45,7 @@ class Notification < ApplicationRecord
 
   def render_notification notification
     ApplicationController.renderer.render partial: "notifications/notification",
-      locals: {notification: notification, type: :unread}
+      locals: {notification: notification}
   end
 
   def list_received
