@@ -48,7 +48,7 @@ en:
       apply_for: "For"
       slary: "Slary"
       introducing: "Introducing letter"
-      new_cv: "Upload New CV:"
+      new_cv: "Upload CV:"
       browse: "Browse"
       apply: "Apply"
       close: "Close"
@@ -62,11 +62,13 @@ en:
     content:
       apply: "Apply "
       close: "Close"
+      update: "Updated at:  "
       browse: "Browse"
+      select-cv: "Upload new CV "
       who: "Who introduced?"
       news_cv: "News CV"
       introducing: "Introducing letter"
-      new_cv: " Upload New CV: "
+      new_cv: " Upload CV: "
     status:
       waitting: "waitting"
       review_passed: "review passed"
@@ -417,6 +419,7 @@ en:
   time:
     formats:
       long: "%d/%m/%Y"
+      date_time: "%d/%m/%Y %H:%M"
   activerecord:
     attributes:
       user:

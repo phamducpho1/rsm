@@ -79,3 +79,7 @@ $(document).on('click', '.load-page', function(){
   $('#img-loading ').show();
   $('.opacity-apply').css('opacity' ,0.8);
 });
+
+$(document).on('click', '#cv-file', function(){
+  $('#radio-2').prop('checked', true);
+});

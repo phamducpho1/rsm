@@ -42,6 +42,7 @@ employers:
 apply:
   image: 50
   page: 10
+  checked: "checked"
 job:
   hundred: 100
   twenty: 21
