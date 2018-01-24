@@ -140,3 +140,5 @@ pending: "pending"
 active: "active"
 interview_scheduled: "interview_scheduled"
 caclulate_applies_size: "size"
+next_step: 1
+prev_step: -1

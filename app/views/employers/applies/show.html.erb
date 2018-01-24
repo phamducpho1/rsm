@@ -1,38 +1,4 @@
 <div class="row">
-   <div class="col-sm-8 col-lg-9">
-    <div class="block block-content">
-      <div class="block-title">
-        <h2>
-          <i class="fa fa-pencil"></i>
-          <strong><%= t"employers.current" %></strong>
-          <%= t "employers.status" %>
-        </h2>
-      </div>
-      <ul class="progress-indicator" id="area-status-progress">
-        <%= render partial: "status_progress", locals: {steps: @steps,
-          current_step: @current_step, company_steps_by_step: @company_steps_by_step} %>
-      </ul>
-    </div>
-
-    <div class="block block-content">
-      <div class="tab-pane active row" id="apply-handling">
-        <div id="area-form-status">
-        <%= render partial: "form_status", locals: {apply: @apply,
-          current_step: @current_step, current_status_steps: @current_status_steps,
-          company_stattus_step_ids: @company_stattus_step_ids} %>
-        <hr>
-        </div>
-        <ul class="media-list media-feed push">
-          <li class="media">
-            <div class="media-body">
-              <div id = "apply-handling-content">
-              </div>
-            </div>
-          </li>
-        </ul>
-       </div>
-    </div>
-  </div>
   <div class="col-sm-4 col-lg-3">
     <div class="block full">
       <div class="block-title clearfix">
@@ -63,13 +29,58 @@
         </table>
       </div>
     </div>
-    <div class="block full">
+    <div class="block full area-cv">
       <div class="block-title">
         <h2><i class="fa fa-eye" aria-hidden="true"></i> <%= t "employers.cv" %></h2>
       </div>
       <a href="<%= @apply.cv.url %>" data-fancybox class="thumbnail-cv">
-        <iframe src="<%= @apply.cv %>" style="width: 100%; height: 100%; border: 1px solid rgb(219, 225, 232);" />
+        <embed src="<%= @apply.cv %>" />
       </a>
+    </div>
+  </div>
+
+  <div class="col-sm-8 col-lg-9">
+    <div class="block block-content area-progress">
+      <div class="block-title">
+        <h2>
+          <i class="fa fa-pencil"></i>
+          <strong><%= t"employers.current" %></strong>
+          <%= t "employers.status" %>
+        </h2>
+      </div>
+      <ul class="progress-indicator" id="area-status-progress">
+        <%= render partial: "status_progress", locals: {steps: @steps,
+          current_step: @current_step, company_steps_by_step: @company_steps_by_step} %>
+      </ul>
+      <div class="btn-group pull-right btn-handling">
+        <div id="btn-prev-apply" class="btn btn-apply">
+          <%= render partial: "form_apply_status", locals: {apply_status: @prev_apply_status,
+            btn_name: t("employers.applies.btn_name.prev"), step: @prev_step} %>
+        </div>
+        <div id="btn-next-apply" class="btn btn-apply">
+          <%= render partial: "form_apply_status", locals: {apply_status: @next_apply_status,
+            btn_name: t("employers.applies.btn_name.next"), step: @next_step} %>
+        </div>
+      </div>
+    </div>
+
+    <div class="block block-content">
+      <div class="tab-pane active row" id="apply-handling">
+        <div id="area-form-status">
+        <%= render partial: "form_status", locals: {apply: @apply,
+          current_step: @current_step, current_status_steps: @current_status_steps,
+          company_stattus_step_ids: @company_stattus_step_ids} %>
+        <hr>
+        </div>
+        <ul class="media-list media-feed push">
+          <li class="media">
+            <div class="media-body">
+              <div id = "apply-handling-content">
+              </div>
+            </div>
+          </li>
+        </ul>
+       </div>
     </div>
   </div>
 </div>

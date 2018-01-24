@@ -32,15 +32,19 @@ class Employers::EmployersController < BaseNotificationsController
 
   def load_current_step
     @current_apply_status = @apply.apply_statuses.includes(:status_step).find_by is_current: :current
-    @current_step = @current_apply_status.present? ? @current_apply_status.step : nil
+    @current_step = @current_apply_status.step if @current_apply_status.present?
   end
 
   def load_next_step
     @company_steps_by_current = @company_steps_by_step[@current_step.id].first
     @next_step = if @company_steps_by_current.present?
-      @company_steps_by_current.next_step @company
-    else
-      nil
+      @company_steps_by_current.load_step @company, Settings.next_step
+    end
+  end
+
+  def load_prev_step
+    @prev_step = if @company_steps_by_current.present?
+      @company_steps_by_current.load_step @company, Settings.prev_step
     end
   end
 
@@ -58,5 +62,17 @@ class Employers::EmployersController < BaseNotificationsController
 
   def load_status_step_interview_scheduled
     @interview_scheduled_ids = @company.status_steps.load_by(Settings.interview_scheduled).pluck(:id)
+  end
+
+  def build_next_and_prev_apply_statuses
+    if @next_step.present?
+      @next_apply_status = @apply.apply_statuses.build is_current: :current,
+        status_step_id: @next_step.status_steps.first.id
+    end
+
+    if @prev_step.present?
+      @prev_apply_status = @apply.apply_statuses.build is_current: :current,
+        status_step_id: @prev_step.status_steps.first.id
+    end
   end
 end

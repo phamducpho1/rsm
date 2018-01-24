@@ -1,0 +1,16 @@
+<% if apply_status.present? %>
+  <button class="btn btn-default btn-apply-status" >
+    <%= btn_name %>
+  </button>
+  <%= form_for [:employers, apply_status], class: "create-apply-status", remote: true do |f| %>
+    <%= f.hidden_field :step, value: t("employers.applies.statuses.#{step.name}"), class: "step-value" %>
+    <%= f.hidden_field :status_step_id %>
+    <%= f.hidden_field :apply_id %>
+    <%= f.hidden_field :is_current %>
+    <%= f.submit t("save"), class: "btn-apply-submit" %>
+  <% end %>
+<% else %>
+  <button class="btn btn-default" disabled>
+    <%= btn_name %>
+  </button>
+<% end %>

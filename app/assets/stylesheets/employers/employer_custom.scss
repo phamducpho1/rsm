@@ -127,3 +127,25 @@ form.form-search {
   position: relative;
   top: 10px;
 }
+
+.area-progress {
+  overflow: auto;
+}
+
+.btn-handling {
+  margin-bottom: 10px;
+}
+
+.btn-apply {
+  padding: 0;
+}
+
+.btn-apply-submit {
+  display: none;
+}
+
+.area-cv embed {
+  width: 100%;
+  height: 100%;
+  border: 1px solid $dark-gray-light-1;
+}
