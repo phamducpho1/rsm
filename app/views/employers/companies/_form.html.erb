@@ -16,7 +16,7 @@
 
   <div class="form-group">
     <%= f.label :address, class: "col-sm-3 control-label required" do %>
-      <%= t ".company_address" %><br>
+      <%= t ".address" %><br>
     <% end %>
     <div class="col-sm-9">
       <%= f.text_field :address, class: "form-control" %>
@@ -100,7 +100,7 @@
                   <%= render "branch_fields", f: branch if branch.object.branch? %>
                 <% end %>
                 <div class="links add_benefit_links">
-                  <%= link_to_add_association t("add_branch"), f, :branches,
+                  <%= link_to_add_association t(".add_branch"), f, :branches,
                     class: "btn btn-primary add-object", partial: "branch_fields" %>
                 </div>
               </div>
@@ -202,7 +202,7 @@
                     <%= render "activity_fields", f: activity %>
                   <% end %>
                   <div class="links add_benefit_links">
-                    <%= link_to_add_association t("add_activity"), f, :company_activities,
+                    <%= link_to_add_association t(".add_activity"), f, :company_activities,
                       class: "btn btn-primary add-object", partial: "activity_fields" %>
                   </div>
                 </div>

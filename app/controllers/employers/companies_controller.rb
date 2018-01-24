@@ -4,7 +4,7 @@ class Employers::CompaniesController < Employers::EmployersController
 
   def update
     if @company.update_attributes company_params
-      flash[:success] = t "update_completed"
+      flash[:success] = t ".update_completed"
       redirect_to edit_employers_company_path
     else
       render :edit

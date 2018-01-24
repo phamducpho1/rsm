@@ -8,7 +8,7 @@ class Employers::TemplatesController < Employers::EmployersController
   def create
     respond_to do |format|
       if @template.save
-        format.js{@message = t"employers.templates.form.create"}
+        format.js{@message = t".create"}
       else
         format.js
       end
@@ -24,7 +24,7 @@ class Employers::TemplatesController < Employers::EmployersController
     respond_to do |format|
       if @template.update_attributes template_params
         load_templates
-        format.js{@message = t "employers.templates.form.update"}
+        format.js{@message = t ".update"}
       else
         format.js
       end
@@ -35,7 +35,7 @@ class Employers::TemplatesController < Employers::EmployersController
     respond_to do |format|
       if @template.destroy
         load_templates
-        format.js{@message = t "employers.templates.form.destroy"}
+        format.js{@message = t ".destroy"}
       else
         format.js
       end

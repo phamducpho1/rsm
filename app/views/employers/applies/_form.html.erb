@@ -8,7 +8,7 @@
   <div class="modal-content opacity-apply">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal">&times;</button>
-      <h4 class="modal-title"><%= t "jobs.apply.interviewe" %></h4>
+      <h4 class="modal-title"><%= t ".create_interview_schedule" %></h4>
     </div>
     <div class="modal-body">
       <%= f.simple_fields_for :appointment do |appointment_builder| %>
@@ -41,7 +41,7 @@
               <%= appointment_builder.text_field :end_time, data: {provide: "datepicker"}, class: "datepick form-control edit-control" %>
             </div>
             <span class="error-message">
-              <%= appointment_builder.full_error :start_time %>
+              <%= appointment_builder.full_error :end_time %>
             </span>
           </div>
         </div>
@@ -62,7 +62,7 @@
       <div class="row">
         <div class="col-md-4">
           <i class="fa fa-get-pocket text-primary" aria-hidden="true"></i>
-          <span class="text-template"><%= t ".select" %></span>
+          <span class="text-template"><%= t ".select_template" %></span>
         </div>
         <div class="col-md-4">
           <label class="switch switch-primary">
@@ -78,7 +78,7 @@
           <ul class="nav nav-tabs three-tabs" role="tablist">
             <li role="presentation" class="active animated fadeIn">
               <a href="#job-info_<%= apply.id %>" data-toggle="tab">
-              <span class="hidden-sm hidden-xs col-info"><%= t ".member" %></span>
+              <span class="hidden-sm hidden-xs col-info"><%= t ".interviewer" %></span>
               </a></li>
             <li class="animated fadeIn" role="presentation ">
               <a href="#company-info_<%= apply.id %>" class="track-event"
@@ -93,7 +93,7 @@
             <div class="row">
               <div class="col-md-5">
                 <%= select_tag "template", options_for_select(template_members.collect{ |u| [u.name, u.id]}),
-                  include_blank: t(".please_selecta"), class: "form-control template"
+                  include_blank: t(".please_selected"), class: "form-control template"
                 %>
               </div>
             </div>
@@ -107,7 +107,7 @@
               <div class="col-md-5">
                 <%= select_tag "template_user",
                   options_for_select(template_users.collect{ |u| [u.name, u.id]}),
-                  include_blank: t(".please_selecta"), class: "form-control template_user"
+                  include_blank: t(".please_selected"), class: "form-control template_user"
                 %>
               </div>
             </div>
@@ -122,7 +122,7 @@
   <% end %>
     <div class="modal-footer">
       <button type="submit" class="btn btn-sm btn-info pull-right load-page">
-        </i><%= t ".submit" %>
+        </i><%= t ".create" %>
       </button>
     </div>
   </div>

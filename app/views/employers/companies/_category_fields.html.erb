@@ -5,14 +5,14 @@
         <div class="col-sm-12">
           <div class="row">
             <div class="col-sm-6 form-group">
-              <%= f.label :name, class: "control-label" %>
+              <%= f.label t(".name"), class: "control-label" %>
               <div class="controls">
-                <%= f.text_field :name, placeholder: t("name"), class: "form-control" %>
+                <%= f.text_field :name, placeholder: t(".name"), class: "form-control" %>
                 <%= f.error :name, class: "error-message" %>
               </div>
             </div>
             <div class="col-sm-6 form-group">
-              <%= f.label :status, class: "control-label" %>
+              <%= f.label t(".status"), class: "control-label" %>
               <div class="controls">
                 <div class="controls">
                   <% Category.statuses.keys.each do |status| %>
@@ -25,11 +25,11 @@
           </div>
           <div class="row">
             <div class="col-sm-12 form-group">
-              <%= f.label :description, class: "control-label" %>
+              <%= f.label t(".description"), class: "control-label" %>
               <div class="controls">
                 <%= f.text_area :description, cols: Settings.employers.company.text_area_cols,
                   rows: Settings.employers.company.text_area_rows,
-                  placeholder: t("description"), class: "form-control" %>
+                  placeholder: t(".description"), class: "form-control" %>
                 <%= f.error :description, class: "error-message" %>
               </div>
             </div>

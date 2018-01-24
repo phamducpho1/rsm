@@ -8,7 +8,7 @@ class Employers::AppointmentsController < ApplicationController
         load_template_user
         SendEmailUserJob.perform_later(@appointment,@template_user)
         create_inforappointments if params[:states].present?
-        format.js{@message = t "appointment.create_success"}
+        format.js{@message = t ".create_success"}
       else
         @template_members = current_user.templates.template_member
         @template_users = current_user.templates.template_user

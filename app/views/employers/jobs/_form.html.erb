@@ -36,11 +36,11 @@
       input_html: {class: "form-control job-create-content"} %>
     <%= f.input :branch_id do %>
       <%= f.select :branch_id, @company.branches.map{ |r| [r.district, r.id] },
-        {include_blank: t(".pls_select")}, class: "form-control" %>
+        {include_blank: t(".please_selected")}, class: "form-control" %>
     <% end %>
     <%= f.input :category_id do %>
       <%= f.select :category_id, @company.categories.map { |r| [r.name, r.id] },
-        {include_blank: t(".pls_select")}, class: "form-control" %>
+        {include_blank: t(".please_selected")}, class: "form-control" %>
     <% end %>
     <div class=" centerize create-job-btn ">
       <%= f.button :submit, label: t(".save"),

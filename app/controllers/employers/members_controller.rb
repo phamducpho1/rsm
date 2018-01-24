@@ -21,9 +21,9 @@ class Employers::MembersController < Employers::EmployersController
         company_id: params[:company_id], user_id: id, role: user_roles[i])
     end
     if Member.import members
-      flash[:success] = t "add_member_complete"
+      flash[:success] = t ".add_member_complete"
     else
-      flash[:danger] = t "can_not_add_member"
+      flash[:danger] = t ".can_not_add_member"
     end
     if request.xhr?
       render js: "window.location = '#{employers_members_path}'"
@@ -35,9 +35,9 @@ class Employers::MembersController < Employers::EmployersController
   def update
     respond_to do |format|
       if @member.update_attributes member_params
-        format.js{@message = t "update_success"}
+        format.js{@message = t ".update_success"}
       else
-        format.js{@message = t "update_error"}
+        format.js{@message = t ".update_fail"}
       end
     end
     load_members

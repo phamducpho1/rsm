@@ -19,9 +19,9 @@
    <% if can? :update, current_user %>
     <div class="view-field m-b download-resume">
       <%= link_to download_path(current_user.id, format: "pdf"),
-        class: "btn btn-sm btn-primary", target: :_blank, title: t(".dow_load") do %>
+        class: "btn btn-sm btn-primary", target: :_blank, title: t("download") do %>
         <i class="fa fa-download" aria-hidden="true"></i>
-        <%= t ".download" %>
+        <%= t "download" %>
       <% end %>
     </div>
    <% end %>
