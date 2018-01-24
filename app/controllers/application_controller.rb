@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
+  before_action :rack_mini_profiler_authorize_request
 
   rescue_from ActiveRecord::RecordNotFound do |exception|
     @error_message = exception.model
@@ -51,6 +52,12 @@ class ApplicationController < ActionController::Base
   def set_locale
     I18n.locale = session[:locale] || I18n.default_locale
     session[:locale] = I18n.locale
+  end
+
+  def rack_mini_profiler_authorize_request
+    environments = Rails.application.config.rack_mini_profiler_environments
+    return unless Rails.env.in? environments
+    Rack::MiniProfiler.authorize_request
   end
 end
 

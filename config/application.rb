@@ -27,6 +27,8 @@ module Rsm
     else
       config.session_store :cookie_store, key: 'frecruit_session', domain: '.lvh.me'
     end
+
+    config.rack_mini_profiler_environments = %w(development)
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
