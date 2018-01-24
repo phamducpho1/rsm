@@ -1,15 +1,15 @@
-en:
+vn:
   colon: ": "
   jquery_validates:
     send_email_apply:
-      title: "Title"
-      content: "Content"
-      interviewer: "Interviewer"
-      required: "%{name} can't be blank"
+      title: "Tiêu đề"
+      content: "Nội dung"
+      interviewer: "Người phỏng vấn"
+      required: "%{name} không thể để trống"
   employers:
-    cv: "Curriculum vitae"
-    current: "Current"
-    status: " Status"
+    cv: "Sơ yếu lý lịch"
+    current: "Hiện tại"
+    status: " Trạng thái"
     applies:
       statuses:
         waitting: "Waitting"
@@ -26,14 +26,14 @@ en:
         offer_declined: "Offer: Declined"
         joined: "Joined"
         pendding: "Pendding"
-        review: "Review CV"
+        review: "Duyệt CV"
         test: "Test"
-        interview: "Interview"
+        interview: "Phỏng vấn"
         offer: "Offer"
       btn_name:
-        next: "Next"
-        prev: "Previous"
+        next: "Bỏ qua"
+        prev: "Quay lại"
       update:
-        success: "Update success"
-        fail: "Update fail"
-        drop_calendar: "Drag and Drop Events on the Calendar"
+        success: "Cập nhật thành công"
+        fail: "Cập nhật thất bại"
+        drop_calendar: "Kéo và thả sự kiện trên lịch"

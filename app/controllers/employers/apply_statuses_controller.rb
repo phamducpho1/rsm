@@ -54,12 +54,14 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
   def after_action_create
     load_current_step
     load_next_step
+    load_prev_step
     load_statuses_by_current_step
     build_apply_statuses
+    build_next_and_prev_apply_statuses
   end
 
   def create_next_step
-    return if @apply_status.status_step.is_status? Settings.not_selected
+    return if @apply_status.status_step.is_status?(Settings.not_selected) || @apply_status.status_step.is_status?(Settings.pending)
     load_next_step
     if @next_step.present? &&
       !@company_stattus_step_ids.include?(@apply_status.status_step_id)
