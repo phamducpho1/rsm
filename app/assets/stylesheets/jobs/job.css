@@ -34,4 +34,5 @@
  *= require jobs/a-style
  *= require jobs/job-custom
  *= require fancybox
+ *= require companies/companies_custom
  */

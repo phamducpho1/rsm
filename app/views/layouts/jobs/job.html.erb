@@ -11,10 +11,13 @@
   <body class="home page">
     <div id="page-container">
       <div id="content-body-custom">
+        <span class="opacity"></span>
         <%= render "layouts/header" %>
         <section class="site-content">
           <%= yield %>
         </section>
+
+        <%= render "layouts/companies/login" %>
       </div>
       <%= render "layouts/footer" %>
     </div>
