@@ -223,6 +223,29 @@ en:
         email: "Email"
         status: "Status"
         phone: "Phone"
+      apply_add:
+        add_apply: "Add Apply"
+        choose_job: "Choose Job"
+        job_name: "Select Job Name"
+        apply: "Apply"
+        submit: "Submit"
+        search: "Search"
+      choose_jobs:
+        choose: "Choose"
+        name: "Name"
+      apply_form:
+        information: "Information"
+        name: "Name"
+        email: "Email"
+        phone: "Phone"
+        introducing: "Introducing"
+        new_cv: "New CV"
+      create:
+        success: "Applied success"
+        failure: "Applied failure"
+        job: "job"
+        cv: "Cv"
+        job_nil: "Please select job"
     appointments:
       appointment:
         click: "Click"

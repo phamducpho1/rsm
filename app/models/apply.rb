@@ -11,6 +11,7 @@ class Apply < ApplicationRecord
   serialize :information, Hash
 
   validates :cv, presence: true
+  validates :job_id, presence: true
   validates :information, presence: true
   enum status: {waitting: 0, review_passed: 1, review_not_selected: 2,
     test_scheduled: 3, test_passed: 4, test_not_selected: 5,

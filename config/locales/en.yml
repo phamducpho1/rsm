@@ -1492,8 +1492,9 @@ en:
       index:
         all_applies: "All Applies"
         search: "Search"
-        job_name: "---job name---"
-        status_applies: "---status apply---"
+        job_name: "Select Job Name"
+        status_applies: "Select Status Apply"
+        apply: "apply"
     job:
       id: "ID"
       jobname: "Name"
