@@ -68,6 +68,8 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "rack-cors", require: "rack/cors"
+  gem "rack-mini-profiler",  require: false
+  gem "bullet"
 end
 group :production do
   gem "rails_12factor"
