@@ -1480,6 +1480,7 @@ form input {
 
 #header.white .menu-open {
   color: #333;
+  background-color: transparent !important;
 }
 
 .header-right .menu.is-mobile-menu {

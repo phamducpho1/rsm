@@ -28,6 +28,12 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 vn:
+  views:
+    pagination:
+      next: "Tiếp"
+      last: "Sau"
+      previous: "Trước"
+      first: "Đầu tiên"
   applies:
     form:
       applynow: "Ứng tuyển"
