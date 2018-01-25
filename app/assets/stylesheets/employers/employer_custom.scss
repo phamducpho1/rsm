@@ -169,6 +169,10 @@ form.form-search {
   color: $dark-gray-light;
 }
 
+.timeline-header {
+  font-size: 15px;
+}
+
 .not_selected {
   background: $red-light2 !important;
   border-color: $red-light2 !important;
@@ -190,8 +194,8 @@ form.form-search {
 }
 
 .font-weight-normal {
-    font-weight: normal;
-    font-style: italic;
+  font-weight: normal;
+  font-style: italic;
 }
 
 .font-size-10 {
