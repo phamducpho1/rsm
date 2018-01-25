@@ -1492,6 +1492,7 @@ en:
         applied: "Applied"
         action: "Action"
         not_applies: "No have applies"
+        step: "Step"
       index:
         all_applies: "All Applies"
         search: "Search"

@@ -1,4 +1,4 @@
-<% if @applies.present? %>
+<% if @applies_status.present? %>
   <table id="ecom-orders" role="grid" aria-describedby="ecom-orders_info"
     class="table table-bordered table-striped table-vcenter dataTable no-footer">
     <thead>
@@ -7,18 +7,18 @@
         <th class="text-center"><%= t ".job" %></th>
         <th class="text-center"><%= t ".email" %></th>
         <th class="text-center"><%= t ".phone" %></th>
-        <th class="text-center"><%= t ".introducing" %></th>
+        <th class="text-center"><%= t ".step" %></th>
         <th class="text-center"><%= t ".status" %></th>
         <th class="text-center"><%= t ".applied" %></th>
         <th class="text-center"><%= t ".action" %></th>
       </tr>
     </thead>
     <tbody>
-      <%= render partial: "apply_index", collection: @applies, as: :apply %>
+      <%= render partial: "apply_index", collection: @applies_status, as: :apply_status %>
     </tbody>
   </table>
   <div class="row text-center pag">
-    <%= paginate @applies %>
+    <%= paginate @applies_status %>
   </div>
 <% else %>
   <p class="text-danger text-center">

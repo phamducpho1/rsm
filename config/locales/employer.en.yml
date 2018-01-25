@@ -266,6 +266,11 @@ en:
         job: "job"
         cv: "Cv"
         job_nil: "Please select job"
+      index:
+        enter_step: "Enter step"
+        enter_job: "Enter job"
+        enter_status_applies: "Enter status"
+        filter: "Filter"
     appointments:
       appointment:
         click: "Click"
@@ -286,3 +291,12 @@ en:
       id: "ID"
       jobname: "Name"
       position: "Position"
+    status_steps:
+      select_status:
+        enter_step: "Enter step"
+        enter_job: "Enter job"
+        enter_status_applies: "Enter status"
+        filter: "Filter"
+      index:
+        status_nil: "Not found status"
+      transmission_error: "transmission error"

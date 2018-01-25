@@ -15,6 +15,8 @@ class BaseNotificationsController < ApplicationController
 
   def load_notify
     @notification = Notification.find_by id: params[:notify_id]
+    @notification ||= Notification.type_notify(Settings.apply.name)
+      .find_by event_id: params[:id], user_read: :employer
   end
 
   def load_notifications
@@ -22,12 +24,12 @@ class BaseNotificationsController < ApplicationController
     if current_user.members.find_by position: :employer
       company_manager = Member.search_relation(Member.roles[:employer], current_user.id)
         .pluck :company_id
-      @notifications = Notification.employer.not_user(current_user.id)
-        .search_company(company_manager).order_by_created_at
+      @notifications = Notification.includes(:user).includes(:event)
+        .employer.not_user(current_user.id).search_company(company_manager).order_by_created_at
       classify_notify company_manager
     else
-      @notifications = Notification.user.not_user(current_user.id)
-        .search_user_request(current_user.id).order_by_created_at
+      @notifications = Notification.includes(:user).includes(:event)
+        .user.not_user(current_user.id).search_user_request(current_user.id).order_by_created_at
       classify_notify
     end
   end
