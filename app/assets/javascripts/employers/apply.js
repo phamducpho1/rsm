@@ -2,7 +2,7 @@ $(document).on('change', '.apply_select', function(event){
   let element = this.nextElementSibling;
   var applyId = $(this).next().val();
   var value = $(this).val();
-  var textStatus = $('#apply_status_status_step_id option:selected').text();
+  var textStatus = $(this).find('option:selected').text();
   $('#apply-handling-content').html('');
   swal({
     title: I18n.t('jobs.apply.confirm_change_status'),
