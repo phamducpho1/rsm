@@ -12,9 +12,12 @@
     buttons: true,
     primaryMode: true,
   })
-  .then((willDelete) => {
-    if (willDelete) {
-      $('#apply-handling-content').html('<%=j render partial: "employers/applies/email_form", locals: {apply_status: @apply_status, apply: @apply, template_users: @template_users} %>');
+  .then(function(isConfirm){
+    if (isConfirm) {
+      $('#apply-handling-content').html('<%= j render partial: "employers/applies/email_form", locals: {apply_status: @current_apply_status, apply: @apply, template_users: @template_users} %>');
+    }else{
+      $('#area-hisory-apply').html('<%= j render partial: "employers/apply_statuses/apply_status", collection: @apply_statuses, as: :apply_status %>');
+      $('#pagination-history-apply').html('<%= j paginate @apply_statuses %>');
     }
   });
 <% else %>

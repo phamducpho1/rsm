@@ -13,6 +13,7 @@
  *= require bootstrap-datepicker
  *= require employer/main
  *= require employer/plugins
+ *= require employer/hidepaginate
  *= require themes
  *= require apply
  *= require employers/config

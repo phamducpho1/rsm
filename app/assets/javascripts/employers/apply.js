@@ -47,3 +47,9 @@ $(document).on('click', '.btn-apply-status', function(event){
     }
   });
 });
+
+$(document).on('click', '#pagination-history-apply .pagination a', function (event) {
+  event.preventDefault();
+  $.getScript($(this).attr('href'));
+  return false;
+});

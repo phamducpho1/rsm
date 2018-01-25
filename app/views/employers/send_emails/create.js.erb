@@ -1,4 +1,6 @@
 <% if @messages.present? %>
   $('#apply-handling-content').html('');
+  $('#area-hisory-apply').html('<%= j render partial: "employers/apply_statuses/apply_status", collection: @apply_statuses, as: :apply_status %>');
+  $('#pagination-history-apply').html('<%= j paginate @apply_statuses %>');
   swal(I18n.t('jobs.apply.sent_email'), '', '<%= @messages %>');
 <% end %>

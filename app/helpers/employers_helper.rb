@@ -60,4 +60,18 @@ module EmployersHelper
     end
     t "employers.applies.statuses.#{name}"
   end
+
+  def show_class_icon status_step
+    return Settings.pending if status_step.is_status? Settings.pending
+    return Settings.scheduled if status_step.is_status? Settings.scheduled
+    return Settings.not_selected if status_step.is_status? Settings.not_selected
+    Settings.accepted
+  end
+
+  def show_interviewer inforappointments
+    interviewers = inforappointments.map do |inforappointment|
+      inforappointment.user_name
+    end
+    interviewers.present? ? interviewers.join(", ") : t("employers.history.no_one")
+  end
 end

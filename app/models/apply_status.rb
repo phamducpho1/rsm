@@ -5,6 +5,8 @@ class ApplyStatus < ApplicationRecord
   has_one :step, through: :status_step
   has_one :appointment, dependent: :destroy
 
+  delegate :id, to: :appointment, allow_nil: true, prefix: true
+
   accepts_nested_attributes_for :appointment, allow_destroy: true
 
   enum is_current: {current: 0, not_current: 1}

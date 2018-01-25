@@ -75,4 +75,9 @@ class Employers::EmployersController < BaseNotificationsController
         status_step_id: @prev_step.status_steps.first.id
     end
   end
+
+  def load_apply_statuses
+    @apply_statuses = @apply.apply_statuses.includes(:status_step,
+      appointment: [inforappointments: [:user]]).page params[:page]
+  end
 end

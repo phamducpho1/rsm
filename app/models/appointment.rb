@@ -17,6 +17,10 @@ class Appointment < ApplicationRecord
     where("start_time >= ?", date)
   end
 
+  scope :get_by, -> apply_status_ids do
+    where apply_status_id: apply_status_ids
+  end
+
  private
 
   def end_date_after_start_date

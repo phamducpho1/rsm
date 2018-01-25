@@ -5,7 +5,7 @@ class Employers::AppliesController < Employers::EmployersController
   before_action :load_notifications, only: %i(show index)
   before_action :get_step_by_company, :load_current_step, :load_next_step,
     :load_prev_step, :build_apply_statuses, :load_status_step_scheduled,
-    :load_statuses_by_current_step, :build_next_and_prev_apply_statuses, only: :show
+    :load_statuses_by_current_step, :build_next_and_prev_apply_statuses, :load_apply_statuses, only: :show
   before_action :permission_employer_company, only: :create
 
   def index
