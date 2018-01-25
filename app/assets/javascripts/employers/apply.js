@@ -53,3 +53,7 @@ $(document).on('click', '#pagination-history-apply .pagination a', function (eve
   $.getScript($(this).attr('href'));
   return false;
 });
+
+$(document).on('click', '#cancel-apply-email', function (event) {
+  $('#apply-handling-content').html('');
+});

@@ -1,22 +1,27 @@
 module EmployersHelper
 
-  def show_status apply
+  def show_status status_step
     case
-    when apply.review_passed? || apply.test_passed? || apply.interview_passed?
-      Settings.primary
-    when apply.review_not_selected? || apply.test_not_selected? || apply.interview_not_selected?
-      Settings.danger
-    when apply.offer_declined?
+    when status_step.is_status?(Settings.pending)
       Settings.warning
-    when apply.joined?
-      Settings.success
-    else
+    when status_step.is_status?(Settings.scheduled)
       Settings.info
+    when status_step.is_status?(Settings.not_selected)
+      Settings.danger
+    else
+      Settings.success
     end
   end
 
-  def show_status_apply apply
-    content_tag :span, I18n.t("employers.applies.statuses.#{apply.status}"), class: "label label-#{show_status(apply)}"
+  def show_status_apply_job apply_statuses
+    return if apply_statuses.blank?
+    show_status apply_statuses.first.status_step
+  end
+
+  def show_status_apply status_step
+    content_tag :span, class: "label label-#{show_status(status_step)}" do
+      t "employers.applies.statuses.#{status_step.code}"
+    end
   end
 
   def url_image apply
@@ -62,10 +67,16 @@ module EmployersHelper
   end
 
   def show_class_icon status_step
-    return Settings.pending if status_step.is_status? Settings.pending
-    return Settings.scheduled if status_step.is_status? Settings.scheduled
-    return Settings.not_selected if status_step.is_status? Settings.not_selected
-    Settings.accepted
+    case
+    when status_step.is_status?(Settings.pending)
+      Settings.pending
+    when status_step.is_status?(Settings.scheduled)
+      Settings.scheduled
+    when status_step.is_status?(Settings.not_selected)
+      Settings.not_selected
+    else
+      Settings.accepted
+    end
   end
 
   def show_interviewer inforappointments

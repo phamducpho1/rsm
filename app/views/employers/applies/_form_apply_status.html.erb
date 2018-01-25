@@ -1,5 +1,5 @@
 <% if apply_status.present? %>
-  <button class="btn btn-default btn-apply-status" >
+  <button class="btn btn-info btn-apply-status btn-sm" >
     <%= btn_name %>
   </button>
   <%= form_for [:employers, apply_status], class: "create-apply-status", remote: true do |f| %>
@@ -10,7 +10,7 @@
     <%= f.submit t("save"), class: "btn-apply-submit" %>
   <% end %>
 <% else %>
-  <button class="btn btn-default" disabled>
+  <button class="btn btn-info btn-sm" disabled>
     <%= btn_name %>
   </button>
 <% end %>

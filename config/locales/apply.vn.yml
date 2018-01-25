@@ -7,9 +7,16 @@ vn:
       interviewer: "Người phỏng vấn"
       required: "%{name} không thể để trống"
   employers:
+    send: "Soạn "
+    email: "Email"
+    cancel: "Hủy"
+    title: "Nhập tiêu đề"
+    message: "Nội dung"
+    your_message: "Vui lòng nhập tin nhắn"
     cv: "Sơ yếu lý lịch"
     current: "Hiện tại"
     status: " Trạng thái"
+    change: "Thay đổi"
     applies:
       statuses:
         waitting: "Waitting"
