@@ -37,3 +37,10 @@ vn:
         success: "Cập nhật thành công"
         fail: "Cập nhật thất bại"
         drop_calendar: "Kéo và thả sự kiện trên lịch"
+    history:
+      start_time: "Thời gian bắt đầu: "
+      end_time: "Thời gian kết thúc: "
+      interviewer: "Chịu trách nhiệm phỏng vấn: "
+      content_email: "Nội dung email: "
+      no_one: "chưa có"
+      title: "Lịch sử"

@@ -58,6 +58,7 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
     load_statuses_by_current_step
     build_apply_statuses
     build_next_and_prev_apply_statuses
+    load_apply_statuses
   end
 
   def create_next_step

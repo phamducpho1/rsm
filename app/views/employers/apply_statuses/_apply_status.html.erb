@@ -1,0 +1,34 @@
+<li class="active">
+  <div class="timeline-icon <%= show_class_icon apply_status.status_step %>"><i class="fa fa-file-text"></i></div>
+  <div class="timeline-time">
+    <small class="text-muted">
+      <%= l apply_status.created_at, format: :default %>
+    </small>
+  </div>
+  <div class="timeline-content">
+    <p class="push-bit">
+      <strong>
+        <%= t "employers.applies.statuses.#{apply_status.status_step.code}" %>
+      </strong>
+    </p>
+    <% if apply_status.appointment %>
+      <p class="push-bit font-weight-normal font-size-10 margin-bottom-0">
+        <%= t "employers.history.start_time" %><%= show_time apply_status.appointment.start_time %>
+      </p>
+
+      <p class="push-bit font-weight-normal font-size-10 margin-bottom-0">
+        <%= t "employers.history.end_time" %><%= show_time apply_status.appointment.end_time %>
+      </p>
+      <% if apply_status.appointment.inforappointments %>
+        <p class="push-bit font-weight-normal font-size-10 margin-bottom-0">
+          <%= t "employers.history.interviewer" %><%= show_interviewer apply_status.appointment.inforappointments %>
+        </p>
+      <% end %>
+    <% end %>
+    <% if apply_status.content_email %>
+      <p class="push-bit font-weight-normal font-size-10 margin-bottom-0">
+        <%= t "employers.history.content_email" %><%= apply_status.content_email %>
+      </p>
+    <% end %>
+  </div>
+</li>

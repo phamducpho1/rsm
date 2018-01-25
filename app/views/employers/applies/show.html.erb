@@ -80,7 +80,29 @@
             </div>
           </li>
         </ul>
-       </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="block full">
+          <div class="block-title">
+            <div class="block-options pull-right">
+              <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="Settings"><i class="fa fa-cog"></i></a>
+            </div>
+            <h2><strong><%= t "employers.history.title"%></strong></h2>
+          </div>
+          <div class="timeline block-content-full">
+            <h3 class="timeline-header"><strong><%= l Date.current, format: :date_month_year_v2 %></strong></h3>
+            <ul class="timeline-list timeline-hover" id="area-hisory-apply">
+              <%= render partial: "employers/apply_statuses/apply_status", collection: @apply_statuses, as: :apply_status %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="pagination-history-apply" class="row text-center pag">
+      <%= paginate @apply_statuses %>
     </div>
   </div>
 </div>

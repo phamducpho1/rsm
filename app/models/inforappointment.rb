@@ -4,6 +4,12 @@ class Inforappointment < ApplicationRecord
   belongs_to :user
   belongs_to :appointment
 
+  delegate :name, to: :user, allow_nil: true, prefix: true
+
+  scope :get_by, -> appointment_ids do
+    where appointment_id: appointment_ids
+  end
+
   def create_activation_digest
     self.activation_token  = Inforappointment.new_token
     self.activation_digest = Inforappointment.digest(activation_token)
