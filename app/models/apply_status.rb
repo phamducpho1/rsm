@@ -10,4 +10,8 @@ class ApplyStatus < ApplicationRecord
   accepts_nested_attributes_for :appointment, allow_destroy: true
 
   enum is_current: {current: 0, not_current: 1}
+
+  scope :get_by, -> apply_ids do
+    where apply_id: apply_ids
+  end
 end

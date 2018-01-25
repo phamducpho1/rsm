@@ -23,7 +23,9 @@
             </tr>
             <tr>
               <td class="text-right"><strong><%= t ".status" %></strong></td>
-              <td><%= show_status_apply @apply %></span></td>
+              <td id="status-infor-apply">
+                <%= show_status_apply @current_apply_status.status_step %>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -43,7 +45,7 @@
     <div class="block block-content area-progress">
       <div class="block-title">
         <h2>
-          <i class="fa fa-pencil"></i>
+          <i class="fa fa-tasks"></i>
           <strong><%= t"employers.current" %></strong>
           <%= t "employers.status" %>
         </h2>
@@ -65,6 +67,13 @@
     </div>
 
     <div class="block block-content">
+      <div class="block-title">
+        <h2>
+          <i class="fa fa-pencil"></i>
+          <strong><%= t"employers.change" %></strong>
+          <%= t "employers.status" %>
+        </h2>
+      </div>
       <div class="tab-pane active row" id="apply-handling">
         <div id="area-form-status">
         <%= render partial: "form_status", locals: {apply: @apply,
@@ -90,7 +99,10 @@
             <div class="block-options pull-right">
               <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="Settings"><i class="fa fa-cog"></i></a>
             </div>
-            <h2><strong><%= t "employers.history.title"%></strong></h2>
+            <h2>
+              <i class="fa fa-history" aria-hidden="true"></i>
+              <strong><%= t "employers.history.title"%></strong>
+            </h2>
           </div>
           <div class="timeline block-content-full">
             <h3 class="timeline-header"><strong><%= l Date.current, format: :date_month_year_v2 %></strong></h3>

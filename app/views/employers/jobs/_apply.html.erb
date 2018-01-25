@@ -21,6 +21,8 @@
   <td class="text-center visible-lg"><%= l apply.created_at, format: :long %></td>
   <td id="apply_content_<%= apply.id %>"  class="text-center hidden-xs">
     <% end %>
-    <span class= "btn btn-xs btn-<%= show_status apply %>"><%= t "employers.applies.statuses.#{apply.status}" %></span>
+    <span class= "btn btn-xs btn-<%= show_status_apply_job @apply_statuses[apply.id] %>">
+      <%= t "employers.applies.statuses.#{apply.status}" %>
+    </span>
   </td>
 </tr>

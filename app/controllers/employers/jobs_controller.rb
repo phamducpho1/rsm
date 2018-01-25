@@ -2,12 +2,12 @@ class Employers::JobsController < Employers::EmployersController
   before_action :create_job, only: %i(index new)
   before_action :load_jobs, only: :index
   before_action :load_applies_joined_by_jobs, only: :index
-  before_action :load_members, :load_templates, only: :show
   before_action :load_branches_for_select_box, only: :index
   before_action :load_category_for_select_box, only: :index
   def show
     @appointment = @company.appointments.build
     @applies = @job.applies.page(params[:page]).per Settings.apply.page
+    @apply_statuses = ApplyStatus.includes(:status_step).current.get_by(@applies.pluck(:id)).group_by &:apply_id
   end
 
   def create
