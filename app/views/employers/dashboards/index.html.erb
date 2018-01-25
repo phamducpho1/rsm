@@ -1,4 +1,5 @@
-<% if @hash.present? %>
+<%= stylesheet_link_tag "employer/jquery-ui" %>
+<% if @support.dashboard_apply.present? %>
   <div class="row text-center">
     <%= render "employers/dashboards/list_statistic" %>
   </div>
@@ -7,13 +8,59 @@
   <div class="block-title">
     <div class="block-options pull-right">
     </div>
-      <h2><strong><i class="fa fa-bar-chart"></i>&nbsp;
-        <%= t ".dashboard" %></strong>&nbsp;<%= t ".detail" %></h2>
+    <h2><strong><i class="fa fa-bar-chart"></i>&nbsp;
+      <%= t ".dashboard" %></strong>&nbsp;<%= t ".detail" %>
+    </h2>
+    <div class="block full">
+      <div class="search-group ml-215">
+        <div class="row">
+          <%= search_form_for @support.params_q, url: employers_dashboards_path do |f| %>
+            <div class="col-md-4 padding-left-right-5">
+              <div class="form-group margin-bottom-5">
+                <div class="icon-addon addon-lg">
+                  <%= f.text_field :created_at_gteq,
+                    value: set_value_datepicker(params[:q], "created_at_gteq"),
+                    placeholder: t(".start"), class: "date_apply form-control" %>
+                  <label for="name_or_language_or_skill_cont" class="fa fa-calendar rils" rel="tooltip"></label>
+                </div>
+              </div>
+            </div>
+             <div class="col-md-4 padding-left-right-5">
+              <div class="form-group margin-bottom-5">
+                <div class="icon-addon addon-lg">
+                  <%= f.text_field :created_at_lteq,
+                    value: set_value_datepicker(params[:q], "created_at_lteq"),
+                    placeholder: t(".end"), class: "date_apply form-control"%>
+                  <label for="name_or_language_or_skill_cont" class="fa fa-calendar rils" rel="tooltip"></label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 loglout">
+              <%= f.button :submit, class: "btn btn-info " do %>
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <%= t ".filter" %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="row">
     <div class="col-md-12 col-lg-12">
       <div id="chart-overview">
-        <%= line_chart employers_dashboards_path %>
+        <% if  @support.count_apply.present? %>
+          <%= line_chart @support.count_apply %>
+        <% else %>
+          <div class="row">
+            <div class="col-md-5"></div>
+            <div class="col-md-7">
+              <span class="text-danger">
+                <%= t ".nodata" %>
+              </span>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
@@ -26,8 +73,16 @@
           <%= t ".top" %></strong>&nbsp;<%= t ".job" %></h2>
       </div>
       <table class="table table-borderless table-striped table-vcenter table-bordered">
+        <thead>
+          <tr role="row">
+            <th class="text-center f12 w40"><%= t ".name" %></th>
+            <th class="text-center f12"><%= t ".branch" %></th>
+            <th class="text-center f12"><%= t ".target" %></th>
+            <th class="text-center f12"><%= t ".action" %></th>
+          </tr>
+        </thead>
         <tbody>
-          <%= render partial: "employers/dashboards/list_job", collection: @prioritize_jobs, as: :job %>
+          <%= render partial: "employers/dashboards/list_job", collection: @support.prioritize_jobs, as: :job %>
         </tbody>
       </table>
     </div>
@@ -39,8 +94,16 @@
           <%= t ".apply" %></strong>&nbsp;<%= t ".prioritize" %></h2>
       </div>
       <table class="table table-borderless table-striped table-vcenter table-bordered">
+        <thead>
+          <tr role="row">
+            <th class="text-center f12 w30"><%= t ".name" %></th>
+            <th class="text-center f12 w30"><%= t ".phone" %></th>
+            <th class="text-center f12"><%= t ".status" %></th>
+            <th class="text-center f12"><%= t ".action" %></th>
+          </tr>
+        </thead>
         <tbody>
-          <%= render partial: "employers/dashboards/list_apply", collection: @prioritize_applies, as: :apply %>
+          <%= render partial: "employers/dashboards/list_apply", collection: @support.prioritize_applies, as: :apply %>
         </tbody>
       </table>
     </div>

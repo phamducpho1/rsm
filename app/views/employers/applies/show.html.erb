@@ -11,17 +11,17 @@
             <strong><%= @apply.information[:name] %></strong><br><small></small>
           </h3>
         </div>
-        <table class="table table-borderless table-striped">
+        <table class="ml-18 table table-borderless table-striped">
           <tbody>
-            <tr>
+            <tr class="background-none">
               <td class="text-right"><strong><%= t ".email" %></strong></td>
               <td><span class="label label-primary"><%= @apply.information[:email] %></span></td>
             </tr>
-            <tr>
+            <tr class="background-none">
               <td class="text-right"><strong><%= t ".phone" %></strong></td>
               <td><%= @apply.information[:phone] %></td>
             </tr>
-            <tr>
+            <tr class="background-none">
               <td class="text-right"><strong><%= t ".status" %></strong></td>
               <td><%= show_status_apply @apply %></span></td>
             </tr>

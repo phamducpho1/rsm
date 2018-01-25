@@ -14,6 +14,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require rails-ujs
+//= require jquery.slimscroll.min
 //= require modernizr-2.7.1-respond-1.4.2.min
 //= require employers/search
 //= require jquery-1.11.1.min
@@ -21,7 +22,7 @@
 //= require employer/plugins
 //= require employer/app
 //= require bootstrap-datepicker
-//= require employer/datepicker
+//= require format_datepicker
 //= require load_image
 //= require hide_message
 //= require cocoon
