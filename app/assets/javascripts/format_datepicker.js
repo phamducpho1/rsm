@@ -1,11 +1,11 @@
 $(document).ready(function() {
-  $('#user_birthday').datepicker({
-    format: 'yyyy/mm/dd'
-  });
-});
-$(document).ready(function(){
   $('.datepick').datepicker( {
-    format: 'dd-mm-yyyy',
+    format: I18n.t('datepicker.long'),
+    startView: 'months'
+  });
+
+  $('.date_apply').datepicker({
+    dateFormat: I18n.t('datepicker.format'),
     startView: 'months'
   });
 });

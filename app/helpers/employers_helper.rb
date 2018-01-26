@@ -85,4 +85,8 @@ module EmployersHelper
     end
     interviewers.present? ? interviewers.join(", ") : t("employers.history.no_one")
   end
+
+  def set_value_datepicker param_q, field_search
+    param_q.present? ? param_q[field_search] : ""
+  end
 end

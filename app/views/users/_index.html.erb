@@ -44,7 +44,7 @@
                     <span class="fa fa-birthday-cake"></span> <span class="title"><%= t ".birthday" %>:</span>
                   </strong>
                 </td>
-                <td class="profile_content"><%= @user.birthday %></td>
+                <td class="profile_content"><%= l @user.birthday, format: :long %></td>
               </tr>
             </table>
           </div>

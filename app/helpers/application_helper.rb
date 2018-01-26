@@ -30,20 +30,6 @@ module ApplicationHelper
     object.id.present? ? object.user_id : user.id
   end
 
-  def show_exampleview_user template
-    return "" if template.blank?
-    template.template_body.gsub("@image_company@", image_tag("framgia.png", size:Settings.apply.image)).
-      gsub("@user_name@", current_user.name).
-      gsub("@not_agree@", button_tag("agree", class: "buttona")).
-      gsub("@agree@", button_tag("agree", class: "button")).
-      gsub("@user_job@", t("company_mailer.welcome_email.job")).
-      gsub("@user_company@",t("company_mailer.welcome_email.company")).
-      gsub("@user_address@", t("company_mailer.welcome_email.address")).
-      gsub("@user_time@", t("company_mailer.welcome_email.time")).
-      gsub("@image_framgia@", image_tag("framgia.png", size: Settings.apply.image)).
-      gsub("@image_page@", image_tag("framgia.png", size:Settings.apply.image))
-  end
-
   def resource_name
     :user
   end

@@ -1720,3 +1720,6 @@ en:
     notification_list:
       yours_notifiactions: "Yours Notifiactions"
       not_notification: "No have notifications"
+  datepicker:
+    format: "dd-mm-yy"
+    long: "dd-mm-yyyy"

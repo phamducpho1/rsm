@@ -25,4 +25,7 @@
 //= require_tree ../../../vendor/assets/javascripts/companies
 //= require jquery.validate
 //= require flash_message
+//= require i18n
+//= require i18n.js
+//= require i18n/translations
 //= require cable

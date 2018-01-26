@@ -401,3 +401,27 @@ input[type='radio'] {
 .dark-light{
   background: $green-sky !important;
 }
+.ml-215 {
+  margin-left: 215px;
+}
+.table {
+  thead {
+    .w40 {
+      width: 40%;
+    }
+    .w30 {
+      width: 30%;
+    }
+    tr {
+      .f12 {
+        font-size: 15px;
+      }
+    }
+  }
+}
+.ml-18 {
+  margin-left: -18px;
+  .background-none {
+    background-color: transparent !important;
+  }
+}

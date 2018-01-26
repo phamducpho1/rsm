@@ -13,6 +13,7 @@ class Company < ApplicationRecord
   has_many :branches
   has_many :categories
   has_many :company_steps
+  has_many :apply_statuses, through: :applies
   has_many :steps, through: :company_steps
   has_many :status_steps, through: :steps
   has_many :categories

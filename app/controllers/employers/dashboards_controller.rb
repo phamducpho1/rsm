@@ -5,17 +5,11 @@ class Employers::DashboardsController < BaseNotificationsController
   before_action :load_company
   before_action :check_permissions_employer
   before_action :current_ability
-  before_action :load_notifications, only: :index
+  before_action :load_notifications
 
   def index
-    @apply = @company.applies
-    @prioritize_jobs = Job.includes(:applies).job_company(@company).sort_max_salary_and_target
-    @prioritize_applies = @company.applies.includes(:job).sort_apply
-    @hash = SelectApply.caclulate_applies @apply
-    respond_to do |format|
-      format.html
-      format.js{render json: @apply.group(:status).group_by_week("applies.created_at").count.chart_json}
-    end
+    check_params
+    @support = Supports::Dashboard.new(@company, params[:q])
   end
 
   private
@@ -24,5 +18,13 @@ class Employers::DashboardsController < BaseNotificationsController
     return if current_user.is_employer_of? @company.id
     flash[:danger] = t "company_mailer.fail"
     redirect_to root_url
+  end
+
+  def check_params
+    if params[:q].present? && params[:q][:created_at_gteq].to_date >
+      params[:q][:created_at_lteq].to_date && params[:q][:created_at_lteq].present?
+        flash[:warning] = t ".error"
+        redirect_back fallback_location: root_path
+    end
   end
 end

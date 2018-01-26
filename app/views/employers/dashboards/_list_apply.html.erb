@@ -4,15 +4,21 @@
       <strong><%= apply.job.name %></strong>
     <% end %>
   </td>
-  <td>
+  <td class="text-center">
     <%= link_to "javascript:void(0)" do %>
       <%= apply.information[:phone] %>
     <% end %>
   </td>
-  <td class="text-center"><strong><%= apply.information[:name] %></strong></td>
+  <td class="text-center">
+    <span class="btn btn-success btn-xs">
+      <%= t "applies.status.#{apply.status}" %>
+    </span>
+  </td>
   <td class="hidden-xs text-center">
-    <%= link_to employers_job_apply_path apply.job, id: apply.id do %>
-      <i class="fa fa-eye text-primary" aria-hidden="true"></i>
+    <%= link_to employers_job_apply_path(apply.job, id: apply.id),
+      class: "btn btn-warning btn-xs" do %>
+      <i class="fa fa-info"></i>
     <% end %>
   </td>
 </tr>
+

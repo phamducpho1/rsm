@@ -1,10 +1,13 @@
-<% @hash.each_with_index do |(name, value), index| %>
-  <div class="col-sm-4 col-md-2 ">
+<% @support.dashboard_apply.each_with_index do |(name, value), index| %>
+  <div class="col-sm-4 col-md-3 ">
     <%= link_to "javascript:void(0)", class: "widget widget-hover-effect2" do %>
       <div class="widget-extra themed-background <%= check_index index %>">
-        <h4 class="widget-content-light"><strong><%= name.to_s.humanize.upcase %></strong></h4>
+        <h4 class="widget-content-light"><strong><%= t(".#{name}").upcase %></strong></h4>
       </div>
-      <div class="widget-extra-full"><span class="h2 animation-expandOpen"><%= value %>%</span></div>
+      <div class="widget-extra-full">
+        <span class="h2 animation-expandOpen">
+          <%= SelectApply.caclulate_applies((@support.total_apply_statuses), value) %>%
+        </span></div>
     <% end %>
   </div>
 <% end %>
