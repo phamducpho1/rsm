@@ -1,3 +1,9 @@
+.pagination .prev:before {
+  display: none !important;
+}
+.pagination .next:before {
+  display: none !important;
+}
 .dataTables_paginate.paging_bootstrap, .dataTables_info, .dataTables_length{
   display: none !important;
 }

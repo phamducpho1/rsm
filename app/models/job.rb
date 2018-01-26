@@ -33,6 +33,8 @@ class Job < ApplicationRecord
   scope :get_top_jobs, ->company {where company_id: company}
   scope :urgent_jobs, ->date_compare {where "end_time <= ?", date_compare}
 
+  delegate :id, to: :company, prefix: true, allow_nil: true
+
   include PublicActivity::Model
 
   def save_activity user, key

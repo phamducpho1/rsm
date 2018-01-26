@@ -19,6 +19,9 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
         if @apply_status.save
           create_next_step
           create_inforappointments if @interview_scheduled_ids.include?(@apply_status.status_step_id)
+          @apply_status.save_activity :create, current_user
+          Notification.create_notification :user, @apply,
+            current_user, @apply.job.company_id, @apply.user_id if @apply.user_id
           after_action_create
           format.js{@messages = t "employers.applies.update.success"}
         else

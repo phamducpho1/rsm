@@ -15,10 +15,10 @@
     $('.input-<%= message.split(" ").first %>')
       .css('border-color','red','important')
   <% end %>
-  alertify.success('<%= @error %>');
+  alertify.error('<%= @error %>');
 <% elsif @message %>
   $('#add-apply').modal('hide');
   alertify.success('<%= @message %>');
 <% else %>
-  alertify.success('<%= @error %>');
+  alertify.error('<%= @error %>');
 <% end %>
