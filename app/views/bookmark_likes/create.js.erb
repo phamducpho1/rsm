@@ -3,9 +3,9 @@
 <% else %>
   <% if @bookmark_like.bookmark? %>
     $('.form-bookmark').html('<%= link_to  @bookmark_like, method: :delete, class: "form-control btn-change6 border change-ed", remote: true  do %>\
-      <i class="fa fa-bookmark text-primary"></i><%= t "bookmark_like.save" %><% end %>');
+      <i class="fa fa-bookmark text-primary"></i><%= t "bookmark_likes.bookmark_like.save" %><% end %>');
   <% else %>
-    $('.form-like').html('<%= link_to  @bookmark_like, method: :delete, class: "form-control btn-change6 border change-ed", remote: true  do %>\
-      <i class="fa fa-thumbs-up text-primary"></i><%= t "bookmark_like.dislike" %><% end %>');
+    $('.form-like').html('<%= link_to  @bookmark_like, method: :delete, class: "p0 form-control btn-change6 border change-ed", remote: true  do %>\
+      <i class="fa fa-thumbs-up text-primary w17"></i><%= t "bookmark_likes.bookmark_like.dislike" %><% end %>');
   <% end %>
 <% end %>

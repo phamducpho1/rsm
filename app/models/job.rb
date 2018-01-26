@@ -7,6 +7,7 @@ class Job < ApplicationRecord
   has_many :feedbacks, dependent: :destroy
   has_many :bookmark_likes, dependent: :destroy
   has_many :reward_benefits, dependent: :destroy, inverse_of: :job
+  has_many :apply_statuses, through: :applies
   belongs_to :branch
   belongs_to :category
 

@@ -904,9 +904,12 @@ vn:
       position: "Vị trí"
       skills: "Kĩ năng"
       ago: "trước"
+      dislike: "Unlike"
+      saved: "Saved"
       form: "Hình thức làm việc"
       posted_day: "Ngày đăng"
       at: "at"
+      save: "Saved"
       apply_now: "Apply Now"
       save_job: "Save Job"
       job_info: "Thông tin công việc"
@@ -1302,7 +1305,7 @@ vn:
     bookmark_like:
       corp: "Corp : "
       subdate: "Submit_Date"
-      save: "Đã đánh dấu"
+      save: "Saved"
       level: "Trình độ:   "
       insert: "Đánh dấu"
       create: "Đã tạo đánh dấu"
@@ -1314,7 +1317,7 @@ vn:
       btn_like: "Thích"
       like: "Thích"
       liked: "Đã thích"
-      dislike: "Bỏ thích"
+      dislike: "Unlike"
   placeholder:
     blank: "No information"
   apply:

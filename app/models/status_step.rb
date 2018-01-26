@@ -6,6 +6,8 @@ class StatusStep < ApplicationRecord
   end
   scope :search_step, ->step_id{where step_id: step_id}
 
+  scope :get_status, -> status{where name: status}
+
   class << self
     def status_step_priority_company company_id
       company = CompanyStep.search_company company_id

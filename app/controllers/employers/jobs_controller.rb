@@ -22,6 +22,7 @@ class Employers::JobsController < Employers::EmployersController
   end
 
   def index
+    @status_step = @company.company_steps.priority_lowest.last.step.status_steps
     @search = @company.jobs.includes(:applies).search params[:q]
     @jobs = @search.result(distinct: true).sort_lastest
       .page(params[:page]).per Settings.job.page

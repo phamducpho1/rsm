@@ -9,7 +9,7 @@ class Employers::DashboardsController < BaseNotificationsController
 
   def index
     check_params
-    @support = Supports::Dashboard.new(@company, params[:q])
+    @support_dashboard = Supports::Dashboard.new(@company, params[:q], @company.apply_statuses)
   end
 
   private

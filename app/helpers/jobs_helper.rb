@@ -30,16 +30,18 @@ module JobsHelper
     job.applies.size
   end
 
-  def class_dashboard job
-    case load_values job
+  def class_dashboard job, status_step
+    case load_value_job job, status_step
     when Settings.job.sixty..Settings.job.hundred
       "success"
     when Settings.job.fourty..Settings.job.sixteen
       "info"
     when Settings.job.twenty..Settings.job.fourteen
       "warning"
-    else
+    when Settings.job.one..Settings.job.nineteem
       "danger"
+    else
+      "w10-cl"
     end
   end
 
@@ -57,15 +59,18 @@ module JobsHelper
     current_user.is_member_of? company.id
   end
 
-  def dashboard_css job
-    if (load_values job) < Settings.job.width
+  def dashboard_css job, status_step
+    if (load_value_job job, status_step) < Settings.job.width
       Settings.job.width
     else
-      load_values job
+      load_value_job job, status_step
     end
   end
 
-  def load_values job
-    (job.applies.joined.size/(job.target.to_f)*Settings.job.hundred).to_i
+  def load_value_job job, status_step
+    @count_id = status_step.last.is_status?(Settings.status_apply.joined) ?
+      status_step.get_status(Settings.status_apply.joined).last.id :
+      status_step.get_status(Settings.status_apply.interview_passed).last.id
+    ((job.apply_statuses.current.is_step(@count_id).size)/(job.target.to_f)*Settings.job.hundred).to_i
   end
 end

@@ -21,6 +21,7 @@ class ApplyStatus < ApplicationRecord
     where apply_id: apply_ids
   end
   scope :lastest_apply_status, ->{order created_at: :desc}
+  scope :is_step, ->id_status_step{where status_step_id: id_status_step}
 
   def save_activity key, user
     self.transaction do
