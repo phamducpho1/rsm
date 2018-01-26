@@ -52,6 +52,10 @@ class User < ApplicationRecord
     self.members.last.end_time.nil? && self.members.last.employer?
   end
 
+  def get_company
+    self.companies.last
+  end
+
   def is_applied? job
     self.applies.pluck(:job_id).include? job
   end

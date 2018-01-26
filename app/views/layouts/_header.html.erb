@@ -3,7 +3,6 @@
   <div class="wrapper">
     <div class="logo">
       <a href="#" class="custom-logo-link" rel="home" itemprop="url">
-        <%= image_tag "fallback/framgia-logo-black-1.png", class: "custom-logo" %>
       </a>
     </div>
     <div class="header-right">
@@ -29,22 +28,33 @@
                 <i class="fa fa-angle-down"></i>
               <% end %>
               <ul>
-                <li>
-                  <%= link_to bookmark_likes_url(subdomain: false) do %>
-                    <%= t "my_job" %>
-                    <i class="fa fa-user fa-fw pull-right"></i>
-                  <% end %>
-                </li>
+                <% if current_user.is_employer? %>
+                  <li>
+                    <%= link_to employers_dashboards_url(subdomain: current_user.get_company.subdomain) do %>
+                      <%= t "employer" %>
+                      <i class="fa fa-dashcube fa-fw pull-right"></i>
+                    <% end %>
+                  </li>
+                <% end %>
+
                 <li>
                   <%= link_to user_url(current_user, subdomain: false) do %>
                     <%= t ".profile" %>
                     <i class="fa fa-user fa-fw pull-right"></i>
                   <% end %>
                 </li>
+
                 <li>
                   <%= link_to edit_user_registration_url(current_user, subdomain: false) do %>
-                    <%= t ".change_pass" %>
+                    <%= t ".change" %>
                     <i class="fa fa-pencil-square-o pull-right"></i>
+                  <% end %>
+                </li>
+
+                <li>
+                  <%= link_to bookmark_likes_url(subdomain: false) do %>
+                    <%= t "my_job" %>
+                    <i class="fa fa-briefcase fa-fw pull-right"></i>
                   <% end %>
                 </li>
                 <li>

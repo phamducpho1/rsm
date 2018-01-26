@@ -12,12 +12,11 @@
   <td id="apply_content_<%= apply.id %>" class="text-center hidden-xs">
     <% else %>
     <strong>
-      <%= link_to apply.information[:name], apply.cv.url %>
+      <%= link_to apply.information[:name], employers_job_apply_path(@job, apply) %>
     </strong>
   </td>
   <td class="text-center"><strong><%= apply.information[:email] %></strong></td>
   <td class="text-center"><strong><%= apply.information[:phone] %></strong></td>
-  <td class="text-center visible-lg"><%= l apply.created_at, format: :long %></td>
   <td class="text-center visible-lg"><%= l apply.created_at, format: :long %></td>
   <td id="apply_content_<%= apply.id %>"  class="text-center hidden-xs">
     <% end %>
