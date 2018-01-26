@@ -282,6 +282,7 @@ vn:
   id: "ID"
   salary: "Salary"
   my_job: "My Job"
+  employer: "Nhà tuyển dụng"
   dola: "$"
   sidebar_jobs: "Jobs"
   sidebar_activities: "Activities"

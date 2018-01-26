@@ -3,9 +3,6 @@
   <div class="wrapper">
     <div class="logo">
       <a href="#" class="custom-logo-link" rel="home" itemprop="url">
-        <img width="134" height="40"
-          src="http://recruit.framgia.vn/wp-content/uploads/2016/06/framgia-logo-black-1.png"
-          class="custom-logo" alt="framgia-logo-black" itemprop="logo">
       </a>
     </div>
     <div class="header-right">
@@ -31,12 +28,15 @@
               <i class="fa fa-angle-down"></i>
               <% end %>
               <ul>
-                <li>
-                  <%= link_to bookmark_likes_url(subdomain: false) do %>
-                  <%= t ".my_job" %>
-                  <i class="fa fa-user fa-fw pull-right"></i>
-                  <% end %>
-                </li>
+                <% if current_user.is_employer? %>
+                  <li>
+                    <%= link_to employers_dashboards_url(subdomain: current_user.get_company.subdomain) do %>
+                      <%= t "employer" %>
+                      <i class="fa fa-dashcube fa-fw pull-right"></i>
+                    <% end %>
+                  </li>
+                <% end %>
+
                 <li>
                   <%= link_to user_url(current_user, subdomain: false) do %>
                   <%= t ".profile" %>
@@ -51,8 +51,8 @@
                 </li>
                 <li>
                   <%= link_to bookmark_likes_url(subdomain: false) do %>
-                  <%= t ".bookmark"  %>
-                  <i class="fa fa-id-badge pull-right"></i>
+                  <%= t ".my_job" %>
+                  <i class="fa fa-briefcase fa-fw pull-right"></i>
                   <% end %>
                 </li>
                 <li>

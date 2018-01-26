@@ -13,19 +13,22 @@ User.create!(name: "Nguyen Van A", email: "nguyenvana@gmail.com", password: "123
   address = "Tam Ky, Da Nang"
   pass = "123123"
   pass_conf = "123123"
+  birthday = Date.current
   role = "employer"
   phone = "0965600364"
   User.create!(name: name, email: email, password: pass,
-               password_confirmation: pass_conf, role: role, address: address, phone: phone)
+               password_confirmation: pass_conf, role: role, address: address, phone: phone, birthday: birthday)
 end
 1.upto(5) do |x|
   name = Faker::Name.name
   email = "user#{x}@gmail.com"
   pass = "123123"
+  birthday = Date.current
   pass_conf = "123123"
   role = "user"
+  phone = "0965600364"
   User.create!(name: name, email: email, password: pass,
-               password_confirmation: pass_conf, role: role)
+               password_confirmation: pass_conf, role: role, birthday: birthday)
 end
 
 1.upto(2) do |x|
@@ -139,7 +142,7 @@ statuses = {
   review: [:pending, :review_not_selected, :review_passed],
   test: [:pending, :test_scheduled, :test_passed, :test_not_selected],
   interview: [:pending, :interview_scheduled, :interview_passed, :interview_not_selected],
-  offer: [:pending, :offer_sent, :offer_accepted, :offer_declined],
+  offer: [:pending, :offer_sent, :offer_accepted, :offer_declined, :joined],
 }
 
 statuses.each_with_index do |(key, value), index|

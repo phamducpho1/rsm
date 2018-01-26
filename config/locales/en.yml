@@ -341,6 +341,7 @@ en:
   id: "ID"
   salary: "Salary"
   my_job: "My Job"
+  employer: "Employer"
   dola: "$"
   sidebar_jobs: "Jobs"
   sidebar_activities: "Activities"
