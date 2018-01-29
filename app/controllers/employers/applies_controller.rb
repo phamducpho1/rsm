@@ -1,7 +1,5 @@
 class Employers::AppliesController < Employers::EmployersController
-
-  before_action :load_notify, only: :show
-  before_action :readed_notification, only: :show
+  before_action :load_notify, :readed_notification, :load_templates, only: :show
   before_action :load_notifications, only: %i(show index)
   before_action :get_step_by_company, :load_current_step, :load_next_step,
     :load_prev_step, :build_apply_statuses, :load_status_step_scheduled,

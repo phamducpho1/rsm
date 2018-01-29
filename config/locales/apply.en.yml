@@ -7,6 +7,9 @@ en:
       interviewer: "Interviewer"
       required: "%{name} can't be blank"
   employers:
+    setting: "Setting "
+    appointment: "Appointment"
+    submit: "Submit"
     compose: "Compose "
     email: "Email"
     cancel: "Cancel"
@@ -18,6 +21,8 @@ en:
     status: " Status"
     change: "Change"
     applies:
+      decripttion_email: "You should send email"
+      decripttion_appoinment: "Please setting appointment for this apply"
       statuses:
         waitting: "Waitting"
         review_passed: "CV Review: Reviewed - Passed"
@@ -51,3 +56,5 @@ en:
       content_email: "Content email: "
       no_one: "No one"
       title: "History Apply"
+    send_email:
+      select_template: "Select template"

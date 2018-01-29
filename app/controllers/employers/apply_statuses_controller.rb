@@ -1,12 +1,11 @@
 class  Employers::ApplyStatusesController < Employers::EmployersController
   before_action :load_apply, only: [:new, :create]
-  before_action :load_status_step_scheduled, only: :create
   before_action :get_step_by_company, :load_current_step,
-    :load_status_step_interview_scheduled, only: [:create, :new]
+    :load_status_step_interview_scheduled, :load_status_step_scheduled, only: [:create, :new]
   before_action :load_templates, only: [:create, :new]
   before_action :build_apply_statuses, only: :new
-  before_action :new_appointment, only: :new
-  before_action :load_members, :load_appointments, only: [:create, :new]
+  before_action :load_members, only: [:create, :new]
+  before_action :load_appointments, :new_appointment, only: :new , if: :is_scheduled?
 
   def new
     respond_to :js
@@ -36,7 +35,8 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
 
   def apply_status_params
     params.require(:apply_status).permit :apply_id, :status_step_id, :is_current,
-      appointment_attributes: %i(user_id address company_id start_time end_time type_appointment)
+      appointment_attributes: %i(user_id address company_id start_time end_time type_appointment),
+      email_sents_attributes: %i(title content type sender_email receiver_email)
   end
 
   def create_inforappointments
@@ -68,7 +68,7 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
     return if @apply_status.status_step.is_status?(Settings.not_selected) || @apply_status.status_step.is_status?(Settings.pending)
     load_next_step
     if @next_step.present? &&
-      !@company_stattus_step_ids.include?(@apply_status.status_step_id)
+      !@stattus_step_scheduled_ids.include?(@apply_status.status_step_id)
       set_not_current
       @apply.apply_statuses.create status_step_id: @next_step.status_steps.first.id,
         is_current: :current
@@ -87,22 +87,27 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
   end
 
   def build_apply_statuses
-    status_step_id = if params[:status].present?
-      params[:status]
+    status_step_id = if params[:status_step_id].present?
+      params[:status_step_id]
     else
       @current_apply_status.status_step_id
     end
     @apply_status = @apply.apply_statuses.build is_current: :current,
       status_step_id: status_step_id
+    @apply_status.email_sents.build
   end
 
   def new_appointment
-    type_appointment = @interview_scheduled_ids.include?(params[:status].to_i) ? :interview_scheduled : :test_scheduled
+    type_appointment = @interview_scheduled_ids.include?(params[:status_step_id].to_i) ? :interview_scheduled : :test_scheduled
     @apply_status.build_appointment type_appointment: type_appointment, company_id: @company.id
   end
 
   def load_appointments
     @appointments = @company.appointments.includes(:apply_status, :apply)
       .get_greater_equal_by(Date.current).group_by{|appointment| appointment.apply.information[:name]}
+  end
+
+  def is_scheduled?
+    @stattus_step_scheduled_ids.include? params[:status_step_id].to_i
   end
 end

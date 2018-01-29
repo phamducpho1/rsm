@@ -6,12 +6,15 @@ class ApplyStatus < ApplicationRecord
   has_one :job, through: :apply
   has_one :appointment, dependent: :destroy
 
+  has_many :email_sents, class_name: EmailSent.name, foreign_key: :type_id, dependent: :destroy
+
   delegate :id, to: :appointment, allow_nil: true, prefix: true
   delegate :name, to: :status_step, allow_nil: true, prefix: true
   delegate :name, to: :step, allow_nil: true, prefix: true
   delegate :id, to: :apply, allow_nil: true, prefix: true
 
   accepts_nested_attributes_for :appointment, allow_destroy: true
+  accepts_nested_attributes_for :email_sents, allow_destroy: true
 
   enum is_current: {current: 0, not_current: 1}
 
