@@ -1,15 +1,16 @@
 class Supports::Dashboard
   attr_reader :company, :params_q
 
-  def initialize company, params_q
+  def initialize company, params_q, apply_status
     @company = company
     @params_q = params_q
-    @count = {}
     @dashboard = {}
+    @count = {}
+    @apply_status = apply_status
   end
 
   def prioritize_jobs
-    @company.jobs.includes(:applies).job_company(@company).sort_max_salary_and_target
+    @company.jobs.includes(:branch).job_company(@company).sort_max_salary_and_target
   end
 
   def prioritize_applies
@@ -17,24 +18,27 @@ class Supports::Dashboard
   end
 
   def total_apply_statuses
-    @company.apply_statuses.current.size
+    @apply_status.current.size
   end
 
   def params_q
-    @company.apply_statuses.current.search @params_q
-  end
-
-  def count_apply
-    params_q.result(distinct: true).group_by(&:step).each do |f|
-      @count[I18n.t("employers.dashboards.list_statistic.#{f.first.name}").upcase] = f.second.size
-    end
-    @count
+    @apply_status.current.search @params_q
   end
 
   def dashboard_apply
-    params_q.result(distinct: true).group_by(&:step).each do |f|
+    @company.steps.each do |step|
+      @dashboard[step.name] = Settings.dashboard.zero
+    end
+    params_q.result(distinct: true).includes(:step).group_by(&:step).each do |f|
       @dashboard[f.first.name] = f.second.size
     end
     @dashboard
+  end
+
+  def count_apply
+    dashboard_apply.each do |key, value|
+      @count[I18n.t("employers.dashboards.list_statistic.#{key}")] = value
+    end
+    @count
   end
 end

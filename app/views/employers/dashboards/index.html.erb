@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag "employer/jquery-ui" %>
-<% if @support.dashboard_apply.present? %>
+<% if @support_dashboard.dashboard_apply.present? %>
   <div class="row text-center">
     <%= render "employers/dashboards/list_statistic" %>
   </div>
@@ -14,7 +14,7 @@
     <div class="block full">
       <div class="search-group ml-215">
         <div class="row">
-          <%= search_form_for @support.params_q, url: employers_dashboards_path do |f| %>
+          <%= search_form_for @support_dashboard.params_q, url: employers_dashboards_path do |f| %>
             <div class="col-md-4 padding-left-right-5">
               <div class="form-group margin-bottom-5">
                 <div class="icon-addon addon-lg">
@@ -49,8 +49,8 @@
   <div class="row">
     <div class="col-md-12 col-lg-12">
       <div id="chart-overview">
-        <% if  @support.count_apply.present? %>
-          <%= line_chart @support.count_apply %>
+        <% if @support_dashboard.count_apply.present? %>
+          <%= line_chart @support_dashboard.count_apply %>
         <% else %>
           <div class="row">
             <div class="col-md-5"></div>
@@ -82,7 +82,8 @@
           </tr>
         </thead>
         <tbody>
-          <%= render partial: "employers/dashboards/list_job", collection: @support.prioritize_jobs, as: :job %>
+          <%= render partial: "employers/dashboards/list_job",
+            collection: @support_dashboard.prioritize_jobs, as: :job %>
         </tbody>
       </table>
     </div>
@@ -103,7 +104,8 @@
           </tr>
         </thead>
         <tbody>
-          <%= render partial: "employers/dashboards/list_apply", collection: @support.prioritize_applies, as: :apply %>
+          <%= render partial: "employers/dashboards/list_apply",
+            collection: @support_dashboard.prioritize_applies, as: :apply %>
         </tbody>
       </table>
     </div>

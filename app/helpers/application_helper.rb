@@ -50,4 +50,8 @@ module ApplicationHelper
   def check_index position
     position % Settings.dashboard.mod == Settings.dashboard.zero ? "dark-light" : ""
   end
+
+  def total_apply total, value
+    SelectApply.caclulate_applies total, value
+  end
 end

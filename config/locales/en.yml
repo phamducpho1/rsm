@@ -998,6 +998,8 @@ en:
       position: "Position"
       skills: "Skills"
       form: "Form"
+      dislike: "Unlike"
+      save: "Saved"
       posted_day: "Posted day"
       at: "at"
       apply_now: "Apply Now"

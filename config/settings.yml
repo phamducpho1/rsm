@@ -56,6 +56,8 @@ job:
   page: 10
   limit: 10
   urrency: 5
+  one: 1
+  nineteem: 20
 activity:
   page: 10
 bookmark:
@@ -145,3 +147,6 @@ next_step: 1
 prev_step: -1
 first_status: "pending"
 default_value: 0
+status_apply:
+  joined: "joined"
+  interview_passed: "interview_passed"

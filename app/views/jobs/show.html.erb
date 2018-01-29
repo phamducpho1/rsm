@@ -76,9 +76,9 @@
                     <% if user_signed_in? %>
                       <div class="col-md-6 form-like">
                         <% if @liked.present? %>
-                          <%= link_to  @liked, method: :delete, class: "form-control btn-change6 border change-ed", remote: true  do %>
-                            <i class="fa fa-thumbs-up text-primary" aria-hidden="true"></i>
-                            <%= t "bookmark_like.dislike" %>
+                          <%= link_to  @liked, method: :delete, class: "p0 form-control btn-change6 border change-ed", remote: true  do %>
+                            <i class="fa fa-thumbs-up text-primary w10" aria-hidden="true"></i>
+                            <%= t ".dislike" %>
                           <% end %>
                         <% else %>
                           <%= render "bookmark_likes/form_like_job" %>
@@ -86,9 +86,9 @@
                       </div>
                       <div class="col-md-6 form-bookmark">
                         <% if @bookmarked.present? %>
-                          <%= link_to  @bookmarked, method: :delete, class: "form-control btn-change6 border change-ed", remote: true  do %>
-                            <i class="fa fa-bookmark text-primary"></i>
-                            <%= t "bookmark_like.save" %>
+                          <%= link_to  @bookmarked, method: :delete, class: "p0 form-control btn-change6 border change-ed", remote: true  do %>
+                            <i class="fa fa-bookmark text-primary w10"></i>
+                            <%= t ".save" %>
                           <% end %>
                         <% else %>
                           <%= render "bookmark_likes/form_bookmark_job" %>

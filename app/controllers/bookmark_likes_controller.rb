@@ -17,7 +17,7 @@ class BookmarkLikesController < BaseNotificationsController
 
   def destroy
     respond_to do |format|
-      if @bookmark_like.destroy
+      if @bookmark_like.really_destroy!
         @bookmark_like.like? ? load_like : load_bookmark
         format.js{@success = t "bookmark_likes.destroy_success"}
       else
