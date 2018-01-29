@@ -7,13 +7,16 @@ class Employers::AppliesController < Employers::EmployersController
     :load_prev_step, :build_apply_statuses, :load_status_step_scheduled,
     :load_statuses_by_current_step, :build_next_and_prev_apply_statuses, :load_apply_statuses, only: :show
   before_action :permission_employer_company, only: :create
+  before_action :load_steps, only: :index
+  before_action :load_statuses, only: :index
 
   def index
-    applies = @company.applies
-    @size_statuses = SelectApply.caclulate_applies applies,
-      Settings.caclulate_applies_size
-    @q = applies.search params[:q]
-    @applies = @q.result.lastest_apply
+    applies_status = @company.apply_statuses.current
+    @applies_total = applies_status.size
+    @size_steps = SelectApply.caclulate_applies_step @company
+    @q = applies_status.search params[:q]
+    @applies_status = @q.result.lastest_apply_status.includes(:apply)
+      .includes(:job).includes(:status_step)
       .page(params[:page]).per Settings.applies_max
     respond_to do |format|
       format.html

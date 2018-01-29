@@ -250,6 +250,11 @@ vn:
         email: "Email"
         status: "Trạng thái"
         phone: "Điện thoại"
+      index:
+        enter_step: "Nhập bước"
+        enter_job: "Nhập công việc"
+        enter_status_applies: "Nhập trạng thái"
+        filter: "Lọc"
       content_notification_update_apply: "apply đến việc %{job} đã xét bởi"
       apply_add:
         add_apply: "Thêm Đơn"
@@ -294,3 +299,12 @@ vn:
       id: "ID"
       jobname: "Tên"
       position: "Vị trí"
+    status_steps:
+      select_status:
+        enter_step: "Nhập bước"
+        enter_job: "Nhập công việc"
+        enter_status_applies: "Nhập trạng thái"
+        filter: "Lọc"
+      index:
+        status_nil: "Không tìm thấy trạng thái của bước này"
+      transmission_error: "lỗi đường truyền"

@@ -80,4 +80,12 @@ class Employers::EmployersController < BaseNotificationsController
     @apply_statuses = @apply.apply_statuses.includes(:status_step,
       appointment: [inforappointments: [:user]]).page params[:page]
   end
+
+  def load_steps
+    @steps = @company.steps.includes(:status_steps)
+  end
+
+  def load_statuses
+    @status_steps = @company.status_steps
+  end
 end

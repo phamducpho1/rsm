@@ -1,17 +1,21 @@
-<tr role="row" class="apply-<%= apply.id %>">
-  <td class="text-center"><%= apply.information[:name] %></td>
-  <td class="text-center"><%= apply.job_name %></td>
-  <td class="text-center"><%= apply.information[:email] %></td>
-  <td class="text-center"><%= apply.information[:phone] %></td>
-  <td class="text-center"><%= raw apply.information[:introducing] %></td>
+<tr role="row" class="apply_status-<%= apply_status.id %>">
+  <td class="text-center"><%= apply_status.apply.information[:name] %></td>
+  <td class="text-center"><%= apply_status.apply.job_name %></td>
+  <td class="text-center"><%= apply_status.apply.information[:email] %></td>
+  <td class="text-center"><%= apply_status.apply.information[:phone] %></td>
   <td class="text-center">
-    <span class="btn btn-success btn-xs">
-      <%= t "applies.status.#{apply.status}" %>
+    <span class="btn btn-primary btn-xs">
+      <%= t "employers.applies.statuses.#{apply_status.step_name}" %>
     </span>
   </td>
-  <td class="text-center"><%= l apply.created_at.to_date, format: :long %></td>
   <td class="text-center">
-    <%= link_to employers_job_apply_path(apply.job, id: apply.id),
+    <span class="btn btn-success btn-xs">
+      <%= t "employers.applies.statuses.#{apply_status.status_step_name}" %>
+    </span>
+  </td>
+  <td class="text-center"><%= l apply_status.created_at.to_date, format: :long %></td>
+  <td class="text-center">
+    <%= link_to employers_job_apply_path(apply_status.job, id: apply_status.apply_id),
       class: "btn btn-warning btn-xs" do %>
       <i class="fa fa-info"></i>
     <% end %>

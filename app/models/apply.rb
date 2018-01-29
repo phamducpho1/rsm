@@ -30,7 +30,8 @@ class Apply < ApplicationRecord
 
   mount_uploader :cv, CvUploader
 
-  delegate :name, to: :job, prefix: true, allow_nil: :true
+  delegate :name, to: :job, prefix: true, allow_nil: true
+  delegate :name, to: :step, prefix: true, allow_nil: true
 
   include PublicActivity::Model
 

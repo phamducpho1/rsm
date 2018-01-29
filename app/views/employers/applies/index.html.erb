@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag "employer/hidepaginate" %>
 <div class="row text-center d-flex">
-  <%= render partial: "size_status", collection: @size_statuses,
-    as: :size_status %>
+  <%= render partial: "size_status", collection: @size_steps,
+    as: :size_step, locals: {applies_total: @applies_total} %>
 </div>
 <div class="block full">
   <div class="block-title">
@@ -9,21 +9,50 @@
   </div>
   <div id="ecom-orders_wrapper" class="dataTables_wrapper form-inline no-footer">
     <div class="row">
-      <div class="col-md-offset-6">
-        <%= search_form_for @q, url: employers_applies_path, remote: true,
-          class: "d-inline-block" do |f| %>
-          <%= f.select :status_eq, options_for_select(Apply.statuses
-            .map{|k,v|[ I18n.t(".applies.status.#{k}"), v]}.unshift([t(".status_applies"), nil])), {},
-            {class: "form-control input-sm"} %>
-          <%= f.text_field :job_name_cont, class: "form-control input-sm",
-            placeholder: t(".job_name") %>
-          <%= f.submit t(".search"),
-            class: "btn btn-primary btn-sm" %>
-        <% end %>
-        <%= link_to new_employers_apply_path, remote: true,
-          class: "btn btn-primary btn-sm d-inline-block" do %>
-          <i class="fa fa-plus"></i> <%= t ".apply" %>
-        <% end %>
+      <div class="col-md-12">
+        <div class="col-md-10 form-search-applies">
+          <%= search_form_for @q, url: employers_applies_path, remote: true,
+            class: "d-inline-block" do |f| %>
+            <div class="form-group">
+              <div class="icon-addon addon-lg">
+                <%= f.select :step_id_eq, options_for_select(@steps
+                  .map{|step|[t("employers.applies.statuses.#{step.name}"),
+                  step.id]}.unshift([t(".enter_step"), nil])), {},
+                  {class: "form-control input-sm select-step d-inline-block",
+                  id: "select-step"} %>
+                <label for="step_id_eq" class="fa fa-line-chart" rel="tooltip"></label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="icon-addon addon-lg">
+                <%= f.select :status_step_id_eq, options_for_select(
+                  @status_steps.map{|status|[t("employers.applies.statuses.#{status.name}"),
+                  status.id]}.unshift([t(".enter_status_applies"), nil])), {},
+                  {class: "form-control input-sm d-inline-block"} %>
+                <label for="step_id_eq" class="fa fa-bars" rel="tooltip"></label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="icon-addon addon-lg">
+                <%= f.search_field :job_name_cont,
+                  class: "form-control", placeholder: t(".enter_job") %>
+                <label for="job_name_cont" class="fa fa-search rils" rel="tooltip"></label>
+              </div>
+            </div>
+            <%= f.button :submit, class: "btn btn-primary" do %>
+              <i class="fa fa-search" aria-hidden="true"></i>
+              <%= t ".filter" %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="pull-right">
+          <%= link_to new_employers_apply_path, remote: true,
+            class: "btn btn-primary btn-sm d-inline-block" do %>
+            <i class="fa fa-plus"></i> <%= t ".apply" %>
+          <% end %>
+        </div>
       </div>
     </div>
     <div id="table-applies">
@@ -34,3 +63,5 @@
 <div class="modal fade" id="add-apply" role="dialog"
   tabindex="-1" aria-hidden="true">
 </div>
+<%= javascript_include_tag "employers/select_step",
+  "data-turbolinks-track": "reload" %>

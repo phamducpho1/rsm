@@ -30,4 +30,4 @@ Rails.application.config.assets.precompile += %w( employers/calendar.js compCale
 Rails.application.config.assets.precompile += %w( read_notification.scss )
 Rails.application.config.assets.precompile += %w( custom_height_layout.js )
 Rails.application.config.assets.precompile += %w( downloads/cv.css )
-Rails.application.config.assets.precompile += %w( employer/jquery-ui.css)
+Rails.application.config.assets.precompile += %w( employer/jquery-ui.css employers/select_step.js )

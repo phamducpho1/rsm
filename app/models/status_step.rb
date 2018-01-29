@@ -4,6 +4,7 @@ class StatusStep < ApplicationRecord
   scope :load_by, -> code_text do
     where "code LIKE ?", "%#{code_text}%"
   end
+  scope :search_step, ->step_id{where step_id: step_id}
 
   class << self
     def status_step_priority_company company_id
