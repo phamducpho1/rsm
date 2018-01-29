@@ -1,5 +1,5 @@
 <% if @template.blank? %>
-  $('#show-view').html('<%= t "templates.error" %>');
+  $('#show-view').html('<%= t "employers.templates.show.template_error" %>');
 <% else %>
   $('#content-template-user').text('<%= j @template.template_body %>');
 <% end %>

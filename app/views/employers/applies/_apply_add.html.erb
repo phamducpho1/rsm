@@ -7,7 +7,7 @@
     <%= search_form_for @q, url: new_employers_apply_path,
       remote: true, class: "form-search" do |f| %>
       <div class="col-md-7">
-        <%= f.text_field :name_cont, placeholder: t(".job_name"),
+        <%= f.text_field :name_cont, placeholder: t(".job_name_placeholder"),
           class: "form-control input-sm search-job" %>
       </div>
       <%= f.submit t(".search"), class: "btn btn-primary btn-sm w60" %>

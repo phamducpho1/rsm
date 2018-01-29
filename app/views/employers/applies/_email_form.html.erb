@@ -23,7 +23,7 @@
         </div>
 
         <div id="cc-input" class="form-group">
-          <label class="col-md-3 col-lg-2 control-label" for="compose-to-cc"><%= t "jobs.apply.select" %></label>
+          <label class="col-md-3 col-lg-2 control-label" for="compose-to-cc"><%= t ".please_selected" %></label>
           <div class="col-md-9 col-lg-10">
             <%= select_tag :template_user,
               options_for_select(template_users.collect{ |u| [u.name, u.id]}),

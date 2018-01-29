@@ -9,7 +9,7 @@
   <div class="modal-content parents">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" id ="reset-appointment">&times;</button>
-      <h4 class="modal-title"><%= t ".interviewe" %></h4>
+      <h4 class="modal-title"><%= t ".create_interview_schedule" %></h4>
     </div>
     <div class="modal-body">
       <div class="form-group">
@@ -25,7 +25,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <div class="input-group">
-              <span class="input-group-addon"><%= t ".start" %></span>
+              <span class="input-group-addon"><%= t ".start_time" %></span>
               <%= f.text_field :start_time, data: {provide: "datepicker"}, class: "datepick form-control edit-control" %>
             </div>
             <span class="error-message">
@@ -36,11 +36,11 @@
         <div class="col-md-6">
           <div class="form-group">
             <div class="input-group">
-              <span class="input-group-addon"><%= t ".end" %></span>
+              <span class="input-group-addon"><%= t ".end_time" %></span>
               <%= f.text_field :end_time, data: {provide: "datepicker"}, class: "datepick form-control edit-control" %>
             </div>
             <span class="error-message">
-              <%= f.full_error :start_time %>
+              <%= f.full_error :end_time %>
             </span>
           </div>
         </div>
@@ -60,7 +60,8 @@
       </div>
       <div class="row">
         <div class="col-md-4">
-          <i class="fa fa-get-pocket text-primary" aria-hidden="true"></i><%= t ".select" %>
+          <i class="fa fa-get-pocket text-primary" aria-hidden="true"></i>
+          <%= t ".select_template" %>
           <label class="switch switch-primary">
             <input type="checkbox" class="open" name="checkcv" value="1">
             <span></span>
@@ -69,17 +70,19 @@
         <div class="col-md-4 tem-col" id = "show-view">
         </div>
       </div>
-      <div class = " objects view_<%= apply.id %>">
+      <div class=" objects view_<%= apply.id %>">
         <section class="page-job-detail__detail">
           <ul class="nav nav-tabs three-tabs" role="tablist">
             <li role="presentation" class="active animated fadeIn">
               <a href="#job-info_<%= apply.id %>" data-toggle="tab">
-              <span class="hidden-sm hidden-xs col-info"><%= t ".member" %></span>
+                <span class="hidden-sm hidden-xs col-info">
+                  <%= t ".interviewer" %>
+                </span>
               </a></li>
             <li class="animated fadeIn" role="presentation ">
               <a href="#company-info_<%= apply.id %>" class="track-event"
                 data-evt-type="view-tab-cominfo" role="tab" data-toggle="tab">
-              <span class="hidden-sm hidden-xs col-info"><%= t ".user" %></span>
+                <span class="hidden-sm hidden-xs col-info"><%= t ".user" %></span>
               </a>
             </li>
           </ul>
@@ -89,7 +92,7 @@
             <div class="row">
               <div class="col-md-5">
                 <%= select_tag "template", options_for_select(template_members.collect{ |u| [u.name, u.id]}),
-                  include_blank: t(".please_selecta"), class: "form-control template"
+                  include_blank: t(".please_selected"), class: "form-control template"
                 %>
               </div>
             </div>
@@ -102,7 +105,7 @@
               <div class="col-md-5">
                 <%= select_tag "template_user",
                   options_for_select(template_users.collect{ |u| [u.name, u.id]}),
-                  include_blank: t(".please_selecta"), class: "form-control template_user"
+                  include_blank: t(".please_selected"), class: "form-control template_user"
                 %>
               </div>
             </div>

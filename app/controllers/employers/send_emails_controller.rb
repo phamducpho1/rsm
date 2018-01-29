@@ -5,7 +5,7 @@ class Employers::SendEmailsController < ApplicationController
     SendEmailUserJob.perform_later params[:title], @apply, params[:template_content], @company, @apply_status
     update_content_email_apply_status
     send_mail_interviewer if @apply.interview_scheduled?
-    @messages = t "success"
+    @messages = t ".success"
     respond_to :js
   end
 
@@ -26,14 +26,14 @@ class Employers::SendEmailsController < ApplicationController
   def load_apply
     @apply = Apply.find_by id: params[:apply_id]
     return if @apply.present?
-    flash[:success] = t "not_find_item"
+    flash[:success] = t ".not_find_item"
     redirect_to root_path
   end
 
   def load_apply_status
     @apply_status = ApplyStatus.find_by id: params[:apply_status_id]
     return if @apply_status.present?
-    flash[:success] = t "not_find_item"
+    flash[:success] = t ".not_find_item"
     redirect_to root_path
   end
 

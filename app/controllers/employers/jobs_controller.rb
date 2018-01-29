@@ -13,7 +13,7 @@ class Employers::JobsController < Employers::EmployersController
   def create
     respond_to do |format|
       if @job.save
-        format.js{ @message = t "job_created"}
+        format.js{ @message = t ".sussess"}
       else
         format.js
       end
@@ -32,7 +32,7 @@ class Employers::JobsController < Employers::EmployersController
   def destroy
     respond_to do |format|
       if @job.destroy
-        format.js{@message = t "deleted_job"}
+        format.js{@message = t ".sussess"}
       else
         format.js
       end
@@ -44,7 +44,7 @@ class Employers::JobsController < Employers::EmployersController
   def update
     respond_to do |format|
       if @job.update_attributes job_params
-        format.js{@message = t "job_updated"}
+        format.js{@message = t ".sussess"}
       else
         format.js
       end

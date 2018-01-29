@@ -1,0 +1,32 @@
+en:
+  profile:
+    user:
+      name: "Tên"
+      email: "Email"
+      address: "Địa chỉ"
+      phone: "Điện thoại"
+      birthday: "Ngày sinh"
+    achievement:
+      name: "Tên"
+      majors: "Chuyên ngành"
+      organization: "Cơ quan"
+      received_time: "Thời gian nhận"
+    certificate:
+      name: "Tên"
+      majors: "Chuyên ngành"
+      organization: "Cơ quan"
+      classification: "Phân loại"
+      received_time: "Thời gian nhận"
+    club:
+      name: "Tên"
+      position: "Vị trí"
+      from: "Từ"
+      to: "Đến"
+      present: "hiện tại"
+      content: "Nội dung"
+    experience:
+      name: "Tên dự án"
+      company: "Công ty"
+      from: "Từ"
+      to: "Đến"
+      project_detail: "Chi tiết dự án"

@@ -1,17 +1,17 @@
 <div class="block full">
   <div class="block-title">
-    <h2><%= t "employers.apply.applyfor" %><strong><%= @job.name %></strong></h2>
+    <h2><%= t ".applyfor" %><strong><%= @job.name %></strong></h2>
   </div>
   <% if @applies.present? %>
     <table class="table table-bordered table-striped table-vcenter">
       <thead>
         <tr>
-          <th class="text-center""><%= t "employers.apply.id" %></th>
-          <th class="text-center"><%= t "employers.apply.user" %></th>
-          <th class="text-center"><%= t "employers.apply.email" %></th>
-          <th class="text-center"><%= t "employers.apply.phone" %></th>
-          <th class="text-center"><%= t "employers.apply.date" %></th>
-          <th class="text-center"><%= t "employers.apply.status" %></th>
+          <th class="text-center"><%= t ".id" %></th>
+          <th class="text-center"><%= t ".user" %></th>
+          <th class="text-center"><%= t ".email" %></th>
+          <th class="text-center"><%= t ".phone" %></th>
+          <th class="text-center"><%= t ".date" %></th>
+          <th class="text-center"><%= t ".status" %></th>
         </tr>
       </thead>
       <tbody>
@@ -22,6 +22,6 @@
     <div id="area_apply_appointment">
     </div>
   <% else %>
-    <p class="not_found_apply"><i><%= t "not_found_apply" %></i></p>
+    <p class="not_found_apply"><i><%= t ".not_found_apply" %></i></p>
   <% end %>
 </div>

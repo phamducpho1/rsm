@@ -1,0 +1,7 @@
+VN:
+  email:
+    link_app: "Đi tới ứng dụng"
+    sender_email: "hr_team"
+    review_not_selected:
+      title: "CV không được chọn"
+      content: "CV của bạn bị từ chối sau khi xem xét"

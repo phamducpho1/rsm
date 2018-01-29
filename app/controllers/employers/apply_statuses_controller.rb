@@ -23,10 +23,10 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
           Notification.create_notification :user, @apply,
             current_user, @apply.job.company_id, @apply.user_id if @apply.user_id
           after_action_create
-          format.js{@messages = t "employers.applies.update.success"}
+          format.js{@messages = t ".success"}
         else
           raise ActiveRecord::Rollback
-          format.js{@errors = t "employers.applies.update.fail"}
+          format.js{@errors = t ".fail"}
         end
       end
     end

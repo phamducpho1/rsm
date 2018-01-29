@@ -9,7 +9,7 @@
   </ul>
   <form action="page_ready_search_results.html" method="post" class="navbar-form-custom" role="search">
     <div class="form-group">
-      <input type="text" id="top-search" name="top-search" class="form-control" placeholder="<%= t "search" %>">
+      <input type="text" id="top-search" name="top-search" class="form-control" placeholder="<%= t ".search" %>">
     </div>
   </form>
   <ul class="nav navbar-nav-custom navbar-right">
@@ -20,7 +20,7 @@
         <i class="fa fa-angle-down"></i>
       <% end %>
       <ul class="dropdown-menu dropdown-custom dropdown-menu-right">
-        <li class="dropdown-header text-center"><%= t "account" %></li>
+        <li class="dropdown-header text-center"><%= t ".account" %></li>
         <li>
           <%= link_to "javascript:void(0)", class: "col-do" do %>
             <i class="fa fa-envelope-o fa-fw pull-right"></i>
@@ -44,7 +44,7 @@
         <li>
           <%= link_to "javascript:void(0)", class: "col-do" do %>
             <i class="fa fa-lock fa-fw pull-right"></i>
-            <%= t ".lock_Account" %>
+            <%= t ".lock_account" %>
           <% end %>
 
           <%= link_to destroy_user_session_path, method: :delete, class: "col-do" do %>

@@ -1,0 +1,9 @@
+en:
+  simple_form:
+    "yes": 'Có'
+    "no": 'Không'
+    required:
+      text: "cần thiết"
+      mark: "*"
+    error_notification:
+      default_message: "Please review the problems below:"
