@@ -1,4 +1,4 @@
-en:
+vn:
   date:
     formats:
       default: "%Y-%m-%d"
@@ -54,6 +54,10 @@ en:
       organization: "Cơ quan"
       classification: "Phân loại"
       name: "Tên"
+      plcname: "Tên"
+      plcmajor: "Chuyên môn"
+      plcorganization: "Cơ quan"
+      plcclass: "Phân loại"
     index:
       add: "Thêm mới"
       describle: "Mô tả"
@@ -225,6 +229,11 @@ en:
       test_salary: "$500 - $700"
       reward_benefits: "Thưởng và Lợi ích"
       activity: "CÁC HOẠT ĐỘNG TIÊU BIỂU"
+      full_time_freshers: "Full time freshers"
+      full_time_careers: "Full time careers"
+      part_time: "Part time"
+      intern: "Intern"
+      freelance: "Freelance"
     method:
       cant_find_job: "Không thể tìm thấy việc làm như yêu cầu"
       cant_find_bookmark: "Không thể tìm thấy trang đánh dấu của người dùng"
@@ -239,6 +248,11 @@ en:
       sure: "Bạn có chắc chắn muốn làm điều này?"
       up_to: " - lên đến "
       view: "Xem"
+      full_time_freshers: "Full time freshers"
+      full_time_careers: "Full time careers"
+      part_time: "Part time"
+      intern: "Intern"
+      freelance: "Freelance"
     filter_form:
       tilte: "Sử dụng form này để thực hiện tìm kiếm việc làm khác"
       min_salary: "Mức lương tối thiểu"
@@ -510,7 +524,7 @@ en:
         confirmations: "Xác nhận"
         login_to: "Đăng ký tài khoản"
       form_login:
-        send: ""Gửi""
+        send: "Gửi"
         email: "Email"
         name: "Tên"
         forgot: "Quên mật khẩu"
@@ -1310,9 +1324,28 @@ en:
       phone: "Số điện thoại"
       describle: "Mô tả"
       birthday: "Ngày sinh"
+    form:
+      name: "Tên"
+      email: "Email"
+      address: "Địa chỉ"
+      phone: "Số điện thoại"
+      birthday: "Ngày sinh"
+      date_format: "Date format"
+      browse: "Browse"
+      curriculum: "Curriculum vitae"
+      cancle: "Hủy bỏ"
+      save: "Lưu"
   achievements:
+    cancle: "Hủy bỏ"
     form:
       describle: "Mô tả"
+      name: "Tên"
+      majors: "Chuyên môn"
+      organization: "Cơ quan"
+      received_time: "Thời gian nhận"
+      required: "Thông tin bắt buộc"
+      cancle: "Hủy bỏ"
+      save: "Lưu"
     achievement:
       confirm: "Xác nhận"
       majors: "Chuyên môn"
@@ -1344,3 +1377,9 @@ en:
   download: "Download CV"
   edit: "Chỉnh sửa"
   employer: "Nhà tuyển dụng"
+  views:
+    pagination:
+      next: "Tiếp"
+      last: "Cuối"
+      first: "Đầu tiên"
+      previous: "Trước"

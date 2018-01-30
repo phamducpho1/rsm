@@ -7,7 +7,7 @@
           <strong class="text-red">*</strong><%= t ".name" %>
         <% end %>
         <%= f.text_field :name, autofocus: true, class: "form-control edit-control",
-        placeholder: t(".name1") %>
+        placeholder: t(".name") %>
       </div>
       <span class="error-message">
         <%= f.error :name %>
@@ -19,7 +19,7 @@
           <strong class="text-red">*</strong><%= t ".majors" %>
         <% end %>
         <%= f.text_field :majors, autofocus: true, class: "form-control edit-control",
-        placeholder: t(".example") %>
+        placeholder: t(".majors") %>
       </div>
       <span class="error-message">
           <%= f.error :majors %>
