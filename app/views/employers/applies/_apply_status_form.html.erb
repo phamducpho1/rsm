@@ -1,4 +1,4 @@
-<%= simple_form_for [:employers, apply_status], remote: true do |f| %>
+<%= simple_form_for [:employers, apply_status], html: {class: "apply-status-form"},remote: true do |f| %>
   <%= f.hidden_field :apply_id, value: apply.id %>
   <%= f.hidden_field :status_step_id %>
   <%= f.hidden_field :is_current %>

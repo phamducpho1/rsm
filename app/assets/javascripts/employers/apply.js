@@ -39,3 +39,9 @@ $(document).on('click', '#pagination-history-apply .pagination a', function (eve
 $(document).on('click', '#cancel-apply-email', function (event) {
   $('#apply-handling-content').html('');
 });
+
+$(document).on('click', '.item-progress', function (event) {
+  var step_id = $(this).data('stepid');
+  var applyId = $('#form-apply-status-main #apply_status_apply_id').val();
+  $.get('/employers/steps/'+ step_id + '?apply_id=' + applyId);
+});

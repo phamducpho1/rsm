@@ -5,7 +5,8 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
   before_action :load_templates, only: [:create, :new]
   before_action :build_apply_statuses, only: :new
   before_action :load_members, only: [:create, :new]
-  before_action :load_appointments, :new_appointment, only: :new , if: :is_scheduled?
+  before_action :new_appointment, only: :new, if: :is_scheduled?
+  before_action :load_appointments, only: [:create, :new], if: :is_scheduled?
 
   def new
     respond_to :js
@@ -36,7 +37,7 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
   def apply_status_params
     params.require(:apply_status).permit :apply_id, :status_step_id, :is_current,
       appointment_attributes: %i(user_id address company_id start_time end_time type_appointment),
-      email_sents_attributes: %i(title content type sender_email receiver_email)
+      email_sents_attributes: %i(title content type receiver_email sender_email _destroy)
   end
 
   def create_inforappointments
@@ -108,6 +109,7 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
   end
 
   def is_scheduled?
-    @stattus_step_scheduled_ids.include? params[:status_step_id].to_i
+    status_step_id = params[:status_step_id] || apply_status_params[:status_step_id]
+    @stattus_step_scheduled_ids.include? status_step_id.to_i
   end
 end

@@ -35,6 +35,7 @@ class Ability
     can :create, Apply
     can :manage, Apply, job_id: company.jobs.pluck(:id)
     can :create, ApplyStatus
+    can :read, Step
     can :manage, ApplyStatus, apply_id: company.applies.pluck(:id)
     can :read, StatusStep, company_id: company.id
   end

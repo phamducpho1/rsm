@@ -1,5 +1,5 @@
  <% steps.each do |step| %>
-  <li class="<%= show_progress_status_apply current_step, step, company_steps_by_step %>">
+  <li data-stepId="<%= step.id %>" class="item-progress <%= show_progress_status_apply current_step, step, company_steps_by_step %>">
     <span class="bubble"></span>
     <%= show_value current_step, step %>
   </li>
