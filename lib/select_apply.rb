@@ -1,6 +1,7 @@
 class SelectApply
   class << self
     def caclulate_applies total, size_applies
+      return Settings.dashboard.zero if size_applies == Settings.dashboard.zero
       (size_applies.to_f / total * Settings.percent).round Settings.rounding
     end
 

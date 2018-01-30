@@ -51,3 +51,5 @@ en:
       x_days:
         one: "1 day ago"
         other: "%{count} days ago"
+  datepicker:
+    long: "dd-mm-yyyy"

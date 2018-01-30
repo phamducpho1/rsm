@@ -1331,6 +1331,7 @@ vn:
       phone: "Số điện thoại"
       birthday: "Ngày sinh"
       date_format: "Date format"
+      empty: "đã tồn tại"
       browse: "Browse"
       curriculum: "Curriculum vitae"
       cancle: "Hủy bỏ"

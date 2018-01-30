@@ -24,6 +24,7 @@
           <p><%= message %></p>
         </div>
       <% end %>
+      <%= f.hidden_field :company_id, value: @company.id %>
       <div class="form-group">
         <div class="col-xs-12">
           <div class="input-group">
@@ -74,6 +75,7 @@
     <%= form_for(resource, as: resource_name ,:html => {class: "form-horizontal form-bordered form-control-borderless display-none",id: "form-register"},url: registration_path(resource_name)) do |f| %>
       <div class="form-group">
         <div class="col-xs-12">
+          <%= f.hidden_field :company_id, value: @company.id %>
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-address-book" aria-hidden="true"></i></span>
             <%= f.text_field :name, autofocus: true, class: "form-control input-lg",
@@ -134,6 +136,7 @@
           </div>
         </div>
       </div>
+      <%= f.hidden_field :company_id, value: @company.id %>
       <div class="form-group form-actions">
         <div class="col-xs-6">
           <a href="#modal-terms" data-toggle="modal" class="register-terms"><%= t "terms" %></a>

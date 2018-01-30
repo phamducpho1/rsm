@@ -1,5 +1,6 @@
 class Devises::RegistrationsController < Devise::RegistrationsController
   layout "devise_users/devise_user"
+  before_action :load_company
 
   def create
     if request.xhr?
