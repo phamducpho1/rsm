@@ -24,7 +24,7 @@
               <ul>
                 <% if current_user.is_employer? %>
                   <li>
-                    <%= link_to employers_dashboards_url(subdomain: current_user.get_company.subdomain) do %>
+                    <%= link_to employers_dashboards_url subdomain: current_user.company_of_user do %>
                       <%= t "employer" %>
                       <i class="fa fa-dashcube fa-fw pull-right"></i>
                     <% end %>
@@ -32,19 +32,19 @@
                 <% end %>
 
                 <li>
-                  <%= link_to user_url(current_user, subdomain: false) do %>
+                  <%= link_to user_url current_user do %>
                     <%= t ".profile" %>
                     <i class="fa fa-user fa-fw pull-right"></i>
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to edit_user_registration_url(current_user, subdomain: false) do %>
+                  <%= link_to edit_user_registration_url current_user do %>
                     <%= t "layouts.header.change" %>
                     <i class="fa fa-pencil-square-o pull-right"></i>
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to bookmark_likes_url(subdomain: false) do %>
+                  <%= link_to bookmark_likes_url do %>
                     <%= t ".my_job" %>
                     <i class="fa fa-briefcase pull-right"></i>
                   <% end %>

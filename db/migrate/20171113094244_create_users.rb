@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.text :address
       t.integer :sex
       t.integer :role, default: 1
+      t.references :company, foreign_key: true
 
       t.timestamps
     end

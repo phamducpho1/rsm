@@ -22,7 +22,7 @@ class JobsController < BaseNotificationsController
   before_action :load_notifications, only: %i{show index}
 
   def index
-    @q = @company.jobs.ransack params[:q]
+    @q = @company.jobs.includes(:branch, :category).ransack params[:q]
     @jobs = @q.result(distinct: true).sort_lastest
       .page(params[:page]).per(Settings.pagination.jobs_perpage)
   end
@@ -85,14 +85,15 @@ class JobsController < BaseNotificationsController
   end
 
   def load_job
-    @job = Job.includes(:bookmark_likes).find_by id: params[:id]
+    @job = Job.find_by id: params[:id]
     return if @job
     flash.now[:danger] = t "jobs.method.cant_find_job"
     redirect_to root_url
   end
 
   def load_jobs
-    @jobs = @company.jobs.sort_lastest.page(params[:page]).per(Settings.pagination.jobs_perpage)
+    @jobs = @company.jobs.includes(:branch, :category).
+      sort_lastest.page(params[:page]).per(Settings.pagination.jobs_perpage)
   end
 
   def create_bookmark

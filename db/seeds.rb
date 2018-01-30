@@ -5,9 +5,34 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Company.delete_all
+Company.create!(
+  name: "Framgia",
+  email: "framrecruit@gmail.com",
+  phone: Faker::Number.number(10),
+  address: "DN",
+  majors: "IT-Software",
+  contact_person: "Nguyen Van A",
+  company_info: "Framgia Da Nang City",
+  # logo: Rails.root.join("public/uploads/company/logo/1/logo_default.png").open,
+  banner: "framgia_banner.jpg",
+  subdomain: "framgia"
+)
+Company.create!(
+  name: "FSoft Da Nang",
+  phone: Faker::Number.number(10),
+  address: "Da Nang",
+  email: "framrecruit@gmail.com",
+  majors: "IT-Software",
+  contact_person: "Pham Van B",
+  company_info: "Fsoft Da Nang - FPT Complex",
+  logo: "framgia.png",
+  banner: "framgia_banner.jpg",
+  subdomain: "fsoft"
+)
 User.delete_all
 User.create!(name: "Nguyen Van A", email: "nguyenvana@gmail.com", password: "123456",
-  phone: "01698624222", birthday: "1996-01-13", address: "Tam Ky, Quang Nam")
+  phone: "01698624222", birthday: "1996-01-13", address: "Tam Ky, Quang Nam", company_id: 1)
 1.upto(5) do |x|
   name = Faker::Name.name
   email = "employer#{x}@gmail.com"
@@ -17,8 +42,10 @@ User.create!(name: "Nguyen Van A", email: "nguyenvana@gmail.com", password: "123
   birthday = Date.current
   role = "employer"
   phone = "0965600364"
+  company_id = 1
   User.create!(name: name, email: email, password: pass, birthday: birthday,
-               password_confirmation: pass_conf, role: role, address: address, phone: phone)
+               password_confirmation: pass_conf, role: role, address: address,
+               phone: phone, company_id: company_id)
 end
 1.upto(5) do |x|
   name = Faker::Name.name
@@ -28,8 +55,9 @@ end
   pass_conf = "123123"
   role = "user"
   phone = "0965600364"
+  company_id = 1
   User.create!(name: name, email: email, password: pass,
-               password_confirmation: pass_conf, role: role, birthday: birthday)
+               password_confirmation: pass_conf, role: role, birthday: birthday, company_id: company_id)
 end
 
 1.upto(2) do |x|
@@ -86,31 +114,6 @@ end
 
 User.update_all confirmed_at: Time.current
 
-Company.delete_all
-Company.create!(
-  name: "Framgia",
-  email: "framrecruit@gmail.com",
-  phone: Faker::Number.number(10),
-  address: "DN",
-  majors: "IT-Software",
-  contact_person: "Nguyen Van A",
-  company_info: "Framgia Da Nang City",
-  logo: Rails.root.join("public/uploads/company/logo/1/logo_default.png").open,
-  banner: "framgia_banner.jpg",
-  subdomain: "framgia"
-)
-Company.create!(
-  name: "FSoft Da Nang",
-  phone: Faker::Number.number(10),
-  address: "Da Nang",
-  email: "framrecruit@gmail.com",
-  majors: "IT-Software",
-  contact_person: "Pham Van B",
-  company_info: "Fsoft Da Nang - FPT Complex",
-  logo: "framgia.png",
-  banner: "framgia_banner.jpg",
-  subdomain: "fsoft"
-)
 
 Branch.delete_all
 Branch.create!(

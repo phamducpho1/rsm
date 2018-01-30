@@ -1325,6 +1325,7 @@ en:
       describle: "Describle"
       birthday: "Birthday"
     form:
+      empty: "already exist"
       name: "Name"
       email: "Email"
       address: "Address"

@@ -1,10 +1,11 @@
 class Devises::SessionsController < Devise::SessionsController
   layout "devise_users/devise_user"
+  before_action :load_company
 
   def create
     if request.xhr?
-      @user = User.find_by email: params[:user][:email]
-      if @user
+      @user = User.find_by email: params[:user][:email], company_id: @company.id
+      if @user && @user.company_id == @company.id
         sign_in_user
       else
         failure
