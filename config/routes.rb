@@ -46,6 +46,7 @@ Rails.application.routes.draw do
     resources :applies
     resources :dashboards
     resources :apply_statuses
+    resources :email_sents
     resources :status_steps, only: :index
   end
   resources :bookmark_likes

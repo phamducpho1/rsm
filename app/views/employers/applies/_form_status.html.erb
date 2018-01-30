@@ -1,14 +1,15 @@
-<%= simple_form_for [:employers, @apply_status], class: "apply-status-form-apply", remote: true do |f| %>
-  <div class="funkyradio">
+<%= simple_form_for [:employers, @apply_status], html: {class: "apply-status-form-apply
+  form-horizontal form-bordered", id: "form-apply-status-main"}, remote: true do |f| %>
+  <div class="funkyradio form-group">
     <% current_status_steps.each do |value| %>
       <div class="funkyradio-<%=  show_status value %> col-md-<%= show_class_gird current_status_steps %>">
         <%= f.radio_button :status_step_id, value.id, id:"radio#{value.id}" %>
-        <%= f.label :status_step_id, t("employers.applies.statuses.#{value.name}"), for: "radio#{value.id}" %>
+        <%= f.label :status_step_id, t("employers.applies.statuses.#{value.code}"), for: "radio#{value.id}" %>
       </div>
     <% end %>
   </div>
   <%= f.hidden_field :apply_id %>
   <%= f.hidden_field :is_current %>
   <%= f.hidden_field :scheduled, value: company_stattus_step_ids, class: "scheduled_ids" %>
-  <%= f.submit t(".save"), class: "btn-submit-edit-applies" %>
+  <%= f.submit t(".submit"), class: "display-none" %>
 <% end %>

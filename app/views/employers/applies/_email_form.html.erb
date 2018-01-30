@@ -1,60 +1,78 @@
 <%= javascript_include_tag "employers/validate", "data-turbolinks-track": "reload" %>
 
-<div class="col-sm-12 col-lg-12">
-  <div class="block">
-    <div class="block-title">
-      <h2>
-        <i class="fa fa-envelope" aria-hidden="true"></i>
-        <%= t "employers.compose" %><strong><%= t "employers.email" %></strong>
-      </h2>
-    </div>
+<div class="form-group">
+  <div class="col-md-12">
+    <div class="block margin-bottom-0">
+      <div class="block-title">
+        <ul class="nav nav-tabs" data-toggle="tabs">
+          <h2>
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <%= t "employers.compose" %><strong><%= t "employers.email" %></strong>
+          </h2>
+        </ul>
+      </div>
+      <div class="onoffswitch">
+      <% if apply_status.errors.full_messages.present? %>
+        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"
+          id="myonoffswitch_email" checked>
+        <% else %>
+        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"
+          id="myonoffswitch_email">
+        <% end %>
+        <label class="onoffswitch-label" for="myonoffswitch_email">
+          <span class="onoffswitch-inner"></span>
+          <span class="onoffswitch-switch"></span>
+        </label>
+      </div>
+      <div class="tab-content collapse" id="open_email">
+        <div class="tab-pane active" id="email-tab">
+          <div class="clearfix">
+            <div class="form-group">
+              <div class="col-sm-12 col-lg-12">
+                <div id = "email-content">
+                  <%= apply_status_builder.simple_fields_for :email_sents do |email_sent_builder| %>
+                    <%= email_sent_builder.hidden_field :type, value: ApplyStatus.name %>
+                    <%= email_sent_builder.hidden_field :sender_email, value: current_user.email %>
+                    <%= email_sent_builder.hidden_field :receiver_email, value: apply.information[:email] %>
+                    <div class="form-group">
+                      <label class="col-md-3 col-lg-2 control-label" for="compose-to"><%= t "jobs.apply.title" %></label>
+                      <div class="col-md-9 col-lg-10">
+                        <%= email_sent_builder.text_field :title, class: "form-control form-control-borderless",
+                          placeholder: t("employers.title") %>
+                      </div>
+                    </div>
 
-    <div id = "apply-handling-content">
-      <%= form_tag employers_send_emails_path, method: :post,
-        class: "form-horizontal form-bordered", id: "send-email-apply", remote: true do %>
-        <div class="form-group">
-          <label class="col-md-3 col-lg-2 control-label" for="compose-to"><%= t "jobs.apply.title" %></label>
-          <div class="col-md-9 col-lg-10">
-            <%= text_field_tag :title, nil, class: "form-control form-control-borderless",
-              placeholder: t("employers.title") %>
-            <%= hidden_field_tag :apply_id, apply.id %>
-            <%= hidden_field_tag :apply_status_id, apply_status.id %>
+                    <div id="cc-input" class="form-group">
+                      <label class="col-md-3 col-lg-2 control-label" for="compose-to-cc">
+                        <%= t "employers.send_email.select_template" %>
+                      </label>
+                      <div class="col-md-9 col-lg-10">
+                        <%= select_tag :template_user,
+                          options_for_select(template_users.collect{ |u| [u.name, u.id]}),
+                          include_blank: t("please_select"), class: "form-control form-control-borderless" %>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="col-md-3 col-lg-2 control-label" for="compose-message">
+                        <%= t "jobs.apply.content" %>
+                      </label>
+                      <div class="col-md-9 col-lg-10">
+                        <%= email_sent_builder.text_area :content, class: "form-control textarea-editor",
+                          id: "content-template-user", cols: Settings.text_area.cols_email,
+                          rows: Settings.text_area.rows_email, placeholder: t("employers.your_message") %>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div id="cc-input" class="form-group">
-          <label class="col-md-3 col-lg-2 control-label" for="compose-to-cc"><%= t ".please_selected" %></label>
-          <div class="col-md-9 col-lg-10">
-            <%= select_tag :template_user,
-              options_for_select(template_users.collect{ |u| [u.name, u.id]}),
-              include_blank: t("please_select"), class: "form-control form-control-borderless" %>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="col-md-3 col-lg-2 control-label" for="compose-message">
-            <%= t "jobs.apply.content" %>
-          </label>
-          <div class="col-md-9 col-lg-10">
-            <%= text_area_tag :template_content, nil, class: "form-control textarea-editor",
-              id: "content-template-user", cols: Settings.text_area.cols_email,
-              rows: Settings.text_area.rows_email, placeholder: t("employers.your_message") %>
-          </div>
-        </div>
-
-        <div class="form-group form-actions">
-          <div class="col-md-9 col-md-offset-3 col-lg-10 col-lg-offset-2">
-            <%= button_tag(type: "submit", class: "btn btn-info btn-sm") do %>
-              <i class="fa fa-share"></i>
-              <%= t "jobs.apply.send_mail" %>
-            <% end %>
-            <button type="button" id="cancel-apply-email" class="btn btn-sm btn-default">
-              <i class="fa fa-ban"></i>
-              <%= t "employers.cancel" %>
-            </button>
-          </div>
-        </div>
-      <% end %>
+      </div>
+      <div>
+        <p class="first_show_email"><i><%= t "employers.applies.decripttion_email" %></i></p>
+      </div>
     </div>
   </div>
 </div>

@@ -54,10 +54,11 @@ class Employers::EmployersController < BaseNotificationsController
 
   def build_apply_statuses
     @apply_status = @apply.apply_statuses.build is_current: :current, status_step_id: @current_apply_status.status_step_id
+    @apply_status.email_sents.build
   end
 
   def load_status_step_scheduled
-    @company_stattus_step_ids = @company.status_steps.load_by(Settings.scheduled).pluck(:id)
+    @stattus_step_scheduled_ids = @company.status_steps.load_by(Settings.scheduled).pluck(:id)
   end
 
   def load_status_step_interview_scheduled
