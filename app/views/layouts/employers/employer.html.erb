@@ -8,6 +8,10 @@
     <%= stylesheet_link_tag "employers/employer", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "employer", "data-turbolinks-track": "reload" %>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript">
+      I18n.defaultLocale = "<%= I18n.default_locale %>";
+      I18n.locale = "<%= I18n.locale %>";
+    </script>
   </head>
 
   <body>

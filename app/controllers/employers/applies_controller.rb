@@ -4,7 +4,7 @@ class Employers::AppliesController < Employers::EmployersController
   before_action :get_step_by_company, :load_current_step, :load_next_step,
     :load_prev_step, :build_apply_statuses, :load_status_step_scheduled,
     :load_statuses_by_current_step, :build_next_and_prev_apply_statuses,
-    :load_apply_statuses, :load_history_apply_status, only: :show
+    :load_apply_statuses, :load_history_apply_status, only: %i(show update)
   before_action :permission_employer_company, only: :create
   before_action :load_steps, only: :index
   before_action :load_statuses, only: :index
@@ -51,6 +51,20 @@ class Employers::AppliesController < Employers::EmployersController
     end
   end
 
+  def update
+    respond_to do |format|
+      if @apply.update_attribute :status, get_status
+        html_content = render_to_string(partial: "employers/applies/apply_btn",
+          locals: {current_step: @current_step, steps: @steps,
+          current_apply_status: @current_apply_status, current_status_steps: @current_status_steps})
+        format.json{render json: {message: t("employers.applies.block_apply.success"), html_data: html_content}}
+      else
+        format.json{render json: {message: t("employers.applies.block_apply.fail")}}
+      end
+      format.html
+    end
+  end
+
   private
 
   def apply_params
@@ -69,5 +83,10 @@ class Employers::AppliesController < Employers::EmployersController
     else
       @error = t ".job_nil"
     end
+  end
+
+  def get_status
+    return Apply.statuses["unlock_apply"] if @apply.lock_apply?
+    Apply.statuses["lock_apply"]
   end
 end

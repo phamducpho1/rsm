@@ -18,10 +18,7 @@ class Apply < ApplicationRecord
   validates :cv, presence: true
   validates :job_id, presence: true
   validates :information, presence: true
-  enum status: {waitting: 0, review_passed: 1, review_not_selected: 2,
-    test_scheduled: 3, test_passed: 4, test_not_selected: 5,
-    interview_scheduled: 6, interview_passed: 7, interview_not_selected: 8,
-    offer_sent: 9, offer_accepted: 10, offer_declined: 11, joined: 12}
+  enum status: {unlock_apply: 0, lock_apply: 1}
 
   accepts_nested_attributes_for :apply_statuses, allow_destroy: true , update_only: true
   accepts_nested_attributes_for :answers, allow_destroy: true

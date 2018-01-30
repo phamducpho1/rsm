@@ -270,7 +270,7 @@ end
 Job.limit(10).each_with_index do |job, index|
   user = User.find index + 1
   apply = Apply.create!(
-    status: "test_scheduled",
+    status: "unlock_apply",
     user_id: index + 1,
     job_id: index + 1,
     cv: File.new(Rails.root.join("lib", "seeds", "template_cv.pdf")),

@@ -405,6 +405,7 @@ en:
         lock_account: "Lock Account"
         logout: " Logout"
         search: "Search"
+        account: "Account"
       choose_jobs:
         choose: "Choose"
         name: "Name"

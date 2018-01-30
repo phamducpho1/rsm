@@ -94,6 +94,16 @@ module EmployersHelper
     t "employers.applies.statuses.#{name}"
   end
 
+  def is_offer_step current_step, id_offer
+    return true if current_step == id_offer
+    false
+  end
+
+  def is_pending_offer_step status_step_id, pending_id
+    return true if status_step_id != pending_id
+    false
+  end
+
   def show_class_icon status_step
     case
     when status_step.is_status?(Settings.pending)
@@ -139,5 +149,9 @@ module EmployersHelper
     else
       current_apply_status.status_step.is_status? Settings.pending
     end
+  end
+
+  def disabled_block apply
+    return "overcast-div" if apply.lock_apply?
   end
 end

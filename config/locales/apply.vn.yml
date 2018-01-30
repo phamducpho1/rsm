@@ -46,12 +46,19 @@ vn:
         interview: "Phỏng vấn"
         offer: "Offer"
       btn_name:
-        next: "Bỏ qua"
+        next: "Tiếp tục"
         prev: "Quay lại"
+        block: "Khóa"
+        unblock: "Mở khóa"
       update:
         success: "Cập nhật thành công"
         fail: "Cập nhật thất bại"
         drop_calendar: "Kéo và thả sự kiện trên lịch"
+      block_apply:
+        title_block: Bạn có chắc chắn muốn khóa hồ sơ ứng tuyển này?
+        title_unblock: Bạn có chắc chắn muốn mở khóa hồ sơ ứng tuyển này?
+        success: "Đã cập nhật thành công hồ sơ ứng tuyển này"
+        fail: "Đã có lỗi xảy ra. Cập nhật  hồ sơ ứng tuyển này thất bại"
     history:
       sent: "Đã gửi "
       ago: " trước."

@@ -11,6 +11,6 @@
       </em></small>
     </span>
     <a href="javascript:void(0)"><strong><%= email_sent.title %></strong></a>
-    <p><%= email_sent.content.html_safe %></p>
+    <p><%= raw email_sent.content %></p>
   </div>
 </li>
