@@ -14,20 +14,7 @@
           </h2>
         </ul>
       </div>
-      <div class="onoffswitch">
-        <% if apply_status.errors.full_messages.present? %>
-          <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"
-            id="myonoffswitch_appointment" checked>
-        <% else %>
-          <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"
-            id="myonoffswitch_appointment">
-        <% end %>
-        <label class="onoffswitch-label" for="myonoffswitch_appointment">
-          <span class="onoffswitch-inner"></span>
-          <span class="onoffswitch-switch"></span>
-        </label>
-      </div>
-      <div class="tab-content collapse" id="open_appointment">
+      <div class="tab-content" id="open_appointment">
         <div class="tab-pane active" id="appointment-tab">
           <div class="clearfix">
             <div class="form-group">
@@ -110,9 +97,6 @@
             </div>
           </div>
         </div>
-      </div>
-      <div>
-        <p class="first_show_appointment"><i><%= t "employers.applies.decripttion_appoinment" %></i></p>
       </div>
     </div>
   </div>

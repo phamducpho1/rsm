@@ -47,7 +47,7 @@
 .funkyradio input[type='checkbox']:hover:not(:checked) ~ label:before {
   content: '\2714';
   text-indent: .9em;
-  color: $gray-light-3;
+  color:  $gray-bold;
 }
 
 .funkyradio input[type='radio']:checked ~ label,

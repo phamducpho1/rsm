@@ -1,5 +1,5 @@
-<%= simple_form_for [:employers, @apply_status], html: {class: "apply-status-form-apply
-  form-horizontal form-bordered", id: "form-apply-status-main"}, remote: true do |f| %>
+<%= simple_form_for [:employers, @apply_status], html: {class: "apply-status-form-apply",
+  id: "form-apply-status-main"}, remote: true do |f| %>
   <div class="funkyradio form-group">
     <% current_status_steps.each do |value| %>
       <div class="funkyradio-<%=  show_status value %> col-md-<%= show_class_gird current_status_steps %>">

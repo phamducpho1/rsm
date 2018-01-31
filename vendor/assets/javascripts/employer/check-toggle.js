@@ -31,28 +31,6 @@ $(document).on('click', '#myonoffswitch_category', function(){
   };
 });
 
-$(document).on('click', '#myonoffswitch_email', function(){
-  if ($('#myonoffswitch_email').is(':checked')){
-    $('#open_email').show(1000);
-    $('.first_show_email').hide();
-  }
-  else{
-    $('#open_email').hide(1000);
-    $('.first_show_email').show();
-  };
-});
-
-$(document).on('click', '#myonoffswitch_appointment', function(){
-  if ($('#myonoffswitch_appointment').is(':checked')){
-    $('#open_appointment').show(1000);
-    $('.first_show_appointment').hide();
-  }
-  else{
-    $('#open_appointment').hide(1000);
-    $('.first_show_appointment').show();
-  };
-});
-
 $(document).ready(function(){
   if ($('#myonoffswitch').is(':checked')){
     $('#open').show(1000);
@@ -67,15 +45,5 @@ $(document).ready(function(){
   if ($('#myonoffswitch_category').is(':checked')){
     $('#open_category').show(1000);
     $('.first_show_category').hide();
-  }
-
-  if ($('#myonoffswitch_email').is(':checked')){
-    $('#open_email').show(1000);
-    $('.first_show_email').hide();
-  }
-
-  if ($('#myonoffswitch_appointment').is(':checked')){
-    $('#open_appointment').show(1000);
-    $('.first_show_appointment').hide();
   }
 });

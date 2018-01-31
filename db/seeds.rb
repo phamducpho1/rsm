@@ -114,7 +114,6 @@ end
 
 User.update_all confirmed_at: Time.current
 
-
 Branch.delete_all
 Branch.create!(
   is_head_office: 1,

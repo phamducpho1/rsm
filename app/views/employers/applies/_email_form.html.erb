@@ -1,4 +1,5 @@
 <%= javascript_include_tag "employers/validate", "data-turbolinks-track": "reload" %>
+<%= javascript_include_tag "employers/apply_block", "data-turbolinks-track": "reload" %>
 
 <div class="form-group">
   <div class="col-md-12">
@@ -34,11 +35,15 @@
                     <%= email_sent_builder.hidden_field :type, value: ApplyStatus.name %>
                     <%= email_sent_builder.hidden_field :sender_email, value: current_user.email %>
                     <%= email_sent_builder.hidden_field :receiver_email, value: apply.information[:email] %>
+                    <%= email_sent_builder.hidden_field :_destroy , value: true, class: "email_destroy" %>
                     <div class="form-group">
                       <label class="col-md-3 col-lg-2 control-label" for="compose-to"><%= t "jobs.apply.title" %></label>
                       <div class="col-md-9 col-lg-10">
                         <%= email_sent_builder.text_field :title, class: "form-control form-control-borderless",
                           placeholder: t("employers.title") %>
+                        <span class="error-message">
+                          <%= email_sent_builder.full_error :title %>
+                        </span>
                       </div>
                     </div>
 
@@ -61,6 +66,9 @@
                         <%= email_sent_builder.text_area :content, class: "form-control textarea-editor",
                           id: "content-template-user", cols: Settings.text_area.cols_email,
                           rows: Settings.text_area.rows_email, placeholder: t("employers.your_message") %>
+                        <span class="error-message">
+                          <%= email_sent_builder.full_error :content %>
+                        </span>
                       </div>
                     </div>
                   <% end %>

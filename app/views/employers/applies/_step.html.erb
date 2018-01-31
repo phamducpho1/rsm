@@ -1,0 +1,63 @@
+<% if @data_step.present? %>
+  <div class="col-md-12 history-apply-status">
+    <!-- Default Tabs -->
+    <ul class="nav nav-tabs push" data-toggle="tabs">
+      <% if @data_step[:email_sents].present? %>
+        <li class="active">
+          <a href="#example-tabs-emails" data-toggle="tooltip" title="Emails">
+            <i class="fa fa-envelope-o"></i>
+          </a>
+        </li>
+      <% end %>
+
+      <% if @data_step[:appointment].present? %>
+        <li>
+          <a href="#example-tabs-appointment" data-toggle="tooltip" title="Appointment">
+            <i class="fa fa-calendar-check-o"></i>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+
+    <div class="tab-content">
+      <% if @data_step[:email_sents].present? %>
+        <div class="tab-pane" id="example-tabs-emails">
+          <table class="table table-borderless table-striped">
+            <tbody>
+              <% @data_step[:email_sents].each do |email_sent| %>
+                <tr>
+                  <td><strong><%= l email_sent.created_at, format: :default %></strong></td>
+                  <td><a href="javascript:void(0)">acas<%= email_sent.content %></a></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
+
+      <div class="tab-pane" id="example-tabs-appointment">
+        <% if @data_step[:appointment].present? %>
+          <div class="tab-pane" id="example-tabs-appointment">
+            <table class="table table-borderless table-striped">
+              <tbody>
+                <tr>
+                  <td><strong><%= t "employers.history.start_time" %></strong></td>
+                  <td>
+                    <a href="javascript:void(0)" class="label label-info"><%= show_time @data_step[:appointment].start_time %></a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td><strong><% t "employers.history.start_time" %></strong></td>
+                  <td>
+                    <a href="javascript:void(0)" class="label label-info"><%= show_time @data_step[:appointment].end_time %></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

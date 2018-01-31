@@ -13,8 +13,8 @@ class ApplyStatus < ApplicationRecord
   delegate :name, to: :step, allow_nil: true, prefix: true
   delegate :id, to: :apply, allow_nil: true, prefix: true
 
-  accepts_nested_attributes_for :appointment, allow_destroy: true
-  accepts_nested_attributes_for :email_sents, allow_destroy: true
+  accepts_nested_attributes_for :appointment, allow_destroy: true , update_only: true
+  accepts_nested_attributes_for :email_sents, allow_destroy: true , update_only: true
 
   enum is_current: {current: 0, not_current: 1}
 
@@ -25,6 +25,7 @@ class ApplyStatus < ApplicationRecord
   end
   scope :lastest_apply_status, ->{order created_at: :desc}
   scope :is_step, ->id_status_step{where status_step_id: id_status_step}
+  scope :of_apply, -> apply_ids {where apply_id: apply_ids}
 
   def save_activity key, user
     self.transaction do
