@@ -30,6 +30,8 @@ en:
         choose: "Choose"
         name: "Name"
       email_form:
+        close: "Close"
+        show_template: "Show Temlate"
         send_mail: "Send Email"
         title: "Title"
         select_template_mail: " Select template mail"
@@ -337,7 +339,15 @@ en:
         sure: "Are you sure?"
       form:
         name: "Name"
+        title: "Title"
         type: "Type"
+        note: "Note"
+        infor: "By default when sending mail, do not use, you can delete: "
+        note_company: " Name company"
+        note_user: " Name candidate"
+        note_address: " Address interview"
+        note_start_time: " Start time interview"
+        note_end_time: "End time interview"
         interview: "Interview"
         candidate: "Candidate"
         body: "Body"
@@ -353,6 +363,7 @@ en:
         show: "Show content"
         sure: "Are you sure?"
       index:
+        title: "Title"
         all: "All templates"
         interview: "Interview"
         candidate: "Candidate"
@@ -365,7 +376,10 @@ en:
         delete: "Delete"
         post_job: "Post Job"
       show:
+        content_template: "@company@</br>Hello you @user@</br>&nbsp;</br>Please come at @start_time@ in @address@ to interview, later on @end_time@"
+        of_company: " of company "
         template_error: "Can not find teample. Please try again later"
+        company: "Company %{name} Vietnamses"
   layouts:
     employers:
       footer_employer:

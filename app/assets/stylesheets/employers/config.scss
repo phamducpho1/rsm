@@ -430,3 +430,38 @@ input[type='radio'] {
   color: $light-blue;
   width: 100% !important;
 }
+.note-style {
+  color: $rose-light;
+  font-style: italic;
+  font-size: 11px;
+}
+.f11 {
+  font-size: 11px;
+}
+.funkyradio {
+  text-align: center;
+}
+.f13{
+  font-size: 13px;
+}
+.note-style-a {
+  color: $black-light-1;
+  font-style: italic;
+}
+.backgroud-content {
+  background: $white !important;
+  font-size: 17px !important;
+  border: 0px !important
+}
+.view_mail {
+  position: absolute;
+  top: 79px;
+  border: 0px;
+  font-size: 20px;
+  padding-left: 11px;
+  background: $white;
+}
+.b0 {
+  border: 0px;
+  background: transparent;
+}

@@ -4,19 +4,19 @@
   </div>
   <section class="page-job-detail__detail">
     <ul class="nav nav-tabs three-tabs" role="tablist">
-      <li role="presentation" class="active animated fadeIn">
+      <li role="presentation" class="animated fadeIn">
         <a href="#job-info" data-toggle="tab">
         <span class="hidden-sm hidden-xs col-info"><%= t ".interview" %></span>
         </a>
       </li>
-      <li class="animated fadeIn" role="presentation ">
+      <li class="active animated fadeIn" role="presentation ">
         <a href="#company-info" class="track-event" data-evt-type="view-tab-cominfo" role="tab" data-toggle="tab">
         <span class="hidden-sm hidden-xs col-info"><%= t ".candidate" %></span>
         </a>
       </li>
     </ul>
     <div class="tab-content">
-      <div role="tabpanel" class="tab-pane tab-pane-job-info active box box-md animated fadeIn"
+      <div role="tabpanel" class="tab-pane tab-pane-job-info box box-md animated fadeIn"
         id="job-info">
         <div class="block full">
           <div class="block-title">
@@ -42,7 +42,7 @@
           <%= paginate @interviewers %>
         </div>
       </div>
-      <div role="tabpanel" class="tab-pane tab-pane-company-info box box-md animated fadeIn"
+      <div role="tabpanel" class="tab-pane tab-pane-company-info active box box-md animated fadeIn"
         id="company-info">
         <div class="block full">
           <div class="block-title">
@@ -56,6 +56,7 @@
               <tr>
                 <th class="text-center"><%= t ".stt" %></th>
                 <th class="text-center"><%= t ".name" %></th>
+                <th class="text-center"><%= t ".title" %></th>
                 <th class="text-center"><%= t ".template" %></th>
                 <th class="text-center"><%= t ".action" %></th>
               </tr>

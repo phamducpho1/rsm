@@ -12,6 +12,18 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="form-group">
+      <%= f.label :title, class: "col-sm-2 control-label required" do %>
+        <abbr title="required">*</abbr>
+        <%= t ".title" %>
+      <% end %>
+      <div class="col-sm-7">
+        <%= f.text_field :title, class: "form-control", required: :true %>
+        <%= f.full_error :title, class: "error-message" %>
+      </div>
+    </div>
+  </div>
   <div class="row hide-type">
     <div class="form-group">
       <%= f.label :type_of, class: "col-sm-2 control-label required" do %>
@@ -37,9 +49,36 @@
     </div>
   </div>
   <div class="row" id = "text-template">
-    <%= f.cktext_area :template_body, cols: Settings.templates.textarea , class: "form-control" %>
+    <% if @template.template_body.present? %>
+      <%= f.cktext_area :template_body, cols: Settings.templates.textarea , class: "form-control" %>
+    <% else %>
+      <%= f.cktext_area :template_body, cols: Settings.templates.textarea , class: "form-control", value: view_template_body %>
+    <% end %>
   </div>
-
+  <% if @template.name.blank? %>
+    <div class="row">
+      <abbr title="required">*</abbr><%= t ".note"%>
+      <label class="switch switch-primary">
+        <input type="checkbox" id="check-template">
+        <span></span>
+      </label>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 hide-type" id="content-note">
+        <span class="f13 note-style-a"><%= t ".infor" %></span><br>
+        <span class="f11"><%= Settings.company %></span>
+        <span class="note-style"><%= t ".note_company" %></span><br>
+        <span class="f11"><%= Settings.user %></span>
+        <span class="note-style"><%= t ".note_user" %></span><br>
+        <span class="f11"><%= Settings.address %></span>
+        <span class="note-style"><%= t ".note_address" %></span><br>
+        <span class="f11"><%= Settings.start_time %></span>
+        <span class="note-style"><%= t ".note_start_time" %></span><br>
+        <span class="f11"><%= Settings.end_time %></span>
+        <span class="note-style"><%= t ".note_end_time" %></span><br>
+      </div>
+    </div>
+  <% end %>
   <div class="modal-footer">
     <div class="row">
       <div class="text-right col-sm-10">
