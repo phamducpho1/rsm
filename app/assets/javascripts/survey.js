@@ -1,0 +1,21 @@
+$('.next').click(function(){
+  $('#form-apply').hide(700);
+  $('#survey').show(700);
+  $('.btn-step-1').attr('disabled', true);
+  $('.btn-step-2').attr('disabled', false);
+});
+$('.previous').click(function(){
+  $('#form-apply').show(700);
+  $('#survey').hide(700);
+  $('.btn-step-2').attr('disabled', true);
+  $('.btn-step-1').attr('disabled', false);
+});
+$('#survey-checkbox').click(function(){
+  if ($('#survey-checkbox:checkbox:checked').length > 0) {
+    $('.No-survey').hide(700);
+    $('.has-survey').show(700);
+  } else {
+    $('.has-survey').hide(700);
+    $('.No-survey').show(700);
+  }
+});

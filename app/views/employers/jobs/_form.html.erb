@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag "survey" %>
 <div class="job-form">
   <%= simple_form_for [:employers, @job], remote: true do |f| %>
     <%= f.hidden_field :company_id %>
@@ -42,9 +43,7 @@
       <%= f.select :category_id, @company.categories.map { |r| [r.name, r.id] },
         {include_blank: t(".please_selected")}, class: "form-control" %>
     <% end %>
-    <div class=" centerize create-job-btn ">
-      <%= f.button :submit, label: t(".save"),
-        class: "btn btn-primary" %>
-    </div>
+    <%= render partial: "jobs/add_survey", locals: {f: f} %>
   <% end %>
 </div>
+<%= javascript_include_tag "survey" %>

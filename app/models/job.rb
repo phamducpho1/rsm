@@ -8,11 +8,13 @@ class Job < ApplicationRecord
   has_many :bookmark_likes, dependent: :destroy
   has_many :reward_benefits, dependent: :destroy, inverse_of: :job
   has_many :apply_statuses, through: :applies
+  has_many :questions, dependent: :destroy
   belongs_to :branch
   belongs_to :category
 
   accepts_nested_attributes_for :reward_benefits, allow_destroy: true,
     reject_if: ->(attrs){attrs["content"].blank?}
+  accepts_nested_attributes_for :questions, allow_destroy: true
 
   validates :name, presence: true
   validates :description, presence: true
@@ -23,8 +25,11 @@ class Job < ApplicationRecord
   validates :target, presence: true
   validates :category_id, presence: true
   validate :max_salary_less_than_min_salary
+  validates :survey, presence: true
+
   enum position_types: {full_time_freshers: 0, full_time_careers: 1, part_time: 2, intern: 3, freelance: 4}
   enum status: [:opend, :closed]
+  enum survey: [:not_exist, :optional, :compulsory]
 
   scope :sort_max_salary_and_target, -> do
     order(max_salary: :desc, target: :desc).limit Settings.job.limit

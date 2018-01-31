@@ -20,11 +20,14 @@ class JobsController < BaseNotificationsController
   before_action :load_notify, only: :show
   before_action :readed_notification, only: :show
   before_action :load_notifications, only: %i{show index}
+  before_action :load_survey, only: :show
+  before_action :build_answer, only: :show
+  before_action :build_question_job, only: :new
 
   def index
-    @q = @company.jobs.includes(:branch, :category).ransack params[:q]
-    @jobs = @q.result(distinct: true).sort_lastest
-      .page(params[:page]).per(Settings.pagination.jobs_perpage)
+    @q = @company.jobs.ransack params[:q]
+    @jobs = @q.result(distinct: true).sort_lastest.includes(:branch)
+      .includes(:category).page(params[:page]).per(Settings.pagination.jobs_perpage)
   end
 
   def show
@@ -36,10 +39,6 @@ class JobsController < BaseNotificationsController
       bookmark: BookmarkLike.bookmarks.keys[Settings.bookmark.liked]
   end
 
-  def new
-    @job = @company.jobs.new
-  end
-
   def create
     @job = current_user.jobs.build job_params
     respond_to do |format|
@@ -48,6 +47,7 @@ class JobsController < BaseNotificationsController
         Notification.create_notification :employer, @job, current_user, @job.company_id
         format.js{@messages = t ".job_created"}
       else
+        @job.questions.build unless params[:onoffswitch]
         format.js
       end
     end
@@ -143,5 +143,21 @@ class JobsController < BaseNotificationsController
 
   def load_category_for_select_box
     @categories ||= @company.categories.by_status(Category.statuses[:active]).order_name_desc.pluck :name, :id
+  end
+
+  def load_survey
+    @questions = @job.questions unless @job.not_exist?
+  end
+
+  def build_answer
+    return unless @questions
+    @questions.each do |question|
+      @apply.answers.build question_id: question.id
+    end
+  end
+
+  def build_question_job
+    @job = @company.jobs.new
+    @job.questions.build
   end
 end

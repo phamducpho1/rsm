@@ -143,6 +143,8 @@ vn:
       date2: "không thể là một ngày trong tương lai"
     describle: "Mô tả các câu lạc bộ mà bạn đã nhận được càng chi tiết càng tốt về khả năng làm việc của bạn"
   jobs:
+    add_survey:
+      add_survey: "Thêm khảo sát"
     reward_benefit_fields:
       remove: "Loại bỏ"
     activity:

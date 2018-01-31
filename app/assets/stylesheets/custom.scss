@@ -372,7 +372,7 @@
 }
 
 .job-apply-btn {
-  .btn-primary {
+  .post-job {
     margin-left: 16px;
     margin-bottom: 10px;
     width: 183px;
@@ -388,7 +388,7 @@
     color: $light-yellow;
     margin-top: 10px;
   }
-  .btn-primary:focus, .btn-primary:hover, .btn-primary:active, .btn-primary.active, .open .btn-primary.dropdown-toggle {
+  .post-job:focus, .btn-primary:hover, .post-job:active, .post-job.active, .open .post-job.dropdown-toggle {
     background-color: $orange-medium;
     border-color: $orange-dark;
     color: $white;
@@ -866,4 +866,17 @@
 }
 .w17 {
   width: 17px;
+}
+.b-top-outset {
+  border-top: outset;
+}
+.w-105 {
+  width: 105px;
+}
+label.control-label {
+  padding: 1px !important;
+  color: $black !important;
+}
+.p-20 {
+  padding-bottom: 20px;
 }
