@@ -190,6 +190,11 @@ en:
       benefit: "Benefit: "
       remove: "X"
       add_benefit: "Add more benefit"
+      job: "Job"
+      next: "Next"
+    add_survey:
+      previous: "Previous"
+      add_question: "Add question"
     update:
       job_updated: "Job has been updated."
       job_cant_update: "Can not be updated !."
@@ -268,6 +273,8 @@ en:
       all_branches: "All branches"
       all_categories: "All categories"
       all_position_types: "All position types"
+    question_fields:
+      remove_question: "Remove question"
   experiences:
     blank: "Blank"
     index:
@@ -1185,15 +1192,22 @@ en:
       working: "Working"
     undefind_content:
       information: "Information"
-      name: "Name"
-      email: "Email"
-      phone: "Phone"
-      broker: "Broker"
+      next: "Next"
+      previous: "Previous"
+      close: "Close"
+      apply: "Apply"
+    step_by_step:
+      survey: "Survey"
+      apply: "Apply"
+    undefind_form_apply:
       introducing: "Introducing"
       new_cv: "New CV"
       browse: "Browser"
       close: "Close"
-      apply: "Apply"
+      name: "Name"
+      email: "Email"
+      phone: "Phone"
+      broker: "Broker"
     form:
       applynow: "Apply now"
       app: "app"
@@ -1220,12 +1234,15 @@ en:
       apply: "Apply"
       address: "Address"
     content:
+      next: "Next"
+      close: "Close"
+      previous: "Previous"
+      apply: "Apply"
+    form_apply:
       who: "Who"
       introducing: "Introducing"
       new_cv: "New CV"
       browse: "Browse"
-      close: "Close"
-      apply: "Apply"
     applies:
       show:
         candidate_information: "Candidate Infomation"
@@ -1275,6 +1292,9 @@ en:
     like: "like"
     liked: "Liked"
     dislike: " Dislike"
+    questions:
+      question: "Question %{index}"
+      answer: "Answer"
   bookmark_like:
     save: "Save"
   bookmark_likes:
@@ -1380,3 +1400,7 @@ en:
   download: "Download CV"
   edit: "Edit"
   employer: "Employer"
+  survey:
+    not_exist: "Not Create"
+    compulsory: "Compulsory"
+    optional: "Optional"

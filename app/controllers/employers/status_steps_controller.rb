@@ -5,12 +5,11 @@ class Employers::StatusStepsController < Employers::EmployersController
 
   def index
     @q = ApplyStatus.current.search params[:q]
-    render json: do
+    render json: {
       step_current: params[:step_id],
       content: (render_to_string partial: "select_status",
         locals: {status_steps: @status_steps, q: @q, steps: @steps},
-        layout: false)
-    end
+        layout: false)}
   end
 
   private

@@ -234,6 +234,10 @@ en:
         please_selected: "--- Please Select ---"
         position: "Position"
         save: "Create Job"
+        add_question: "Add questions"
+        questions: "Survey questions"
+        job: "Job"
+        next: "Next"
       job:
         expires_on: "Expires on"
         expired: "Expired"
@@ -268,6 +272,8 @@ en:
         date: "Date submit"
         status: "Status"
         not_found_apply: "This job do not have applies"
+      question_fields:
+        remove_question: "Remove question"
     members:
       form:
         name: "Name"

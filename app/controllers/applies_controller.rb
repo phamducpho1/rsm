@@ -29,7 +29,8 @@ class AppliesController < ApplicationController
 
   def apply_params
     status_id = StatusStep.status_step_priority_company @job.company_id if @job
-    params.require(:apply).permit(:status, :user_id, :job_id, :information, :cv, :broker)
+    params.require(:apply).permit(:status, :user_id, :job_id, :information, :cv, :broker,
+      answers_attributes: %i(id name question_id))
       .merge! apply_statuses_attributes: [status_step_id: status_id, is_current: :current]
   end
 
@@ -43,6 +44,8 @@ class AppliesController < ApplicationController
     @apply.self_attr_after_create current_user, :employer
     if @apply.save
       @success = t "apply.applied"
+    elsif !@job.not_exist?
+      @questions = @job.questions
     end
   end
 end
