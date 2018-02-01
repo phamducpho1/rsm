@@ -58,7 +58,7 @@ class Employers::EmployersController < BaseNotificationsController
   end
 
   def load_status_step_scheduled
-    @stattus_step_scheduled_ids = @company.status_steps.load_by(Settings.scheduled).pluck(:id)
+    @status_step_scheduled_ids = @company.status_steps.load_by(Settings.scheduled).pluck(:id)
   end
 
   def load_status_step_interview_scheduled
@@ -88,5 +88,11 @@ class Employers::EmployersController < BaseNotificationsController
 
   def load_statuses
     @status_steps = @company.status_steps
+  end
+
+  def load_apply
+    @apply = Apply.find_by id: params[:apply_id]
+    return if @apply
+    redirect_to root_url
   end
 end

@@ -69,7 +69,7 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
     return if @apply_status.status_step.is_status?(Settings.not_selected) || @apply_status.status_step.is_status?(Settings.pending)
     load_next_step
     if @next_step.present? &&
-      !@stattus_step_scheduled_ids.include?(@apply_status.status_step_id)
+      !@status_step_scheduled_ids.include?(@apply_status.status_step_id)
       set_not_current
       @apply.apply_statuses.create status_step_id: @next_step.status_steps.first.id,
         is_current: :current
@@ -110,6 +110,6 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
 
   def is_scheduled?
     status_step_id = params[:status_step_id] || apply_status_params[:status_step_id]
-    @stattus_step_scheduled_ids.include? status_step_id.to_i
+    @status_step_scheduled_ids.include? status_step_id.to_i
   end
 end

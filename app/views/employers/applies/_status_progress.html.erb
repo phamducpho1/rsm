@@ -1,6 +1,8 @@
- <% steps.each do |step| %>
+<% steps.each do |step| %>
   <li data-stepId="<%= step.id %>" class="item-progress <%= show_progress_status_apply current_step, step, company_steps_by_step %>">
-    <span class="bubble"></span>
-    <%= show_value current_step, step %>
+    <%= link_to employers_step_path(step, apply_id: @apply.id), remote: true do %>
+      <span class="bubble"></span>
+      <%= show_value current_step, step %>
+    <% end %>
   </li>
 <% end %>
