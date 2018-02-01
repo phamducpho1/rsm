@@ -16,7 +16,8 @@ en:
     title: "Please input title"
     message: "Message: "
     your_message: "Please input message"
-    cv: "Curriculum vitae"
+    cv: "CV"
+    view: " View"
     current: "Current"
     status: " Status"
     change: "Change"
@@ -51,6 +52,7 @@ en:
         fail: "Update fail"
         drop_calendar: "Drag and Drop Events on the Calendar"
     history:
+      title_history: "History"
       sent: "Sent "
       ago: " ago."
       resend: "Resend"

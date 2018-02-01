@@ -27,17 +27,27 @@
                 <%= show_status_apply @current_apply_status.status_step %>
               </td>
             </tr>
+            <tr class="background-none">
+              <td class="text-right"><strong><%= t "employers.cv" %></strong></td>
+              <td>
+                <a href="<%= @apply.cv.url %>" data-fancybox class="thumbnail-cv label label-info">
+                  <i class="fa fa-eye"></i><%= t "employers.view" %>
+                </a>
+              </td>
+            </tr>
+
+            <tr class="background-none">
+              <td class="text-right"><strong><%= t "employers.history.title_history" %></strong></td>
+              <td>
+                <a data-toggle="modal" class= "label label-info" data-target="#area-hisory-apply">
+                  <i class="fa fa-eye"></i><%= t "employers.view" %>
+                </a>
+              </td>
+            </tr>
+
           </tbody>
         </table>
       </div>
-    </div>
-    <div class="block full area-cv">
-      <div class="block-title">
-        <h2><i class="fa fa-eye" aria-hidden="true"></i> <%= t "employers.cv" %></h2>
-      </div>
-      <a href="<%= @apply.cv.url %>" data-fancybox class="thumbnail-cv">
-        <embed src="<%= @apply.cv %>" />
-      </a>
     </div>
   </div>
 
@@ -97,31 +107,36 @@
         {data_step: @data_step, status_step_id: @current_apply_status.status_step_id,
         apply_status: @current_apply_status, apply: @apply, current_apply_status: @current_apply_status} %>
     </div>
+  </div>
+</div>
 
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="block full">
-          <div class="block-title">
-            <div class="block-options pull-right">
-              <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="Settings"><i class="fa fa-cog"></i></a>
+<div class="modal fade modal-history-apply" id="area-hisory-apply" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">
+          <i class="fa fa-history" aria-hidden="true"></i>
+          <strong><%= t "employers.history.title" %></strong>
+        </h4>
+      </div>
+
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="timeline block-content-full">
+              <h3 class="timeline-header"><strong><%= l Date.current, format: :date_month_year_v2 %></strong></h3>
+              <ul class="timeline-list timeline-hover" id="area-hisory-apply">
+                <%= (render partial: "employers/apply_statuses/apply_status",
+                collection: @apply_statuses, as: :apply_status) || t("employers.no_data") %>
+              </ul>
             </div>
-            <h2>
-              <i class="fa fa-history" aria-hidden="true"></i>
-              <strong><%= t "employers.history.title"%></strong>
-            </h2>
-          </div>
-          <div class="timeline block-content-full">
-            <h3 class="timeline-header"><strong><%= l Date.current, format: :date_month_year_v2 %></strong></h3>
-            <ul class="timeline-list timeline-hover" id="area-hisory-apply">
-              <%= render partial: "employers/apply_statuses/apply_status",
-                collection: @apply_statuses, as: :apply_status %>
-            </ul>
           </div>
         </div>
+        <div id="pagination-history-apply" class="row text-center pag pag-history-apply">
+          <%= paginate @apply_statuses %>
+        </div>
       </div>
-    </div>
-    <div id="pagination-history-apply" class="row text-center pag">
-      <%= paginate @apply_statuses %>
     </div>
   </div>
 </div>
