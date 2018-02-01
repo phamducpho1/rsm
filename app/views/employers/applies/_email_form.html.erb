@@ -2,7 +2,6 @@
 <%= javascript_include_tag "employers/apply_block", "data-turbolinks-track": "reload" %>
 
 <div class="form-group">
-  <div class="col-md-12">
     <div class="block margin-bottom-0">
       <div class="block-title">
         <ul class="nav nav-tabs" data-toggle="tabs">
@@ -32,45 +31,48 @@
               <div class="col-sm-12 col-lg-12">
                 <div id = "email-content">
                   <%= apply_status_builder.simple_fields_for :email_sents do |email_sent_builder| %>
-                    <%= email_sent_builder.hidden_field :type, value: ApplyStatus.name %>
-                    <%= email_sent_builder.hidden_field :sender_email, value: current_user.email %>
-                    <%= email_sent_builder.hidden_field :receiver_email, value: apply.information[:email] %>
-                    <%= email_sent_builder.hidden_field :_destroy , value: true, class: "email_destroy" %>
-                    <div class="form-group">
-                      <label class="col-md-3 col-lg-2 control-label" for="compose-to"><%= t "jobs.apply.title" %></label>
-                      <div class="col-md-9 col-lg-10">
-                        <%= email_sent_builder.text_field :title, class: "form-control form-control-borderless",
-                          placeholder: t("employers.title") %>
-                        <span class="error-message">
-                          <%= email_sent_builder.full_error :title %>
-                        </span>
+                    <% if filter_object email_sent_builder.object %>
+                      <%= email_sent_builder.hidden_field :type, value: ApplyStatus.name %>
+                      <%= email_sent_builder.hidden_field :sender_email, value: current_user.email %>
+                      <%= email_sent_builder.hidden_field :user_id %>
+                      <%= email_sent_builder.hidden_field :receiver_email, value: apply.information[:email] %>
+                      <%= email_sent_builder.hidden_field :_destroy , value: true, class: "email_destroy" %>
+                      <div class="form-group">
+                        <label class="col-md-3 col-lg-2 control-label" for="compose-to"><%= t "jobs.apply.title" %></label>
+                        <div class="col-md-9 col-lg-10">
+                          <%= email_sent_builder.text_field :title, class: "form-control form-control-borderless",
+                            placeholder: t("employers.title") %>
+                          <span class="error-message">
+                            <%= email_sent_builder.full_error :title %>
+                          </span>
+                        </div>
                       </div>
-                    </div>
 
-                    <div id="cc-input" class="form-group">
-                      <label class="col-md-3 col-lg-2 control-label" for="compose-to-cc">
-                        <%= t "employers.send_email.select_template" %>
-                      </label>
-                      <div class="col-md-9 col-lg-10">
-                        <%= select_tag :template_user,
-                          options_for_select(template_users.collect{ |u| [u.name, u.id]}),
-                          include_blank: t("please_select"), class: "form-control form-control-borderless" %>
+                      <div id="cc-input" class="form-group">
+                        <label class="col-md-3 col-lg-2 control-label" for="compose-to-cc">
+                          <%= t "employers.send_email.select_template" %>
+                        </label>
+                        <div class="col-md-9 col-lg-10">
+                          <%= select_tag :template_user,
+                            options_for_select(template_users.collect{ |u| [u.name, u.id]}),
+                            include_blank: t("please_select"), class: "form-control form-control-borderless" %>
+                        </div>
                       </div>
-                    </div>
 
-                    <div class="form-group">
-                      <label class="col-md-3 col-lg-2 control-label" for="compose-message">
-                        <%= t "jobs.apply.content" %>
-                      </label>
-                      <div class="col-md-9 col-lg-10">
-                        <%= email_sent_builder.text_area :content, class: "form-control textarea-editor",
-                          id: "content-template-user", cols: Settings.text_area.cols_email,
-                          rows: Settings.text_area.rows_email, placeholder: t("employers.your_message") %>
-                        <span class="error-message">
-                          <%= email_sent_builder.full_error :content %>
-                        </span>
+                      <div class="form-group">
+                        <label class="col-md-3 col-lg-2 control-label" for="compose-message">
+                          <%= t "jobs.apply.content" %>
+                        </label>
+                        <div class="col-md-9 col-lg-10">
+                          <%= email_sent_builder.text_area :content, class: "form-control textarea-editor",
+                            id: "content-template-user", cols: Settings.text_area.cols_email,
+                            rows: Settings.text_area.rows_email, placeholder: t("employers.your_message") %>
+                          <span class="error-message">
+                            <%= email_sent_builder.full_error :content %>
+                          </span>
+                        </div>
                       </div>
-                    </div>
+                    <% end %>
                   <% end %>
                 </div>
               </div>
@@ -82,5 +84,4 @@
         <p class="first_show_email"><i><%= t "employers.applies.decripttion_email" %></i></p>
       </div>
     </div>
-  </div>
 </div>

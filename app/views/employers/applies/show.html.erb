@@ -83,13 +83,19 @@
         <ul class="media-list media-feed push content-media">
           <li class="media">
             <div class="media-body">
-              <div id = "apply-handling-content">
-                <%= render partial: "employers/applies/step", locals: {data_step: @data_step} %>
-              </div>
             </div>
           </li>
         </ul>
       </div>
+    </div>
+
+    <div id = "apply-handling-content" class="row apply-content">
+    </div>
+
+    <div id="step-history" class="row">
+      <%= render partial: "employers/applies/step_history", locals:
+        {data_step: @data_step, status_step_id: @current_apply_status.status_step_id,
+        apply_status: @current_apply_status, apply: @apply} %>
     </div>
 
     <div class="row">
@@ -107,7 +113,8 @@
           <div class="timeline block-content-full">
             <h3 class="timeline-header"><strong><%= l Date.current, format: :date_month_year_v2 %></strong></h3>
             <ul class="timeline-list timeline-hover" id="area-hisory-apply">
-              <%= render partial: "employers/apply_statuses/apply_status", collection: @apply_statuses, as: :apply_status %>
+              <%= render partial: "employers/apply_statuses/apply_status",
+                collection: @apply_statuses, as: :apply_status %>
             </ul>
           </div>
         </div>

@@ -13,6 +13,7 @@ class Employers::StepsController < Employers::EmployersController
   def load_history_apply_status
     step_service = StepService.new @step, @apply
     @apply_status = step_service.apply_status_lastest || build_apply_status
+    @status_step =  step_service.status_step_lastest
     @data_step = step_service.get_data_step
   end
 

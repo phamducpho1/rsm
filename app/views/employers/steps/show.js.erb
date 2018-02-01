@@ -1,2 +1,7 @@
-$('#apply-handling-content').html('<%= j render partial: "employers/applies/step", locals: {data_step: @data_step} %>');
+$('#apply-handling-content').html('');
+<% if @status_step.present? %>
+  $('#step-history').html('<%= j render partial: "employers/applies/step_history", locals: {data_step: @data_step, status_step_id: @status_step.id, apply_status: @apply_status, apply: @apply} %>');
+<% else %>
+  $('#step-history').html('');
+<% end %>
 $('#area-form-status').html('<%= j render partial: "employers/applies/form_status", locals: {status_step_scheduled_ids: @status_step_scheduled_ids, apply: @apply, current_step: @step, current_status_steps: @status_steps} %>');
