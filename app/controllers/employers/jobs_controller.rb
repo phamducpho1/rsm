@@ -4,6 +4,9 @@ class Employers::JobsController < Employers::EmployersController
   before_action :load_applies_joined_by_jobs, only: :index
   before_action :load_branches_for_select_box, only: :index
   before_action :load_category_for_select_box, only: :index
+  before_action :build_questions, only: :new
+  before_action :check_params, only: :create
+
   def show
     @appointment = @company.appointments.build
     @applies = @job.applies.page(params[:page]).per Settings.apply.page
@@ -11,10 +14,14 @@ class Employers::JobsController < Employers::EmployersController
   end
 
   def create
+    @job = current_user.jobs.build job_params
     respond_to do |format|
       if @job.save
+        @status_step = @company.company_steps.priority_lowest
+          .last.step.status_steps
         format.js{ @message = t ".sussess"}
       else
+        @job.questions.build unless params[:onoffswitch]
         format.js
       end
     end
@@ -61,8 +68,8 @@ class Employers::JobsController < Employers::EmployersController
   def job_params
     params.require(:job).permit(:content, :name, :level, :language, :target,
       :skill, :position, :company_id, :description, :min_salary, :max_salary,
-      :branch_id, :category_id, reward_benefits_attributes: %i(id content job_id _destroy))
-      .merge! user_id: current_user.id
+      :branch_id, :category_id, :survey, reward_benefits_attributes: %i(id content job_id _destroy),
+      questions_attributes: %i(id name _destroy))
   end
 
   def load_jobs
@@ -79,5 +86,19 @@ class Employers::JobsController < Employers::EmployersController
 
   def load_category_for_select_box
     @categories ||= @company.categories.by_status(Category.statuses[:active]).order_name_desc.pluck :name, :id
+  end
+
+  def build_questions
+    @job.questions.build
+  end
+
+  def check_params
+    return unless params[:job]
+    if params[:onoffswitch]
+      params[:job][:survey] = params[:job][:survey].to_i
+    else
+      params[:job][:survey] = Settings.default_value
+      params[:job][:questions_attributes] = nil
+    end
   end
 end

@@ -196,6 +196,8 @@ en:
     destroy:
       job_destroyed: "Job has been destroyed."
       job_cant_destroy: "Can not be destroyed"
+    add_survey:
+      add_survey: "Add Survey"
     show:
       post_job: "Post Job"
       no_jobs: "There is no jobs available at this time"

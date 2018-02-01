@@ -3,6 +3,7 @@ class Apply < ApplicationRecord
 
   belongs_to :job
   belongs_to :user, optional: true
+  has_many :answers, dependent: :destroy
   has_one :company, through: :job
   has_many :inforappointments, through: :appointments
   has_many :apply_statuses, dependent: :destroy
@@ -23,6 +24,7 @@ class Apply < ApplicationRecord
     offer_sent: 9, offer_accepted: 10, offer_declined: 11, joined: 12}
 
   accepts_nested_attributes_for :apply_statuses, allow_destroy: true , update_only: true
+  accepts_nested_attributes_for :answers, allow_destroy: true
 
   scope :newest_apply, ->{order :created_at}
   scope :sort_apply, ->{order(created_at: :desc).limit Settings.job.limit}

@@ -154,3 +154,9 @@ status_apply:
 grid:
   width_6: 6
   width_12: 12
+increase_one: 1
+rows_text_area: 5
+default_survey: 0
+survey:
+  optional: 1
+  compulsory: 2

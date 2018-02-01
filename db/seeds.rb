@@ -258,6 +258,13 @@ Job.delete_all
   )}
 end
 
+Job.limit(5).each do |job|
+  2.times do |n|
+    job.update_attributes survey: 1
+    job.questions.create!(name: Faker::Lorem.sentence)
+  end
+end
+
 Job.limit(10).each_with_index do |job, index|
   user = User.find index + 1
   apply = Apply.create!(

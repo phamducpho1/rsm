@@ -94,4 +94,15 @@ module EmployersHelper
   def set_value_datepicker param_q, field_search
     param_q.present? ? param_q[field_search] : ""
   end
+
+  def status_survey status
+    case status
+    when Settings.survey.optional
+      Settings.warning
+    when Settings.survey.compulsory
+      Settings.danger
+    else
+      Settings.success
+    end
+  end
 end

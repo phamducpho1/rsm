@@ -207,7 +207,7 @@
     opacity: 0;
     filter: alpha(opacity=0);
     &:checked + span {
-      background-color: $grey-light1;
+      background-color: $blue-light;
     }
     &:checked + span:after {
       left: 26px;

@@ -58,7 +58,7 @@
                   <div class="col-xs-6 col-xs-push-6 col-md-12 col-md-push-0 job-apply-btn">
                     <% if user_signed_in? %>
                       <% if @applied.present? && @applied.of_user?(current_user) %>
-                        <button type = "button" class = "btn btn-primary btn-block btn-apply disabled", id="post-job-btn" ><%= t "apply.applied" %></button>
+                        <button type = "button" class = "btn btn-primary btn-block btn-apply post-job disabled", id="post-job-btn" ><%= t "apply.applied" %></button>
                       <% else %>
                         <% if check_member? @job.company %>
                           <div class="text-primary light">

@@ -24,7 +24,7 @@
       </div>
       <div class="widget-extra-full">
         <span class="h2 text-danger animation-expandOpen">
-          <%= Job.count_of_company @company %>
+          <%= Job.count_urgent_of_company @company %>
         </span>
       </div>
     <% end %>
@@ -54,7 +54,7 @@
       </div>
       <div class="widget-extra-full">
         <span class="h2 themed-color-dark animation-expandOpen">
-          <%= Job.count_urgent_of_company @company %>
+          <%= Job.count_of_company @company %>
         </span>
       </div>
     <% end %>
