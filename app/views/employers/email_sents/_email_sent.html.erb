@@ -1,0 +1,16 @@
+<li class="media">
+  <a href="page_ready_user_profile.html" class="pull-left">
+    <%= image_tag email_sent.user_picture.url, class: "sender-avatar img-circle" %>
+  </a>
+  <div class="media-body">
+    <span class="text-muted pull-right">
+      <small><em>
+        <%= t "employers.history.sent" %>
+        <%= time_ago_in_words(email_sent.created_at) %>
+        <%= t "employers.history.ago" %>
+      </em></small>
+    </span>
+    <a href="page_ready_user_profile.html"><strong><%= email_sent.user_name %></strong></a>
+    <p><%= email_sent.content %></p>
+  </div>
+</li>

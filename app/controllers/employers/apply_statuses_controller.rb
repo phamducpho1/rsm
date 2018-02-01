@@ -3,7 +3,7 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
   before_action :get_step_by_company, :load_current_step,
     :load_status_step_interview_scheduled, :load_status_step_scheduled, only: [:create, :new]
   before_action :load_templates, only: [:create, :new]
-  before_action :build_apply_statuses, only: :new
+  before_action :load_apply_status, :build_apply_statuses, only: :new
   before_action :load_members, only: [:create, :new]
   before_action :new_appointment, only: :new, if: :is_scheduled?
   before_action :load_appointments, only: [:create, :new], if: :is_scheduled?
@@ -37,7 +37,7 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
   def apply_status_params
     params.require(:apply_status).permit :apply_id, :status_step_id, :is_current,
       appointment_attributes: %i(user_id address company_id start_time end_time type_appointment),
-      email_sents_attributes: %i(title content type receiver_email sender_email _destroy)
+      email_sents_attributes: %i(title content type receiver_email sender_email _destroy user_id)
   end
 
   def create_inforappointments
@@ -88,17 +88,20 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
   end
 
   def build_apply_statuses
-    status_step_id = if params[:status_step_id].present?
-      params[:status_step_id]
-    else
-      @current_apply_status.status_step_id
+    if params[:apply_status_id].blank?
+      status_step_id = if params[:status_step_id].present?
+        params[:status_step_id]
+      else
+        @current_apply_status.status_step_id
+      end
+      @apply_status = @apply.apply_statuses.build is_current: :current,
+        status_step_id: status_step_id
     end
-    @apply_status = @apply.apply_statuses.build is_current: :current,
-      status_step_id: status_step_id
-    @apply_status.email_sents.build
+    @apply_status.email_sents.build user_id: current_user.id
   end
 
   def new_appointment
+    return if params[:apply_status_id].present?
     type_appointment = @interview_scheduled_ids.include?(params[:status_step_id].to_i) ? :interview_scheduled : :test_scheduled
     @apply_status.build_appointment type_appointment: type_appointment, company_id: @company.id
   end
@@ -111,5 +114,9 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
   def is_scheduled?
     status_step_id = params[:status_step_id] || apply_status_params[:status_step_id]
     @status_step_scheduled_ids.include? status_step_id.to_i
+  end
+
+  def load_apply_status
+    @apply_status = ApplyStatus.find_by id: params[:apply_status_id]
   end
 end

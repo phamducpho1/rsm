@@ -54,7 +54,7 @@ class Employers::EmployersController < BaseNotificationsController
 
   def build_apply_statuses
     @apply_status = @apply.apply_statuses.build is_current: :current, status_step_id: @current_apply_status.status_step_id
-    @apply_status.email_sents.build
+    @apply_status.email_sents.build user_id: current_user.id
   end
 
   def load_status_step_scheduled

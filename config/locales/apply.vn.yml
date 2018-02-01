@@ -7,6 +7,7 @@ vn:
       interviewer: "Người phỏng vấn"
       required: "%{name} không thể để trống"
   employers:
+    action: "Action"
     setting: "Setting "
     appointment: "Appointment"
     submit: "Submit"
@@ -50,11 +51,19 @@ vn:
         fail: "Cập nhật thất bại"
         drop_calendar: "Kéo và thả sự kiện trên lịch"
     history:
+      sent: "Đã gửi "
+      ago: " trước."
+      resend: "Resend"
       start_time: "Thời gian bắt đầu: "
       end_time: "Thời gian kết thúc: "
       interviewer: "Chịu trách nhiệm phỏng vấn: "
       content_email: "Nội dung email: "
       no_one: "chưa có"
       title: "Lịch sử"
+      title_email: "Email đã gởi"
+      title_appointment: "History Appointment"
+      test_scheduled: "Lịch test"
+      interview_scheduled: "Lịch phỏng vấn"
+      date: "Ngày"
     send_email:
       select_template: "Select template"

@@ -2,7 +2,6 @@ $(document).on('change', '#form-apply-status-main input[type=radio]', function(e
   event.preventDefault();
   var applyId = $('#form-apply-status-main #apply_status_apply_id').val();
   var value = $('#form-apply-status-main input[type=radio]:checked').val();
-  var textStatus = $('#form-apply-status-main input[type=radio]:checked').next().text();
   if ($(this).is(':checked')) {
     $.get('/employers/apply_statuses/new?status_step_id=' + value + '&&apply_id=' + applyId);
   }

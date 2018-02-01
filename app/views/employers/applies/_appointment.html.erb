@@ -1,0 +1,38 @@
+ <table class="table table-borderless table-striped">
+  <tbody>
+    <tr>
+      <td><strong><%= t "employers.history.type" %></strong></td>
+      <td>
+        <a href="javascript:void(0)">
+          <%= t "employers.history.#{@data_step[:appointment].type_appointment}" %>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td><strong><%= t "employers.history.start_time" %></strong></td>
+      <td>
+        <a href="javascript:void(0)" class="label label-info">
+          <%= l @data_step[:appointment].start_time, format: :format_time %>
+        </a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong><%= t "employers.history.start_time" %></strong></td>
+      <td>
+        <a href="javascript:void(0)" class="label label-info">
+          <%= l @data_step[:appointment].end_time, format: :format_time %>
+        </a>
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong><%= t "employers.history.date" %></strong></td>
+      <td>
+        <a href="javascript:void(0)" class="label label-info">
+          <%= l @data_step[:appointment].end_time, format: :date_month_year_v1 %>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>

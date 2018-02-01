@@ -1,0 +1,50 @@
+<div class="col-md-6">
+  <div class="block full">
+    <div class="block-title">
+      <div class="block-options pull-right">
+        <a href="javascript:void(0)" class="btn btn-sm btn-alt btn-default" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></a>
+      </div>
+      <h2>
+        <i class="fa fa-history"></i>
+        <strong><%= t "employers.history.title_email" %></strong>
+      </h2>
+    </div>
+
+    <div class="block-top block-content-mini-padding">
+      <%= link_to new_employers_apply_status_path(status_step_id:
+        status_step_id, apply_id: apply.id, apply_status_id: apply_status.id ), remote: true do %>
+        <div class="clearfix">
+          <button type="submit" class="btn btn-sm btn-primary pull-right">
+            <i class="fa fa-share-square"></i>
+            <%= t "employers.history.resend" %>
+          </button>
+          <a href="javascript:void(0)" class="btn btn-link btn-icon" data-toggle="tooltip" data-placement="bottom"  title="Add Location"><i class="fa fa-location-arrow"></i></a>
+          <a href="javascript:void(0)" class="btn btn-link btn-icon" data-toggle="tooltip" data-placement="bottom"  title="Add Photo"><i class="fa fa-camera"></i></a>
+        </div>
+      <% end %>
+    </div>
+
+    <ul class="media-list">
+      <%= render partial: "employers/email_sents/email_sent",
+        collection: data_step[:email_sents], as: :email_sent %>
+    </ul>
+  </div>
+</div>
+
+<% if data_step[:appointment].present? %>
+  <div class="col-md-6">
+    <div class="block full">
+      <div class="block-title">
+        <div class="block-options pull-right">
+          <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="Friend Request"><i class="fa fa-plus"></i></a>
+          <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="Hire"><i class="fa fa-briefcase"></i></a>
+        </div>
+        <h2>
+          <i class="fa fa-history"></i>
+          <strong><%= t "employers.history.title_appointment" %></strong>
+        </h2>
+      </div>
+      <%= render partial: "employers/applies/appointment", locals: {appointment: data_step[:appointment]} %>
+    </div>
+  </div>
+<% end %>

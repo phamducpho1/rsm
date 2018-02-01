@@ -50,11 +50,21 @@ en:
         fail: "Update fail"
         drop_calendar: "Drag and Drop Events on the Calendar"
     history:
+      sent: "Sent "
+      ago: " ago."
+      resend: "Resend"
+      type: "Type"
       start_time: "Start time: "
       end_time: "End time: "
       interviewer: "Interviewer: "
       content_email: "Content email: "
       no_one: "No one"
       title: "History Apply"
+      title_email: "Email Sents"
+      title_appointment: "History Appointment"
+      test_scheduled: "Test scheduled"
+      interview_scheduled: "Interview scheduled"
+      date: "Date"
     send_email:
       select_template: "Select template"
+
