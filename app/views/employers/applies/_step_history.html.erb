@@ -11,22 +11,24 @@
     </div>
 
     <div class="block-top block-content-mini-padding">
-      <%= link_to new_employers_apply_status_path(status_step_id:
-        status_step_id, apply_id: apply.id, apply_status_id: apply_status.id ), remote: true do %>
-        <div class="clearfix">
-          <button type="submit" class="btn btn-sm btn-primary pull-right">
-            <i class="fa fa-share-square"></i>
-            <%= t "employers.history.resend" %>
-          </button>
-          <a href="javascript:void(0)" class="btn btn-link btn-icon" data-toggle="tooltip" data-placement="bottom"  title="Add Location"><i class="fa fa-location-arrow"></i></a>
-          <a href="javascript:void(0)" class="btn btn-link btn-icon" data-toggle="tooltip" data-placement="bottom"  title="Add Photo"><i class="fa fa-camera"></i></a>
-        </div>
+      <% if current_apply_status.id == apply_status.id %>
+        <%= link_to new_employers_apply_status_path(status_step_id:
+          status_step_id, apply_id: apply.id, apply_status_id: apply_status.id ), remote: true do %>
+          <div class="clearfix">
+            <button type="submit" class="btn btn-sm btn-primary pull-right">
+              <i class="fa fa-share-square"></i>
+              <%= t "employers.history.resend" %>
+            </button>
+            <a href="javascript:void(0)" class="btn btn-link btn-icon" data-toggle="tooltip" data-placement="bottom"  title="Add Location"><i class="fa fa-location-arrow"></i></a>
+            <a href="javascript:void(0)" class="btn btn-link btn-icon" data-toggle="tooltip" data-placement="bottom"  title="Add Photo"><i class="fa fa-camera"></i></a>
+          </div>
+        <% end %>
       <% end %>
     </div>
 
     <ul class="media-list">
-      <%= render partial: "employers/email_sents/email_sent",
-        collection: data_step[:email_sents], as: :email_sent %>
+      <%= (render partial: "employers/email_sents/email_sent",
+        collection: data_step[:email_sents], as: :email_sent) || t("employers.no_data") %>
     </ul>
   </div>
 </div>

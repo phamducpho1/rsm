@@ -20,6 +20,7 @@ en:
     current: "Current"
     status: " Status"
     change: "Change"
+    no_data: "No data"
     applies:
       decripttion_email: "You should send email"
       decripttion_appoinment: "Please setting appointment for this apply"

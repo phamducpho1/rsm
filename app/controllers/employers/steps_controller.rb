@@ -1,5 +1,6 @@
 class Employers::StepsController < Employers::EmployersController
-  before_action :load_apply, :load_history_apply_status, :load_status_step_scheduled
+  before_action :load_apply, :load_current_step,
+    :load_history_apply_status, :load_status_step_scheduled
 
   def show
     @status_steps = @step.status_steps

@@ -1,12 +1,13 @@
 class  Employers::ApplyStatusesController < Employers::EmployersController
-  before_action :load_apply, only: [:new, :create]
-  before_action :get_step_by_company, :load_current_step,
-    :load_status_step_interview_scheduled, :load_status_step_scheduled, only: [:create, :new]
-  before_action :load_templates, only: [:create, :new]
+  before_action :load_apply, only: [:new, :create, :update]
+  before_action :get_step_by_company, only: [:create, :new]
+  before_action :load_status_step_scheduled,
+    :load_status_step_interview_scheduled, :load_templates,
+    :load_current_step, only: [:create, :new, :update]
   before_action :load_apply_status, :build_apply_statuses, only: :new
   before_action :load_members, only: [:create, :new]
   before_action :new_appointment, only: :new, if: :is_scheduled?
-  before_action :load_appointments, only: [:create, :new], if: :is_scheduled?
+  before_action :load_appointments, only: [:create, :new, :update], if: :is_scheduled?
 
   def new
     respond_to :js
@@ -23,6 +24,24 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
           Notification.create_notification :user, @apply,
             current_user, @apply.job.company_id, @apply.user_id if @apply.user_id
           after_action_create
+          format.js{@messages = t ".success"}
+        else
+          raise ActiveRecord::Rollback
+          format.js{@errors = t ".fail"}
+        end
+      end
+    end
+  end
+
+  def update
+    ApplyStatus.transaction do
+      respond_to do |format|
+        if @apply_status.update_attributes apply_status_params
+          load_history_apply_status
+          create_inforappointments if @interview_scheduled_ids.include?(@apply_status.status_step_id)
+          @apply_status.save_activity :create, current_user
+          Notification.create_notification :user, @apply,
+            current_user, @apply.job.company_id, @apply.user_id if @apply.user_id
           format.js{@messages = t ".success"}
         else
           raise ActiveRecord::Rollback

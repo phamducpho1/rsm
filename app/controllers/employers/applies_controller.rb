@@ -70,9 +70,4 @@ class Employers::AppliesController < Employers::EmployersController
       @error = t ".job_nil"
     end
   end
-
-  def load_history_apply_status
-    step_service = StepService.new @current_step, @apply
-    @data_step = step_service.get_data_step
-  end
 end
