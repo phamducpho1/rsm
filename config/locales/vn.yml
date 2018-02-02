@@ -192,6 +192,12 @@ vn:
       benefit: "Lợi ích: "
       remove: "X"
       add_benefit: "Thêm nhiều lợi ích"
+      questions: "Câu hỏi khảo sát"
+      job: "Việc làm"
+      next: "Tiếp"
+    add_survey:
+      previous: "Trước"
+      add_question: "Thêm câu hỏi khảo sát"
     update:
       job_updated: "Cập nhật công việc thành công"
       job_cant_update: "Đã có lỗi xảy ra, không thể cập nhật công việc"
@@ -268,6 +274,8 @@ vn:
       all_branches: "Tất cả chi nhánh"
       all_categories: "Tất cả danh mục"
       all_position_types: "Tất cả loại vị trí"
+    question_fields:
+      remove_question: "Xóa câu hỏi"
   experiences:
     blank: "Trống"
     index:
@@ -407,6 +415,10 @@ vn:
           attributes:
             content:
               blank: "Nội dung không được để trống"
+        answer:
+          attributes:
+            name:
+              blank: "Không thể để trống"
   layouts:
     header:
       vietnam: "Tiếng Việt"
@@ -1170,6 +1182,9 @@ vn:
       close: "Đóng"
       no_jobs: "Không có công việc nào ở hiện tại"
   applies:
+    questions:
+      question: "Câu hỏi %{index}"
+      answer: "Trả lời"
     apply:
       salary: "Lương"
       dola: "$"
@@ -1184,16 +1199,22 @@ vn:
       slary: "Lương"
       working: "Đang làm việc"
     undefind_content:
+      next: "Sau"
+      previous: "Trước"
+      close: "Đóng"
+      apply: "Apply"
+    step_by_step:
+      survey: "Khảo sát"
+      apply: "Ứng tuyển"
+    undefind_form_apply:
+      introducing: "Giới thiệu"
+      new_cv: "New CV"
       information: "Thông tin"
       name: "Tên"
       email: "Email"
       phone: "Số điện thoại"
       broker: "Broker"
-      introducing: "Giới thiệu"
-      new_cv: "New CV"
       browse: "Browser"
-      close: "Đóng"
-      apply: "Ứng tuyển"
     form:
       applynow: "Ứng tuyển ngay"
       app: "app"
@@ -1220,12 +1241,17 @@ vn:
       apply: "Ứng tuyển"
       address: "Địa chỉ"
     content:
+      next: "Sau"
+      previous: "Trước"
+      close: "Đóng"
+      apply: "Apply"
+    form_apply:
       who: "Who"
       introducing: "Giới thiệu"
       new_cv: "New CV"
       browse: "Browse"
       close: "Đóng"
-      apply: "Ứng tuyển"
+      next: "Tiếp"
     applies:
       show:
         candidate_information: "Thông tin ứng viên"
@@ -1386,3 +1412,7 @@ vn:
       last: "Cuối"
       first: "Đầu tiên"
       previous: "Trước"
+  survey:
+    not_exist: "Not Create"
+    compulsory: "compulsory"
+    optional: "Optional"

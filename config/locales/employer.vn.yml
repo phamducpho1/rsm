@@ -234,6 +234,10 @@ vn:
         please_selected: "--- Vui lòng chọn ---"
         position: "Vị trí"
         save: "Tạo công việc"
+        add_question: "Thêm câu hỏi"
+        questions: "Câu hỏi khảo sát"
+        job: "Việc làm"
+        next: "Tiếp"
       job:
         expires_on: "Hết hạn"
         expired: "hết hạn"
@@ -268,6 +272,8 @@ vn:
         date: "Ngày gửi"
         status: "Trạng thái"
         not_found_apply: "Công việc này không có hồ sơ ứng tuyển"
+      question_fields:
+        remove_question: "Xóa câu hỏi"
     members:
       form:
         name: "Tên"
