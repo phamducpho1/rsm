@@ -95,4 +95,9 @@ class Employers::EmployersController < BaseNotificationsController
     return if @apply
     redirect_to root_url
   end
+
+  def load_history_apply_status
+    step_service = StepService.new @current_step, @apply
+    @data_step = step_service.get_data_step
+  end
 end
