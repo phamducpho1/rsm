@@ -20,11 +20,15 @@ class User < ApplicationRecord
   has_many :companies, through: :members
   has_many :applies, dependent: :destroy
   has_many :inforappointments
+  has_many :offers, dependent: :destroy
+
   validates :name, presence: true
   validates :email, uniqueness: { scope: :company_id,
     message: I18n.t("users.form.empty") }
+
   enum role: %i(user employer admin)
   enum sex: {female: 0, male: 1}
+
   scope :search_name_or_mail, ->(content){where("name LIKE ? or email LIKE ?", "%#{content}%", "%#{content}%")}
   scope :not_member, ->{where("id NOT IN (SELECT user_id FROM members where end_time IS NUll)")}
   scope :not_role, ->(role){where.not role: role}

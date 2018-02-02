@@ -19,6 +19,7 @@ class Employers::JobsController < Employers::EmployersController
       if @job.save
         @status_step = @company.company_steps.priority_lowest
           .last.step.status_steps
+        @job.questions.build
         format.js{ @message = t ".sussess"}
       else
         @job.questions.build unless params[:onoffswitch]
@@ -66,6 +67,7 @@ class Employers::JobsController < Employers::EmployersController
   end
 
   def job_params
+    params[:job][:survey] = params[:job][:survey].to_i if params[:job]
     params.require(:job).permit(:content, :name, :level, :language, :target,
       :skill, :position, :company_id, :description, :min_salary, :max_salary,
       :branch_id, :category_id, :survey, reward_benefits_attributes: %i(id content job_id _destroy),
@@ -93,10 +95,7 @@ class Employers::JobsController < Employers::EmployersController
   end
 
   def check_params
-    return unless params[:job]
-    if params[:onoffswitch]
-      params[:job][:survey] = params[:job][:survey].to_i
-    else
+    if params[:job] && !params[:onoffswitch]
       params[:job][:survey] = Settings.default_value
       params[:job][:questions_attributes] = nil
     end

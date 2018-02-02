@@ -1,0 +1,26 @@
+<%= f.hidden_field :user_id, value: current_user.id %>
+<div class="col-md-12">
+  <ul class="nav nav-tabs" data-toggle="tabs">
+    <h4>
+      <i class="fa fa-address-card" aria-hidden="true"></i>
+      <%= t ".imformation" %>
+      <strong>
+        <span class="translation_missing"><%= t ".offer" %></span>
+      </strong>
+    </h4>
+  </ul></br>
+  <div class="block-body">
+    <div class="col-sm-6 col-md-6 col-lg-6">
+      <%= f.input :salary %>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-6">
+      <%= f.input :start_time %>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <%= f.input :address, as: :string %>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <%= f.input :requirement, as: :text, input_html: {rows: Settings.input.row_10} %>
+    </div>
+  </div>
+</div>
