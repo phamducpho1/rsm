@@ -33,6 +33,8 @@ Company.create!(
 User.delete_all
 User.create!(name: "Nguyen Van A", email: "nguyenvana@gmail.com", password: "123456",
   phone: "01698624222", birthday: "1996-01-13", address: "Tam Ky, Quang Nam", company_id: 1)
+User.create!(name: "Nguyen Van Pho", email: "nguyenvanb@gmail.com", password: "123456",
+  phone: "01698624222", birthday: "1996-01-13", address: "Tam Ky, Quang Nam", company_id: 2)
 1.upto(5) do |x|
   name = Faker::Name.name
   email = "employer#{x}@gmail.com"
@@ -316,24 +318,35 @@ end
     job_id: 1
   )
 end
-1.upto(2) do |x|
-  Template.create!(
-    template_body:
-      '<div class="container"><div class="body-build"><div class="body-first">
-      <div class="first-a"><div class="start-body"><div class="a-left"><a>@image_company@</a>
-      <div class="month">FRAMGIA RECRUIT</div></div></div>
-      <div class="clear-both"></div></div><div class="c-first"></div>
-      <div class="b-body"><div class="menu-body"><h2>Your application has been received</h2>
-      <b class="title-first">Hello you@user_name@</b><p class="count">You have an interview with you
-      @name_applied@Please arrange time for the interview to take place well,</p>
-      <h2>Good luck</h2></div><div class="bodyname"><div class="floatl">@agree@</div>
-      <div class="floata">@not_agree@</div><div class ="clear"></div>
-      <div class= "margin-top"></div><div class="botlast"><div class="secondlast">
-      <div class="vooter">@image_framgia@</div>
-      <div class="bottom-high"><p style="" class="font-last">255-257 Hung vuong, Hai Chau, Da Nang
-      </p></div></div></div></div></div></div></div></div>',
-    user_id: 1,
-    name: Faker::Name.name,
-    type_of: x-1
-  )
-end
+Template.create!(
+  template_body:"@company@
+    Xin Chào bạn @user@
+    Chúng tôi xin thông báo với bạn rằng cv của bạn đang được xem xét, chúng tôi sẽ phản hồi cho bạn sớm nhất có thể.
+    Chúc bạn một ngày tốt lành",
+  user_id: 1,
+  name: "template review",
+  title: "Thông báo về việc xem xét cv",
+  type_of: 1
+)
+Template.create!(
+  template_body:"@company@
+    Xin Chào bạn @user@
+    Chúng tôi xin thông báo với bạn rằng bạn đã passed vào vòng trong của cuộc phỏng vấn tại Framgia, xin chúc mừng bạn.
+    Chúc bạn một ngày tốt lành",
+  user_id: 1,
+  name: "template passed",
+  title: "Thông báo bạn đã passed vào vòng trong",
+  type_of: 1
+)
+Template.create!(
+  template_body:"@company@
+    Xin Chào bạn @user@<br>
+    Chúng tôi xin thông báo với bạn rằng cv của bạn đang được chọn, vui lòng đến
+    vào lúc @start_time@ tại @address@ để phỏng vấn, chậm nhất là vào @end_time@
+    Rất mong bạn đến đúng giờ
+    Chúc bạn một ngày tốt lành",
+  user_id: 1,
+  title: "Thông báo gửi lịch hẹn phỏng vấn",
+  name: "template interview",
+  type_of: 1
+)

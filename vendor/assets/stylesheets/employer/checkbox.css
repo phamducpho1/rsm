@@ -230,9 +230,18 @@ p .button {
   width:60px;
 }
 .img-lastss{
-  vertical-align:middle;
-  border:0;
-  width: 49px;
+  vertical-align: middle;
+  border: 0;
+  width: 46px;
+}
+
+.img-company{
+  vertical-align: middle;
+  border: 0;
+  margin-top: 8px;
+  height: 34px;
+  width: 46px;
+  padding-top: 0px;
 }
 .bot-last{
   background-color:#f2e7fa;

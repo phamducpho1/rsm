@@ -105,4 +105,8 @@ module EmployersHelper
       Settings.success
     end
   end
+
+  def view_template_body
+    t("employers.templates.show.content_template").html_safe
+  end
 end

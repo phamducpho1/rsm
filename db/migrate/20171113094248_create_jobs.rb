@@ -14,7 +14,6 @@ class CreateJobs < ActiveRecord::Migration[5.1]
       t.references :branch, foreign_key: true
       t.references :category, foreign_key: true
       t.integer :survey, default: 0
-
       t.timestamps
     end
     add_index :jobs, :name

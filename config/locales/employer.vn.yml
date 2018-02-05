@@ -30,6 +30,8 @@ vn:
         choose: "Chọn"
         name: "Tên"
       email_form:
+        close: "Đóng"
+        show_template: "Xem giao diện mail"
         send_mail: "Gửi Email"
         title: "Tiêu đề"
         select_template_mail: "Chọn thư mẫu"
@@ -337,6 +339,14 @@ vn:
         sure: "Bạn có chắc?"
       form:
         name: "Tên"
+        note: "Chú thích"
+        title: "Tiêu đề"
+        infor: "Mặc định khi gửi mail, không sử dụng thì có thể xóa: "
+        note_company: " Tên công ty"
+        note_user: " Tên ứng cử viên"
+        note_address: " Địa chỉ phỏng vấn"
+        note_start_time: " Thời gian bắt đầu phỏng vấn"
+        note_end_time: "Thời gian chậm nhất để đi phỏng vấn"
         type: "Kiểu"
         interview: " Người phỏng vấn"
         candidate: "ứng cử viên"
@@ -354,6 +364,7 @@ vn:
         sure: "Bạn có chắc?"
       index:
         all: "Tất cả các mẫu"
+        title: "Tiêu đề"
         interview: "Người phỏng vấn"
         candidate: "Ứng viên"
         add: "Tạo mẫu"
@@ -365,7 +376,10 @@ vn:
         delete: "Xóa"
         post_job: "Đăng việc"
       show:
+        content_template: "@company@</br>Hello you @user@</br>&nbsp;</br> vui lòng đến vào lúc @start_time@ tại @address@  để phỏng vấn, chậm nhất là vào @end_time@"
+        of_company: " của công ty "
         template_error: "Không thể tìm thấy mẫu. Hãy thử lại sau"
+        company: "Công ty %{name} Việt Nam"
   layouts:
     employers:
       footer_employer:

@@ -15,11 +15,10 @@
             <div class="form-group">
               <div class="col-sm-12 col-lg-12">
                 <%= simple_form_for [:employers, apply_status],
-                  html: {class: "apply-status-form"},remote: true do |f| %>
+                  html: {class: "apply-status-form", id: "new_apply"},remote: true do |f| %>
                   <%= f.hidden_field :apply_id, value: apply.id %>
                   <%= f.hidden_field :status_step_id %>
                   <%= f.hidden_field :is_current %>
-
                   <% if @status_step_scheduled_ids.include? apply_status.status_step_id %>
                     <div class="content-form-apply" id="area-appointment">
                       <%= render partial: "employers/applies/appointment_form", locals: {apply_status_builder: f,

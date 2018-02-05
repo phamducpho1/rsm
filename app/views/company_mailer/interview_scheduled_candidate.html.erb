@@ -1,6 +1,9 @@
 <% if @template.present? %>
-   <% content_for :image_company do %>
+  <% content_for :image_company do %>
     <%= image_carrierwave_tag @company, class: "img-lastss" %>
+  <% end %>
+  <% content_for :image_project do %>
+    <%= email_image_tag "framgia.png", class: "img-lastss"  %>
   <% end %>
   <%= @template %>
 <% else %>

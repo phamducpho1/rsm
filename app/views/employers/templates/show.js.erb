@@ -1,5 +1,6 @@
 <% if @template.blank? %>
   $('#show-view').html('<%= t "employers.templates.show.template_error" %>');
 <% else %>
-  $('#content-template-user').text('<%= j @template.template_body %>');
+  $('.mail-<%= params[:step_id] %>').html('<%= j show_exampleview_user @template, @information, @company %>');
+  $('.title-<%= params[:step_id] %>').val('<%= @template.title %>');
 <% end %>

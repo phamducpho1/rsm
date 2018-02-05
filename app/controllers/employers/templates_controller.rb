@@ -16,6 +16,8 @@ class Employers::TemplatesController < Employers::EmployersController
   end
 
   def show
+    @information = {name: params[:name], address: params[:address],
+      start_time: params[:start_time], end_time: params[:end_time]}
     @template = Template.find_by id: params[:id]
     respond_to :js
   end
@@ -45,7 +47,7 @@ class Employers::TemplatesController < Employers::EmployersController
   private
 
   def template_params
-    params.require(:template).permit :name, :user_id, :template_body, :type_of
+    params.require(:template).permit :name, :user_id, :template_body, :type_of, :title
   end
 
   def load_templates

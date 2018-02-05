@@ -448,9 +448,11 @@ en:
       logout: "Logout"
       recruit: "Recruit"
     mailer:
+      header:
+        framgia: "Company Framgia"
       footer:
         framgia: "Framgia"
-        address: "Address"
+        address: "255-257 Hung Vuong, Hai Chau, Da Nang"
     homepage:
       footer:
         company: "Framgia Inc."
@@ -1243,6 +1245,9 @@ en:
       introducing: "Introducing"
       new_cv: "New CV"
       browse: "Browse"
+      close: "Close"
+      select-cv: "Upload CV"
+      apply: "Apply"
     applies:
       show:
         candidate_information: "Candidate Infomation"
