@@ -79,15 +79,18 @@
       <tr>
         <td>
           <strong class="col-md-3">
-            <span class="glyphicon glyphicon-tag text-primary"></span>
+            <span class="fa fa-tag text-primary"></span>
             <span class="text-danger">&nbsp;*</span>
             <%= t ".new_cv" %>
           </strong>
-          <span class="btn btn-default btn-file col-md-2">
-            <%= t ".browse" %><%= f.file_field :cv, class: "transparent absolute" %>
+          <span class="btn btn-info btn-file col-md-2">
+            <%= t ".browse" %><%= f.file_field :cv, class: "transparent absolute choose-cv" %>
           </span>
+          <%= text_field_tag nil, nil, class: "form-control center-block w-450", id: "choose-cv", readonly: true %>
         </td>
       </tr>
     <% end %>
   </table>
+  <%= render partial: "applies/buttons_survey", locals: {f: f} %>
 </div>
+<%= javascript_include_tag "choose_file" %>

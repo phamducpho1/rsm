@@ -1194,12 +1194,12 @@ en:
       working: "Working"
     undefind_content:
       information: "Information"
-      next: "Next"
-      previous: "Previous"
-      close: "Close"
       apply: "Apply"
     step_by_step:
       survey: "Survey"
+      apply: "Apply"
+    survey:
+      last_page: "Last page"
       apply: "Apply"
     undefind_form_apply:
       introducing: "Introducing"
@@ -1210,6 +1210,10 @@ en:
       email: "Email"
       phone: "Phone"
       broker: "Broker"
+      apply: "Apply"
+    buttons_survey:
+      answer_survey: "Answer survey"
+      answer_survey_continues: "Click answer survey to continues"
     form:
       applynow: "Apply now"
       app: "app"
@@ -1236,9 +1240,6 @@ en:
       apply: "Apply"
       address: "Address"
     content:
-      next: "Next"
-      close: "Close"
-      previous: "Previous"
       apply: "Apply"
     form_apply:
       who: "Who"
@@ -1248,6 +1249,8 @@ en:
       close: "Close"
       select-cv: "Upload CV"
       apply: "Apply"
+      answer_survey: "Answer survey"
+      answer_survey_continues: "Click answer survey to continues"
     applies:
       show:
         candidate_information: "Candidate Infomation"

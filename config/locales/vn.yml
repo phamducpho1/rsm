@@ -419,6 +419,24 @@ vn:
           attributes:
             name:
               blank: "Không thể để trống"
+        apply:
+          attributes:
+            cv:
+              blank: "Không thể để trống"
+  activemodel:
+    errors:
+      models:
+        validateable_hash:
+          attributes:
+            email:
+              blank: "Không thể để trống"
+              invalid: "Không hợp lệ"
+            phone:
+              blank: "Không thể để trống"
+            introducing:
+              blank: "Không thể để trống"
+            name:
+              blank: "Không thể để trống"
   layouts:
     header:
       vietnam: "Tiếng Việt"
@@ -1217,6 +1235,9 @@ vn:
       phone: "Số điện thoại"
       broker: "Broker"
       browse: "Browser"
+    buttons_survey:
+      answer_survey: "Trả lời khảo sát"
+      answer_survey_continues: "Chọn trả lời khảo sát để tiếp tục"
     form:
       applynow: "Ứng tuyển ngay"
       app: "app"
@@ -1243,9 +1264,6 @@ vn:
       apply: "Ứng tuyển"
       address: "Địa chỉ"
     content:
-      next: "Sau"
-      previous: "Trước"
-      close: "Đóng"
       apply: "Apply"
     form_apply:
       who: "Who"
@@ -1253,8 +1271,11 @@ vn:
       introducing: "Giới thiệu"
       new_cv: "New CV"
       browse: "Browse"
-      close: "Đóng"
-      next: "Tiếp"
+      answer_survey: "Trả lời khảo sát"
+      answer_survey_continues: "Chọn trả lời khảo sát để tiếp tục"
+    survey:
+      apply: "Apply"
+      last_page: "Trước"
     applies:
       show:
         candidate_information: "Thông tin ứng viên"

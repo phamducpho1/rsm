@@ -8,24 +8,5 @@
   <%= f.hidden_field :user_id %>
   <%= render partial: "applies/form_apply", locals: {f: f} %>
   <%= render partial: "applies/survey", locals: {f: f} %>
-  <center class="m-top-20">
-    <% unless @job.not_exist? %>
-      <%= link_to "javascript:void(0)", title: t(".previous"),
-        class: "btn btn-lg previous", disabled: true do %>
-        <i class="fa fa-arrow-left"></i>
-      <% end %>
-    <% end %>
-    <%= f.button :button, class: "btn btn-sm btn-primary load-page" do %>
-      <i class="fa fa-plus"></i>&nbsp;<%= t ".apply" %>
-    <% end %>
-    <% unless @job.not_exist? %>
-      <%= link_to "javascript:void(0)",
-        class: "btn btn-lg next", title: t(".next") do %>
-         <i class="fa fa-arrow-right"></i>
-      <% end %>
-    <% end %>
-  </center>
-  <%= button_tag t(".close"), data: {dismiss: "modal"}, id: "reset-job",
-    class: "btn btn-sm btn-default pull-right btn-close-apply" %>
 <% end %>
 <%= javascript_include_tag "survey" %>
