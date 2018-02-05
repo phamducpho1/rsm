@@ -143,6 +143,7 @@ scheduled: "scheduled"
 pending: "pending"
 active: "active"
 sent: "sent"
+offer_sent: "offer_sent"
 interview_scheduled: "interview_scheduled"
 caclulate_applies_size: "size"
 next_step: 1
@@ -169,3 +170,5 @@ user: "@user@"
 address: "@address@"
 start_time: "@start_time@"
 end_time: "@end_time@"
+input:
+  row_10: 10

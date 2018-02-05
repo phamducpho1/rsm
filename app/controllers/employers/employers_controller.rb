@@ -65,6 +65,10 @@ class Employers::EmployersController < BaseNotificationsController
     @interview_scheduled_ids = @company.status_steps.load_by(Settings.interview_scheduled).pluck(:id)
   end
 
+  def load_status_step_offer_sent
+    @offer_sent_ids = @company.status_steps.load_by(Settings.offer_sent).pluck(:id)
+  end
+
   def build_next_and_prev_apply_statuses
     if @next_step.present?
       @next_apply_status = @apply.apply_statuses.build is_current: :current,

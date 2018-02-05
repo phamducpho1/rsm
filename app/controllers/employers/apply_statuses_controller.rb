@@ -3,11 +3,13 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
   before_action :get_step_by_company, only: [:create, :new]
   before_action :load_status_step_scheduled,
     :load_status_step_interview_scheduled, :load_templates,
+    :load_status_step_offer_sent,
     :load_current_step, only: [:create, :new, :update]
   before_action :load_apply_status, :build_apply_statuses, only: :new
   before_action :load_members, only: [:create, :new]
   before_action :new_appointment, only: :new, if: :is_scheduled?
   before_action :load_appointments, only: [:create, :new, :update], if: :is_scheduled?
+  before_action :build_offer, only: :new, if: :is_offer_sent?
 
   def new
     respond_to :js
@@ -56,7 +58,8 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
   def apply_status_params
     params.require(:apply_status).permit :apply_id, :status_step_id, :is_current,
       appointment_attributes: %i(user_id address company_id start_time end_time type_appointment),
-      email_sents_attributes: %i(title content type receiver_email sender_email _destroy user_id)
+      email_sents_attributes: %i(title content type receiver_email sender_email _destroy user_id),
+      offers_attributes: %i(salary start_time address requirement user_id)
   end
 
   def create_inforappointments
@@ -137,5 +140,15 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
 
   def load_apply_status
     @apply_status = ApplyStatus.find_by id: params[:apply_status_id]
+  end
+
+  def build_offer
+    @apply_status.offers.build
+  end
+
+  def is_offer_sent?
+    status_step_id = params[:status_step_id] || apply_status_params[:status_step_id]
+    return false if @offer_sent_ids.blank?
+    @offer_sent_ids.include? status_step_id.to_i
   end
 end

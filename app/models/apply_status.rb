@@ -5,6 +5,7 @@ class ApplyStatus < ApplicationRecord
   has_one :step, through: :status_step
   has_one :job, through: :apply
   has_one :appointment, dependent: :destroy
+  has_many :offers, dependent: :destroy
 
   has_many :email_sents, class_name: EmailSent.name, foreign_key: :type_id, dependent: :destroy
 
@@ -15,6 +16,7 @@ class ApplyStatus < ApplicationRecord
 
   accepts_nested_attributes_for :appointment, allow_destroy: true , update_only: true
   accepts_nested_attributes_for :email_sents, allow_destroy: true , update_only: true
+  accepts_nested_attributes_for :offers, allow_destroy: true , update_only: true
 
   enum is_current: {current: 0, not_current: 1}
 

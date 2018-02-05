@@ -56,7 +56,7 @@ class Employers::AppliesController < Employers::EmployersController
   def apply_params
     status_id = StatusStep.status_step_priority_company @company.id
     params.require(:apply).permit(:cv, :job_id)
-      .merge! broker: current_user.id, apply_statuses_attributes: [status_step_id: status_id, is_current: :current]
+      .merge! apply_statuses_attributes: [status_step_id: status_id, is_current: :current]
   end
 
   def permission_employer_company

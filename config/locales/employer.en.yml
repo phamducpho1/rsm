@@ -88,6 +88,9 @@ en:
       create:
         success: "Created success."
         fail: "Created fail"
+      offers:
+        imformation: "Imformation"
+        offer: "Offer"
     appointments:
       appointment:
         click: "Click"
