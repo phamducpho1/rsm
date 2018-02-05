@@ -37,4 +37,5 @@ $(document).on('click', '#pagination-history-apply .pagination a', function (eve
 
 $(document).on('click', '#cancel-apply-email', function (event) {
   $('#apply-handling-content').html('');
+  $('#form-apply-status-main')[0].reset();
 });

@@ -24,8 +24,7 @@ en:
         interview: "Interviewer"
         start: "Start time"
         end: "End time"
-        calendar_inteview: "Calendar interview"
-      calendar_inteview:
+        calendar_inteview: "Calendar scheduled"
       choose_jobs:
         choose: "Choose"
         name: "Name"

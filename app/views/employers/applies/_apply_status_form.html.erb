@@ -19,12 +19,14 @@
                   <%= f.hidden_field :apply_id, value: apply.id %>
                   <%= f.hidden_field :status_step_id %>
                   <%= f.hidden_field :is_current %>
+
                   <div class="content-form-apply" id="area-appointment">
                     <% if @status_step_scheduled_ids.include? apply_status.status_step_id %>
                         <%= render partial: "employers/applies/appointment_form", locals: {apply_status_builder: f,
                           apply_status: apply_status, members: members, apply: apply,
                           appointments: appointments, interview_scheduled_ids: @interview_scheduled_ids} %>
                     <% end %>
+
                     <% if @offer_sent_ids && (@offer_sent_ids.include? apply_status.status_step_id) %>
                       <%= f.simple_fields_for :offers do |offer| %>
                         <% if filter_object offer.object %>
@@ -33,6 +35,7 @@
                       <% end %>
                     <% end %>
                   </div>
+
                   <div class="content-form-apply content-form-apply-email" id="area-email">
                     <%= render partial: "employers/applies/email_form",
                       locals: {apply_status_builder: f, apply_status: apply_status,

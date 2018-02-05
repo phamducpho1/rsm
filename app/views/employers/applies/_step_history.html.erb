@@ -11,19 +11,21 @@
     </div>
 
     <div class="block-top block-content-mini-padding">
-      <% if current_apply_status.id == apply_status.id %>
-        <%= link_to new_employers_apply_status_path(status_step_id:
-          status_step_id, apply_id: apply.id, apply_status_id: apply_status.id ), remote: true do %>
-          <div class="clearfix">
+      <div class="clearfix">
+        <% if is_show_resend? current_apply_status, data_step %>
+          <%= link_to new_employers_apply_status_path(status_step_id:
+            status_step.id, apply_id: apply.id, apply_status_id: apply_status.id ), remote: true do %>
             <button type="submit" class="btn btn-sm btn-info pull-right">
               <i class="fa fa-share-square"></i>
               <%= t "employers.history.resend" %>
             </button>
-            <a href="javascript:void(0)" class="btn btn-link btn-icon" data-toggle="tooltip" data-placement="bottom"  title="Add Location"><i class="fa fa-location-arrow"></i></a>
-            <a href="javascript:void(0)" class="btn btn-link btn-icon" data-toggle="tooltip" data-placement="bottom"  title="Add Photo"><i class="fa fa-camera"></i></a>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
+          <span class="btn btn-icon">
+            <i class="fa fa-location-arrow"></i>
+            <%= t "employers.applies.statuses.#{@data_step[:status_step_lastest].code}" %>
+          </span>
+      </div>
     </div>
 
     <ul class="media-list">

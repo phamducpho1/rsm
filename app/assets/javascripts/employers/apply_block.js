@@ -18,5 +18,7 @@ $(document).ready(function(){
   if ($('#myonoffswitch_email').is(':checked')){
     $('#open_email').show();
     $('.first_show_email').hide();
+  }else{
+    $('.first_show_email').show();
   }
 });
