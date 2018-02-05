@@ -109,4 +109,12 @@ module EmployersHelper
   def view_template_body
     t("employers.templates.show.content_template").html_safe
   end
+
+  def is_show_resend? current_apply_status, data_step
+    if data_step[:is_current_step]
+      current_apply_status.id == data_step[:apply_status_lastest].id
+    else
+      current_apply_status.status_step.is_status? Settings.pending
+    end
+  end
 end

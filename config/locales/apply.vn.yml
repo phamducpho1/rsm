@@ -10,6 +10,7 @@ vn:
     action: "Action"
     setting: "Setting "
     appointment: "Appointment"
+    schedule: "Schedule "
     submit: "Submit"
     send: "Soạn "
     email: "Email"
@@ -23,7 +24,7 @@ vn:
     status: " Trạng thái"
     change: "Thay đổi"
     applies:
-      decripttion_email: "You should send email"
+      decripttion_email: "Click button 'OFF' to send email."
       decripttion_appoinment: "Please setting appointment for this apply"
       statuses:
         waitting: "Waitting"
@@ -54,7 +55,7 @@ vn:
     history:
       sent: "Đã gửi "
       ago: " trước."
-      resend: "Resend"
+      resend: "Gửi mail"
       start_time: "Thời gian bắt đầu: "
       end_time: "Thời gian kết thúc: "
       interviewer: "Chịu trách nhiệm phỏng vấn: "

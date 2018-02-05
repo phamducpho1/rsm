@@ -9,6 +9,7 @@ en:
   employers:
     setting: "Setting "
     appointment: "Appointment"
+    schedule: "Schedule "
     submit: "Submit"
     compose: "Compose "
     email: "Email"
@@ -23,7 +24,7 @@ en:
     change: "Change"
     no_data: "No data"
     applies:
-      decripttion_email: "You should send email"
+      decripttion_email: "Click button 'OFF' to send email."
       decripttion_appoinment: "Please setting appointment for this apply"
       statuses:
         waitting: "Waitting"
@@ -55,7 +56,7 @@ en:
       title_history: "History"
       sent: "Sent "
       ago: " ago."
-      resend: "Resend"
+      resend: "Send email"
       type: "Type"
       start_time: "Start time: "
       end_time: "End time: "
@@ -68,6 +69,15 @@ en:
       test_scheduled: "Test scheduled"
       interview_scheduled: "Interview scheduled"
       date: "Date"
+    apply_statuses:
+      update:
+        success: "Update success"
+        fail: "Update fail"
+        drop_calendar: "Drag and Drop Events on the Calendar"
+      create:
+        success: "Update success"
+        fail: "Update fail"
+        drop_calendar: "Drag and Drop Events on the Calendar"
     send_email:
       select_template: "Select template"
 

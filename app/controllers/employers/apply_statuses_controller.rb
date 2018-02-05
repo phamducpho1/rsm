@@ -26,7 +26,8 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
           Notification.create_notification :user, @apply,
             current_user, @apply.job.company_id, @apply.user_id if @apply.user_id
           after_action_create
-          format.js{@messages = t ".success"}
+          load_history_apply_status
+          format.js{@message = t ".success"}
         else
           raise ActiveRecord::Rollback
           format.js{@errors = t ".fail"}
@@ -39,12 +40,12 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
     ApplyStatus.transaction do
       respond_to do |format|
         if @apply_status.update_attributes apply_status_params
-          load_history_apply_status
           create_inforappointments if @interview_scheduled_ids.include?(@apply_status.status_step_id)
           @apply_status.save_activity :create, current_user
           Notification.create_notification :user, @apply,
             current_user, @apply.job.company_id, @apply.user_id if @apply.user_id
-          format.js{@messages = t ".success"}
+          load_history_apply_status
+          format.js{@message = t ".success"}
         else
           raise ActiveRecord::Rollback
           format.js{@errors = t ".fail"}

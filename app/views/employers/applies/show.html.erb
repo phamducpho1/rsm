@@ -104,8 +104,8 @@
 
     <div id="step-history" class="row">
       <%= render partial: "employers/applies/step_history", locals:
-        {data_step: @data_step, status_step_id: @current_apply_status.status_step_id,
-        apply_status: @current_apply_status, apply: @apply, current_apply_status: @current_apply_status} %>
+        {data_step: @data_step, status_step: @data_step[:status_step_lastest],
+        apply_status: @data_step[:apply_status_lastest], apply: @apply, current_apply_status: @current_apply_status} %>
     </div>
   </div>
 </div>

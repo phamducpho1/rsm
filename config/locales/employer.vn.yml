@@ -24,8 +24,7 @@ vn:
         interview: "Người phỏng vấn"
         start: "Thời gian bắt đầu"
         end: "Giờ kết thúc"
-        calendar_inteview: "Lịch phỏng vấn"
-      calendar_inteview:
+        calendar_inteview: "Lịch đã đặt"
       choose_jobs:
         choose: "Chọn"
         name: "Tên"

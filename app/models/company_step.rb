@@ -10,4 +10,8 @@ class CompanyStep < ApplicationRecord
     return if company_step.blank?
     company_step.step
   end
+
+  def is_first_company_step?
+    self.priority == Settings.priority.one
+  end
 end
