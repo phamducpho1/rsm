@@ -1,15 +1,10 @@
 <% if @apply.errors.any? %>
   alertify.error('<%= j (render partial: "shared/error_messages", locals: {object: @apply}) %>');
-  <% if params[:apply][:user_id].present? %>
-    $('#content-apply').html('<%= j render partial: "applies/content", locals: {apply: @apply} %>');
-  <% else %>
-    $('#undefind-content').html('<%= j render partial: "applies/undefind_content", locals: {apply: @apply} %>');
-  <% end %>
 <% elsif @error %>
   alertify.error('<%= @error %>');
 <% else %>
   alertify.success('<%= @success %>');
-  $('#apply_button').hide().after('<button type = "button" class = "btn btn-primary btn-block btn-apply disabled"><%= I18n.t "apply.applied" %></button>');
+  $('#apply_button').hide().after('<%= button_tag t("apply.applied"), class: "btn btn-primary btn-block btn-apply post-job disabled", id: "post-job-btn" %>');
   $('#JobModal').modal('hide');
   $('.no_jobs').hide();
 <% end %>
