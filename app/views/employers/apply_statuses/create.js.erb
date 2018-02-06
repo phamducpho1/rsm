@@ -7,9 +7,12 @@
   $('#status-infor-apply').html('<%= j show_status_apply @current_apply_status.status_step %>');
   $('#area-hisory-apply').html('<%= j render partial: "employers/apply_statuses/apply_status", collection: @apply_statuses, as: :apply_status %>');
   $('#pagination-history-apply').html('<%= j paginate @apply_statuses %>');
+  $('#step-history').html('<%= j render partial: "employers/applies/step_history", locals:{data_step: @data_step, status_step: @current_apply_status.status_step, apply_status: @current_apply_status, apply: @apply, current_apply_status: @current_apply_status} %>');
   alertify.success('<%= @message %>');
 <% else %>
+  var open_email = $('#myonoffswitch_email').is(':checked');
   $('#apply-handling-content').html('<%= j (render partial: "employers/applies/apply_status_form", locals: {apply_status: @apply_status, apply: @apply, members: @members, appointments: @appointments, template_users: @template_users}) %>');
+  $('#myonoffswitch_email').prop('checked', open_email);
 <% end %>
 $('#img-loading').hide();
 $('.config').css('opacity', 1);

@@ -5,7 +5,8 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
     :load_status_step_interview_scheduled, :load_templates,
     :load_status_step_offer_sent,
     :load_current_step, only: [:create, :new, :update]
-  before_action :load_apply_status, :build_apply_statuses, only: :new
+  before_action :load_apply_status, :build_apply_statuses,
+    :build_email_sent, only: :new
   before_action :load_members, only: [:create, :new]
   before_action :new_appointment, only: :new, if: :is_scheduled?
   before_action :load_appointments, only: [:create, :new, :update], if: :is_scheduled?
@@ -29,6 +30,7 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
           load_history_apply_status
           format.js{@message = t ".success"}
         else
+          build_email_sent unless had_build_email_sent?
           raise ActiveRecord::Rollback
           format.js{@errors = t ".fail"}
         end
@@ -47,6 +49,7 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
           load_history_apply_status
           format.js{@message = t ".success"}
         else
+          build_email_sent unless had_build_email_sent?
           raise ActiveRecord::Rollback
           format.js{@errors = t ".fail"}
         end
@@ -120,6 +123,9 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
       @apply_status = @apply.apply_statuses.build is_current: :current,
         status_step_id: status_step_id
     end
+  end
+
+  def build_email_sent
     @apply_status.email_sents.build user_id: current_user.id
   end
 
@@ -145,6 +151,12 @@ class  Employers::ApplyStatusesController < Employers::EmployersController
 
   def build_offer
     @apply_status.offers.build
+  end
+
+  def had_build_email_sent?
+    email_sent = @apply_status.email_sents.last
+    return email_sent.id.blank? if email_sent
+    false
   end
 
   def is_offer_sent?
