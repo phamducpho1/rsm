@@ -175,3 +175,9 @@ input:
   row_10: 10
 priority:
   one: 1
+step:
+  review: "review"
+  test: "test"
+  interview: "interview"
+  offer: "offer"
+default_size: 0

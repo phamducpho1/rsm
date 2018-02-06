@@ -52,6 +52,8 @@ gem "paranoia"
 gem "fancybox-rails"
 gem "highcharts-rails"
 gem "groupdate", github: "ankane/groupdate", branch: "debug_time_zone_support"
+gem "delayed_job_active_record"
+gem "redis"
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 2.13"

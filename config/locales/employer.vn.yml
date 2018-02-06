@@ -36,6 +36,7 @@ vn:
         select_template_mail: "Chọn thư mẫu"
         please_selected: "--- Vui lòng chọn ---"
         content: "Nội dung"
+        preview: "Xem Trước"
       form:
         create_interview_schedule: "Tạo lịch phỏng vấn"
         address: "Địa chỉ"
@@ -70,10 +71,11 @@ vn:
         cv: "Cv"
       index:
         all_applies: "Tất cả đơn nộp"
-        search: "Tìm kiếm"
-        job_name: "Chọn Công Việc"
-        status_applies: "Chọn Trạng thái"
         apply: "Ứng tuyển"
+        enter_job: "Nhập công việc"
+        enter_step: "Chọn bước"
+        enter_status_applies: "Chọn trạng thái"
+        filter: "Tìm kiếm"
       show:
         current: "Hiện tại"
         status: "Trạng thái"
@@ -436,9 +438,9 @@ vn:
       position: "Vị trí"
     status_steps:
       select_status:
-        enter_step: "Nhập bước"
+        enter_step: "Chọn bước"
         enter_job: "Nhập công việc"
-        enter_status_applies: "Nhập trạng thái"
+        enter_status_applies: "Chọn trạng thái"
         filter: "Tìm kiếm"
       index:
         status_nil: "Không tìm thấy trạng thái"

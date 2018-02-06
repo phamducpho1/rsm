@@ -36,6 +36,7 @@ en:
         select_template_mail: " Select template mail"
         please_selected: "--- Please Selected ---"
         content: "Content"
+        preview: "Preview"
       form:
         create_interview_schedule: "Create an interview schedule"
         address: "Address"
@@ -62,6 +63,7 @@ en:
         applied: "Applied"
         action: "Action"
         not_applies: "No have applies"
+        step: "Step"
       create:
         success: "Applied success"
         failure: "Applied failure"
@@ -70,10 +72,11 @@ en:
         cv: "Cv"
       index:
         all_applies: "All Applies"
-        search: "Search"
-        job_name: "Select Job Name"
-        status_applies: "Select Status Apply"
         apply: "apply"
+        filter: "Filter"
+        enter_job: "Enter job"
+        enter_step: "Enter step"
+        enter_status_applies: "Enter status"
       show:
         current: "Current"
         status: " Status"
@@ -382,6 +385,12 @@ en:
         of_company: " of company "
         template_error: "Can not find teample. Please try again later"
         company: "Company %{name} Vietnamses"
+    status_steps:
+      select_status:
+        enter_step: "Enter step"
+        enter_job: "Enter job"
+        enter_status_applies: "Enter status"
+        filter: "Filter"
   layouts:
     employers:
       footer_employer:
@@ -437,12 +446,6 @@ en:
       id: "ID"
       jobname: "Name"
       position: "Position"
-    status_steps:
-      select_status:
-        enter_step: "Enter step"
-        enter_job: "Enter job"
-        enter_status_applies: "Enter status"
-        filter: "Filter"
       index:
         status_nil: "Not found status"
       transmission_error: "transmission error"
@@ -459,3 +462,4 @@ en:
         employer: "Employer"
       employer:
         employer: "Employer"
+
