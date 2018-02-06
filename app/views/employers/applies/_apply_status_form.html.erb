@@ -41,12 +41,14 @@
                       locals: {apply_status_builder: f, apply_status: apply_status,
                       template_users: @template_users, apply: apply, appointments: appointments} %>
                   </div>
-                  <div class="form-group form-group-submit">
-                    <%= button_tag t("employers.cancel"), class: "btn btn-sm pull-right btn-default cancel-form",
-                      id: "cancel-apply-email" %>
-                    <%= f.submit t("employers.submit"), class: "btn btn-sm pull-right btn-info load-page" %>
-                  </div>
+                  <%= f.submit t("employers.submit"), class: "btn-apply-submit" %>
                 <% end %>
+                <div class="form-group form-group-submit">
+                  <%= button_tag t("employers.cancel"), class: "btn btn-sm pull-right
+                    btn-default cancel-form", id: "cancel-apply-email" %>
+                  <%= button_tag t("employers.submit"), class: "btn btn-sm pull-right btn-info
+                    btn-submit-apply-status-form" %>
+                </div>
               </div>
             </div>
           </div>
