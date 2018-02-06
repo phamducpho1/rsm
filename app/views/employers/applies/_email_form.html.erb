@@ -1,83 +1,86 @@
 <%= javascript_include_tag "employers/validate", "data-turbolinks-track": "reload" %>
 <%= javascript_include_tag "employers/apply_block", "data-turbolinks-track": "reload" %>
 <%= stylesheet_link_tag "employer/checkbox" %>
-<div class="block margin-bottom-0">
-  <div class="block-title">
-    <ul class="nav nav-tabs" data-toggle="tabs">
-      <h2>
-        <i class="fa fa-envelope" aria-hidden="true"></i>
-        <%= t "employers.compose" %><strong><%= t "employers.email" %></strong>
-      </h2>
-    </ul>
-  </div>
-  <div class="onoffswitch">
-    <% if apply_status.errors.full_messages.present? %>
-      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"
-        id="myonoffswitch_email" checked>
-    <% else %>
-      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"
-        id="myonoffswitch_email">
-    <% end %>
-    <label class="onoffswitch-label" for="myonoffswitch_email">
-      <span class="onoffswitch-inner"></span>
-      <span class="onoffswitch-switch"></span>
-    </label>
-  </div>
-  <div class="tab-content collapse" id="open_email">
-    <div class="tab-pane active" id="email-tab">
-      <div class="clearfix">
-        <div class="form-group">
-          <div class="col-sm-12 col-lg-12">
-            <div id = "email-content">
-              <%= apply_status_builder.simple_fields_for :email_sents do |email_sent_builder| %>
-                <% if filter_object email_sent_builder.object %>
-                  <%= email_sent_builder.hidden_field :type, value: ApplyStatus.name %>
-                  <%= email_sent_builder.hidden_field :sender_email, value: current_user.email %>
-                  <%= email_sent_builder.hidden_field :user_id %>
-                  <%= email_sent_builder.hidden_field :receiver_email, value: apply.information[:email] %>
-                  <%= email_sent_builder.hidden_field :_destroy , value: true, class: "email_destroy" %>
-                  <div class="form-group">
-                    <label class="col-md-3 col-lg-2 control-label" for="compose-to"><%= t "jobs.apply.title" %></label>
-                    <div class="col-md-9 col-lg-10">
-                      <%= email_sent_builder.text_field :title,
-                        class: "title-#{apply_status.status_step_id} form-control form-control-borderless",
-                        placeholder: t("employers.title") %>
-                      <span class="error-message">
-                        <%= email_sent_builder.full_error :title %>
-                      </span>
+<div class="form-group">
+  <div class="block margin-bottom-0">
+    <div class="block-title">
+      <ul class="nav nav-tabs" data-toggle="tabs">
+        <h2>
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+          <%= t "employers.compose" %><strong><%= t "employers.email" %></strong>
+        </h2>
+      </ul>
+    </div>
+    <div class="onoffswitch">
+      <% if apply_status.errors.full_messages.present? %>
+        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"
+          id="myonoffswitch_email" checked>
+      <% else %>
+        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox"
+          id="myonoffswitch_email">
+      <% end %>
+      <label class="onoffswitch-label" for="myonoffswitch_email">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+      </label>
+    </div>
+    <div class="tab-content collapse" id="open_email">
+      <div class="tab-pane active" id="email-tab">
+        <div class="clearfix">
+          <div class="form-group">
+            <div class="col-sm-12 col-lg-12">
+              <div id = "email-content">
+                <%= apply_status_builder.simple_fields_for :email_sents do |email_sent_builder| %>
+                  <% if filter_object email_sent_builder.object %>
+                    <%= email_sent_builder.hidden_field :type, value: ApplyStatus.name %>
+                    <%= email_sent_builder.hidden_field :sender_email, value: current_user.email %>
+                    <%= email_sent_builder.hidden_field :user_id %>
+                    <%= email_sent_builder.hidden_field :receiver_email, value: apply.information[:email] %>
+                    <%= email_sent_builder.hidden_field :_destroy , value: true, class: "email_destroy" %>
+                    <div class="form-group">
+                      <label class="col-md-3 col-lg-2 control-label" for="compose-to"><%= t "jobs.apply.title" %></label>
+                      <div class="col-md-9 col-lg-10">
+                        <%= email_sent_builder.text_field :title, class: "title-#{apply_status.status_step_id} form-control form-control-borderless",
+                          placeholder: t("employers.title") %>
+                        <span class="error-message">
+                          <%= email_sent_builder.full_error :title %>
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                  <div id="cc-input" class="form-group">
-                    <label class="col-md-3 col-lg-2 control-label" for="compose-to-cc">
-                      <%= t "employers.send_email.select_template" %>
-                    </label>
-                    <div class="col-md-9 col-lg-10">
-                      <%= select_tag :template_user,
-                        options_for_select(template_users.collect{ |u| [u.name, u.id]}),
-                        include_blank: t("please_select"), class: "form-control form-control-borderless template-user" %>
+                    <div id="cc-input" class="form-group">
+                      <label class="col-md-3 col-lg-2 control-label" for="compose-to-cc">
+                        <%= t "employers.send_email.select_template" %>
+                      </label>
+                      <div class="col-md-9 col-lg-10">
+                        <%= select_tag :template_user,
+                          options_for_select(template_users.collect{ |u| [u.name, u.id]}),
+                          include_blank: t("please_select"), class: "form-control form-control-borderless template-user" %>
+                      </div>
                     </div>
-                  </div>
-                  <%= hidden_field_tag "step_id", apply_status.status_step_id %>
-                  <%= hidden_field_tag "user_name", apply.information[:name] %>
-                  <div class="form-group">
-                    <label class="col-md-3 col-lg-2 control-label" for="compose-message">
-                      <%= t "jobs.apply.content" %>
-                    </label>
-                    <div class="col-md-9 col-lg-10">
-                      <%= email_sent_builder.text_area :content,
-                        class: "form-control mail-#{apply_status.status_step_id}",
-                        id: "content-template-user-#{apply_status.status_step_id}", cols: Settings.text_area.cols_email,
-                        rows: Settings.text_area.rows_email, placeholder: t("employers.your_message") %>
-                      <span class="error-message">
-                        <%= email_sent_builder.full_error :content %>
-                      </span>
+                    <%= hidden_field_tag "step_id", apply_status.status_step_id %>
+                    <%= hidden_field_tag "user_name", apply.information[:name] %>
+                    <div class="form-group">
+                      <label class="col-md-3 col-lg-2 control-label" for="compose-message">
+                        <%= t "jobs.apply.content" %>
+                      </label>
+                      <div class="col-md-8 col-lg-9">
+                        <%= email_sent_builder.cktext_area :content,
+                          class: "form-control mail-#{apply_status.status_step_id} ckeditor",
+                          id: "content-template-user-#{apply_status.status_step_id}", cols: Settings.text_area.cols_email,
+                          rows: Settings.text_area.rows_email, placeholder: t("employers.your_message") %>
+                        <span class="error-message">
+                          <%= email_sent_builder.full_error :content %>
+                        </span>
+                      </div>
+                      <div class="col-md-1 col-lg-1">
+                        <button type="button" class="view_mail" value="<%= apply_status.status_step_id %>">
+                          <i class="fa fa-eye text-primary" aria-hidden="true"></i>
+                        </button>
+                      </div>
                     </div>
-                    <button type="button" class="view_mail" value="<%= apply_status.status_step_id %>">
-                      <i class="fa fa-eye text-primary" aria-hidden="true"></i>
-                    </button>
-                  </div>
+                  <% end %>
                 <% end %>
-              <% end %>
+              </div>
             </div>
           </div>
         </div>
@@ -96,17 +99,30 @@
         <h4 class="modal-title"><%= t ".show_template" %></h4>
       </div>
       <div class="modal-body">
-        <% content_for :image_company do %>
-          <%= image_tag @company.logo.url, class: "img-lastss"  %>
-        <% end %>
-        <%= render "layouts/mailer/header" %>
-        <% content_for :image_project do %>
-          <%= image_tag "logo.png", class: "img-company" %>
-        <% end %>
-        <%= text_area_tag "contentmail-#{apply_status.status_step_id}",
-          "", class: "form-control backgroud-content", disabled: true, cols: Settings.templates.cols,
-          rows: Settings.templates.cols %>
-        <%= render "layouts/mailer/footer" %>
+        <table class="container-mailer" border="0" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td class="header-mailer" align="center" valign="middle">
+                <%= image_tag "logo.png" %>
+                <h1><%= t "devise.mailer.header.app_name" %></h1>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= text_area_tag "contentmail-#{apply_status.status_step_id}",
+                  "", class: "form-control backgroud-content", disabled: true,
+                  cols: Settings.templates.cols, rows: Settings.templates.cols %>
+              </td>
+            </tr>
+            <tr>
+              <td class="footer-mailer checkter" align="center" valign="middle">
+                <%= t "devise.mailer.footer.year" %>
+                <strong><%= t "devise.mailer.footer.author" %></strong>
+                <span><%= t "devise.mailer.footer.copyright" %></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal"><%= t ".close" %></button>

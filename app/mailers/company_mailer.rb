@@ -6,24 +6,21 @@ class CompanyMailer < ApplicationMailer
     @company = apply.company
     @apply = apply
     attachments[@apply.cv_identifier] = File.read("#{Rails.root}/public#{@apply.cv.url}")
-    mail(to: @company.email, subject: t("company_mailer.welcome_email.subject"))
+    mail(to: @company.email, subject: t("company_mailer.welcome_email.notification"))
   end
 
   def user_mail apply
     @apply = apply
-    mail(to: @apply.information[:email], subject: t("company_mailer.welcome_email.subject"))
+    mail(to: @apply.information[:email], subject: t("company_mailer.welcome_email.notification"))
   end
 
-  def interview_scheduled_candidate title, apply, template, company, apply_status
-    @title = title
-    @template = template
-    @apply = apply
+   def send_mailer_candidate content, company, title, email
+    @content = content
     @company = company
-    @apply_status = apply_status
-    mail(to: @apply.information[:email], subject: @title)
+    mail(to: email, subject: title)
   end
 
-  def interview_scheduled_interviewer inforappointment, company, apply
+  def send_mailer_interviewer inforappointment, apply, company
     @inforappointment = inforappointment
     @user = @inforappointment.user
     @company = company

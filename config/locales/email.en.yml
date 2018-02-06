@@ -5,3 +5,29 @@ en:
     review_not_selected:
       title: "CV wasn't selected"
       content: "Your CV is rejected after review"
+  company_mailer:
+    send_mailer_interviewer:
+      received: "Confirmation letter"
+      user: "Hello you"
+      have_interview: "You have an interview with"
+      arrange: "Please arrange time for interview"
+      good: "Good luck"
+      agree: "Agree"
+      not_agree: "Not agree"
+    user_mail:
+      received: "Confirmation letter"
+      user: "Hello you"
+      send_cv: "Your CV has been sent to the employer"
+      content: "%{company_name} will review your profile and respond to you as soon as possible"
+      good: "Good luck"
+    welcome_email:
+      received: "Confirmation letter"
+      user: "Hello you"
+      subject: "Confirmation mail interviewr"
+      hello: "Hello company %{company_name}"
+      job: "Job %{job_name} of you have been submitted to you, here is your information"
+      candidate: "Candidate"
+      email: "Email"
+      phone: "Phone"
+      see_more: "See more"
+      notification: "Notification mail"
