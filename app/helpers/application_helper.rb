@@ -56,12 +56,12 @@ module ApplicationHelper
   end
 
   def show_exampleview_user template, information, company
-    strip_tags(template.template_body.gsub("@image_company@", image_tag("framgia.png", size:Settings.apply.image)).
+    (template.template_body.gsub("@image_company@", image_tag("framgia.png", size:Settings.apply.image)).
       gsub("@user@", information[:name].present? ? information[:name] : "").
       gsub("@company@", t("employers.templates.show.company", name: company.name)).
       gsub("@start_time@", information[:start_time].present? ? information[:start_time] : "").
       gsub("@address@", information[:address].present? ? information[:address] : "").
       gsub("@end_time@", information[:end_time].present? ? information[:end_time] : "").
-      gsub("@image_page@", image_tag("framgia.png", size:Settings.apply.image)))
+      gsub("@image_page@", image_tag("framgia.png", size:Settings.apply.image))).html_safe
   end
 end

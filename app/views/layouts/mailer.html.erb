@@ -178,7 +178,8 @@
         display:block;
       }
       .img-name{
-        width:40%; margin: 0px 130px;
+        width:40%;
+        margin: 0px 30px;
       }
       .img-lasts{
         vertical-align:middle;
@@ -284,11 +285,108 @@
       .margin-top{
         margin-top: 20px;
       }
+      .backgroud-content {
+        background: white !important;
+        font-size: 17px !important;
+        border: 0px !important;
+      }
+      .img-company{
+        vertical-align:middle;
+        border:0;
+        width: 49px;
+        padding-top: 10px;
+      }
+      .container-mailer {
+        width: 80%;
+        margin: auto;
+        border-width: 20px;
+        border-style: solid;
+        border-color: #07313a;
+      }
+
+      .header-mailer {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #b3b3b3;
+        background-color: #5CCCE4;
+      }
+
+      .header-mailer h1 {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: white;
+        font-size: 35px;
+        margin: 10px 0 0;
+      }
+
+      .header-mailer > img {
+        width: 70px;
+        height: 70px;
+      }
+
+      .divider {
+        margin: 2px;
+        background-color: #f0f0f0;
+      }
+
+      .footer-mailer {
+        color: white;
+        text-align: center;
+        background-color: #07313a;
+        padding-top: 20px;
+      }
+
+      .link-website {
+        display: inline-block;
+        text-decoration: none;
+        padding: 10px 20px;
+        background-color: #5CCCE4;
+        color: white;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      td {
+        padding: 10px;
+      }
+
+      .user-info {
+        display: block;
+        width: 90%;
+        margin: auto;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+
+      .image-function {
+        text-align: center;
+        padding-left: 20px;
+      }
+
+      .text-function {
+        text-align: justify;
+      }
     </style>
   </head>
   <body>
-    <%= render "layouts/mailer/header" %>
-      <%= yield %>
-    <%= render "layouts/mailer/footer" %>
+    <table class="container-mailer" border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="header-mailer" align="center" valign="middle" colspan="2">
+            <%= image_tag "logo.png" %>
+            <h1><%= t "devise.mailer.header.app_name" %></h1>
+          </td>
+        </tr>
+        <%= yield %>
+        <tr>
+          <td class="footer-mailer" align="center" valign="middle"  colspan="2"
+            style="padding: 20px 0 0">
+            <%= t "devise.mailer.footer.year" %>
+            <strong><%= t "devise.mailer.footer.author" %></strong>
+            <span><%= t "devise.mailer.footer.copyright" %></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>

@@ -349,3 +349,74 @@ body{
   position: absolute;
   top: 73px;
 }
+.container-mailer {
+  width: 100%;
+  margin: auto;
+  border: 20px solid #07313a;
+}
+
+.header-mailer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #b3b3b3;
+  background-color: #5CCCE4;
+}
+
+.header-mailer h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+  font-size: 23px;
+  margin: 10px 0 0;
+}
+
+.header-mailer > img {
+  width: 75px;
+  height: 37px;
+}
+
+.divider {
+  margin: 2px;
+  background-color: #f0f0f0;
+}
+
+.footer-mailer {
+  color: white;
+  text-align: center;
+  background-color: #07313a;
+  padding-top: 20px;
+}
+
+.link-website {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #5CCCE4;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+td {
+  padding: 10px;
+}
+
+.user-info {
+  display: block;
+  width: 90%;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.image-function {
+  text-align: center;
+  padding-left: 20px;
+}
+
+.text-function {
+  text-align: justify;
+}
+.checkter {
+  padding: 20px 0 0;
+}

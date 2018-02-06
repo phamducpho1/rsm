@@ -11,4 +11,11 @@ class EmailSent < ApplicationRecord
   validates :sender_email, presence: true
   validates :receiver_email, presence: true
   validates :type, presence: true
+
+  after_save :send_mail
+
+  def send_mail
+    @sendmail_service = SendmailService.new self, self.user.companies.last
+    @sendmail_service.send_candidate
+  end
 end

@@ -449,19 +449,30 @@ input[type='radio'] {
   font-style: italic;
 }
 .backgroud-content {
+  width: 100%;
   background: $white !important;
   font-size: 17px !important;
-  border: 0px !important
+  border: 0px !important;
+  resize: none;
+  height: auto;
 }
 .view_mail {
-  position: absolute;
-  top: 79px;
   border: 0px;
   font-size: 20px;
-  padding-left: 11px;
   background: $white;
 }
 .b0 {
   border: 0px;
   background: transparent;
+}
+
+.loading {
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: image-url('loading.gif') no-repeat center center;
+  background-color: $white-drak-1;
 }

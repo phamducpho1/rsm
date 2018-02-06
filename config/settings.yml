@@ -103,6 +103,7 @@ employers:
     text_area_cols: 2
     text_area_rows: 2
 templates:
+  height: 50
   cols: 10
   page: 10
   member: 0
@@ -165,7 +166,7 @@ survey:
 step:
   step_1: "1"
   step_2: "2"
-company: "@company@"
+companies: "@company@"
 user: "@user@"
 address: "@address@"
 start_time: "@start_time@"

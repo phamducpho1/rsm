@@ -19,5 +19,8 @@
 //= require bootstrap
 //= require pagination
 //= require clear_value
+//= require i18n
+//= require i18n.js
+//= require i18n/translations
 //= require alertify/lib/alertify.min.js
 //= require_tree ../../../vendor/assets/javascripts/companies

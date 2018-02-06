@@ -1,0 +1,28 @@
+<tr>
+  <td>
+    <div class="menu-body">
+      <h2><%= t ".received" %></h2>
+      <b class="title-first">
+        <%= t ".user" %>
+        <%= @user.name %>,
+      </b>
+      <p class="count">
+        <%= t ".have_interview" %>
+        <%= @apply.information[:name] %>
+        <%= t ".arrange" %>,
+      </p>
+      <h2><%= t ".good" %></h2>
+    </div>
+    <div class="floatl">
+      <%= link_to t(".agree"),
+        edit_employers_confirm_appointment_url(@inforappointment.id,
+        activation_digest: @inforappointment.activation_digest), class: "button" %>
+    </div>
+    <div class="floata">
+    <%= link_to t(".not_agree"),
+      edit_employers_confirm_appointment_url(@inforappointment.id,
+      activation_digest: @inforappointment.activation_digest, not_agree: t("not_agree")),
+      class: "buttona" %>
+    </div>
+  </td>
+</tr>

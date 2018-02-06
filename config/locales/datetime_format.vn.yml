@@ -51,3 +51,6 @@ vn:
       x_days:
         one: "1 ngày trước"
         other: "%{count} ngày trước"
+  datepicker:
+    format: "dd-mm-yy"
+    long: "dd-mm-yyyy"

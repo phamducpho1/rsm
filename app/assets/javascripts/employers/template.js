@@ -44,9 +44,16 @@ $(document).on('click', '#check-template', function(){
   }
 });
 
+function htmlDecode(value){
+  return $('<div/>').html(value).text();
+}
 $(document).on('click', '.view_mail', function(){
   var step_id = $(this).val();
-  var content_mail = $('#content-template-user-'+ step_id).val();
-  $('#contentmail-'+ step_id).html(content_mail);
+  var content_mail = CKEDITOR.instances['content-template-user-'+ step_id ].getData();
+  $('#contentmail-'+ step_id).text(htmlDecode(content_mail));
   $('#review_template_'+ step_id).modal('show');
+});
+
+$(window).on('load', function () {
+  $('.loading').fadeOut('slow');
 });
