@@ -29,6 +29,23 @@ $(document).on('click', '.btn-apply-status', function(event){
   });
 });
 
+$(document).on('click', '.btn-submit-apply-status-form', function(event){
+  var apply_status_form = document.getElementById('new_apply');
+  var textStatus = $('#form-apply-status-main input[type=radio]:checked').next().text();
+  swal({
+    title: I18n.t('jobs.apply.confirm_change_status'),
+    text: I18n.t('jobs.apply.text_change_status', {status: textStatus}),
+    icon: 'warning',
+    buttons: true,
+    primaryMode: true,
+  })
+  .then(function(isConfirm){
+    if (isConfirm) {
+      apply_status_form.commit.click();
+    }
+  });
+});
+
 $(document).on('click', '#pagination-history-apply .pagination a', function (event) {
   event.preventDefault();
   $.getScript($(this).attr('href'));

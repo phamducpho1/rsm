@@ -1,5 +1,9 @@
 @import 'color';
 
+.funkyradio {
+  overflow: auto;
+  margin-bottom: 0;
+}
 .funkyradio label {
   width: 100%;
   border-radius: 3px;
@@ -46,7 +50,7 @@
 .funkyradio input[type='radio']:hover:not(:checked) ~ label:before,
 .funkyradio input[type='checkbox']:hover:not(:checked) ~ label:before {
   content: '\2714';
-  text-indent: .9em;
+  text-indent: .1em;
   color:  $gray-bold;
 }
 
@@ -58,7 +62,7 @@
 .funkyradio input[type='radio']:checked ~ label:before,
 .funkyradio input[type='checkbox']:checked ~ label:before {
   content: '\2714';
-  text-indent: .9em;
+  text-indent: 0.1em;
   color: $white;
   background-color: $gray80;
 }
