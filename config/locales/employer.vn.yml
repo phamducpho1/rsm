@@ -63,6 +63,7 @@ vn:
         applied: "Đã nộp ngày"
         action: "Hành động"
         not_applies: "Không có CV nào"
+        step: "Bước"
       create:
         success: "Đã tạo đơn thành công"
         failure: "Tạo đơn thất bại"
@@ -395,6 +396,7 @@ vn:
         lock_account: "Khóa tài khoản"
         logout: " Đăng xuất"
         search: "Tìm kiếm"
+        account: "Tài khoản"
       choose_jobs:
         choose: "Chọn"
         name: "Tên"

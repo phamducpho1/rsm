@@ -48,10 +48,17 @@ en:
       btn_name:
         next: "Next"
         prev: "Previous"
+        block: "Block"
+        unblock: "Unblock"
       update:
         success: "Update success"
         fail: "Update fail"
         drop_calendar: "Drag and Drop Events on the Calendar"
+      block_apply:
+        title_block: "Do you want to Block this apply?"
+        title_unblock: "Do you want to Unblock this apply?"
+        success: "Successfully update this apply"
+        fail: "Update failed this apply"
     history:
       title_history: "History"
       sent: "Sent "

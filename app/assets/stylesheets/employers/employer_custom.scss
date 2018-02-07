@@ -300,3 +300,18 @@ label {
 .h-73 {
   height: 73px;
 }
+
+.overcast-div {
+  position:relative;
+}
+
+.overcast-div::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $grey-light1;
+  opacity: 0.5;
+}

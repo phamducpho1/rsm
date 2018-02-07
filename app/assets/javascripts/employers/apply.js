@@ -56,3 +56,43 @@ $(document).on('click', '#cancel-apply-email', function (event) {
   $('#apply-handling-content').html('');
   $('#form-apply-status-main')[0].reset();
 });
+
+$(document).on('click', '#btn-block-apply', function(event){
+  var is_block = $('.overcast-custom').hasClass('overcast-div');
+  var title;
+  if (is_block) {
+    title = I18n.t('employers.applies.block_apply.title_unblock');
+  } else {
+    title = I18n.t('employers.applies.block_apply.title_block');
+  }
+  swal({
+    title: title,
+    text: '',
+    icon: 'warning',
+    buttons: true,
+    primaryMode: true,
+  })
+  .then(function(isConfirm){
+    if (isConfirm) {
+      $.ajax({
+        type: 'PATCH',
+        url: '/employers/applies/' + $('#apply_status_apply_id').val(),
+        data: {authenticity_token: $('[name="csrf-token"]')[0].content},
+        dataType: 'json',
+        success: function(data){
+          alertify.success(data.message);
+          $('#apply-handling-content').html('');
+          $('.btn-handling').html(data.html_data);
+          if (is_block) {
+            $('.overcast-custom').removeClass('overcast-div');
+          } else {
+            $('.overcast-custom').addClass('overcast-div');
+          }
+        },
+        error: function(data){
+          alertify.error(data.message);
+        }
+      });
+    }
+  });
+});

@@ -65,18 +65,11 @@
           current_step: @current_step, company_steps_by_step: @company_steps_by_step} %>
       </ul>
       <div class="btn-group pull-right btn-handling">
-        <div id="btn-prev-apply" class="btn btn-apply">
-          <%= render partial: "form_apply_status", locals: {apply_status: @prev_apply_status,
-            btn_name: t("employers.applies.btn_name.prev"), step: @prev_step} %>
-        </div>
-        <div id="btn-next-apply" class="btn btn-apply">
-          <%= render partial: "form_apply_status", locals: {apply_status: @next_apply_status,
-            btn_name: t("employers.applies.btn_name.next"), step: @next_step} %>
-        </div>
+        <%= render "employers/applies/apply_btn"  %>
       </div>
     </div>
 
-    <div class="block block-content">
+    <div class="block block-content overcast-custom <%= disabled_block @apply %>">
       <div class="block-title margin-bottom-0">
         <h2>
           <i class="fa fa-pencil"></i>
