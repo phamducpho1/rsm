@@ -12,7 +12,6 @@
 
     <div class="block-top block-content-mini-padding">
       <div class="clearfix">
-        <% if is_show_resend? current_apply_status, data_step %>
           <%= link_to new_employers_apply_status_path(status_step_id:
             status_step.id, apply_id: apply.id, apply_status_id: apply_status.id ), remote: true do %>
             <button type="submit" class="btn btn-sm btn-info pull-right">
@@ -20,7 +19,6 @@
               <%= t "employers.history.resend" %>
             </button>
           <% end %>
-        <% end %>
           <span class="btn btn-icon">
             <i class="fa fa-location-arrow"></i>
             <%= t "employers.applies.statuses.#{@data_step[:status_step_lastest].code}" %>

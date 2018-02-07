@@ -101,7 +101,7 @@ class Employers::EmployersController < BaseNotificationsController
   end
 
   def load_history_apply_status
-    step_service = StepService.new @current_step, @apply, @company
+    step_service = StepService.new @current_step, @apply, @company, @current_step
     @data_step = step_service.get_data_step
   end
 end

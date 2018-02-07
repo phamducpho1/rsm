@@ -46,6 +46,7 @@ Rails.application.routes.draw do
     resources :applies
     resources :dashboards
     resources :apply_statuses
+    resources :histories
     resources :email_sents
     resources :steps
     resources :status_steps, only: :index
