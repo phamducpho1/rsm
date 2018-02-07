@@ -4,20 +4,16 @@
   <td class="text-center"><%= apply_status.apply.information[:email] %></td>
   <td class="text-center"><%= apply_status.apply.information[:phone] %></td>
   <td class="text-center">
-    <span class="btn btn-primary btn-xs">
-      <%= t "employers.applies.statuses.#{apply_status.step_name}" %>
-    </span>
+    <%= show_step_apply apply_status.step %>
   </td>
   <td class="text-center">
-    <span class="btn btn-success btn-xs">
-      <%= t "employers.applies.statuses.#{apply_status.status_step_name}" %>
-    </span>
+    <%= show_status_apply apply_status.status_step %>
   </td>
   <td class="text-center"><%= l apply_status.created_at.to_date, format: :long %></td>
   <td class="text-center">
     <%= link_to employers_job_apply_path(apply_status.job, id: apply_status.apply_id),
-      class: "btn btn-warning btn-xs" do %>
-      <i class="fa fa-info"></i>
+      class: "btn btn-default btn-xs" do %>
+      <i class="fa fa-eye"></i>
     <% end %>
   </td>
 </tr>

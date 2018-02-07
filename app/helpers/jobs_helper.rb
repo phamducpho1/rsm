@@ -26,8 +26,8 @@ module JobsHelper
     address.squish
   end
 
-  def count_applies job
-    job.applies.size
+  def count_applies applies
+    applies.blank? ? Settings.default_size : applies.size
   end
 
   def class_dashboard job, status_step

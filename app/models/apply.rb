@@ -34,6 +34,7 @@ class Apply < ApplicationRecord
 
   delegate :name, to: :job, prefix: true, allow_nil: true
   delegate :name, to: :step, prefix: true, allow_nil: true
+  delegate :phone, :email, :name, to: :user, prefix: true, allow_nil: true
 
   include PublicActivity::Model
 

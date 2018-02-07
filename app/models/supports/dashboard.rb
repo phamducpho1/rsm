@@ -13,8 +13,8 @@ class Supports::Dashboard
     @company.jobs.includes(:branch).job_company(@company).sort_max_salary_and_target
   end
 
-  def prioritize_applies
-    @company.applies.includes(:job).sort_apply
+  def prioritize_apply_statues
+    @company.apply_statuses.current.sort_apply_statues.includes(:job, :status_step)
   end
 
   def total_apply_statuses

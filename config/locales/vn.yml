@@ -4,6 +4,10 @@ vn:
       default: "%Y-%m-%d"
       short: "%b %d"
       long: "%d/%m/%Y"
+    order:
+      - :day
+      - :month
+      - :year
   time:
     formats:
       long: "%d/%m/%Y"

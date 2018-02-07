@@ -37,46 +37,31 @@
                     <%= email_sent_builder.hidden_field :user_id %>
                     <%= email_sent_builder.hidden_field :receiver_email, value: apply.information[:email] %>
                     <%= email_sent_builder.hidden_field :_destroy , value: true, class: "email_destroy" %>
-                    <div class="form-group">
-                      <label class="col-md-3 col-lg-2 control-label" for="compose-to"><%= t "jobs.apply.title" %></label>
-                      <div class="col-md-9 col-lg-10">
-                        <%= email_sent_builder.text_field :title, class: "title-#{apply_status.status_step_id} form-control form-control-borderless",
-                          placeholder: t("employers.title") %>
-                        <span class="error-message">
-                          <%= email_sent_builder.full_error :title %>
-                        </span>
-                      </div>
+                    <div class="col-md-12 col-lg-12">
+                      <%= email_sent_builder.input :title, input_html:
+                        {class: "title-#{apply_status.status_step_id} form-control"},
+                        placeholder: t("employers.title") %>
                     </div>
-                    <div id="cc-input" class="form-group">
-                      <label class="col-md-3 col-lg-2 control-label" for="compose-to-cc">
+                    <div class="col-md-12 col-lg-12 h-73">
+                      <label class="col-md-5 control-label" for="template_user">
                         <%= t "employers.send_email.select_template" %>
                       </label>
-                      <div class="col-md-9 col-lg-10">
-                        <%= select_tag :template_user,
-                          options_for_select(template_users.collect{ |u| [u.name, u.id]}),
-                          include_blank: t("please_select"), class: "form-control form-control-borderless template-user" %>
-                      </div>
+                      <%= select_tag :template_user,
+                        options_for_select(template_users.collect{ |u| [u.name, u.id]}),
+                        include_blank: t("please_select"), class: "form-control template-user" %>
                     </div>
                     <%= hidden_field_tag "step_id", apply_status.status_step_id %>
                     <%= hidden_field_tag "user_name", apply.information[:name] %>
-                    <div class="form-group">
-                      <label class="col-md-3 col-lg-2 control-label" for="compose-message">
-                        <%= t "jobs.apply.content" %>
-                      </label>
-                      <div class="col-md-8 col-lg-9">
-                        <%= email_sent_builder.cktext_area :content,
-                          class: "form-control mail-#{apply_status.status_step_id} ckeditor",
-                          id: "content-template-user-#{apply_status.status_step_id}", cols: Settings.text_area.cols_email,
-                          rows: Settings.text_area.rows_email, placeholder: t("employers.your_message") %>
-                        <span class="error-message">
-                          <%= email_sent_builder.full_error :content %>
-                        </span>
-                      </div>
-                      <div class="col-md-1 col-lg-1">
-                        <button type="button" class="view_mail" value="<%= apply_status.status_step_id %>">
-                          <i class="fa fa-eye text-primary" aria-hidden="true"></i>
-                        </button>
-                      </div>
+                    <div class="col-md-12 col-lg-12">
+                      <%= button_tag  type: "button", title: t(".preview"),
+                        class: "btn btn-xs btn-info view_mail pull-right",
+                        value: "#{apply_status.status_step_id}" do %>
+                        <i class="fa fa-eye"></i>
+                      <% end %>
+                      <%= email_sent_builder.input :content, as: :ckeditor, input_html:{
+                        class: "form-control mail-#{apply_status.status_step_id} ckeditor",
+                        id: "content-template-user-#{apply_status.status_step_id}", cols: Settings.text_area.cols_email,
+                        rows: Settings.text_area.rows_email}, placeholder: t("employers.your_message") %>
                     </div>
                   <% end %>
                 <% end %>

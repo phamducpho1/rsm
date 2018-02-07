@@ -1179,6 +1179,8 @@ en:
       close: "Close"
       no_jobs: "There is no jobs available at this time"
   applies:
+    index:
+      filter: "Filter"
     apply:
       salary: "Salary"
       dola: "$"

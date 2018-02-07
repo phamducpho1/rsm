@@ -13,6 +13,19 @@ module EmployersHelper
     end
   end
 
+  def show_step step
+    case
+    when step.is_step?(Settings.step.review)
+      Settings.warning
+    when step.is_step?(Settings.step.test)
+      Settings.info
+    when step.is_step?(Settings.step.interview)
+      Settings.primary
+    else
+      Settings.success
+    end
+  end
+
   def show_class_gird status_steps
     return Settings.grid.width_6 if status_steps.blank?
     SelectApply.math_col_grid status_steps.size
@@ -24,8 +37,18 @@ module EmployersHelper
   end
 
   def show_status_apply status_step
-    content_tag :span, class: "label label-#{show_status(status_step)}" do
-      t "employers.applies.statuses.#{status_step.code}"
+    content_tag :span, class: "label label-#{show_status(status_step)} #{status_step.code}" do
+      content_tag :b do
+        t "employers.applies.statuses.#{status_step.code}"
+      end
+    end
+  end
+
+  def show_step_apply step
+    content_tag :span, class: "label label-#{show_step(step)}" do
+      content_tag :b do
+        t "employers.applies.statuses.#{step.name}"
+      end
     end
   end
 
