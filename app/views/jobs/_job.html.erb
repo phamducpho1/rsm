@@ -5,8 +5,11 @@
         <div class="row">
           <div class="col-md-10">
             <h4>
-              <%= link_to (job.name + t(".up_to") +
-                job.max_salary.round.to_s + Settings.currency.dollar), job %>
+              <% if job.max_salary.present? %>
+                <%= link_to (job.name + t(".up_to") + salary_job(job.max_salary)), job %>
+              <% else %>
+                <%= link_to (job.name + t(".up_to") + salary_job(job.min_salary)), job %>
+              <% end %>
             </h4>
           </div>
           <div class="col-md-2">

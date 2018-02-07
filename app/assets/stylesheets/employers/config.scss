@@ -468,6 +468,9 @@ input[type='radio'] {
   left: 0;
   width: 100%;
   height: 100%;
-  background: image-url('loading.gif') no-repeat center center;
+  background: image-url('logo.gif') no-repeat center center;
   background-color: $white-drak-1;
+}
+.view_mail {
+  margin-top: -7px !important;
 }

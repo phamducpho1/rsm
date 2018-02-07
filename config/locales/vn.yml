@@ -209,6 +209,7 @@ vn:
       job_destroyed: "Đã xóa công việc"
       job_cant_destroy: "Đã có lỗi xảy ra, không thể xóa công việc"
     show:
+      upto: "LÊN ĐẾN"
       post_job: "Đăng công việc"
       no_jobs: "Không có công việc nào ở hiện tại"
       close: "Đóng"

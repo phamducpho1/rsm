@@ -14,14 +14,14 @@
       <div class="box box-md">
         <div class="absolute-right premium-popover-trigger"></div>
         <div class="row">
-          <div class="col-md-2 col-logo">
+          <div class="col-xs-2 col-sm-2 col-logo">
             <span class="center-block text-center logo-wrapper">
               <%= image_tag(@company.logo.url, class: "img-responsive") %>
             </span>
           </div>
-          <div class="col-md-10 col-content-wrapper">
+          <div class="col-xs-10 col-sm-10 col-content-wrapper">
             <div class="row">
-              <div class="col-lg-9 col-md-8 col-content">
+              <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12 col-content">
                 <div class="job-header-info">
                   <h1 class="job-title">
                     <%= @job.name %>
@@ -40,8 +40,13 @@
                     <div class="col-sm-12">
                       <span class="salary">
                         <strong class="text-primary text-lg">
-                          <%= @job.min_salary.round.to_s + Settings.currency.dollar %>
-                           - <%= @job.max_salary.round.to_s + Settings.currency.dollar %>
+                          <% if @job.max_salary.present? %>
+                            <%= salary_job @job.min_salary  %>
+                             - <%= salary_job @job.max_salary %>
+                          <% else %>
+                            <%= t ".upto" %>&nbsp;
+                            <%= salary_job @job.min_salary %>
+                          <% end %>
                         </strong>
                       </span>
                     </div>
@@ -53,9 +58,9 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-3 col-md-4 col-btn">
-                <div class="row">
-                  <div class="col-xs-6 col-xs-push-6 col-md-12 col-md-push-0 job-apply-btn">
+              <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12 col-btn">
+                <div class="row config-line">
+                  <div class="col-xs-6 col-xs-offset-3 col-md-12 col-md-offset-0 job-apply-btn">
                     <% if user_signed_in? %>
                       <% if @applied.present? && @applied.of_user?(current_user) %>
                         <button type = "button" class = "btn btn-primary btn-block btn-apply post-job disabled", id="post-job-btn" ><%= t "apply.applied" %></button>
@@ -72,9 +77,9 @@
                         <%= render "applies/undefind_form" %>
                     <% end%>
                   </div>
-                  <div class="col-xs-6 col-xs-push-6 col-md-12 col-md-push-0">
+                  <div class="col-xs-6 col-xs-offset-3 col-md-12 col-md-offset-0">
                     <% if user_signed_in? %>
-                      <div class="col-md-6 form-like">
+                      <div class="col-sm-6 col-xs-12 form-like">
                         <% if @liked.present? %>
                           <%= link_to  @liked, method: :delete, class: "p0 form-control btn-change6 border change-ed", remote: true  do %>
                             <i class="fa fa-thumbs-up text-primary w10" aria-hidden="true"></i>
@@ -84,7 +89,7 @@
                           <%= render "bookmark_likes/form_like_job" %>
                         <% end %>
                       </div>
-                      <div class="col-md-6 form-bookmark">
+                      <div class="col-sm-6 col-xs-12 form-bookmark">
                         <% if @bookmarked.present? %>
                           <%= link_to  @bookmarked, method: :delete, class: "p0 form-control btn-change6 border change-ed", remote: true  do %>
                             <i class="fa fa-bookmark text-primary w10"></i>
@@ -95,12 +100,12 @@
                         <% end %>
                       </div>
                     <% end %>
-                  </div>
-                  <div class="btn-share pull-right">
-                    <span class="text-uppercase text-light m-r-xs">
-                      <%= social_share_button_tag information_job(@job, @company),
-                        desc: information_job(@job, @company) %>
-                    </span>
+                    <div class="btn-share pull-right">
+                      <span class="text-uppercase text-light m-r-xs">
+                        <%= social_share_button_tag information_job(@job, @company),
+                          desc: information_job(@job, @company) %>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
