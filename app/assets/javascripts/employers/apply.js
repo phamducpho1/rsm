@@ -31,7 +31,10 @@ $(document).on('click', '.btn-apply-status', function(event){
 
 $(document).on('click', '#pagination-history-apply .pagination a', function (event) {
   event.preventDefault();
-  $.getScript($(this).attr('href'));
+  var page = $(this).attr('href').split('?').pop();
+  var jobID = parseInt($('#job_id').val());
+  var applyID = parseInt($('#apply_id').val());
+  $.getScript('/employers/jobs/' + jobID + '/applies/' + applyID + '?' + page);
   return false;
 });
 
