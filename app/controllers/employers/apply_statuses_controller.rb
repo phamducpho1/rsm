@@ -1,5 +1,6 @@
 class  Employers::ApplyStatusesController < Employers::EmployersController
   before_action :load_apply, only: [:new, :create, :update]
+  before_action :is_block_apply, only: [:new, :create, :update], if: ->{@apply.lock_apply?}
   before_action :get_step_by_company, only: [:create, :new]
   before_action :load_status_step_scheduled,
     :load_status_step_interview_scheduled, :load_templates,

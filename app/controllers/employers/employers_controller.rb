@@ -10,6 +10,17 @@ class Employers::EmployersController < BaseNotificationsController
 
   private
 
+  def is_block_apply
+    if @apply.lock_apply?
+      if request.xhr?
+        render js: "alertify.error(I18n.t('employers.applies.block_apply.error_message'))"
+        return
+      else
+        redirect_to root_url
+      end
+    end
+  end
+
   def load_members
     @members = @company.members
   end

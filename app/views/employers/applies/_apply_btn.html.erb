@@ -1,14 +1,14 @@
-<% if is_offer_step(@current_step, @steps.last) && is_pending_offer_step(@current_apply_status.status_step_id, @current_status_steps.first.id) %>
-  <div id="block-apply" class="btn btn-apply">
-    <button id="btn-block-apply" class="btn <%= @apply.lock_apply? ? 'btn-warning' : 'btn-danger'%> btn-sm" %>
-      <% if @apply.lock_apply? %>
-        <i class="fa fa-unlock">&nbsp;&nbsp;<%= t "employers.applies.btn_name.unblock" %></i>
-      <% else %>
-        <i class="fa fa-lock">&nbsp;&nbsp;<%= t "employers.applies.btn_name.block" %></i>
-      <% end %>
-    </button>
-  </div>
-<% else %>
+<div id="block-apply" class="btn btn-apply">
+  <button id="btn-block-apply"
+    class="btn <%= @apply.lock_apply? ? 'btn-warning' : 'btn-danger'%> btn-sm" %>
+    <% if @apply.lock_apply? %>
+      <i class="fa fa-unlock">&nbsp;&nbsp;<%= t "employers.applies.btn_name.unblock" %></i>
+    <% else %>
+      <i class="fa fa-lock">&nbsp;&nbsp;<%= t "employers.applies.btn_name.block" %></i>
+    <% end %>
+  </button>
+</div>
+<% if @apply.unlock_apply? %>
   <div id="btn-prev-apply" class="btn btn-apply">
     <%= render partial: "employers/applies/form_apply_status", locals: {apply_status: @prev_apply_status,
       btn_name: t("employers.applies.btn_name.prev"), step: @prev_step} %>
