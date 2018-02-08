@@ -19,4 +19,5 @@
  *= require devise_users/plugins1
  *= require companies/companies_custom
  *= require flash_message
+ *= require header_footer
  */
