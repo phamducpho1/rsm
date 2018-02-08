@@ -20,11 +20,13 @@
   .notify-drop-title {
     border-bottom: 1px solid $dark-gray;
     padding: 5px 15px 10px;
+    background: $white;
     color: $black !important;
   }
   .drop-content {
     min-height: 30px;
     max-height: 280px;
+    background: $white;
     overflow-y: scroll;
     > li {
       border-bottom: 1px solid $dark-gray;

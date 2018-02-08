@@ -25,4 +25,8 @@
  *= require_tree ../../../node_modules/alertify/themes
  *= require custom
  *= require fancybox
+ *= require companies/companies_custom
+ *= require flash_message
+ *= require header_footer
+ *= require_tree ../../../vendor/assets/stylesheets/companies
  */

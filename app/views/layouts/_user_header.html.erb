@@ -1,27 +1,35 @@
 <%= stylesheet_link_tag "employers/notification" %>
-<header class="user-header">
-  <div class="container">
-    <%= link_to root_path, class: "site-logo" do %>
-      <i class="fa fa-gg" aria-hidden="true"></i>
-      <strong><%= t ".fram" %></strong><%= t "index.recruit" %>
-    <% end %>
-    <nav>
-      <section class="widget widget_icl_lang_sel_widget notify-logo-2">
-        <ul class="site-nav">
-          <%= render "shared/notification" %>
-        </ul>
+<header id="user-header" class="white">
+  <div class="wrapper">
+    <div class="logo">
+      <a href="#" class="custom-logo-link" rel="home" itemprop="url">
+        <%= image_tag "frc.png" %>
+      </a>
+    </div>
+    <div class="header-right">
+      <section id="icl_lang_sel_widget-2" class="widget_icl_lang_sel_widget">
+        <span class="menu-icon menu-open nav-menu-custom">
+          <i class="fa fa-bars"></i></span>
+        <span class="menu-icon menu-close nav-menu-custom">
+          <i class="fa fa-bars"></i></span>
       </section>
-      <section class="widget_icl_lang_sel_widget user-ic d-inline">
-        <a href="javascript:void(0)" class="site-menu-toggle visible-xs visible-sm">
-        </a>
-        <ul class="site-nav">
-          <% if user_signed_in? %>
+      <section id="icl_lang_sel_widget-2" class="widget widget_icl_lang_sel_widget">
+        <div id="lang_sel">
+          <%= render "shared/language_local" %>
+        </div>
+      </section>
+      <% if user_signed_in? %>
+        <section class="widget widget_icl_lang_sel_widget user-ic">
+          <a href="javascript:void(0)" class="site-menu-toggle visible-xs visible-sm"></a>
+          <ul class="site-nav">
+            <%= render "shared/notification" %>
             <li class = "dropdown">
-              <%= link_to "javascript:void(0)", class: "setting_user" do %>
+              <%= link_to "javascript:void(0)", class: "setting_user menu-item menu-item-type-custom menu-item-object-custom menu-item-120" do %>
               <%= image_tag current_user.picture.url, class: "avatar_user" %>
               <i class="fa fa-angle-down"></i>
               <% end %>
               <ul>
+                <li class="arrow-up"><span class="border-arrow"></span><span class="arrow"></span></li>
                 <% if current_user.is_employer? %>
                   <li>
                     <%= link_to employers_dashboards_url subdomain: current_user.get_company.subdomain do %>
@@ -30,41 +38,61 @@
                     <% end %>
                   </li>
                 <% end %>
-
                 <li>
                   <%= link_to user_url current_user do %>
-                    <%= t ".profile" %>
-                    <i class="fa fa-user fa-fw pull-right"></i>
+                  <%= t ".profile" %>
+                  <i class="fa fa-user fa-fw pull-right"></i>
                   <% end %>
                 </li>
                 <li>
                   <%= link_to edit_user_registration_url current_user do %>
-                    <%= t "layouts.header.change" %>
-                    <i class="fa fa-pencil-square-o pull-right"></i>
+                  <%= t ".change" %>
+                  <i class="fa fa-pencil-square-o pull-right"></i>
                   <% end %>
                 </li>
                 <li>
                   <%= link_to bookmark_likes_url do %>
-                    <%= t ".my_job" %>
-                    <i class="fa fa-briefcase pull-right"></i>
+                  <%= t ".my_job" %>
+                  <i class="fa fa-briefcase fa-fw pull-right"></i>
                   <% end %>
                 </li>
                 <li>
                   <%= link_to destroy_user_session_url, method: :delete do %>
-                    <i class="fa fa-ban fa-fw pull-right"></i>
-                    <%= t ".logout" %>
+                  <i class="fa fa-ban fa-fw pull-right"></i>
+                  <%= t(".logout") %>
                   <% end %>
                 </li>
               </ul>
             </li>
-          <% else %>
-            <li id="menu-item-114" class="btn btn-primary">
-              <%= link_to t(".login"), new_user_session_path %>
+          </ul>
+        </section>
+      <% end %>
+      <div class="menu">
+        <ul id="menu-primary-menu-vn" class="">
+          <li id="menu-item-118" class="inactive menu-item menu-item-type-custom menu-item-object-custom menu-item-118">
+            <a href="#"><%= t ".service" %></a>
+          </li>
+          <li id="menu-item-129" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-129">
+            <%= link_to jobs_path do %>
+              <%= t ".challange_job" %>
+            <% end %>
+          </li>
+          <li id="menu-item-117" class="inactive menu-item menu-item-type-custom menu-item-object-custom menu-item-117">
+            <a href="#"><%= t ".cultural" %></a>
+          </li>
+          <li id="menu-item-116" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-116">
+            <a href="#"><%= t ".contact" %></a>
+          </li>
+          <% if !user_signed_in? %>
+            <li id="menu-item-114" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-114">
+              <%= link_to "javascript:void(0)", class: "btn-login" do %>
+                <%= t ".login" %>
+              <% end %>
             </li>
           <% end %>
         </ul>
-      </section>
-    </nav>
+      </div>
+    </div>
   </div>
 </header>
 <div class="modal fade" id="notifications-index" role="dialog"
