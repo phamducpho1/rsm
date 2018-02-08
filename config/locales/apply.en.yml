@@ -59,6 +59,7 @@ en:
         title_unblock: "Do you want to Unblock this apply?"
         success: "Successfully update this apply"
         fail: "Update failed this apply"
+        error_message: "This apply has been locked."
     history:
       title_history: "History"
       sent: "Sent "

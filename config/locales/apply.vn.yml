@@ -59,6 +59,7 @@ vn:
         title_unblock: Bạn có chắc chắn muốn mở khóa hồ sơ ứng tuyển này?
         success: "Đã cập nhật thành công hồ sơ ứng tuyển này"
         fail: "Đã có lỗi xảy ra. Cập nhật  hồ sơ ứng tuyển này thất bại"
+        error_message: "Hồ sơ ứng tuyển này đã bị khóa."
     history:
       sent: "Đã gửi "
       ago: " trước."
