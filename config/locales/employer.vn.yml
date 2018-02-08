@@ -1,5 +1,9 @@
 vn:
   employers:
+    email_sents:
+      email_sent:
+        information: "Thông tin"
+        view: "Xem thêm"
     applies:
       apply:
         click: "Nhấp chuột"

@@ -4,8 +4,17 @@ module JobsHelper
   end
 
   def information_job job, commany
+    job.max_salary.present? ? content_share_job(job, commany, salary_job(job.max_salary)):
+      content_share_job(job, commany, salary_job(job.min_salary))
+  end
+
+  def salary_job job_salary
+    job_salary.round.to_s + Settings.currency.dollar
+  end
+
+  def content_share_job job, commany, salary
     [t("recruit", company: commany.name), "\n"+ job.name, "\n"+
-      t("jobs.show.salary") + job.max_salary.round.to_s + Settings.currency.dollar]
+      t("jobs.show.salary") + salary]
   end
 
   def options_position_types

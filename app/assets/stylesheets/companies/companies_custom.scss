@@ -1,6 +1,10 @@
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
 @import 'color';
+
+@media all and (max-width: 992px){
+  .row {
+    width: 100%;
+  }
+}
 
 .anchor {
   font-size: 28px !important;
@@ -290,3 +294,9 @@
 .border-bottom {
   border-bottom: 3px solid $gray-light-2;
 }
+@media all and (min-width: 768px ) and (max-width: 991px ){
+  .job-apply-btn .post-job {
+    width: 201px;
+  }
+}
+

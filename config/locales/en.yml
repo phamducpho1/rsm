@@ -204,6 +204,7 @@ en:
     add_survey:
       add_survey: "Add Survey"
     show:
+      upto: "UP TO"
       post_job: "Post Job"
       no_jobs: "There is no jobs available at this time"
       close: "Close"

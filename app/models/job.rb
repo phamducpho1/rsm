@@ -19,7 +19,6 @@ class Job < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   validates :min_salary, presence: true
-  validates :max_salary, presence: true
   validates :position, presence: true
   validates :branch_id, presence: true
   validates :target, presence: true

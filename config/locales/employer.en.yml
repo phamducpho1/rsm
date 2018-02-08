@@ -1,5 +1,9 @@
 en:
   employers:
+    email_sents:
+      email_sent:
+        information: "Information"
+        view: "See more"
     applies:
       apply:
         click: "click"
