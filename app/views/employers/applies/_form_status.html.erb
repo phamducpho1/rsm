@@ -13,3 +13,5 @@
   <%= f.hidden_field :scheduled, value: status_step_scheduled_ids, class: "scheduled_ids" %>
   <%= f.submit t(".submit"), class: "display-none" %>
 <% end %>
+<%= hidden_field_tag :is_prev_step, is_prev_step %>
+<%= hidden_field_tag :step_main_id, step_main.id, id: "step_main_id" %>
