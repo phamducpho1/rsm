@@ -43,6 +43,7 @@ class Employers::EmployersController < BaseNotificationsController
 
   def load_current_step
     @current_apply_status = @apply.apply_statuses.includes(:status_step).find_by is_current: :current
+    @prev_apply_status = @apply.apply_statuses.sort_apply_statues.includes(:status_step).find_by is_current: :not_current
     @current_step = @current_apply_status.step if @current_apply_status.present?
   end
 
