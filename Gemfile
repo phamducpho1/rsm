@@ -78,7 +78,7 @@ end
 group :test do
   gem "rspec-activemodel-mocks"
   gem "database_cleaner"
-  gem "shoulda-matchers", "3.0.1"
+  gem "shoulda-matchers", "~> 3.1", ">= 3.1.2"
   gem "simplecov"
   gem "rails-controller-testing"
   gem "simplecov", require: false
