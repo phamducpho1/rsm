@@ -35,4 +35,6 @@
  *= require jobs/job-custom
  *= require fancybox
  *= require companies/companies_custom
+ *= require header_footer
+ *= require flash_message
  */
